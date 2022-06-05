@@ -31,7 +31,7 @@ public class ProductController {
     @GetMapping("/add")
     public String add(Model model, HttpSession httpSession) {
 
-        if(httpSession.getAttribute("user") == null){
+        if (httpSession.getAttribute("user") == null) {
             return "redirect:/login";
         }
 
@@ -68,7 +68,7 @@ public class ProductController {
     }
 
     @GetMapping("/buy/all")
-    public String buyAll(){
+    public String buyAll() {
         productService.buyAll();
 
         return "redirect:/";
