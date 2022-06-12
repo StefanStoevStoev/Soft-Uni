@@ -24,7 +24,7 @@ public class UserController {
     private final UserService userService;
     private final ModelMapper modelMapper;
 
-    public UserController( UserService userService, ModelMapper modelMapper) {
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
         this.modelMapper = modelMapper;
     }
@@ -57,7 +57,7 @@ public class UserController {
         boolean isSaved = userService.register(modelMapper
                 .map(userRegisterBindingModel, UserServiceModel.class));
 
-        if(!isSaved){
+        if (!isSaved) {
             redirectAttributes.addFlashAttribute("userRegisterBindingModel", userRegisterBindingModel);
             redirectAttributes.addFlashAttribute("isExisting", true);
             return "redirect:register";
@@ -68,7 +68,7 @@ public class UserController {
     @GetMapping("/login")
     public String login(Model model) {
 
-        if(!model.containsAttribute("userLoginBindingModel")){
+        if (!model.containsAttribute("userLoginBindingModel")) {
             model.addAttribute("userLoginBindingModel", new UserLoginBindingModel());
             model.addAttribute("notFound", false);
         }
@@ -89,11 +89,11 @@ public class UserController {
             return "redirect:login";
         }
 
-        UserServiceModel userServiceModel= userService.
+        UserServiceModel userServiceModel = userService.
                 findByUsernameAndPassword(userLoginBindingModel.getUsername(),
                         userLoginBindingModel.getPassword());
 
-        if(userServiceModel == null){
+        if (userServiceModel == null) {
             redirectAttributes.addFlashAttribute(
                     "userLoginBindingModel", userLoginBindingModel);
             redirectAttributes.addFlashAttribute(
@@ -106,7 +106,7 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession httpSession){
+    public String logout(HttpSession httpSession) {
         httpSession.invalidate();
         return "redirect:/";
     }
