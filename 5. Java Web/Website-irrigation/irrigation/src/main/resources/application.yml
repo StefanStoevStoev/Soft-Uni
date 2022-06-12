@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    username: root
+    password: '1234'
+    url: jdbc:mysql://localhost:3306/irigation_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+
+  jpa:
+    #For MySQL 8
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    #For MySQL 5
+    #    database-platform: org.hibernate.dialect.mysql5innodbdialetc
+    hibernate:
+      ddl-auto: create-drop
+#    defer-datasource-initialization: true
+#  sql:
+#    init:
+#      mode: always
+#    open-in-view: false
+#    properties:
+#      hibernate:
+#        format_sql: true
+#  mvc:
+#    hiddenmethod:
+#      filter:
+#        enabled: true
