@@ -3,7 +3,7 @@ spring:
     driverClassName: com.mysql.cj.jdbc.Driver
     username: root
     password: '1234'
-    url: jdbc:mysql://localhost:3306/irigation_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/irrigation_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
 
   jpa:
     #For MySQL 8
