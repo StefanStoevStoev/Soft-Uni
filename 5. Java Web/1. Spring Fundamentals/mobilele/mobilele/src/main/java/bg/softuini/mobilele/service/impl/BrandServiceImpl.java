@@ -36,6 +36,7 @@ public class BrandServiceImpl implements BrandService  {
             BrandEntity brandEntity = me.getBrand();
             Optional<BrandViewModel> brandViewModelOpt = findByName(result,
                     brandEntity.getName());
+
             if(!brandViewModelOpt.isPresent()){
                 // not yet in the result, we will create a new model
                 BrandViewModel newBrandViewModel = new BrandViewModel();
