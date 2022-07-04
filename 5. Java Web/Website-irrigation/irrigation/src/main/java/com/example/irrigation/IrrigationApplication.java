@@ -1,13 +1,13 @@
-package com.example.irigation;
+package com.example.irrigation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class IrigationApplication {
+public class IrrigationApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(IrigationApplication.class, args);
+        SpringApplication.run(IrrigationApplication.class, args);
     }
 
 }

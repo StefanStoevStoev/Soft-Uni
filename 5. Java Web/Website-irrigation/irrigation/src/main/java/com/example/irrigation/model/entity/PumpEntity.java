@@ -1,4 +1,4 @@
-package com.example.irigation.model.entity;
+package com.example.irrigation.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

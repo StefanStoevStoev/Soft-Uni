@@ -1,11 +1,6 @@
 body {
-    background-image: url("/style/images/nosel3.png");
-    backdrop-filter: blur(4px);
-    padding: 2px;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    margin: 30px 50px;
-    line-height: 0.%;
+    background-image: url("/static/images/nosel3.png");
+
 }
 
 .bg-success {

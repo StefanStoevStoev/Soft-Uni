@@ -1,24 +1,26 @@
-package com.example.irigation.model.entity;
+package com.example.irrigation.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class UserEntity extends BaseEntity{
 
+    @Column(unique = true)
+    private String username;
     private String firstName;
     private String lastName;
     private String password;
+    private String confirmPassword;
+    @Column(unique = true)
     private String email;
     private String address;
     private String phone;
 
-    @ManyToOne
-    private RoleEntity role;
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<RoleEntity> role = new ArrayList<>();
 
     @OneToMany
     private List<ProjectEntity> project;
@@ -80,11 +82,11 @@ public class UserEntity extends BaseEntity{
         return this;
     }
 
-    public RoleEntity getRole() {
+    public List<RoleEntity> getRole() {
         return role;
     }
 
-    public UserEntity setRole(RoleEntity role) {
+    public UserEntity setRole(List<RoleEntity> role) {
         this.role = role;
         return this;
     }
@@ -95,6 +97,24 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity setProject(List<ProjectEntity> project) {
         this.project = project;
+        return this;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public UserEntity setUsername(String username) {
+        this.username = username;
+        return this;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public UserEntity setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
         return this;
     }
 }
