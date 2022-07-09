@@ -3,11 +3,11 @@
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
 
-<head th:replace="fragments/header"></head>
+<head th:replace="fragments/fragment::head"></head>
 
 <body >
 
-    <div th:replace="fragments/navigation::navigation" ></div>
+    <div th:replace="fragments/fragment::navigation" ></div>
 
     <div class="container ">
         <ul class="navbar-nav ms-auto mt-4 ">

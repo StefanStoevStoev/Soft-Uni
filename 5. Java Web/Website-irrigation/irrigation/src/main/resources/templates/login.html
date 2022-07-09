@@ -1,70 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/header"></head>
+
+<head th:replace="fragments/fragment :: head">
 <body>
-    <div th:replace="fragments/navigation"></div>
-    <main role="main">
-        <div class="jumbotron">
-            <div class="container text-light ">
-                <h1 class="display-3">
-                    <strong class="pl-3 font-weight-bold">Login</strong></h1>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="container bg-blur rounded p-5 mt-5 w-75 ">
+<div th:replace="fragments/fragment::navigation"></div>
 
-                        <form  th:action="@{/users/login}"
-                               th:method="post"
-                               th:object="${loginDTO}"
-                               class="text-center text-light">
-                            <h3 class="mt-5 text-center">
-                                <strong th:if="${isFound == false}" class="rounded  pl-3 text-danger">Enter valid
-                                    username and
-                                    password</strong>
-                            </h3>
-                            <div class="form-group row">
-                                <label for="username" class="col-sm-2 col-form-label">Username</label>
-                                <div class="col-sm-10">
-                                    <input th:field="*{username}"
-                                           th:errorclass="is-invalid"
-                                           type="text"
-                                           class="form-control"
-                                           id="username"
-                                           aria-describedby="usernameHelpInline" placeholder="Username">
-                                    <small th:errors="*{username}"
-                                           id="usernameHelpInline"
-                                           class="invalid-feedback bg-danger text-light rounded">
-                                        Username length must be between 3 and 10 characters.
-                                    </small>
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="password" class="col-sm-2 col-form-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input th:field="*{password}"
-                                           th:errorclass="is-invalid"
-                                           type="password"
-                                           class="form-control"
-                                           id="password"
-                                           aria-describedby="passwordHelpInline" placeholder="Password">
-                                    <small th:errors="*{password}"
-                                           id="passwordHelpInline"
-                                           class="bg-danger text-light rounded">
-                                        Password length must be more than 3 characters.
-                                    </small>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-danger w-50">Login</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="rounded" width="100%" src="/images/login.jpg" alt="Battle ship image">
-                </div>
+<main>
+    <h1 class="text-center mt-5"><span class="badge badge-pill badge-dark">Вход</span></h1>
+    <hr class="hr-3 w-25 bg-white"/>
+
+    <form class="mx-auto w-25 bg-blur rounded"
+          th:method="post"
+          th:action="@{/users/login}">
+        <div class="form-group mt-4">
+            <!--                <h5 class="bg-danger rounded" th:if="${isExisting}">Има регистриран потребител с този имейл</h5>-->
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="username" class="h4 mb-2">Имейл</label>
             </div>
+            <input type="text"
+                   th:value="${username}"
+                   class="form-control"
+                   id="username"
+                   name="username"
+                   placeholder="Email"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Моля, въведете валиден имейл</small>
         </div>
-    </main>
 
+        <div class="form-group mt-2">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="password" class="h4 mb-2">Парола</label>
+            </div>
+            <input type="password"
+                   th:value="${password}"
+                   class="form-control"
+                   id="password"
+                   name="password"
+                   placeholder="password"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Паролата трябва да съдържа поне 3 символа.</small>
+        </div>
+        <div class="button-holder d-flex justify-content-center mt-4">
+            <button type="submit" class="btn btn-warning mb-5" value="Register">Вход</button>
+        </div>
+    </form>
+</main>
+<footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>

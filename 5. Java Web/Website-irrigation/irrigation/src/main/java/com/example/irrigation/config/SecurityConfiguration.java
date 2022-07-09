@@ -12,6 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 public class SecurityConfiguration {
@@ -53,7 +54,6 @@ public class SecurityConfiguration {
                 //where to go in case that login is successful
                 .defaultSuccessUrl("/")
                 //where to go in case that login is failed
-                .failureForwardUrl("/users/login-error")
             .and()
                 // configure logout
                 .logout()

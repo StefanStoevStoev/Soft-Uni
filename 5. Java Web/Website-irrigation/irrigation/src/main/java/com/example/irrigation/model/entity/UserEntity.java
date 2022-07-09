@@ -8,12 +8,10 @@ import java.util.List;
 @Table(name = "users")
 public class UserEntity extends BaseEntity{
 
-    @Column(unique = true)
-    private String username;
     private String firstName;
     private String lastName;
     private String password;
-    private String confirmPassword;
+
     @Column(unique = true)
     private String email;
     private String address;
@@ -97,24 +95,6 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity setProject(List<ProjectEntity> project) {
         this.project = project;
-        return this;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public UserEntity setUsername(String username) {
-        this.username = username;
-        return this;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public UserEntity setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
         return this;
     }
 }

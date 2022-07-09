@@ -22,16 +22,18 @@ public class AppUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(String email){
         return userRepository
-                .findByUsername(username)
+                .findByEmail(email)
                 .map(this::map)
-                .orElseThrow(() -> new UsernameNotFoundException("User with username " + username + " not found."));
+                .orElseThrow(() -> new UsernameNotFoundException("User with username "
+                        + this.userRepository.findByEmail(email).get().getFirstName()
+                        + " not found."));
     }
 
     private UserDetails map(UserEntity userEntity){//////////////////////?
         return User.builder()
-                .username(userEntity.getUsername())
+                .username(userEntity.getEmail())
                 .password(userEntity.getPassword())
                 .authorities(userEntity
                         .getRole()

@@ -1,5 +1,6 @@
 package com.example.irrigation.service;
 
+import com.example.irrigation.model.DTO.UserLoginDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
 import com.example.irrigation.model.entity.RoleEntity;
 import com.example.irrigation.model.entity.UserEntity;
@@ -7,6 +8,7 @@ import com.example.irrigation.model.entity.enums.RoleEnum;
 import com.example.irrigation.repository.UserRepository;
 import com.example.irrigation.repository.UserRoleRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.AlreadyBuiltException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -34,9 +37,9 @@ public class UserService {
         this.userDetailsService = userDetailsService1;
     }
 
-    public void init(){
+    public void init() {
 
-        if(userRepository.count() == 0 && userRoleRepository.count() == 0){
+        if (userRepository.count() == 0 && userRoleRepository.count() == 0) {
             RoleEntity adminRole = new RoleEntity().setRole(RoleEnum.ADMIN);
             RoleEntity userRole = new RoleEntity().setRole(RoleEnum.USER);
 
@@ -48,32 +51,64 @@ public class UserService {
         }
     }
 
-    private void initAdmin(List<RoleEntity> roles){
+    private void initAdmin(List<RoleEntity> roles) {
         UserEntity admin = new UserEntity()
                 .setRole(roles)
                 .setFirstName("Stefan")
                 .setLastName("Stoev")
                 .setEmail("stoev.stefan@gmail.com")
-                .setUsername("AdminSt")
                 .setPassword(passwordEncoder.encode("123"));
         userRepository.save(admin);
     }
 
-    private void initUser(List<RoleEntity> roles){
+    private void initUser(List<RoleEntity> roles) {
 
         UserEntity user = new UserEntity()
-                .setRole( roles)
-                .setUsername("Peshkata")
+                .setRole(roles)
                 .setFirstName("Pesho")
                 .setLastName("Peshev")
                 .setEmail("pesho@gmail.com")
                 .setPassword(passwordEncoder.encode("123"));
 
-
         userRepository.save(user);
     }
 
-    public void registerAndLogin(UserRegisterDTO userRegisterDTO){
+//    public boolean login(UserLoginDTO userLoginDTO){
+//
+//        Optional<UserEntity> byEmail = userRepository.findByEmail(userLoginDTO.getEmail());
+//        if (byEmail.isPresent()) {
+//            return false;
+//        }
+//        UserEntity userEntity = new UserEntity()
+//                .setEmail(userLoginDTO.getEmail())
+//                .setPassword(passwordEncoder.encode(userLoginDTO.getPassword()));
+//
+//
+//        UserDetails userDetails = userDetailsService.loadUserByUsername(userEntity.getEmail());
+//
+//        Authentication auth = new UsernamePasswordAuthenticationToken(
+//                userDetails,
+//                userDetails.getPassword(),
+//                userDetails.getAuthorities()
+//        );
+//
+//        SecurityContextHolder
+//                .getContext()
+//                .setAuthentication(auth);
+//
+//        return true;
+//    }
+
+    public boolean registerAndLogin(UserRegisterDTO userRegisterDTO) {
+
+        if (!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
+            return false;
+        }
+        Optional<UserEntity> byEmail = userRepository.findByEmail(userRegisterDTO.getEmail());
+        if (byEmail.isPresent()) {
+            return false;
+        }
+
         UserEntity userEntity = new UserEntity()
                 .setEmail(userRegisterDTO.getEmail())
                 .setFirstName(userRegisterDTO.getFirstName())
@@ -81,7 +116,7 @@ public class UserService {
                 .setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
 
         userRepository.save(userEntity);
-        UserDetails userDetails = userDetailsService.loadUserByUsername(userEntity.getUsername());
+        UserDetails userDetails = userDetailsService.loadUserByUsername(userEntity.getEmail());
 
         Authentication auth = new UsernamePasswordAuthenticationToken(
                 userDetails,
@@ -92,6 +127,8 @@ public class UserService {
         SecurityContextHolder
                 .getContext()
                 .setAuthentication(auth);
+
+        return true;
     }
 }
 
