@@ -1,6 +1,5 @@
 package com.example.irrigation.service;
 
-import com.example.irrigation.model.DTO.UserLoginDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
 import com.example.irrigation.model.entity.RoleEntity;
 import com.example.irrigation.model.entity.UserEntity;
@@ -8,7 +7,6 @@ import com.example.irrigation.model.entity.enums.RoleEnum;
 import com.example.irrigation.repository.UserRepository;
 import com.example.irrigation.repository.UserRoleRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.AlreadyBuiltException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

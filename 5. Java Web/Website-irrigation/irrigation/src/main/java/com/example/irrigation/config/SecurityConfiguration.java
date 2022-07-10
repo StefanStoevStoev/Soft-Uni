@@ -54,6 +54,10 @@ public class SecurityConfiguration {
                 //where to go in case that login is successful
                 .defaultSuccessUrl("/")
                 //where to go in case that login is failed
+                .failureForwardUrl("/users/login-error")
+//            .and()
+//                .csrf()
+//                .csrfTokenRepository(new HttpSessionCsrfTokenRepository())
             .and()
                 // configure logout
                 .logout()
