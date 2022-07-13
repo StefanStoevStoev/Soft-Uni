@@ -16,6 +16,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
+import static com.example.irrigation.web.errors.GlobalErrors.INVALID_PASSWORD;
+import static com.example.irrigation.web.errors.GlobalErrors.INVALID_USERNAME_MESSAGE;
+import static org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_PASSWORD_KEY;
+import static org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY;
+
 @Controller
 @RequestMapping("/users")
 public class UserController {
@@ -34,7 +42,7 @@ public class UserController {
 
     @GetMapping("/login")
     private String login(Model model) {
-        if(!model.containsAttribute("userLoginDTO")){
+        if (!model.containsAttribute("userLoginDTO")) {
             model.addAttribute("userLoginDTO", new UserLoginDTO());
             model.addAttribute("isExisting", false);
         }
@@ -42,19 +50,32 @@ public class UserController {
     }
 
     @PostMapping("/login-error")
-    public String onFiledLogin(@ModelAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
-                               String username,
-                               @Valid UserLoginDTO userLoginDTO,
-                               BindingResult bindingResult,
-                               RedirectAttributes redirectAttributes) {
+    public String loginError(@ModelAttribute(SPRING_SECURITY_FORM_USERNAME_KEY)
+                             String username,
+                             @ModelAttribute(SPRING_SECURITY_FORM_PASSWORD_KEY)
+                             String password,
+                             @Valid UserLoginDTO userLoginDTO,
+                             BindingResult bindingResult,
+                             RedirectAttributes redirectAttributes) {
+        redirectAttributes.addFlashAttribute("bad_credentials", true);
+
+        Collection<String> errorMessages = new ArrayList<>();
+        if (this.userService.exists(username)) {
+            if (!this.userService.isPasswordValid(username, password)) {
+                errorMessages.add(INVALID_PASSWORD);
+            }
+        } else {
+            String errorMessage = String.format(INVALID_USERNAME_MESSAGE, username);
+            errorMessages.add(errorMessage);
+        }
+
+        redirectAttributes.addFlashAttribute("errors", errorMessages);
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);
             redirectAttributes.addFlashAttribute("notFound", true);
             redirectAttributes.addFlashAttribute("username", username);
-//                    .addFlashAttribute(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY, username)
-//                    .addFlashAttribute("notFound", true);
         }
 
         return "redirect:/users/login";

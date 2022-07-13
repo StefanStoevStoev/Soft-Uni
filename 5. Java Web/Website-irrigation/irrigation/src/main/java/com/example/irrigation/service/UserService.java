@@ -143,6 +143,16 @@ public class UserService {
                 .orElse(null);
 
     }
+
+    public boolean exists(String username) {
+        return this.userRepository.existsByUsername(username);
+    }
+
+    public boolean isPasswordValid(String username, String givenPassword) {
+        String validPassword = this.userRepository.findPassword(username);
+        String encodedGivenPass = this.passwordEncoder.encode(givenPassword);
+        return validPassword.equals(encodedGivenPass);
+    }
 }
 
 
