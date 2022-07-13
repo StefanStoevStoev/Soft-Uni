@@ -36,7 +36,7 @@ public class SecurityConfiguration {
                 //everyone can download static resources (css, js, images)
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 // everyone can have access to login and register
-                .antMatchers("/", "/users/login", "/users/register").permitAll()
+                .antMatchers("/**", "/users/login", "/users/register").permitAll()
                 // pages available only for admins
                 .antMatchers("/pages/admin").hasRole(RoleEnum.ADMIN.name())
                 //all other pages are available for logger in users

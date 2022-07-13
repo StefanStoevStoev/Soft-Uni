@@ -19,7 +19,19 @@ public class OrdersEntity extends BaseEntity{
     @ManyToMany
     private Set<SprinklerEntity> sprinklers;
 
+    @ManyToMany
+    private Set<DripEntity> dripEntities;
+
     public OrdersEntity() {
+    }
+
+    public Set<DripEntity> getDripEntities() {
+        return dripEntities;
+    }
+
+    public OrdersEntity setDripEntities(Set<DripEntity> dripEntities) {
+        this.dripEntities = dripEntities;
+        return this;
     }
 
     public UserEntity getUser() {

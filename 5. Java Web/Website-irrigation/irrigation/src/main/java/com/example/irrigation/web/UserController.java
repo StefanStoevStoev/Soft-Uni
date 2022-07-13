@@ -30,7 +30,6 @@ public class UserController {
 
     private final UserService userService;
 
-
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -59,6 +58,13 @@ public class UserController {
                              RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("bad_credentials", true);
 
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);
+            redirectAttributes.addFlashAttribute("notFound", true);
+            redirectAttributes.addFlashAttribute("username", username);
+        }
+
         Collection<String> errorMessages = new ArrayList<>();
         if (this.userService.exists(username)) {
             if (!this.userService.isPasswordValid(username, password)) {
@@ -70,13 +76,6 @@ public class UserController {
         }
 
         redirectAttributes.addFlashAttribute("errors", errorMessages);
-
-        if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);
-            redirectAttributes.addFlashAttribute("notFound", true);
-            redirectAttributes.addFlashAttribute("username", username);
-        }
 
         return "redirect:/users/login";
     }
