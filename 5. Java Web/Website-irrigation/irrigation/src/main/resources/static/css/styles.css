@@ -1,6 +1,7 @@
-body {
-    background-image: url("/static/images/nosel3.png");
-
+.center-block {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .bg-success {

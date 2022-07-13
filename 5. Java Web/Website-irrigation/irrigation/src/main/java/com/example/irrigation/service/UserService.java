@@ -1,11 +1,14 @@
 package com.example.irrigation.service;
 
+import com.example.irrigation.model.DTO.UserLoginDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
 import com.example.irrigation.model.entity.RoleEntity;
 import com.example.irrigation.model.entity.UserEntity;
 import com.example.irrigation.model.entity.enums.RoleEnum;
+import com.example.irrigation.model.service.UserServiceModel;
 import com.example.irrigation.repository.UserRepository;
 import com.example.irrigation.repository.UserRoleRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,15 +27,18 @@ public class UserService {
     private final UserRoleRepository userRoleRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
+    private final ModelMapper modelMapper;
 
     public UserService(UserRepository userRepository,
                        UserRoleRepository userRoleRepository,
                        PasswordEncoder passwordEncoder,
-                       UserDetailsService userDetailsService1) {
+                       UserDetailsService userDetailsService1,
+                       ModelMapper modelMapper) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService1;
+        this.modelMapper = modelMapper;
     }
 
     public void init() {
@@ -70,6 +76,7 @@ public class UserService {
 
         userRepository.save(user);
     }
+
 
 //    public boolean login(UserLoginDTO userLoginDTO){
 //
@@ -127,6 +134,14 @@ public class UserService {
                 .setAuthentication(auth);
 
         return true;
+    }
+
+    public UserServiceModel findByEmail(UserLoginDTO userLoginDTO){
+
+        return userRepository.findByEmail(userLoginDTO.getUsername())
+                .map(user -> modelMapper.map(user, UserServiceModel.class))
+                .orElse(null);
+
     }
 }
 

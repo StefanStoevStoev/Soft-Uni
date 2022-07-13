@@ -6,16 +6,16 @@ import javax.validation.constraints.Size;
 
 public class UserLoginDTO {
 
-    @Email(regexp = "^[\\w -\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Моля, въведете валиден имейл")
+
     private String username;
 
-    @NotBlank(message = "Паролата трябва да съдържа повече от 3 символа.")
-    @Size(min = 2, max = 20, message = "Паролата трябва да съдържа между 3 и 20 символа.")
+
     private String password;
 
     public UserLoginDTO() {
     }
-
+    @NotBlank(message = "Имейлът трябва да съдържа поне 4 символа.")
+    @Email(regexp = "^[\\w -\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Моля, въведете валиден имейл.")
     public String getUsername() {
         return username;
     }
@@ -24,7 +24,8 @@ public class UserLoginDTO {
         this.username = username;
         return this;
     }
-
+    @NotBlank(message = "Паролата трябва да съдържа повече от 3 символа.")
+    @Size(min = 2, max = 20, message = "Паролата трябва да съдържа между 3 и 20 символа.")
     public String getPassword() {
         return password;
     }
