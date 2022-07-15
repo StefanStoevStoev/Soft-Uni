@@ -58,6 +58,7 @@ public class UserController {
                              RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("bad_credentials", true);
 
+        userLoginDTO.getFirstName().getClass();
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);

@@ -1,10 +1,28 @@
 package com.example.irrigation.model.service;
 
-public class UserServiceModel {
+import com.example.irrigation.model.entity.UserEntity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+
+public class UserServiceModel implements UserDetails {
 
     private String firstName;
     private String password;
     private String email;
+
+    public UserServiceModel(String firstName, String password, String email) {
+        this.firstName = firstName;
+        this.password = password;
+        this.email = email;
+    }
+
+    public UserServiceModel() {
+    }
+
+    public UserServiceModel(UserEntity userEntity) {
+    }
 
     public String getFirstName() {
         return firstName;
@@ -15,8 +33,38 @@ public class UserServiceModel {
         return this;
     }
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return getUsername();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 
     public UserServiceModel setPassword(String password) {
@@ -32,4 +80,5 @@ public class UserServiceModel {
         this.email = email;
         return this;
     }
+
 }

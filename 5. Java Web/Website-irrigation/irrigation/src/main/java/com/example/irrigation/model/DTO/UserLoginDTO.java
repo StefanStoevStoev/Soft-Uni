@@ -13,6 +13,8 @@ public class UserLoginDTO {
     @NotBlank(message = "Паролата трябва да съдържа повече от 3 символа.")
     @Size(min = 2, max = 20, message = "Паролата трябва да съдържа между 3 и 20 символа.")
     private String password;
+    private String firstName;
+
 
     public UserLoginDTO() {
     }
@@ -32,6 +34,15 @@ public class UserLoginDTO {
 
     public UserLoginDTO setPassword(String password) {
         this.password = password;
+        return this;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public UserLoginDTO setFirstName(String firstName) {
+        this.firstName = firstName;
         return this;
     }
 }

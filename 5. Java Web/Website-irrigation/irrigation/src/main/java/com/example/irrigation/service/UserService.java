@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService{
 
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
@@ -153,6 +153,15 @@ public class UserService {
         String encodedGivenPass = this.passwordEncoder.encode(givenPassword);
         return validPassword.equals(encodedGivenPass);
     }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+//        Optional<UserEntity> user = userRepository.findByEmail(email);
+//
+//        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + email));
+//
+//        return user.map(UserServiceModel::new).get();
+//    }
 }
 
 

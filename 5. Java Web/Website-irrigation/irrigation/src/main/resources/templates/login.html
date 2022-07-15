@@ -6,7 +6,8 @@
 <head th:replace="fragments/fragment :: head">
 <body>
 <div th:replace="fragments/fragment::navigation"></div>
-
+<!--Distance between navbar and User-->
+<div  class=" p-2 mt-4 pt-4 mb-4 pb-4 mask-custom-1"></div>
 <main class="mt-xxl-5">
     <div class="mt-xxl-5">
         <!--    <h1 class="text-center mt-5"><span class="badge badge-pill badge-dark">Вход</span></h1>-->
@@ -61,27 +62,8 @@
                 <button type="submit" class="btn btn-warning mb-5" value="Register" th:href="@{/}" onclick="validate()">Вход</button>
             </div>
         </form>
-        <script type="text/javascript">
-            function validate() {
-                if (document.username.value === "" && document.password.value === "") {
-                    alert("Username and password are required");
-                    document.username.focus();
-                    return false;
-                }
-                if (document.username.value === "") {
-                    alert("Username is required");
-                    document.username.focus();
-                    return false;
-                }
-                if (document.password.value === "") {
-                    alert("Password is required");
-                    document.password.focus();
-                    return false;
-                }
-            }
-        </script>
     </div>
-
+    <script src="/js/script.js"></script>
 </main>
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>

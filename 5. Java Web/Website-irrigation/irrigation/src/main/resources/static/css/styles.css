@@ -17,14 +17,3 @@ table {
 /*used for text in front page*/
 #more {display: none;}
 
-.about p {
-    margin: 0;
-    text-indent: 2rem;
-    text-align: justify;
-}
-.article-inner .article-text {
-    font-size: 1.125em;
-    color: #333;
-    overflow: hidden;
-    padding-bottom: 20px;
-}
