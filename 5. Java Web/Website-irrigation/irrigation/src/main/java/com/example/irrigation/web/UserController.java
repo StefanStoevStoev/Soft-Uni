@@ -2,22 +2,24 @@ package com.example.irrigation.web;
 
 import com.example.irrigation.model.DTO.UserLoginDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
+import com.example.irrigation.model.entity.DripEntity;
+import com.example.irrigation.model.entity.UserEntity;
+import com.example.irrigation.service.DripService;
 import com.example.irrigation.service.UserService;
-import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import static com.example.irrigation.web.errors.GlobalErrors.INVALID_PASSWORD;
 import static com.example.irrigation.web.errors.GlobalErrors.INVALID_USERNAME_MESSAGE;
@@ -29,9 +31,11 @@ import static org.springframework.security.web.authentication.UsernamePasswordAu
 public class UserController {
 
     private final UserService userService;
+    private final DripService dripService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, DripService dripService) {
         this.userService = userService;
+        this.dripService = dripService;
     }
 
     @ModelAttribute("currentUser")
@@ -40,11 +44,16 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    private String login(Model model) {
+    private String login(Model model, @AuthenticationPrincipal Authentication authentication) {
         if (!model.containsAttribute("userLoginDTO")) {
             model.addAttribute("userLoginDTO", new UserLoginDTO());
             model.addAttribute("isExisting", false);
         }
+
+//        UserEntity user = userService.getCurrentlyLoggedInCustomer(authentication);
+//        List<DripEntity> drips = dripService.listDripItems(user);
+//
+//        model.addAttribute("drips", drips);
         return "login";
     }
 
@@ -58,7 +67,6 @@ public class UserController {
                              RedirectAttributes redirectAttributes) {
         redirectAttributes.addFlashAttribute("bad_credentials", true);
 
-        userLoginDTO.getFirstName().getClass();
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);

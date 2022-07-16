@@ -27,7 +27,7 @@
                 <th:block th:if="${bad_credentials}">
                     <div class="text-center text-white fw-bold bg-danger" th:each="err : ${errors}" th:text="${err}"></div>
                 </th:block>
-<!--                <p th:if="${notFound}" class="text-center text-white fw-bold bg-danger">Грешна парола или имейл!</p>-->
+                <!--                <p th:if="${notFound}" class="text-center text-white fw-bold bg-danger">Грешна парола или имейл!</p>-->
                 <div class="label-holder text-white textCol d-flex justify-content-center">
                     <label for="username" class="h4 mb-2">Имейл</label>
                 </div>
@@ -54,7 +54,7 @@
                        id="password"
                        name="password"
                        placeholder="Парола"/>
-<!--                th:if="${#fields.hasErrors('password')}" th:errors="*{password}"-->
+                <!--                th:if="${#fields.hasErrors('password')}" th:errors="*{password}"-->
                 <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                        style="width:360px">Паролата трябва да съдържа поне 3 символа.</small>
             </div>

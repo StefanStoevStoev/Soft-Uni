@@ -16,6 +16,7 @@ public class UserEntity extends BaseEntity{
     private String email;
     private String address;
     private String phone;
+    public Integer authority;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<RoleEntity> role = new ArrayList<>();
@@ -25,6 +26,7 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity() {
     }
+
 
     public String getFirstName() {
         return firstName;
@@ -95,6 +97,15 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity setProject(List<ProjectEntity> project) {
         this.project = project;
+        return this;
+    }
+
+    public Integer getAuthority() {
+        return authority;
+    }
+
+    public UserEntity setAuthority(Integer authority) {
+        this.authority = authority;
         return this;
     }
 }

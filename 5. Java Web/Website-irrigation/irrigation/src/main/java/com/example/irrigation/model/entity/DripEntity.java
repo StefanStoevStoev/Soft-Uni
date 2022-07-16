@@ -1,6 +1,7 @@
 package com.example.irrigation.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +21,19 @@ public class DripEntity extends BaseEntity {
     private double price;
     private int numbers;
 
+    @ManyToOne
+    private UserEntity userEntity;
+
     public DripEntity() {
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public DripEntity setUserEntity(UserEntity userEntity) {
+        this.userEntity = userEntity;
+        return this;
     }
 
     public String getCode() {

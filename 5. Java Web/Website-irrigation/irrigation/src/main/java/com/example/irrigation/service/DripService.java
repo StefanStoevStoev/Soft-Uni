@@ -1,6 +1,7 @@
 package com.example.irrigation.service;
 
 import com.example.irrigation.model.entity.DripEntity;
+import com.example.irrigation.model.entity.UserEntity;
 import com.example.irrigation.repository.DripRepository;
 import org.springframework.stereotype.Service;
 
@@ -87,4 +88,7 @@ public class DripService {
     }
 
 
+    public List<DripEntity> listDripItems(UserEntity user) {
+        return dripRepository.findByUserEntity(user);
+    }
 }

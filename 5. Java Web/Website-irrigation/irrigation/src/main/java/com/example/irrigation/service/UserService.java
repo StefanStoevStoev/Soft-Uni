@@ -1,5 +1,7 @@
 package com.example.irrigation.service;
 
+import com.example.irrigation.config.CustomOAuth2User;
+import com.example.irrigation.config.CustomerUserDetails;
 import com.example.irrigation.model.DTO.UserLoginDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
 import com.example.irrigation.model.entity.RoleEntity;
@@ -109,8 +111,8 @@ public class UserService{
         if (!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
             return false;
         }
-        Optional<UserEntity> byEmail = userRepository.findByEmail(userRegisterDTO.getEmail());
-        if (byEmail.isPresent()) {
+        UserEntity byEmail = userRepository.findByEmail(userRegisterDTO.getEmail()).orElse(null);
+        if (byEmail == null) {
             return false;
         }
 
@@ -136,14 +138,6 @@ public class UserService{
         return true;
     }
 
-    public UserServiceModel findByEmail(UserLoginDTO userLoginDTO){
-
-        return userRepository.findByEmail(userLoginDTO.getUsername())
-                .map(user -> modelMapper.map(user, UserServiceModel.class))
-                .orElse(null);
-
-    }
-
     public boolean exists(String username) {
         return this.userRepository.existsByUsername(username);
     }
@@ -154,13 +148,20 @@ public class UserService{
         return validPassword.equals(encodedGivenPass);
     }
 
-//    @Override
-//    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-//        Optional<UserEntity> user = userRepository.findByEmail(email);
+//    public UserEntity getCurrentlyLoggedInCustomer(Authentication authentication){
+//        if(authentication == null){
+//            return null;
+//        }
+//        UserEntity userEntity = null;
+//        Object principal = authentication.getPrincipal();
 //
-//        user.orElseThrow(() -> new UsernameNotFoundException("Not found: " + email));
-//
-//        return user.map(UserServiceModel::new).get();
+//        if (principal instanceof CustomerUserDetails){
+//            userEntity = ((CustomerUserDetails) principal);
+//        } else if (principal instanceof CustomOAuth2User) {
+//            String email = ((CustomOAuth2User) principal).getEmail();
+//            userEntity = userRepository.findByEmail(email).orElse(null);
+//        }
+//        return userEntity;
 //    }
 }
 
