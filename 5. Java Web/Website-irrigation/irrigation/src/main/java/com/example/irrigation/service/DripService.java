@@ -5,6 +5,7 @@ import com.example.irrigation.model.entity.UserEntity;
 import com.example.irrigation.repository.DripRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -35,7 +36,7 @@ public class DripService {
                     .setMaxPressure(0.7)
                     .setSize(100)
                     .setTimeOfUse(1)
-                    .setPrice(16.20)
+                    .setPrice(BigDecimal.valueOf(16.20))
                     .setNumbers(42)
                     .setId(1L);
             dripRepository.save(dripOneSeason);
@@ -50,7 +51,7 @@ public class DripService {
                     .setMaxPressure(0.7)
                     .setSize(100)
                     .setTimeOfUse(1)
-                    .setPrice(14.80)
+                    .setPrice(BigDecimal.valueOf(14.80))
                     .setNumbers(2)
                     .setId(2L);
             dripRepository.save(dripOneSeason20);
@@ -65,7 +66,7 @@ public class DripService {
                     .setMaxPressure(1)
                     .setSize(100)
                     .setTimeOfUse(5)
-                    .setPrice(32.40)
+                    .setPrice(BigDecimal.valueOf(32.40))
                     .setNumbers(22)
                     .setId(3L);
             dripRepository.save(dripHose);
@@ -80,7 +81,7 @@ public class DripService {
                     .setMaxPressure(1)
                     .setSize(100)
                     .setTimeOfUse(5)
-                    .setPrice(27.80)
+                    .setPrice(BigDecimal.valueOf(27.80))
                     .setNumbers(52)
                     .setId(4L);
             dripRepository.save(dripHose2);

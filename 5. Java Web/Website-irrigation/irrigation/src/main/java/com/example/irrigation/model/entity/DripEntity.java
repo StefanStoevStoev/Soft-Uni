@@ -3,6 +3,7 @@ package com.example.irrigation.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.math.BigDecimal;
 
 @Entity
 @Table(name = "drips")
@@ -18,7 +19,7 @@ public class DripEntity extends BaseEntity {
     private double flowPerDrip;
     private int size;
     private double timeOfUse;
-    private double price;
+    private BigDecimal price;
     private int numbers;
 
     @ManyToOne
@@ -108,11 +109,11 @@ public class DripEntity extends BaseEntity {
         return this;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public DripEntity setPrice(double price) {
+    public DripEntity setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }
