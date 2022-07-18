@@ -9,13 +9,18 @@ import java.math.BigDecimal;
 @Table(name = "pumps")
 public class PumpEntity extends BaseEntity{
 
+    private String kind;
     private String make;
     private String model;
-    private int power;
-    private int head;
-    private double maxWorkingPressure;
-    private int diameterInlet;
-    private int diameterOutlet;
+    private String code;
+    private String voltage;
+    private String power;
+    private String current;
+    private String head;
+    private String maxWorkingPressure;
+    private String diameterInlet;
+    private String diameterOutlet;
+    private String weight;
 
     @Column(columnDefinition = "TEXT")
     private String characteristicCurve;
@@ -45,48 +50,12 @@ public class PumpEntity extends BaseEntity{
         return this;
     }
 
-    public int getPower() {
-        return power;
-    }
-
-    public PumpEntity setPower(int power) {
-        this.power = power;
-        return this;
-    }
-
-    public int getHead() {
-        return head;
-    }
-
-    public PumpEntity setHead(int head) {
-        this.head = head;
-        return this;
-    }
-
-    public double getMaxWorkingPressure() {
+       public String getMaxWorkingPressure() {
         return maxWorkingPressure;
     }
 
-    public PumpEntity setMaxWorkingPressure(double maxWorkingPressure) {
+    public PumpEntity setMaxWorkingPressure(String maxWorkingPressure) {
         this.maxWorkingPressure = maxWorkingPressure;
-        return this;
-    }
-
-    public int getDiameterInlet() {
-        return diameterInlet;
-    }
-
-    public PumpEntity setDiameterInlet(int diameterInlet) {
-        this.diameterInlet = diameterInlet;
-        return this;
-    }
-
-    public int getDiameterOutlet() {
-        return diameterOutlet;
-    }
-
-    public PumpEntity setDiameterOutlet(int diameterOutlet) {
-        this.diameterOutlet = diameterOutlet;
         return this;
     }
 
@@ -114,6 +83,87 @@ public class PumpEntity extends BaseEntity{
 
     public PumpEntity setPrice(BigDecimal price) {
         this.price = price;
+        return this;
+    }
+
+    public String getKind() {
+        return kind;
+    }
+
+    public PumpEntity setKind(String kind) {
+        this.kind = kind;
+        return this;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public PumpEntity setCode(String code) {
+        this.code = code;
+        return this;
+    }
+
+    public String getVoltage() {
+        return voltage;
+    }
+
+    public PumpEntity setVoltage(String voltage) {
+        this.voltage = voltage;
+        return this;
+    }
+
+    public String getPower() {
+        return power;
+    }
+
+    public PumpEntity setPower(String power) {
+        this.power = power;
+        return this;
+    }
+
+    public String getCurrent() {
+        return current;
+    }
+
+    public PumpEntity setCurrent(String current) {
+        this.current = current;
+        return this;
+    }
+
+    public String getHead() {
+        return head;
+    }
+
+    public PumpEntity setHead(String head) {
+        this.head = head;
+        return this;
+    }
+
+    public String getDiameterInlet() {
+        return diameterInlet;
+    }
+
+    public PumpEntity setDiameterInlet(String diameterInlet) {
+        this.diameterInlet = diameterInlet;
+        return this;
+    }
+
+    public String getDiameterOutlet() {
+        return diameterOutlet;
+    }
+
+    public PumpEntity setDiameterOutlet(String diameterOutlet) {
+        this.diameterOutlet = diameterOutlet;
+        return this;
+    }
+
+    public String getWeight() {
+        return weight;
+    }
+
+    public PumpEntity setWeight(String weight) {
+        this.weight = weight;
         return this;
     }
 }

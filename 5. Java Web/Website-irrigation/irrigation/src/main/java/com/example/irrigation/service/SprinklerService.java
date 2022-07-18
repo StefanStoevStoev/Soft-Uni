@@ -16,15 +16,14 @@ public class SprinklerService {
         this.sprinklerRepository = sprinklerRepository;
     }
 
-    public SprinklerEntity getSprinklerById(Long id){
+    public SprinklerEntity getSprinklerById(Long id) {
         return sprinklerRepository.findById(id).orElse(null);
     }
 
-    public void initSprinklers(){
+    public void initSprinklers() {
 
-        SprinklerEntity sprinklerEntity = new SprinklerEntity();
-
-        if(sprinklerRepository.count() == 0){
+        if (sprinklerRepository.count() == 0) {
+            SprinklerEntity sprinklerEntity = new SprinklerEntity();
             sprinklerEntity
                     .setKind("Роторен разпръсквач")
                     .setModel("S100-1")

@@ -1,11 +1,33 @@
 body {
-    background-image: url("/images/frontPage/nosel2.jpg");
+    /* The image used */
+    background-image: url("/images/frontPage/pump-station-02.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
-    object-fit: cover;
-    width: 100%;
+    background-attachment: fixed;
+    width:100%;
+    box-sizing:border-box;
 }
+#fullpage {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-color: black;
+}
+
+
 
 input[type="number"]{
     -moz-appearance: textfield;
