@@ -23,4 +23,5 @@ function changeImage() {
     } else {
         document.getElementById("imgClickAndChange").src = "/images/pumps/pompa-hiperi-1-5.jpg";
     }
+
 }

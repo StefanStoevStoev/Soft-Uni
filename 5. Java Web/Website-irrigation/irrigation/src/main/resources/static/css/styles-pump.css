@@ -27,8 +27,6 @@ body {
     background-color: black;
 }
 
-
-
 input[type="number"]{
     -moz-appearance: textfield;
     text-align: center;
@@ -56,4 +54,9 @@ button{
 #increment{
     padding:  0 0 0 0;
     text-align: center;
+}
+
+#fullscreen:-webkit-full-screen {
+    background-image: url('../img/ios-linen.jpg');
+    width: 100%;
 }

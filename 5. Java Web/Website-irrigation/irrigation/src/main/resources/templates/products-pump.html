@@ -11,6 +11,12 @@
     <!--    <link rel="stylesheet" th:href="@{/css/styles.css}">-->
     <link rel="stylesheet" th:href="@{/css/styles-pump.css}">
     <link rel="icon" type="image/x-icon" href="/images/fav3.png">
+    <style>
+        /* Set display to none for image*/
+        #image {
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -19,9 +25,9 @@
     <ul class="navbar-nav  mt-4 position-relative ps-5 pe-5">
 
         <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .6">
-            <div th:object="${hiPeri1_5}" class="row pt-2 mb-2 ps-2 " style="height: 37vh; overflow: auto">
+            <div th:object="${hiPeri1_5}" class="row pt-2 mb-2 ps-2 " style="height: 43vh; overflow: auto">
                 <div class="col-auto gallery">
-                    <img src="/images/pumps/pompa-hiperi-1-5.jpg" height="260" width="280" class="img-fluid "
+                    <img src="/images/pumps/pompa-hiperi-1-5.jpg" height="335" width="335" class="img-fluid "
                          alt="" id="imgClickAndChange" onclick="changeImage()">
                     <!--                    <img src="/images/pumps/pompa-hiperi-1-5.jpg" />-->
                     <!--                    <img src="/images/pumps/pompa-hiperi-1-5(2).jpg" />-->
@@ -45,6 +51,7 @@
                             <p class="fs-6 mb-0">Захранване:</p>
                             <p class="fs-6 mb-0">Номинална мощност:</p>
                             <p class="fs-6 mb-0">Номинален ток:</p>
+                            <p class="fs-6 mb-0">Характеристична крива:</p>
 
                         </div>
                         <div class="col-md-auto ms-2 me-2">
@@ -61,6 +68,13 @@
                             <p class="fs-6 mb-0" th:text="|*{getVoltage()} V|">Захранване:</p>
                             <p class="fs-6 mb-0" th:text="|*{getPower()} kW|">Номинална мощност:</p>
                             <p class="fs-6 mb-0" th:text="|*{getCurrent()} A|">Номинален ток:</p>
+                            <p>
+                                <button class="btn btn-warning mb-0 mt-0 pb-0 pt-0 pe-0 ps-0"
+                                        style="width: 70px; height: 30px"
+                                        onclick="show()" id="btnID" th:text="Покажи">
+                                </button>
+                                <!-- Add id to image -->
+                            </p>
                         </div>
                         <div class="col ps-0 pe-0 text-center">
                             <div class="row container pt-3 pb-2 mb-2">
@@ -74,9 +88,9 @@
                                 </div>
                             </div>
                             <div class="input-spinner" th:high="50vh">
-                                <button id="decrement" onclick="stepper(this)"> -</button>
+                                <button id="decrement" onclick="stepper(this)"> - </button>
                                 <input type="number" min="1" max="100" step="1" value="1" id="my-input" readonly>
-                                <button id="increment" onclick="stepper(this)"> +</button>
+                                <button id="increment" onclick="stepper(this)"> + </button>
 
                             </div>
                             <div class="button-holder d-flex justify-content-center mt-2">
@@ -86,14 +100,14 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
+        <img id="image" src="/images/pumps/pompa-hiperi-1-5(2).jpg" alt="GFG image"/>
+
     </ul>
 </div>
-<script th:inline="javascript">
-
+<script>
     const myInput = document.getElementById("my-input");
     const price = document.getElementById('price');
 
@@ -120,25 +134,21 @@
 
 </script>
 <script>
+    function show() {
+        /* Access image by id and change
+        the display property to block*/
 
-    // function changeImage() {
-    //     if (document.getElementById("imgClickAndChange").src === "/images/pumps/pompa-hiperi-1-5.jpg"){
-    //         document.getElementById("imgClickAndChange").src = "/images/pumps/pompa-hiperi-1-5(2).jpg";
-    //     } else {
-    //         document.getElementById("imgClickAndChange").src = "/images/pumps/pompa-hiperi-1-5.jpg";
-    //     }
-    // }
-    // function getPics() {} //just for this demo
-    // const imgs = document.querySelectorAll('.gallery img');
-    // const fullPage = document.querySelector('#fullpage');
-    //
-    // imgs.forEach(img => {
-    //     img.addEventListener('click', function() {
-    //         fullPage.style.backgroundImage = 'url(' + img.src + ')';
-    //         fullPage.style.display = 'block';
-    //     });
-    // });
+        if (document.getElementById('image').style.display == "block") {
+            document.getElementById('image').style.display = "none";
+            // document.getElementById('btnID').style.display = "none";
+            document.getElementById('btnID').textContent = "Покажи";
+        } else {
+            document.getElementById('image').style.display = "block";
+            document.getElementById('btnID').textContent = "Скрий";
+        }
+    }
 </script>
+
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>
