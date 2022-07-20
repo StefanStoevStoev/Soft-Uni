@@ -18,7 +18,7 @@ public class DripEntity extends BaseEntity {
     private int distBtwDrips;
     private double flowPerDrip;
     private int size;
-    private double timeOfUse;
+    private String timeOfUse;
     private BigDecimal price;
     private int numbers;
 
@@ -100,11 +100,11 @@ public class DripEntity extends BaseEntity {
         return this;
     }
 
-    public double getTimeOfUse() {
+    public String getTimeOfUse() {
         return timeOfUse;
     }
 
-    public DripEntity setTimeOfUse(double timeOfUse) {
+    public DripEntity setTimeOfUse(String timeOfUse) {
         this.timeOfUse = timeOfUse;
         return this;
     }

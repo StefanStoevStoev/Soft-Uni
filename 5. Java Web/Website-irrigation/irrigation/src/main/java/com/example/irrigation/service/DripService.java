@@ -35,7 +35,7 @@ public class DripService {
                     .setFlowPerDrip(1.6)
                     .setMaxPressure(0.7)
                     .setSize(100)
-                    .setTimeOfUse(1)
+                    .setTimeOfUse("1")
                     .setPrice(BigDecimal.valueOf(16.20))
                     .setNumbers(42)
                     .setId(1L);
@@ -50,7 +50,7 @@ public class DripService {
                     .setFlowPerDrip(1.6)
                     .setMaxPressure(0.7)
                     .setSize(100)
-                    .setTimeOfUse(1)
+                    .setTimeOfUse("1")
                     .setPrice(BigDecimal.valueOf(14.80))
                     .setNumbers(2)
                     .setId(2L);
@@ -65,7 +65,7 @@ public class DripService {
                     .setFlowPerDrip(2)
                     .setMaxPressure(1)
                     .setSize(100)
-                    .setTimeOfUse(5)
+                    .setTimeOfUse("5")
                     .setPrice(BigDecimal.valueOf(32.40))
                     .setNumbers(22)
                     .setId(3L);
@@ -80,7 +80,7 @@ public class DripService {
                     .setFlowPerDrip(2)
                     .setMaxPressure(1)
                     .setSize(100)
-                    .setTimeOfUse(5)
+                    .setTimeOfUse("5")
                     .setPrice(BigDecimal.valueOf(27.80))
                     .setNumbers(52)
                     .setId(4L);
