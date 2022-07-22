@@ -1,0 +1,62 @@
+body {
+    /* The image used */
+    background-image: url("/images/frontPage/pump-station-02.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+    box-sizing:border-box;
+}
+#fullpage {
+    display: none;
+    position: absolute;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: contain;
+    background-repeat: no-repeat no-repeat;
+    background-position: center center;
+    background-color: black;
+}
+
+input[type="number"]{
+    -moz-appearance: textfield;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    background-color: #ffffff;
+    color: #202030;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+button{
+    color: #3264fe;
+    background-color: #ffffff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+#decrement{
+    padding: 0 0 0 0;
+    text-align: center;
+}
+#increment{
+    padding:  0 0 0 0;
+    text-align: center;
+}
+
+#fullscreen:-webkit-full-screen {
+    background-image: url('../img/ios-linen.jpg');
+    width: 100%;
+}
