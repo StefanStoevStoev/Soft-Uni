@@ -2,12 +2,10 @@ package com.example.irrigation.config;
 
 import com.example.irrigation.model.entity.enums.RoleEnum;
 import com.example.irrigation.repository.UserRepository;
-import com.example.irrigation.service.AppUserDetailsService;
 import com.example.irrigation.service.CurrentUserDetailService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;

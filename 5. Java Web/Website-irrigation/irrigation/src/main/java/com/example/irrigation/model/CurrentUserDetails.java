@@ -11,14 +11,25 @@ public class CurrentUserDetails implements UserDetails {
     private final String firstName;
     private final String lastName;
     private final String password;
+    private final String email;
     private final Collection<GrantedAuthority> authorities;
 
-    public CurrentUserDetails(Long id, String firstName, String lastName, String password, Collection<GrantedAuthority> authorities) {
+    public CurrentUserDetails(Long id,
+                              String firstName,
+                              String lastName,
+                              String password,
+                              String email,
+                              Collection<GrantedAuthority> authorities) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
+        this.email = email;
         this.authorities = authorities;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getFullName(){

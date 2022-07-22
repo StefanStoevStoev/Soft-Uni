@@ -26,16 +26,18 @@ public class CurrentUserDetailService implements UserDetailsService {
         return userRepository.
                 findByEmail(username).
                 map(this::map).
-                orElseThrow(() -> new UsernameNotFoundException("User with email " + username + " not found!"));
+                orElseThrow(() -> new UsernameNotFoundException("User with email "
+                        + username + " not found!"));
     }
 
     private UserDetails map(UserEntity userEntity) {
 
         return new CurrentUserDetails(
                 userEntity.getId(),
-                userEntity.getPassword(),
                 userEntity.getFirstName(),
                 userEntity.getLastName(),
+                userEntity.getPassword(),
+                userEntity.getEmail(),
                 userEntity.
                         getRole().
                         stream().
