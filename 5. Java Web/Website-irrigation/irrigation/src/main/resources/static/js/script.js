@@ -1,5 +1,5 @@
 function validate() {
-    if (document.username.value === "" && document.password.value === "") {
+    if (document.username.value == "" && document.password.value === "") {
         alert("Username and password are required");
         document.username.focus();
         return false;

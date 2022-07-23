@@ -1,14 +1,9 @@
 package com.example.irrigation.web;
 
-import com.example.irrigation.model.CurrentUserDetails;
 import com.example.irrigation.model.DTO.UserLoginDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
-import com.example.irrigation.model.entity.DripEntity;
-import com.example.irrigation.model.entity.UserEntity;
-import com.example.irrigation.service.DripService;
 import com.example.irrigation.service.UserService;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +17,6 @@ import javax.validation.Valid;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import static com.example.irrigation.web.errors.GlobalErrors.INVALID_PASSWORD;
 import static com.example.irrigation.web.errors.GlobalErrors.INVALID_USERNAME_MESSAGE;
@@ -34,11 +28,12 @@ import static org.springframework.security.web.authentication.UsernamePasswordAu
 public class UserController {
 
     private final UserService userService;
-    private LocaleResolver localeResolver;
+    private final LocaleResolver localeResolver;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, LocaleResolver localeResolver) {
         this.userService = userService;
 
+        this.localeResolver = localeResolver;
     }
 
     @ModelAttribute("currentUser")
@@ -52,10 +47,6 @@ public class UserController {
             model.addAttribute("userLoginDTO", new UserLoginDTO());
             model.addAttribute("isExisting", false);
         }
-//        UserEntity user = userService.getCurrentlyLoggedInCustomer(authentication);
-//        List<DripEntity> drips = dripService.listDripItems(user);
-//
-//        model.addAttribute("drips", drips);
         return "login";
     }
 
@@ -105,19 +96,15 @@ public class UserController {
     public String register(@Valid UserRegisterDTO userRegisterDTO,
                            BindingResult bindingResult,
                            RedirectAttributes redirectAttributes,
-                           HttpServletRequest request,
-                            @AuthenticationPrincipal CurrentUserDetails currentUserDetails) {
+                           HttpServletRequest request) {
+
 
         boolean registerAndLogin = userService.registerAndLogin(userRegisterDTO, localeResolver.resolveLocale(request));
         if (bindingResult.hasErrors() || !registerAndLogin) {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
-//            if (!userService.registerAndLogin(userRegisterDTO)) {
-//            }
             return "redirect:register";
         }
-//        String firstName = currentUserDetails.getFirstName();
         return "redirect:/index";
     }
-
 }

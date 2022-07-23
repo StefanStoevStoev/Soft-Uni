@@ -76,7 +76,6 @@ public class UserService{
         userRepository.save(user);
     }
 
-
     public boolean registerAndLogin(UserRegisterDTO userRegisterDTO, Locale preferredLocale) {
 
         if (!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {

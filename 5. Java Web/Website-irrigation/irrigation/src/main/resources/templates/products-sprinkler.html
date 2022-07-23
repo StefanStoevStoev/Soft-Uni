@@ -23,7 +23,8 @@
                 <li class="nav-ite me-4 " sec:authorize="isAuthenticated()">
                     <a class="nav-link text-dark fw-bold ">
                         Здравей,
-                        <th:block sec:authentication="name"></th:block>
+                        <th:block sec:authorize="isAuthenticated()"
+                                  th:text="${#authentication.principal.firstName}"></th:block>
                     </a>
                 </li>
                 <div class="navbar-collapse  me-4" id="navbarNavDarkDropdown">
@@ -81,7 +82,7 @@
     <ul class="navbar-nav  mt-4 position-relative ps-5 pe-5">
 
         <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .6">
-            <div class="row pt-2 mb-2 ps-2 " style="height: 28vh; overflow: auto">
+            <div class="row pt-2 mb-2 ps-2 " style="height: 32vh; overflow: auto">
                 <div class="col-auto ">
                     <img src="/images/sprinkler/spr-s100.png" height="140" width="130" class="img-fluid " alt=" ">
                 </div>

@@ -1,8 +1,12 @@
 package com.example.irrigation.service;
 
+import com.example.irrigation.model.CurrentUserDetails;
+import com.example.irrigation.model.DTO.UserPhoneAndAddressDTO;
 import com.example.irrigation.model.entity.DripEntity;
 import com.example.irrigation.model.entity.UserEntity;
+import com.example.irrigation.model.mapper.UserMapperPhoneAddress;
 import com.example.irrigation.repository.DripRepository;
+import com.example.irrigation.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -12,9 +16,15 @@ import java.util.List;
 public class DripService {
 
     private final DripRepository dripRepository;
+    private final UserRepository userRepository;
+    private final UserMapperPhoneAddress userMapperPhoneAddress;
 
-    public DripService(DripRepository dripRepository) {
+    public DripService(DripRepository dripRepository,
+                       UserRepository userRepository,
+                       UserMapperPhoneAddress userMapperPhoneAddress) {
         this.dripRepository = dripRepository;
+        this.userRepository = userRepository;
+        this.userMapperPhoneAddress = userMapperPhoneAddress;
     }
 
 
@@ -88,8 +98,20 @@ public class DripService {
         }
     }
 
-
     public List<DripEntity> listDripItems(UserEntity user) {
         return dripRepository.findByUserEntity(user);
+    }
+
+    public void savePhoneAndAddress(UserPhoneAndAddressDTO userPhoneAndAddressDTO,
+                                    CurrentUserDetails currentUser) {
+
+        UserEntity userData = userMapperPhoneAddress.userDtoToUserEntity(userPhoneAndAddressDTO);
+        UserEntity user = userRepository.findByEmail(currentUser.getEmail()).orElse(null);
+
+        assert user != null;
+        user.setPhone(userData.getPhone())
+                .setAddress(userData.getAddress());
+
+        userRepository.save(user);
     }
 }
