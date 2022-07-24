@@ -124,11 +124,19 @@
                    style="width:360px">Адресът трябва да съдържа поне 2 символа.</small>
         </div>
         <div class="button-holder d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-warning mb-5" value="Register" th:href="@{/}" onclick="validate()">
+            <input id="myButton" type="submit"
+                    class="btn btn-warning mb-5"
+                    value="Вход"
+                    th:href="@{/auth-home}" onclick="location.href='http://localhost:8080//auth-home'">
                 Вход
-            </button>
+            </input>
         </div>
     </form>
 </main>
+<script type="text/javascript">
+    document.getElementById("myButton").onclick = function () {
+        location.href = "/auth-home";
+    };
+</script>
 </body>
 </html>

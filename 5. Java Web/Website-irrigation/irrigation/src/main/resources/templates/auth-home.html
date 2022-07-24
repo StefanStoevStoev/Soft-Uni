@@ -18,7 +18,6 @@
 </head>
 <body>
 <div class="container">
-
     <nav class="navbar navbar-expand-lg bg-light p-2 mt-4 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .7">
 
         <div class="container fs-5 " id="navbarNav ">
@@ -93,21 +92,48 @@
     <hr class="hr-3 w-25 bg-white"/>
     <form class="mx-auto w-25 bg-blur rounded"
           th:method="post"
-          th:action="@{/products/drip/buy}"
-          th:object="${userPhoneAndAddressDTO}">
+          th:action="@{/auth-home}"
+          th:object="${userDetails}">
 
+        <div class="form-group mt-2">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="firstName" class="h4 mb-2">Име</label>
+            </div>
+            <input type="text"
+                   th:field="*{firstName}"
+                   class="form-control"
+                   id="firstName"
+                   name="firstName"/>
+        </div>
+        <div class="form-group mt-2">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="lastName" class="h4 mb-2">Фамилия</label>
+            </div>
+            <input type="text"
+                   th:field="*{lastName}"
+                   class="form-control"
+                   id="lastName"
+                   name="lastName"/>
+        </div>
+        <div class="form-group mt-2">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label for="email" class="h4 mb-2">Имейл</label>
+            </div>
+            <input type="email"
+                   th:field="*{email}"
+                   class="form-control"
+                   id="email"
+                   name="email"/>
+        </div>
         <div class="form-group mt-2">
             <div class="label-holder text-white textCol d-flex justify-content-center">
                 <label for="phone" class="h4 mb-2">Телефон</label>
             </div>
             <input type="text"
                    th:field="*{phone}"
-                   th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
                    id="phone"
                    name="phone"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Телефонът трябва да съдържа 10 символа.</small>
         </div>
 
         <div class="form-group mt-2">
@@ -116,17 +142,16 @@
             </div>
             <input type="text"
                    th:field="*{address}"
-                   th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
                    id="address"
                    name="address"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Адресът трябва да съдържа поне 2 символа.</small>
         </div>
         <div class="button-holder d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-warning mb-5" value="Register" th:href="@{/}" onclick="validate()">
-                Вход
-            </button>
+            <input id="myButton" type="submit"
+                   class="btn btn-warning mb-5"
+                   th:value="Вход"
+                   th:href="@{/auth-home}" >
+            </input>
         </div>
     </form>
 </main>

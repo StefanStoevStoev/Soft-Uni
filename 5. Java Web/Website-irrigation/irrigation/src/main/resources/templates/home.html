@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'
+      xmlns:width="http://www.w3.org/1999/xhtml">
 
 <head>
     <th:block th:insert="fragments/fragment :: head"></th:block>
@@ -35,8 +36,7 @@
                            aria-expanded="false">
                             <span>Капково напояване<span class="caret"></span></span>
                         </a>
-                        <ul id="demolist" class="dropdown-menu dropdown-menu-dark "
-                            aria-labelledby="navbarDarkDropdownMenuLink">
+                        <ul id="demolist" class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
                             <li><a class="dropdown-item" th:href="@{/products/sprinkler}">Разпръскватели</a></li>
                             <li><a class="dropdown-item" th:href="@{/products/drip}">Капково напояване</a></li>
                             <li><a class="dropdown-item" th:href="@{/products/pump}">Помпи</a></li>
@@ -118,28 +118,22 @@
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
-                                    <p class="fs-6  mb-0" th:value="*{getPrice()}" th:text="|*{getPrice()} лв.|"
-                                       id="singlePrice">Единична цена</p>
+                                    <p class="fs-6  mb-0" th:value="*{getPrice()}" th:text="|*{getPrice()} лв.|" id="singlePrice">Единична цена</p>
                                     <p class="fs-6  mb-0" id="price" th:text="|*{getPrice()} лв.|"></p>
                                 </div>
                             </div>
                             <div class="input-spinner" th:high="50vh">
-                                <button id="decrement" onclick="stepper(this)" class="text-center" style="width: 2vh">
-                                    -
-                                </button>
+                                <button id="decrement" onclick="stepper(this)" class="text-center" style="width: 2vh"> - </button>
                                 <input type="number" min="1" max="100" step="1" value="1" id="my-input" readonly>
-                                <button id="increment" onclick="stepper(this)" class="text-center" style="width: 2vh">
-                                    +
-                                </button>
+                                <button id="increment" onclick="stepper(this)" class="text-center" style="width: 2vh"> + </button>
 
                             </div>
-                            <div class="button-holder d-flex justify-content-center mt-2">
+                            <div class="button-holder d-flex justify-content-center mt-2" >
                                 <th:block sec:authorize="isAuthenticated()">
-                                    <a type="submit" class="btn btn-warning mb-1" th:value="Купи"
-                                       th:href="@{/products/drip/buy}">Купи</a>
+                                    <a type="submit" class="btn btn-warning mb-1" th:value="Купи"  th:href="@{/auth-home/{id}(id=*{getId()})}" >Купи</a>
                                 </th:block>
                                 <th:block sec:authorize="isAnonymous()">
-                                    <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}">Купи</a>
+                                    <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}" >Купи</a>
                                 </th:block>
 
                             </div>
@@ -153,7 +147,7 @@
 </div>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" th:inline="javascript">
+<script  type="text/javascript" th:inline="javascript">
     const getPrice = [[${getDripById1.getPrice()}]];
 </script>
 <footer th:replace="fragments/fragment::footer"></footer>

@@ -62,7 +62,8 @@ public class UserController {
 
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userLoginDTO", userLoginDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userLoginDTO", bindingResult);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.userLoginDTO", bindingResult);
             redirectAttributes.addFlashAttribute("notFound", true);
             redirectAttributes.addFlashAttribute("username", username);
         }
@@ -99,10 +100,12 @@ public class UserController {
                            HttpServletRequest request) {
 
 
-        boolean registerAndLogin = userService.registerAndLogin(userRegisterDTO, localeResolver.resolveLocale(request));
+        boolean registerAndLogin = userService.registerAndLogin(userRegisterDTO,
+                localeResolver.resolveLocale(request));
         if (bindingResult.hasErrors() || !registerAndLogin) {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
             return "redirect:register";
         }
         return "redirect:/index";
