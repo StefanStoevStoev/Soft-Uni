@@ -50,22 +50,22 @@ public class DripsController {
         return "buy-drip";
     }
 
-    @PostMapping("/drip/buy")
-    public String register(@Valid UserPhoneAndAddressDTO userPhoneAndAddressDTO,
-                           BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes,
-                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
-
-//        Long id = currentUser.getId();
-        dripService.savePhoneAndAddress(userPhoneAndAddressDTO, currentUser);
-        if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("userPhoneAndAddressDTO", userPhoneAndAddressDTO);
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userPhoneAndAddressDTO", bindingResult);
-            return "redirect:/products/drip/buy";
-        }
-
-        return "redirect:/auth-home";
-    }
+//    @PostMapping("/drip/buy")
+//    public String register(@Valid UserPhoneAndAddressDTO userPhoneAndAddressDTO,
+//                           BindingResult bindingResult,
+//                           RedirectAttributes redirectAttributes,
+//                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
+//
+////        Long id = currentUser.getId();
+//        dripService.savePhoneAndAddress(userPhoneAndAddressDTO, currentUser);
+//        if (bindingResult.hasErrors()) {
+//            redirectAttributes.addFlashAttribute("userPhoneAndAddressDTO", userPhoneAndAddressDTO);
+//            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userPhoneAndAddressDTO", bindingResult);
+//            return "redirect:/products/drip/buy";
+//        }
+//
+//        return "redirect:/auth-home";
+//    }
 
     @ModelAttribute("userPhoneAndAddressDTO")
     public UserPhoneAndAddressDTO initUserModel() {

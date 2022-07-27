@@ -1,18 +1,18 @@
 package com.example.irrigation.web;
 
 import com.example.irrigation.model.CurrentUserDetails;
-import com.example.irrigation.model.DTO.UserPhoneAndAddressDTO;
-import com.example.irrigation.model.DTO.UserRegisterDTO;
+import com.example.irrigation.model.DTO.AuthDTO;
+
 import com.example.irrigation.model.views.UserViewModel;
 import com.example.irrigation.service.DripService;
 import com.example.irrigation.service.UserService;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,33 +29,40 @@ public class AuthController {
         this.dripService = dripService;
     }
 
-    //    @GetMapping("/auth-home/{id}")
-//    public String userHome(@PathVariable String id){
-//        return "auth-home";
+//    @GetMapping("/auth-home/{id}")
+//    public ResponseEntity<UserEntity> getById(@PathVariable long id) throws NotFoundException {
+//        Optional<UserEntity> user = userService.getById(id);
+//        if (user.isPresent()) {
+//            return new ResponseEntity<>(user.get(), HttpStatus.OK);
+//        } else {
+//            throw new NotFoundException("Not found user with id " + id);
+//        }
 //    }
+
     @GetMapping("/auth-home")
     public String getUser(@AuthenticationPrincipal CurrentUserDetails currentUser, Model model) {
         UserViewModel user = userService.getUserById(currentUser.getId());
         model.addAttribute("userDetails", user);
         return "auth-home";
     }
-//
-//    @PostMapping("/auth-home")
-//    public String addUser(@Valid UserViewModel userViewModel,
-//                          BindingResult bindingResult,
-//                          RedirectAttributes redirectAttributes,
-//                          Model model) {
-//        if (bindingResult.hasErrors()) {
-//            redirectAttributes.addFlashAttribute("userViewModel", userViewModel);
-//            redirectAttributes.addFlashAttribute(
-//                    "org.springframework.validation.BindingResult.userViewModel", bindingResult);
-//            return "redirect:/products/auth-home";
-//        }
-//        model.addAttribute(userViewModel);
-//        return "redirect:/";
-//    }
 
-//    @GetMapping("/drip/buy")
+    @PostMapping("/auth-home/")
+    public String addUser(@Valid AuthDTO authDTO,
+                          BindingResult bindingResult,
+                          RedirectAttributes redirectAttributes,
+                          @AuthenticationPrincipal CurrentUserDetails currentUser) {
+
+        userService.saveDataToUser(authDTO, currentUser);
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("authDTO", authDTO);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.authDTO", bindingResult);
+            return "redirect:/auth-home";
+        }
+        return "redirect:/auth-home";
+    }
+
+    //    @GetMapping("/drip/buy")
 //    public String buyDrip(){
 //        return "buy-drip";
 //    }
@@ -86,5 +93,10 @@ public class AuthController {
     @ModelAttribute("userViewModel")
     private UserViewModel addModel() {
         return new UserViewModel();
+    }
+
+    @ModelAttribute("authDTO")
+    private AuthDTO addModelAuth() {
+        return new AuthDTO();
     }
 }

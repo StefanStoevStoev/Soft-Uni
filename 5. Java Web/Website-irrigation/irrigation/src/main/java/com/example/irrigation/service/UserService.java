@@ -1,14 +1,17 @@
 package com.example.irrigation.service;
 
+import com.example.irrigation.model.CurrentUserDetails;
+import com.example.irrigation.model.DTO.AuthDTO;
 import com.example.irrigation.model.DTO.UserRegisterDTO;
 import com.example.irrigation.model.entity.RoleEntity;
 import com.example.irrigation.model.entity.UserEntity;
 import com.example.irrigation.model.entity.enums.RoleEnum;
+import com.example.irrigation.model.mapper.AuthModelDTO;
+import com.example.irrigation.model.mapper.UserDetailsMapper;
 import com.example.irrigation.model.mapper.UserMapper;
 import com.example.irrigation.model.views.UserViewModel;
 import com.example.irrigation.repository.UserRepository;
 import com.example.irrigation.repository.UserRoleRepository;
-import org.modelmapper.ModelMapper;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,8 +20,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 @Service
 public class UserService{
@@ -29,19 +34,24 @@ public class UserService{
     private final UserDetailsService userDetailsService;
     private final UserMapper userMapper;
     private final EmailService emailService;
-    private final ModelMapper modelMapper;
+    private final UserDetailsMapper userDetailsMapper;
+    private final AuthModelDTO authModelDTO;
 
     public UserService(UserRepository userRepository,
                        UserRoleRepository userRoleRepository,
                        PasswordEncoder passwordEncoder,
-                       UserDetailsService userDetailsService1, UserMapper userMapper, EmailService emailService, ModelMapper modelMapper) {
+                       UserDetailsService userDetailsService1,
+                       UserMapper userMapper,
+                       EmailService emailService,
+                       UserDetailsMapper userDetailsMapper, AuthModelDTO authModelDTO) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService1;
         this.userMapper = userMapper;
         this.emailService = emailService;
-        this.modelMapper = modelMapper;
+        this.userDetailsMapper = userDetailsMapper;
+        this.authModelDTO = authModelDTO;
     }
 
     public void init() {
@@ -129,8 +139,9 @@ public class UserService{
     public UserViewModel getUserById(Long id) {
        UserEntity user = userRepository.findById(id).orElse(null);
 
-       UserViewModel userViewModel = new UserViewModel();
         assert user != null;
+        UserViewModel userViewModel = new UserViewModel();
+
         return userViewModel
                .setId(user.getId())
                 .setFirstName(user.getFirstName())
@@ -139,6 +150,22 @@ public class UserService{
                 .setAuthority(user.getAuthority())
                 .setPhone(user.getPhone())
                 .setAddress(user.getAddress());
+    }
+
+    public void saveDataToUser(@Valid AuthDTO authDTO, CurrentUserDetails currentUser) {
+        UserEntity userData = authModelDTO.authDetailsUserEntity(authDTO);
+        UserEntity user = userRepository.findByEmail(currentUser.getEmail()).orElse(null);
+
+        assert user != null;
+        user.setPhone(userData.getPhone())
+                .setAddress(userData.getAddress())
+                .setFirstName(userData.getFirstName())
+                .setLastName(userData.getLastName());
+        userRepository.save(user);
+    }
+
+    public Optional<UserEntity> getById(long id) {
+        return userRepository.findById(id);
     }
 
 //    public UserEntity getCurrentlyLoggedInCustomer(Authentication authentication){

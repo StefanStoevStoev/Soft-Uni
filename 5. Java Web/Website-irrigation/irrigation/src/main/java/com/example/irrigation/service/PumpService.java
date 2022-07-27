@@ -35,7 +35,7 @@ public class PumpService {
                     .setVoltage("230")
                     .setPower("0,55")
                     .setCurrent("3,7")
-                    .setPumpsCount(20)
+                    .setPieces(20)
                     .setPrice(BigDecimal.valueOf(239));
             pumpRepository.save(hiPeri1_5);
 
@@ -52,7 +52,7 @@ public class PumpService {
                     .setVoltage("220-240")
                     .setPower("0,3")
                     .setCurrent("2")
-                    .setPumpsCount(15)
+                    .setPieces(15)
                     .setPrice(BigDecimal.valueOf(220));
             pumpRepository.save(pf_1_30);
 

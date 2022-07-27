@@ -14,9 +14,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -68,7 +68,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/Irrigations&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation/src/main/resources/templates/fragments&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;5e1205acf274c0ad55d3e2875d9fbecd&quot;
@@ -85,18 +85,22 @@
       <recent name="com.example.irrigation.service" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\templates\fragments" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\frontPage" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\pumps" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\css" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\sprinkler" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\frontPage" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\templates" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.example.irrigation.model.mapper" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.irrigation.model.mapper" />
       <recent name="com.example.irrigation.init" />
     </key>
   </component>
@@ -167,7 +171,10 @@
       <workItem from="1658642721987" duration="2053000" />
       <workItem from="1658656082409" duration="718000" />
       <workItem from="1658656818266" duration="2274000" />
-      <workItem from="1658659833034" duration="35563000" />
+      <workItem from="1658659833034" duration="36921000" />
+      <workItem from="1658732524011" duration="26295000" />
+      <workItem from="1658851184989" duration="10111000" />
+      <workItem from="1658902142690" duration="30891000" />
     </task>
     <task id="LOCAL-00001" summary="name correction">
       <created>1655023574353</created>
@@ -213,15 +220,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="name correction" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation/service/UserService.java</url>
-          <line>131</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.security.web.servletapi.HttpServlet3RequestFactory" memberName="authenticationManager" />

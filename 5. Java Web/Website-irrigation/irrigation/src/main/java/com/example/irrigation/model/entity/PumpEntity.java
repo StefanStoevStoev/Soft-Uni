@@ -1,9 +1,8 @@
 package com.example.irrigation.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "pumps")
@@ -24,12 +23,23 @@ public class PumpEntity extends BaseEntity{
 
     @Column(columnDefinition = "TEXT")
     private String characteristicCurve;
-
-    private int pumpsCount;
-
     private BigDecimal price;
 
+    private int pieces;
+
+    @ManyToOne
+    private UserEntity user;
+
     public PumpEntity() {
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public PumpEntity setUser(UserEntity user) {
+        this.user = user;
+        return this;
     }
 
     public String getMake() {
@@ -68,12 +78,12 @@ public class PumpEntity extends BaseEntity{
         return this;
     }
 
-    public int getPumpsCount() {
-        return pumpsCount;
+    public int getPieces() {
+        return pieces;
     }
 
-    public PumpEntity setPumpsCount(int pumpsCount) {
-        this.pumpsCount = pumpsCount;
+    public PumpEntity setPieces(int pieces) {
+        this.pieces = pieces;
         return this;
     }
 

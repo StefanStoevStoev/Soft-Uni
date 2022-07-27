@@ -1,9 +1,8 @@
 package com.example.irrigation.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "sprinklers")
@@ -18,13 +17,25 @@ public class SprinklerEntity extends BaseEntity{
     private String nosel;
     private String volume;
     private String radius;
-    private int numbers;
+    private int pieces;
     private BigDecimal price;
 
     @Column(columnDefinition = "TEXT")
     private String characteristicTable;
 
+    @ManyToOne
+    private UserEntity user;
+
     public SprinklerEntity() {
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public SprinklerEntity setUser(UserEntity user) {
+        this.user = user;
+        return this;
     }
 
     public String getKind() {
@@ -117,12 +128,12 @@ public class SprinklerEntity extends BaseEntity{
         return this;
     }
 
-    public int getNumbers() {
-        return numbers;
+    public int getPieces() {
+        return pieces;
     }
 
-    public SprinklerEntity setNumbers(int numbers) {
-        this.numbers = numbers;
+    public SprinklerEntity setPieces(int pieces) {
+        this.pieces = pieces;
         return this;
     }
 

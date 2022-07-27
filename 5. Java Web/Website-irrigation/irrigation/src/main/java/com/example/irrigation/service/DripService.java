@@ -47,7 +47,7 @@ public class DripService {
                     .setSize(100)
                     .setTimeOfUse("1")
                     .setPrice(BigDecimal.valueOf(16.20))
-                    .setNumbers(42)
+                    .setPieces(42)
                     .setId(1L);
             dripRepository.save(dripOneSeason);
 
@@ -62,7 +62,7 @@ public class DripService {
                     .setSize(100)
                     .setTimeOfUse("1")
                     .setPrice(BigDecimal.valueOf(14.80))
-                    .setNumbers(2)
+                    .setPieces(2)
                     .setId(2L);
             dripRepository.save(dripOneSeason20);
 
@@ -77,7 +77,7 @@ public class DripService {
                     .setSize(100)
                     .setTimeOfUse("5")
                     .setPrice(BigDecimal.valueOf(32.40))
-                    .setNumbers(22)
+                    .setPieces(22)
                     .setId(3L);
             dripRepository.save(dripHose);
 
@@ -92,7 +92,7 @@ public class DripService {
                     .setSize(100)
                     .setTimeOfUse("5")
                     .setPrice(BigDecimal.valueOf(27.80))
-                    .setNumbers(52)
+                    .setPieces(52)
                     .setId(4L);
             dripRepository.save(dripHose2);
         }

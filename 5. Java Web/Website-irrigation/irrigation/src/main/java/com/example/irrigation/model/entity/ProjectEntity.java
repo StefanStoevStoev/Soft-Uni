@@ -1,10 +1,8 @@
 package com.example.irrigation.model.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "projects")
@@ -16,8 +14,8 @@ public class ProjectEntity extends BaseEntity{
     @Column(columnDefinition = "TEXT")
     private String drawing;
 
-    @ManyToOne
-    private UserEntity user;
+    @ManyToMany
+    private List<UserEntity> user;
 
     private LocalDateTime created;
 
@@ -42,11 +40,11 @@ public class ProjectEntity extends BaseEntity{
         return this;
     }
 
-    public UserEntity getUser() {
+    public List<UserEntity> getUser() {
         return user;
     }
 
-    public ProjectEntity setUser(UserEntity user) {
+    public ProjectEntity setUser(List<UserEntity> user) {
         this.user = user;
         return this;
     }

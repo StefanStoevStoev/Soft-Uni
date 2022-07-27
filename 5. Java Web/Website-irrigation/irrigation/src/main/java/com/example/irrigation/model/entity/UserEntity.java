@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity {
 
     private String firstName;
     private String lastName;
@@ -28,13 +28,16 @@ public class UserEntity extends BaseEntity{
 
     public UserEntity() {
     }
+
     public UserEntity setActive(boolean active) {
         isActive = active;
         return this;
     }
+
     public boolean isActive() {
         return isActive;
     }
+
     public String getFirstName() {
         return firstName;
     }
@@ -65,6 +68,7 @@ public class UserEntity extends BaseEntity{
     public String getEmail() {
         return email;
     }
+
 
     public UserEntity setEmail(String email) {
         this.email = email;

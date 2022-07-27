@@ -12,7 +12,7 @@ import javax.validation.constraints.Pattern;
 public class UserPhoneAndAddressDTO {
 
     @NotBlank
-    @Pattern(regexp="(^$|[0-9]{10})", message = "Номерът трябва да съдържа 10 цифри!")
+    @Pattern(regexp="(^$|[0-9]{10}$)", message = "Номерът трябва да съдържа 10 цифри!")
     private String phone;
 
     @NotBlank

@@ -47,12 +47,18 @@
             </ul>
             <ul class="navbar-nav me-2 ">
                 <li class="nav-item me-4" sec:authorize="isAuthenticated()">
-                    <a class="nav-link text-dark fw-bold">
+                    <a class="nav-link text-dark fw-bold ">
                         Здравей,
                         <!--                        <th:block sec:authentication="name"></th:block>-->
                         <th:block sec:authorize="isAuthenticated()"
                                   th:text="${#authentication.principal.firstName}"></th:block>
                     </a>
+                </li>
+                <li class="nav-item me-4 " sec:authorize="hasRole('USER')">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/auth-home}">Моите поръчки</a>
+                </li>
+                <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
                 </li>
                 <div class="navbar-collapse  me-4" id="navbarNavDarkDropdown">
                     <li class="nav-item dropdown btn-group" id="select-option">
@@ -82,9 +88,7 @@
                 <li class="nav-item me-4 ">
                     <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
                 </li>
-                <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
-                </li>
+
                 <th:block sec:authorize="!isAuthenticated()">
                     <li class="nav-item me-4 ">
                         <a class="nav-link text-dark fw-bold " th:href="@{/users/login}">Вход</a>

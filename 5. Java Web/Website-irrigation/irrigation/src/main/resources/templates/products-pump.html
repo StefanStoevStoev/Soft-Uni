@@ -35,6 +35,12 @@
                                   th:text="${#authentication.principal.firstName}"></th:block>
                     </a>
                 </li>
+                <li class="nav-item me-4 " sec:authorize="hasRole('USER')">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/auth-home}">Моите поръчки</a>
+                </li>
+                <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
+                </li>
                 <div class="navbar-collapse  me-4" id="navbarNavDarkDropdown">
                     <li class="nav-item dropdown btn-group" id="select-option">
                         <a class="nav-link dropdown-toggle text-dark fw-bold"
@@ -56,15 +62,13 @@
                         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
                         crossorigin="anonymous"></script>
                 <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/products}">Продукти</a>-->
-                <li class="nav-item me-4 ">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>
-                </li>
+<!--                <li class="nav-item me-4 ">-->
+<!--                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>-->
+<!--                </li>-->
                 <li class="nav-item me-4 ">
                     <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
                 </li>
-                <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
-                </li>
+
                 <th:block sec:authorize="!isAuthenticated()">
                     <li class="nav-item me-4 ">
                         <a class="nav-link text-dark fw-bold " th:href="@{/users/login}">Вход</a>

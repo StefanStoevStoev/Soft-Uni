@@ -1,9 +1,11 @@
 package com.example.irrigation.model.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "drips")
@@ -20,7 +22,7 @@ public class DripEntity extends BaseEntity {
     private int size;
     private String timeOfUse;
     private BigDecimal price;
-    private int numbers;
+    private int pieces;
 
     @ManyToOne
     private UserEntity userEntity;
@@ -118,12 +120,12 @@ public class DripEntity extends BaseEntity {
         return this;
     }
 
-    public int getNumbers() {
-        return numbers;
+    public int getPieces() {
+        return pieces;
     }
 
-    public DripEntity setNumbers(int numbers) {
-        this.numbers = numbers;
+    public DripEntity setPieces(int pieces) {
+        this.pieces = pieces;
         return this;
     }
 }
