@@ -5,13 +5,14 @@ spring:
     password: '1234'
     url: jdbc:mysql://localhost:3306/irrigation_db?allowPublicKeyRetrieval=true&useSSL=false&createDatabaseIfNotExist=true
 
+
   jpa:
     #For MySQL 8
     database-platform: org.hibernate.dialect.MySQL8Dialect
     #For MySQL 5
     #    database-platform: org.hibernate.dialect.mysql5innodbdialetc
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
 #    defer-datasource-initialization: true
   sql:
     init:

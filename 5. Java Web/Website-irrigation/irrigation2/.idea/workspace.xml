@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../irrigation/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.ejb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.jms.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.persistence.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.resource.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.servlet.jsp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.transaction.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/IrrigationApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/CustomOAuth2User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/CustomerUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/MailConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/SecurityConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/init/AppInit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/init/ApplicationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/CurrentUserDetails.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/AuthDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/UserLoginDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/UserPhoneAndAddressDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/UserRegisterDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/BaseEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/DripEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/ProjectEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/PumpEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/RoleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/SprinklerEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/UserEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/enums/RoleEnum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/AuthMapperDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/AuthModelDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/UserDetailsMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/UserMapperPhoneAddress.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/FieldMatch.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/FieldMatchValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/UniqueUserEmail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/UniqueUserEmailValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/views/DripViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/views/UserViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/DripRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/PumpRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/SprinklerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/UserRoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/CurrentUserDetailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/DripService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/EmailService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/PumpService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/SprinklerService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/AuthController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/DripsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/PagesController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/ProductController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/PumpsController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/SprinklersController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/errors/GlobalErrors.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/auth-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/auth-home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/products-drip.html" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/products-drip.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../irrigation/src/test/java/com/example/irrigation/IrigationApplicationTests.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="irrigation2" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="myId2FirstActivated">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="true" />
+      </map>
+    </option>
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
+        <entry key="com.haulmont.jpb.jpaStructure" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2CeMY8Me3H4Zego5htpGBUPyRi9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propDebugger",
+    "spring.configuration.checksum": "d69784ca6fd1de93001551dcd739d9f3"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "module",
+      "repository",
+      "directory"
+    ],
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\java\com\example\irrigation2" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Irrigation2Application">
+    <configuration name="irrigation12" type="NodeJSConfigurationType" path-to-node="C:/Program Files/nodejs/node" node-parameters="$/FilePathRelativeToProjectRoot$" path-to-js-file="script.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="Irrigation2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="irrigation2.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.irrigation2.Irrigation2Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.irrigation12" />
+      <item itemvalue="Spring Boot.Irrigation2Application" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="" />
+      <created>1659158642688</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659158642688</updated>
+      <workItem from="1659158645121" duration="5304000" />
+      <workItem from="1659174073304" duration="894000" />
+      <workItem from="1659174985035" duration="18527000" />
+      <workItem from="1659256296709" duration="21065000" />
+      <workItem from="1659305503062" duration="426000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.springframework.aop.framework.JdkDynamicAopProxy" memberName="proxiedInterfaces" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((String)((LinkedHashMap.Entry)((org.springframework.validation.support.BindingAwareModelMap)model).entrySet().toArray()[0]).getKey()).value" custom="org.springframework.validation.support.BindingAwareModelMap,java.util.LinkedHashMap.Entry,java.lang.String" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

@@ -4,32 +4,147 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6cca89b0-5897-4f4f-80a5-a594642a53b9" name="Changes" comment="name correction" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/Irrigation2Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/CustomerUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/MailConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/init/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/init/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/CurrentUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/AuthDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/UserLoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/UserPhoneAndAddressDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/UserRegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/ProjectEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/PumpEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/RoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/SprinklerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/enums/RoleEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/AuthMapperDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/AuthModelDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/UserDetailsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/UserMapperPhoneAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/FieldMatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/FieldMatchValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/UniqueUserEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/UniqueUserEmailValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/views/DripViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/views/UserViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/DripRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/PumpRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/SprinklerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/CurrentUserDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PumpsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/SprinklersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/errors/GlobalErrors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-pump.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-sprinkler.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-30-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-30-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/fav3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/home-nosel3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/pump-station-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/pumps-fp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/nosel1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/nosel4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/nosel9.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps/pompa-hiperi-1-5(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps/pompa-hiperi-1-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/nosel5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-075D.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-075s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-def-06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-s100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-s50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-s50s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/top-four-irrigation-techniques.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/auth-home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/buy-drip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/auth-home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products-pump.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products-sprinkler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/Irrigation2ApplicationTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="AnnotationType" />
-        <option value="HTML File" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="irrigation2" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../Irrigations" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -50,17 +165,14 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2AAA2dnubVL8JMEwSlhXXACXmk8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2CeMY8Me3H4Zego5htpGBUPyRi9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
     &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
     &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
@@ -68,140 +180,65 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation/src/main/resources/templates/fragments&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Mappings&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;5e1205acf274c0ad55d3e2875d9fbecd&quot;
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d69784ca6fd1de93001551dcd739d9f3&quot;
   },
   &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;repository&quot;,
+      &quot;directory&quot;
+    ],
     &quot;DatabaseDriversLRU&quot;: [
       &quot;mysql&quot;
     ]
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.example.irrigation.model.validation" />
-      <recent name="com.example.irrigation.service" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\templates\fragments" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\frontPage" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\pumps" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images\frontPage" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\static\images" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation\src\main\resources\templates" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.example.irrigation.model.mapper" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.irrigation.model.mapper" />
-      <recent name="com.example.irrigation.init" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\java\com\example\irrigation2" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.IrigationApplication">
-    <configuration name="script.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/main/resources/static/js/script.js" working-dir="$PROJECT_DIR$/src/main/resources/static/js">
+  <component name="RunManager" selected="Spring Boot.Irrigation2Application">
+    <configuration name="irrigation12" type="NodeJSConfigurationType" path-to-node="C:/Program Files/nodejs/node" node-parameters="$/FilePathRelativeToProjectRoot$" path-to-js-file="script.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
-    <configuration name="IrigationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="irigation" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.irrigation.IrrigationApplication" />
+    <configuration name="Irrigation2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ACTIVE_PROFILES" />
+      <module name="irrigation2.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.irrigation2.Irrigation2Application" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Node.js.script.js" />
-      </list>
-    </recent_temporary>
+    <list>
+      <item itemvalue="Node.js.irrigation12" />
+      <item itemvalue="Spring Boot.Irrigation2Application" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6cca89b0-5897-4f4f-80a5-a594642a53b9" name="Changes" comment="" />
-      <created>1654441810391</created>
+      <changelist id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="" />
+      <created>1659158642688</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1654441810391</updated>
-      <workItem from="1654441811686" duration="67000" />
-      <workItem from="1654441927385" duration="5358000" />
-      <workItem from="1655023536102" duration="2414000" />
-      <workItem from="1656785791549" duration="436000" />
-      <workItem from="1656786347926" duration="4748000" />
-      <workItem from="1656844164280" duration="677000" />
-      <workItem from="1656848976105" duration="22966000" />
-      <workItem from="1656921264654" duration="858000" />
-      <workItem from="1656922154077" duration="4646000" />
-      <workItem from="1656928379489" duration="15104000" />
-      <workItem from="1657003085380" duration="22192000" />
-      <workItem from="1657261820934" duration="16447000" />
-      <workItem from="1657287280842" duration="9759000" />
-      <workItem from="1657300818035" duration="8773000" />
-      <workItem from="1657364958846" duration="23034000" />
-      <workItem from="1657446876525" duration="27522000" />
-      <workItem from="1657521774138" duration="34213000" />
-      <workItem from="1657606504057" duration="20922000" />
-      <workItem from="1657692686008" duration="8232000" />
-      <workItem from="1657705128962" duration="10850000" />
-      <workItem from="1657720587090" duration="23685000" />
-      <workItem from="1657783869503" duration="29231000" />
-      <workItem from="1657834343394" duration="3000" />
-      <workItem from="1657869135518" duration="33154000" />
-      <workItem from="1657919968008" duration="7071000" />
-      <workItem from="1657954951038" duration="32842000" />
-      <workItem from="1658007453136" duration="1713000" />
-      <workItem from="1658068354370" duration="19968000" />
-      <workItem from="1658125253414" duration="35404000" />
-      <workItem from="1658213552398" duration="22415000" />
-      <workItem from="1658266171822" duration="961000" />
-      <workItem from="1658298356650" duration="44696000" />
-      <workItem from="1658407361501" duration="7600000" />
-      <workItem from="1658472040077" duration="3060000" />
-      <workItem from="1658480834519" duration="2066000" />
-      <workItem from="1658483553169" duration="19846000" />
-      <workItem from="1658551764242" duration="1212000" />
-      <workItem from="1658563564988" duration="30836000" />
-      <workItem from="1658606521287" duration="4667000" />
-      <workItem from="1658642721987" duration="2053000" />
-      <workItem from="1658656082409" duration="718000" />
-      <workItem from="1658656818266" duration="2274000" />
-      <workItem from="1658659833034" duration="36921000" />
-      <workItem from="1658732524011" duration="26295000" />
-      <workItem from="1658851184989" duration="10111000" />
-      <workItem from="1658902142690" duration="36123000" />
-      <workItem from="1658994485709" duration="16744000" />
-      <workItem from="1659089868607" duration="19452000" />
-      <workItem from="1659158172534" duration="29000" />
+      <updated>1659158642688</updated>
+      <workItem from="1659158645121" duration="5304000" />
+      <workItem from="1659174073304" duration="894000" />
+      <workItem from="1659174985035" duration="18527000" />
+      <workItem from="1659256296709" duration="21065000" />
     </task>
-    <task id="LOCAL-00001" summary="name correction">
-      <created>1655023574353</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1655023574353</updated>
-    </task>
-    <task id="LOCAL-00002" summary="name correction">
-      <created>1655023745606</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1655023745606</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
-    <option featureType="dependencySupport" implementationName="java:org.hibernate:hibernate-core" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -214,20 +251,16 @@
       </map>
     </option>
   </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/../../.." />
-      <path value="$PROJECT_DIR$/.." />
-    </ignored-roots>
-    <MESSAGE value="name correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="name correction" />
-  </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="org.springframework.security.web.servletapi.HttpServlet3RequestFactory" memberName="authenticationManager" />
-        <PinnedItemInfo parentTag="org.springframework.security.web.header.HeaderWriterFilter$HeaderWriterRequest" memberName="response" />
+        <PinnedItemInfo parentTag="org.springframework.aop.framework.JdkDynamicAopProxy" memberName="proxiedInterfaces" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="((String)((LinkedHashMap.Entry)((org.springframework.validation.support.BindingAwareModelMap)model).entrySet().toArray()[0]).getKey()).value" custom="org.springframework.validation.support.BindingAwareModelMap,java.util.LinkedHashMap.Entry,java.lang.String" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
