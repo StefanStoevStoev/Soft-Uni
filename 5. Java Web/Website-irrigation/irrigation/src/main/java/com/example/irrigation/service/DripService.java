@@ -28,8 +28,12 @@ public class DripService {
     }
 
 
-    public DripEntity getDripById(Long id) {
+    public DripEntity getDripByUserId(Long id) {
         return dripRepository.findById(id).orElse(null);
+    }
+
+    public List<DripEntity> getAllDrips() {
+        return dripRepository.findAll();
     }
 
     public void initDrips() {
@@ -99,7 +103,7 @@ public class DripService {
     }
 
     public List<DripEntity> listDripItems(UserEntity user) {
-        return dripRepository.findByUserEntity(user);
+        return dripRepository.findByUserEntityId(user.getId());
     }
 
     public void savePhoneAndAddress(UserPhoneAndAddressDTO userPhoneAndAddressDTO,

@@ -55,11 +55,17 @@
                         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
                         crossorigin="anonymous"></script>
                 <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/products}">Продукти</a>-->
-<!--                <li class="nav-item me-4 ">-->
-<!--                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>-->
-<!--                </li>-->
+                <li class="nav-item me-4 ">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>
+                </li>
+                <!--                <li class="nav-item me-4 ">-->
+                <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>-->
+                <!--                </li>-->
                 <li class="nav-item me-4 ">
                     <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
+                </li>
+                <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
                 </li>
                 <th:block sec:authorize="!isAuthenticated()">
                     <li class="nav-item me-4 ">
@@ -139,7 +145,8 @@
                             <div class="button-holder d-flex justify-content-center mt-2">
                                 <th:block sec:authorize="isAuthenticated()">
                                     <a type="submit" class="btn btn-warning mb-1" th:value="Купи"
-                                       th:href="@{/auth-home}">Купи</a>
+                                       th:href="@{/products/drip/buy}">Купи</a>
+                                    th:href="@{/auth-home}">Купи</a>
                                 </th:block>
                                 <th:block sec:authorize="isAnonymous()">
                                     <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}">Купи</a>

@@ -43,6 +43,8 @@ public class AuthController {
     public String getUser(@AuthenticationPrincipal CurrentUserDetails currentUser, Model model) {
         UserViewModel user = userService.getUserById(currentUser.getId());
         model.addAttribute("userDetails", user);
+//        model.addAttribute("userId", id);
+
         return "auth-home";
     }
 
@@ -52,13 +54,13 @@ public class AuthController {
                           RedirectAttributes redirectAttributes,
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
 
-        userService.saveDataToUser(authDTO, currentUser);
         if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("authDTO", authDTO);
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.authDTO", bindingResult);
             return "redirect:/auth-home";
         }
+        userService.saveDataToUser(authDTO, currentUser);
         return "redirect:/auth-home";
     }
 

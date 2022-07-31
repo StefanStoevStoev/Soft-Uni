@@ -6,14 +6,9 @@ import com.example.irrigation.service.DripService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/products")
@@ -27,19 +22,24 @@ public class DripsController {
 
 
     @GetMapping("/drip")
-    public String getDrip(Model model) {
-
+    public String getDrip(Model model,@AuthenticationPrincipal CurrentUserDetails currentUser) {
+        if (!model.containsAttribute("getDrips")) {
+            model.addAttribute("getDrips", this.dripService.getAllDrips());
+        }
         if (!model.containsAttribute("getDripById1")) {
-            model.addAttribute("getDripById1", this.dripService.getDripById(1L));
+            model.addAttribute("getDripById1", this.dripService.getDripByUserId(1L));
         }
         if (!model.containsAttribute("getDripById2")) {
-            model.addAttribute("getDripById2", this.dripService.getDripById(2L));
+            model.addAttribute("getDripById2", this.dripService.getDripByUserId(2L));
         }
         if (!model.containsAttribute("getDripById3")) {
-            model.addAttribute("getDripById3", this.dripService.getDripById(3L));
+            model.addAttribute("getDripById3", this.dripService.getDripByUserId(3L));
         }
         if (!model.containsAttribute("getDripById4")) {
-            model.addAttribute("getDripById4", this.dripService.getDripById(4L));
+            model.addAttribute("getDripById4", this.dripService.getDripByUserId(4L));
+        }
+        if(currentUser != null){
+            model.addAttribute("userId", currentUser.getId());
         }
 
         return "products-drip";

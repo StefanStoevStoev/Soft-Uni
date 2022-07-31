@@ -5,6 +5,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -23,11 +25,21 @@ public class DripEntity extends BaseEntity {
     private String timeOfUse;
     private BigDecimal price;
     private int pieces;
+    private LocalDateTime orderDate;
 
     @ManyToOne
     private UserEntity userEntity;
 
     public DripEntity() {
+    }
+
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
+
+    public DripEntity setOrderDate(LocalDateTime orderDate) {
+        this.orderDate = orderDate;
+        return this;
     }
 
     public UserEntity getUserEntity() {

@@ -2,6 +2,7 @@ package com.example.irrigation.model.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -24,6 +25,7 @@ public class PumpEntity extends BaseEntity{
     @Column(columnDefinition = "TEXT")
     private String characteristicCurve;
     private BigDecimal price;
+    private LocalDate orderDate;
 
     private int pieces;
 
@@ -31,6 +33,15 @@ public class PumpEntity extends BaseEntity{
     private UserEntity user;
 
     public PumpEntity() {
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public PumpEntity setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+        return this;
     }
 
     public UserEntity getUser() {

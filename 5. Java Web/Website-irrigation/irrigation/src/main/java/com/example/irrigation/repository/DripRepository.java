@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface DripRepository extends JpaRepository<DripEntity, Long> {
 
-    List<DripEntity> findByUserEntity(UserEntity userEntity);
+    List<DripEntity> findByUserEntityId(Long id);
 }
