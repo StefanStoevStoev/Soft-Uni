@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+<head>
+    <th:block th:insert="fragments/fragment :: head"></th:block>
+    <title>Мелиорации</title>
+    <style>
+        body {
+            background-image: url('/images/frontPage/drip6.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            object-fit: cover;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/fragment::navigation"></div>
+<div class=" p-2 mt-2 pt-2 mb-2 pb-2 mask-custom-1"></div>
+<div class="container">
+    <ul class="navbar-nav mt-4">
+        <main class="row">
+            <!--/* Workaround for bug https://youtrack.jetbrains.com/issue/IDEA-132738 -->
+            <!--@thymesVar id="post" type="your.package.Post"-->
+            <!--@thymesVar id="title" type="String"-->
+            <!--@thymesVar id="content" type="String"-->
+            <!--*/-->
+            <!--/*@thymesVar id="authDTO" type="images"*/-->
+            <form class="col-auto mx-auto w-25 bg-blur rounded"
+                  th:method="post"
+                  th:action="@{/auth-home/}"
+                  th:object="${authDTO}">
+
+                <div class="form-group mt-2">
+                    <!--/*@thymesVar id="userDetails" type="images"*/-->
+                    <!--/*@thymesVar id="address" type="images"*/-->
+                    <!--/*@thymesVar id="phone" type="images"*/-->
+                    <th:block th:if="${userDetails.address==null and userDetails.phone==null}">
+                        <div class="label-holder text-danger text-center text-wrap">
+                            <label for="firstName"
+                                   class="h4 mb-2 bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
+                                   style="--bs-bg-opacity: .5">За поръчка са нужни адрес и телефон</label>
+                        </div>
+                    </th:block>
+
+                    <div class="label-holder text-white textCol d-flex justify-content-center">
+                        <label for="firstName" class="h4 mb-2">Име</label>
+                    </div>
+                    <!--                    <input type="text"-->
+                    <!--                           th:field="${#userDetails.firstName}"-->
+                    <!--                           class="form-control"/>-->
+                    <!--/*@thymesVar id="#firstName" type="images"*/-->
+                    <input type="text"
+                           th:value="${userDetails.firstName}"
+                           th:errorclass="'is-invalid alert-danger'"
+                           class="form-control"
+                           id="firstName"
+                           name="firstName"/>
+
+                    <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning">
+                        Името трябва да съдържа поне 2 символа.</small>
+
+                </div>
+                <div class="form-group mt-2">
+                    <div class="label-holder text-white textCol d-flex justify-content-center">
+                        <label for="lastName" class="h4 mb-2">Фамилия</label>
+                    </div>
+                    <input type="text"
+                           th:value="${userDetails.lastName}"
+                           th:errorclass="'is-invalid alert-danger'"
+                           class="form-control"
+                           id="lastName"
+                           name="lastName"/>
+                    <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning">
+                        Фамилията трябва да съдържа поне 2 символа.</small>
+
+                </div>
+                <div class="form-group mt-2">
+                    <div class="label-holder text-white textCol d-flex justify-content-center">
+                        <label for="email" class="h4 mb-2">Имейл</label>
+                    </div>
+                    <input type="email"
+                           th:field="${userDetails.email}"
+                           th:errorclass="'is-invalid alert-danger'"
+                           class="form-control"
+                           id="email"
+                           name="email" readonly/>
+                    <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                    >Моля, въведете валиден имейл</small>
+
+                </div>
+                <div class="form-group mt-2">
+                    <div class="label-holder text-white textCol d-flex justify-content-center">
+                        <label for="phone" class="h4 mb-2">Телефон</label>
+                    </div>
+                    <input type="text"
+                           th:value="${userDetails.phone}"
+                           th:errorclass="'is-invalid alert-danger'"
+                           class="form-control"
+                           id="phone"
+                           name="phone"/>
+                    <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning">
+                        Номерът трябва да съдържа 10 цифри!</small>
+
+                </div>
+
+                <div class="form-group mt-2">
+                    <div class="label-holder text-white textCol d-flex justify-content-center">
+                        <label for="address" class="h4 mb-2">Адрес</label>
+                    </div>
+                    <input type="text"
+                           th:value="${userDetails.address}"
+                           th:errorclass="'is-invalid alert-danger'"
+                           class="form-control"
+                           id="address"
+                           name="address"/>
+                    <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                    >Адресът трябва да съдържа между 10 и 50 символа.</small>
+                </div>
+                <div class="button-holder d-flex justify-content-center mt-4">
+                    <input id="myButton" type="submit"
+                           class="btn btn-warning mb-5"
+                           th:value="Обнови"
+                           th:href="@{/auth-home}">
+
+                </div>
+            </form>
+            <th:block th:if="${userDetails.address!=null and userDetails.phone!=null}">
+                <div class="col text-end ps-0 pe-0">
+                    <!--                        fs-6 text size-->
+                    <p class="fs-6 fw-bold mb-0">Име:</p>
+                    <p class="fs-6 mb-0">Код:</p>
+                    <p class="fs-6 mb-0">Диаметър:</p>
+                    <p class="fs-6 mb-0">Продължителност за използване:</p>
+                    <p class="fs-6 mb-0">Разстояние между капкуватели:</p>
+                    <p class="fs-6 mb-0">Дебит на капкувател:</p>
+                    <p class="fs-6 mb-0">Максимално работно налягане:</p>
+                </div>
+            </th:block>
+
+        </main>
+    </ul>
+</div>
+</body>
+</html>
+<!--th:href="@{/auth-home/{id}(id=${user.id})}">-->

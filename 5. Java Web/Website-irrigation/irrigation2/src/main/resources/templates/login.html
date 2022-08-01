@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+
+<head th:replace="fragments/fragment :: head">
+<body>
+<div th:replace="fragments/fragment::navigation"></div>
+<!--Distance between navbar and User-->
+<div  class=" p-2 mt-4 pt-4 mb-4 pb-4 mask-custom-1"></div>
+<main class="mt-xxl-5">
+    <div class="mt-xxl-5">
+        <!--    <h1 class="text-center mt-5"><span class="badge badge-pill badge-dark">Вход</span></h1>-->
+        <hr class="hr-3 w-25 bg-white"/>
+
+        <!--    <h5 sec:authorize="!isAuthenticated()" class="mt-5 text-center"><strong class="p-3 mb-2 text-white">Enter valid-->
+        <!--        username and-->
+        <!--        password</strong>-->
+        <!--    </h5>-->
+
+        <form class="mx-auto w-25 bg-blur rounded"
+              th:object="${userLoginDTO}"
+              th:method="post"
+              th:action="@{/users/login}">
+
+            <div class="form-group mt-4">
+                <th:block th:if="${bad_credentials}">
+                    <div class="text-center text-white fw-bold bg-danger" th:each="err : ${errors}" th:text="${err}"></div>
+                </th:block>
+                <!--                <p th:if="${notFound}" class="text-center text-white fw-bold bg-danger">Грешна парола или имейл!</p>-->
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label for="username" class="h4 mb-2">Имейл</label>
+                </div>
+
+                <input type="email"
+                       th:field="*{username}"
+                       th:errorclass="'is-invalid alert-danger'"
+                       class="form-control"
+                       id="username"
+                       name="username"
+                       placeholder="Имейл"/>
+                <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                       style="width:360px">Моля, въведете валиден имейл</small>
+            </div>
+
+            <div class="form-group mt-2">
+                <div class="label-holder text-white textCol d-flex justify-content-center">
+                    <label for="password" class="h4 mb-2">Парола</label>
+                </div>
+                <input type="password"
+                       th:field="*{password}"
+                       th:errorclass="'is-invalid alert-danger'"
+                       class="form-control"
+                       id="password"
+                       name="password"
+                       placeholder="Парола"/>
+                <!--                th:if="${#fields.hasErrors('password')}" th:errors="*{password}"-->
+                <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                       style="width:360px">Паролата трябва да съдържа поне 3 символа.</small>
+            </div>
+            <div class="button-holder d-flex justify-content-center mt-4" >
+                <button type="submit" class="btn btn-warning mb-5" value="Register" th:href="@{/}" onclick="validate()">Вход</button>
+            </div>
+        </form>
+    </div>
+    <script src="/js/script.js"></script>
+</main>
+<footer th:replace="fragments/fragment::footer"></footer>
+</body>
+</html>

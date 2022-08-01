@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'
+      xmlns:width="http://www.w3.org/1999/xhtml">
+
+<head>
+    <th:block th:insert="fragments/fragment :: head"></th:block>
+    <title>Мелиорации</title>
+    <link rel="stylesheet" th:href="@{/css/styles-drip.css}">
+</head>
+<body>
+<div class="container">
+
+    <nav class="navbar navbar-expand-lg bg-light p-2 mt-4 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .7">
+
+        <div class="container fs-5 " id="navbarNav ">
+            <ul class="navbar-nav mx-3 ">
+                <li class="nav-item ">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/}">Заглавна стр.</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto me-2 ">
+                <li class="nav-ite me-4 " sec:authorize="isAuthenticated()">
+                    <a class="nav-link text-dark fw-bold ">
+                        Здравей,
+                        <th:block sec:authorize="isAuthenticated()"
+                                  th:text="${#authentication.principal.firstName}"></th:block>
+                    </a>
+                </li>
+                <div class="navbar-collapse  me-4" id="navbarNavDarkDropdown">
+                    <li class="nav-item dropdown btn-group" id="select-option">
+                        <a class="nav-link dropdown-toggle text-dark fw-bold"
+                           th:href="@{/}"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <span>Капково напояване<span class="caret"></span></span>
+                        </a>
+                        <ul id="demolist" class="dropdown-menu dropdown-menu-dark " aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" th:href="@{/products/sprinkler}">Разпръскватели</a></li>
+                            <li><a class="dropdown-item" th:href="@{/products/drip}">Капково напояване</a></li>
+                            <li><a class="dropdown-item" th:href="@{/products/pump}">Помпи</a></li>
+
+                        </ul>
+                        <p id="demo"></p>
+                    </li>
+                </div>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+                        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+                        crossorigin="anonymous"></script>
+                <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/products}">Продукти</a>-->
+                <li class="nav-item me-4 ">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>
+                </li>
+                <li class="nav-item me-4 ">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
+                </li>
+                <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
+                </li>
+                <th:block sec:authorize="!isAuthenticated()">
+                    <li class="nav-item me-4 ">
+                        <a class="nav-link text-dark fw-bold " th:href="@{/users/login}">Вход</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark fw-bold " th:href="@{/users/register}">Регистрация</a>
+                    </li>
+                </th:block>
+                <th:block sec:authorize="isAuthenticated()">
+                    <li class="nav-item me-4 ">
+                        <form
+                                th:action="@{/users/logout}"
+                                th:method="post">
+                            <input class="nav-link text-dark fw-bold " type="submit" th:value="Изход">
+                        </form>
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+    </nav>
+</div>
+<div class="container ">
+    <ul class="navbar-nav  mt-4 position-relative ps-5 pe-5">
+
+        <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .6">
+            <div class="row pt-2 mb-2 ps-2 " th:object="${getDripById1}" style="height: 25vh; overflow: auto">
+                <div class="col-auto ">
+                    <img src="/images/drips/hose16-10.png" height="140" width="190" class="img-fluid " alt=" ">
+                </div>
+                <!--                text block-->
+                <div class="col" style="width: 350px; height: 150px">
+                    <div class="row">
+                        <div class="col text-end ps-0 pe-0">
+                            <!--                        fs-6 text size-->
+                            <p class="fs-6 fw-bold mb-0">Име:</p>
+                            <p class="fs-6 mb-0">Код:</p>
+                            <p class="fs-6 mb-0">Диаметър:</p>
+                            <p class="fs-6 mb-0">Продължителност за използване:</p>
+                            <p class="fs-6 mb-0">Разстояние между капкуватели:</p>
+                            <p class="fs-6 mb-0">Дебит на капкувател:</p>
+                            <p class="fs-6 mb-0">Максимално работно налягане:</p>
+                        </div>
+                        <div class="col-md-auto ms-2 me-2">
+                            <!--                        fs-6 text size-->
+                            <p class="fs-6 fw-bold mb-0" th:text="*{getName()}">Име</p>
+                            <p class="fs-6 mb-0" th:text="*{getCode()}">Код</p>
+                            <p class="fs-6 mb-0" th:text="|*{getDiameter()} mm|">Диаметър</p>
+                            <p class="fs-6 mb-0" th:text="|*{getTimeOfUse()} г.|">Продължителност за използване</p>
+                            <p class="fs-6 mb-0" th:text="|*{getDistBtwDrips()} cm|">Разстояние между капкуватели</p>
+                            <p class="fs-6 mb-0" th:text="|*{getFlowPerDrip()} л/ч|">Дебит на капкувател</p>
+                            <p class="fs-6 mb-0" th:text="|*{getMaxPressure()} атм.|">Максимално работно налягане</p>
+
+                        </div>
+                        <div class="col ps-0 pe-0 text-center">
+                            <div class="row container pt-3 pb-2 mb-2">
+                                <div class="col text-end">
+                                    <p class="fs-6 mb-0">Единична цена:</p>
+                                    <p class="fs-6 mb-0">Цена:</p>
+                                </div>
+                                <div class="col text-start ">
+                                    <p class="fs-6  mb-0" th:value="*{getPrice()}" th:text="|*{getPrice()} лв.|" id="singlePrice">Единична цена</p>
+                                    <p class="fs-6  mb-0" id="price" th:text="|*{getPrice()} лв.|"></p>
+                                </div>
+                            </div>
+                            <div class="input-spinner" th:high="50vh">
+                                <button id="decrement" onclick="stepper(this)" class="text-center" style="width: 2vh"> - </button>
+                                <input type="number" min="1" max="100" step="1" value="1" id="my-input" readonly>
+                                <button id="increment" onclick="stepper(this)" class="text-center" style="width: 2vh"> + </button>
+
+                            </div>
+                            <div class="button-holder d-flex justify-content-center mt-2" >
+                                <th:block sec:authorize="isAuthenticated()">
+                                    <a type="submit" class="btn btn-warning mb-1" th:value="Купи"  th:href="@{/auth-home/{id}(id=*{getId()})}" >Купи</a>
+                                </th:block>
+                                <th:block sec:authorize="isAnonymous()">
+                                    <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}" >Купи</a>
+                                </th:block>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script  type="text/javascript" th:inline="javascript">
+    const getPrice = [[${getDripById1.getPrice()}]];
+</script>
+<footer th:replace="fragments/fragment::footer"></footer>
+</body>
+</html>
+<!--<script  th:inline="javascript" src="/js/script.js">-->

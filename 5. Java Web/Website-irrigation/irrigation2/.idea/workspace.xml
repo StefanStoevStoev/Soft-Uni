@@ -5,74 +5,110 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../irrigation/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.ejb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.jms.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.persistence.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.resource.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.servlet.jsp.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/lib/javax.transaction.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/IrrigationApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/CustomOAuth2User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/CustomerUserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/MailConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/config/SecurityConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/init/AppInit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/init/ApplicationConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/CurrentUserDetails.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/AuthDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/UserLoginDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/UserPhoneAndAddressDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/DTO/UserRegisterDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/BaseEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/DripEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/ProjectEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/PumpEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/RoleEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/SprinklerEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/UserEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/entity/enums/RoleEnum.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/AuthMapperDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/AuthModelDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/UserDetailsMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/mapper/UserMapperPhoneAddress.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/FieldMatch.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/FieldMatchValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/UniqueUserEmail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/validation/UniqueUserEmailValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/views/DripViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/model/views/UserViewModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/DripRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/PumpRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/SprinklerRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/repository/UserRoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/CurrentUserDetailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/DripService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/EmailService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/PumpService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/SprinklerService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/AuthController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/DripsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/PagesController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/ProductController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/PumpsController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/SprinklersController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/java/com/example/irrigation/web/errors/GlobalErrors.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/auth-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/auth-home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/products-drip.html" beforeDir="false" afterPath="$PROJECT_DIR$/../irrigation/src/main/resources/templates/products-drip.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../irrigation/src/test/java/com/example/irrigation/IrigationApplicationTests.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/Irrigation2Application.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/CustomerUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/MailConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/init/AppInit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/init/ApplicationConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/CurrentUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/AuthDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/UserLoginDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/UserPhoneAndAddressDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/UserRegisterDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/ProjectEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/PumpEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/RoleEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/SprinklerEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/UserEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/enums/RoleEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/AuthMapperDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/AuthModelDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/UserDetailsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/UserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/mapper/UserMapperPhoneAddress.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/FieldMatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/FieldMatchValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/UniqueUserEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/validation/UniqueUserEmailValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/views/DripViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/views/UserViewModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/DripRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/PumpRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/SprinklerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/CurrentUserDetailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/ProductController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PumpsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/SprinklersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/errors/GlobalErrors.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-pump.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-sprinkler.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-30-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-30-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips/hose16-30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/fav3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/home-nosel3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/pump-station-02.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/pumps-fp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/nosel1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/nosel4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/nosel9.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps/pompa-hiperi-1-5(2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps/pompa-hiperi-1-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/pumps7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/nosel5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-075D.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-075s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-def-06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-s100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-s50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/spr-s50s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/images/top-four-irrigation-techniques.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/auth-home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/buy-drip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/auth-home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products-pump.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/products-sprinkler.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/Irrigation2ApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +144,7 @@
         <option name="title" value="All" />
       </GitPushTagMode>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -130,41 +166,38 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2CeMY8Me3H4Zego5htpGBUPyRi9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propDebugger",
-    "spring.configuration.checksum": "d69784ca6fd1de93001551dcd739d9f3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d69784ca6fd1de93001551dcd739d9f3&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "repository",
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;repository&quot;,
+      &quot;directory&quot;
     ],
-    "DatabaseDriversLRU": [
-      "mysql"
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
@@ -201,7 +234,7 @@
       <workItem from="1659174073304" duration="894000" />
       <workItem from="1659174985035" duration="18527000" />
       <workItem from="1659256296709" duration="21065000" />
-      <workItem from="1659305503062" duration="426000" />
+      <workItem from="1659337485318" duration="28000" />
     </task>
     <servers />
   </component>
@@ -218,9 +251,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
