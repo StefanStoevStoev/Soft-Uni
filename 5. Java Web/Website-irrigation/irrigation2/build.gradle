@@ -37,6 +37,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-java8time
     implementation group: 'org.thymeleaf.extras', name: 'thymeleaf-extras-java8time', version: '3.0.4.RELEASE'
+// https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl
+    implementation group: 'org.codehaus.jackson', name: 'jackson-core-asl', version: '1.1.0'
 
 
 }

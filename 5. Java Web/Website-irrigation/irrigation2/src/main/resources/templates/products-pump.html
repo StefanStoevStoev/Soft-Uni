@@ -152,7 +152,10 @@
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
-                                    <p class="fs-6  mb-0" id="singlePrice" th:text="*{getPrice()}">Единична цена</p>
+                                    <p class="fs-6  mb-0"
+                                       id="singlePrice"
+                                       th:value="*{getPrice()}"
+                                       th:text="*{getPrice()}">Единична цена</p>
                                     <p class="fs-6  mb-0" id="price" th:text="|*{getPrice()} лв.|"></p>
                                 </div>
                             </div>

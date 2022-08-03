@@ -1,5 +1,8 @@
 package com.example.irrigation2.model.entity;
 
+import com.fasterxml.jackson.annotation.*;
+//import org.codehaus.jackson.annotate.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -11,6 +14,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "drips")
+@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@traineeId")
 public class DripEntity extends BaseEntity {
 
     private String name;

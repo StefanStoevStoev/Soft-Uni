@@ -7,6 +7,7 @@ import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.model.mapper.UserMapperPhoneAddress;
 import com.example.irrigation2.repository.DripRepository;
 import com.example.irrigation2.repository.UserRepository;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -28,13 +29,7 @@ public class DripService {
     }
 
 
-    public DripEntity getDripByUserId(Long id) {
-        return dripRepository.findById(id).orElse(null);
-    }
 
-    public List<DripEntity> getAllDrips() {
-        return dripRepository.findAll();
-    }
 
     public void initDrips() {
 
@@ -104,6 +99,14 @@ public class DripService {
                     .setId(4L);
             dripRepository.save(dripHose2);
         }
+    }
+    public DripEntity getDripByUserId(Long id) {
+        return dripRepository.findById(id).orElse(null);
+    }
+
+    @JsonIgnoreProperties({ "extra", "uselessValue" })
+    public List<DripEntity> getAllDrips() {
+        return dripRepository.findAll();
     }
 
     public List<DripEntity> listDripItems(UserEntity user) {

@@ -96,15 +96,17 @@
 <div class="container ">
     <ul class="navbar-nav  mt-4 position-relative ps-5 pe-5">
 
-        <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1" th:each="drips, iStat : ${getDrips}"
+        <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+             th:each="drips, iStat : ${getDrips}"
+             th:object="${drips}"
              style="--bs-bg-opacity: .6"  >
             <!--/*@thymesVar id="#getDrips" type="images"*/-->
             <div class="row pt-2 mb-2 ps-2 "
                  style="height: 25vh;
                  overflow: auto"
-                 th:object="${drips}" id="firstPrice" th:value="*{getPrice()}">
+                 >
                 <div class="col-auto ">
-                    <img src="/images/drips/hose16-10.png" height="140" width="190" class="img-fluid " alt=" ">
+                    <img th:src="*{url}" height="190" width="220" class="img-fluid " alt=" ">
                 </div>
                 <!--                text block-->
                 <div class="col" style="width: 350px; height: 150px">
@@ -121,7 +123,7 @@
                         </div>
                         <div class="col-md-auto ms-2 me-2">
                             <!--                        fs-6 text size-->
-                            <p class="fs-6 fw-bold mb-0" th:text="*{getName()}">Име</p>
+                            <p class="fs-6 fw-bold mb-0" th:text="*{name}">Име</p>
                             <p class="fs-6 mb-0" th:text="*{getCode()}">Код</p>
                             <p class="fs-6 mb-0" th:text="|*{getDiameter()} mm|">Диаметър</p>
                             <p class="fs-6 mb-0" th:text="|*{getTimeOfUse()} г.|">Продължителност за използване</p>
@@ -137,17 +139,29 @@
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
-                                    <p class="fs-6  mb-0" th:value="*{getPrice()}" th:text="|*{getPrice()} лв.|"
-                                       id="singlePrice">Единична цена</p>
-                                    <p class="fs-6  mb-0" id="price" th:value="*{getPrice()}" th:text="|*{getPrice()} лв.|"></p>
+                                    <p class="fs-6  mb-0 single-price"
+                                       th:value="*{price}"
+                                       th:text="|*{price} лв.|">Единична цена</p>
+                                    <p class="fs-6 mb-0 price"
+                                       th:value="*{price}"
+                                       th:text="|*{price} лв.|">Цена:</p>
                                 </div>
                             </div>
-                            <div class="input-spinner" th:high="50vh">
-                                <button id="decrement" onclick="stepper(this)" class="text-center" style="width: 2vh">
+                            <div class="input-spinner" th:high="50vh" th:value="*{price}">
+                                <button onclick="stepper(this)"
+                                        class="text-center decrement"
+                                        style="width: 2vh">
                                     -
                                 </button>
-                                <input type="number" min="1" max="100" step="1" value="1" id="my-input" readonly>
-                                <button id="increment" onclick="stepper(this)" class="text-center" style="width: 2vh">
+                                <input type="number"
+                                       min="1"
+                                       max="100"
+                                       step="1"
+                                       value="1"
+                                       class="my-input" readonly>
+                                <button onclick="stepper(this)"
+                                        class="text-center increment"
+                                        style="width: 2vh">
                                     +
                                 </button>
 
@@ -174,32 +188,7 @@
 <!--<script type="text/javascript" th:inline="javascript">-->
 <!--<th:each="drips, iStat : ${getDrips}">-->
 <script  type="text/javascript" th:inline="javascript">
-    function stepper(btn) {
-        const getPrice = $("#price").val();
-        const myInput = document.getElementById("my-input");
-        const price = document.getElementById('price');
-        let id = btn.getAttribute("id");
-        let step = myInput.getAttribute("step");
-        let min = myInput.getAttribute("min");
-        let max = myInput.getAttribute("max");
-        let val = myInput.getAttribute("value");
-        // let priceNumber = price.getAttribute("text");
-
-        let singlePrice = getPrice;
-
-        let calcStep = (id == "increment") ? (step * 1) : (step * -1);
-        let newValue = parseInt(val) + calcStep;
-
-        if (newValue >= min && newValue <= max) {
-            myInput.setAttribute("value", newValue);
-
-            let newPrice = newValue * singlePrice;
-            price.textContent = newPrice.toFixed(2) + ' лв.';
-        }
-    }
 </script>
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>
-<!--<script  th:inline="javascript" src="/js/script.js">-->
-<!--const getPrice = [[${drips.getPrice()}]];-->

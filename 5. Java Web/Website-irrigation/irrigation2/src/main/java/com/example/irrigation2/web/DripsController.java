@@ -2,6 +2,7 @@ package com.example.irrigation2.web;
 
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.UserPhoneAndAddressDTO;
+import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.service.DripService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/products")
@@ -24,7 +27,8 @@ public class DripsController {
     @GetMapping("/drip")
     public String getDrip(Model model) {
         if (!model.containsAttribute("getDrips")) {
-            model.addAttribute("getDrips", this.dripService.getAllDrips());
+            List<DripEntity> allDrips = this.dripService.getAllDrips();
+            model.addAttribute("getDrips",allDrips);
         }
 //        if (!model.containsAttribute("getDripById1")) {
 //            model.addAttribute("getDripById1", this.dripService.getDripByUserId(1L));
