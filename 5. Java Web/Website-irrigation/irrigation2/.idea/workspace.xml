@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Started test directory">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" afterDir="false" />
-    </list>
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Save address and phone of the user" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -145,7 +139,7 @@
       <workItem from="1659337485318" duration="23827000" />
       <workItem from="1659435287169" duration="3920000" />
       <workItem from="1659442825275" duration="18100000" />
-      <workItem from="1659509797612" duration="16324000" />
+      <workItem from="1659509797612" duration="27948000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -154,7 +148,42 @@
       <option name="project" value="LOCAL" />
       <updated>1659378296787</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="product-drip and stepper buttons are working with the new th:each">
+      <created>1659529177689</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1659529177689</updated>
+    </task>
+    <task id="LOCAL-00003" summary="product-drip and stepper buttons are working with the new th:each">
+      <created>1659529232361</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659529232361</updated>
+    </task>
+    <task id="LOCAL-00004" summary="script.js - added discount rate.">
+      <created>1659530973866</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659530973866</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Save address and phone of the user">
+      <created>1659549094743</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659549094743</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Save address and phone of the user">
+      <created>1659549124737</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659549124737</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,9 +202,21 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Started test directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started test directory" />
+    <MESSAGE value="product-drip and stepper buttons are working with the new th:each" />
+    <MESSAGE value="script.js - added discount rate." />
+    <MESSAGE value="Save address and phone of the user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save address and phone of the user" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.aop.framework.JdkDynamicAopProxy" memberName="proxiedInterfaces" />
@@ -185,6 +226,7 @@
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="((String)((LinkedHashMap.Entry)((org.springframework.validation.support.BindingAwareModelMap)model).entrySet().toArray()[0]).getKey()).value" custom="org.springframework.validation.support.BindingAwareModelMap,java.util.LinkedHashMap.Entry,java.lang.String" />
+        <watch expression="this.h" custom="java.lang.reflect.Proxy" />
       </configuration>
     </watches-manager>
   </component>

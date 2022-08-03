@@ -120,10 +120,11 @@
                     >Адресът трябва да съдържа между 10 и 50 символа.</small>
                 </div>
                 <div class="button-holder d-flex justify-content-center mt-4">
-                    <input id="myButton" type="submit"
+                    <input id="myButton"
+                           type="submit"
                            class="btn btn-warning mb-5"
                            th:value="Обнови"
-                           th:href="@{/auth-home}">
+                           th:href="@{/auth-home/{id}(id=*{id})}">
 
                 </div>
             </form>

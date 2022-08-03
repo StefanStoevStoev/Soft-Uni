@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -29,27 +30,25 @@ public class AuthController {
         this.dripService = dripService;
     }
 
-//    @GetMapping("/auth-home/{id}")
-//    public ResponseEntity<UserEntity> getById(@PathVariable long id) throws NotFoundException {
-//        Optional<UserEntity> user = userService.getById(id);
-//        if (user.isPresent()) {
-//            return new ResponseEntity<>(user.get(), HttpStatus.OK);
-//        } else {
-//            throw new NotFoundException("Not found user with id " + id);
-//        }
-//    }
-
-    @GetMapping("/auth-home")
-    public String getUser(@AuthenticationPrincipal CurrentUserDetails currentUser, Model model) {
-        UserViewModel user = userService.getUserById(currentUser.getId());
+    @GetMapping("/auth-home/{id}")
+    public String getById(@PathVariable("id") Long id, Model model) {
+        UserViewModel user = userService.getUserById(id);
         model.addAttribute("userDetails", user);
-//        model.addAttribute("userId", id);
+        model.addAttribute("userId", id);
 
         return "auth-home";
     }
 
-    @PostMapping("/auth-home/")
-    public String addUser(@Valid AuthDTO authDTO,
+//    @GetMapping("/auth-home")
+//    public String getUser(@AuthenticationPrincipal CurrentUserDetails currentUser, Model model) {
+//        UserViewModel user = userService.getUserById(currentUser.getId());
+//        model.addAttribute("userDetails", user);
+////        model.addAttribute("userId", id);
+//        return "auth-home";
+//    }
+
+    @PostMapping("/auth-home")
+    public String addUser( @Valid AuthDTO authDTO,
                           BindingResult bindingResult,
                           RedirectAttributes redirectAttributes,
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
@@ -58,10 +57,10 @@ public class AuthController {
             redirectAttributes.addFlashAttribute("authDTO", authDTO);
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.authDTO", bindingResult);
-            return "redirect:/auth-home";
+            return "redirect:/auth-home/" + currentUser.getId();
         }
         userService.saveDataToUser(authDTO, currentUser);
-        return "redirect:/auth-home";
+        return "redirect:/auth-home/" + currentUser.getId();
     }
 
     //    @GetMapping("/drip/buy")
