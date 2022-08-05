@@ -26,7 +26,19 @@ public class UserEntity extends BaseEntity {
     @OneToMany
     private List<ProjectEntity> project;
 
+    @ManyToMany
+    private List<DripEntity> dripEntities;
+
     public UserEntity() {
+    }
+
+    public List<DripEntity> getDripEntities() {
+        return dripEntities;
+    }
+
+    public UserEntity setDripEntities(List<DripEntity> dripEntities) {
+        this.dripEntities = dripEntities;
+        return this;
     }
 
     public UserEntity setActive(boolean active) {

@@ -2,6 +2,7 @@ package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AuthDTO;
+import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.UserRegisterDTO;
 import com.example.irrigation2.model.entity.RoleEntity;
 import com.example.irrigation2.model.entity.UserEntity;
@@ -53,6 +54,8 @@ public class UserService{
         this.userDetailsMapper = userDetailsMapper;
         this.authModelDTO = authModelDTO;
     }
+
+
 
     public void init() {
 
@@ -166,6 +169,10 @@ public class UserService{
 
     public Optional<UserEntity> getById(long id) {
         return userRepository.findById(id);
+    }
+
+    public void addDripToUser(DripDTO dripDTO, CurrentUserDetails currentUser) {
+
     }
 
 //    public UserEntity getCurrentlyLoggedInCustomer(Authentication authentication){

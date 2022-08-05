@@ -8,6 +8,7 @@ import com.example.irrigation2.service.DripService;
 import com.example.irrigation2.service.UserService;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -31,21 +32,12 @@ public class AuthController {
     }
 
     @GetMapping("/auth-home/{id}")
-    public String getById(@PathVariable("id") Long id, Model model) {
+    public String getById(@PathVariable("id") Long id, Model model, @AuthenticationPrincipal UserDetails currentUser) {
         UserViewModel user = userService.getUserById(id);
         model.addAttribute("userDetails", user);
-        model.addAttribute("userId", id);
 
         return "auth-home";
     }
-
-//    @GetMapping("/auth-home")
-//    public String getUser(@AuthenticationPrincipal CurrentUserDetails currentUser, Model model) {
-//        UserViewModel user = userService.getUserById(currentUser.getId());
-//        model.addAttribute("userDetails", user);
-////        model.addAttribute("userId", id);
-//        return "auth-home";
-//    }
 
     @PostMapping("/auth-home")
     public String addUser( @Valid AuthDTO authDTO,
@@ -59,6 +51,7 @@ public class AuthController {
                     "org.springframework.validation.BindingResult.authDTO", bindingResult);
             return "redirect:/auth-home/" + currentUser.getId();
         }
+        redirectAttributes.addFlashAttribute("uId", currentUser.getId());
         userService.saveDataToUser(authDTO, currentUser);
         return "redirect:/auth-home/" + currentUser.getId();
     }

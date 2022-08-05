@@ -69,7 +69,7 @@ public class DripService {
 
             DripEntity dripHose = new DripEntity();
             dripHose
-                    .setName("Многосезонен маркуч")
+                    .setName("Многосезонен маркуч 20")
                     .setCode("00003")
                     .setDiameter(16)
                     .setDistBtwDrips(20)
@@ -85,7 +85,7 @@ public class DripService {
 
             DripEntity dripHose2 = new DripEntity();
             dripHose2
-                    .setName("Многосезонен маркуч")
+                    .setName("Многосезонен маркуч 30")
                     .setCode("00004")
                     .setDiameter(16)
                     .setDistBtwDrips(30)

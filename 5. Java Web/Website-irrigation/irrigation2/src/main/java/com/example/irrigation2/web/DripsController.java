@@ -1,16 +1,21 @@
 package com.example.irrigation2.web;
 
 import com.example.irrigation2.model.CurrentUserDetails;
-import com.example.irrigation2.model.DTO.UserPhoneAndAddressDTO;
+import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.service.DripService;
+import com.example.irrigation2.service.UserService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -18,62 +23,40 @@ import java.util.List;
 public class DripsController {
 
     private final DripService dripService;
+    private final UserService userService;
 
-    public DripsController(DripService dripService) {
+    public DripsController(DripService dripService, UserService userService) {
         this.dripService = dripService;
+        this.userService = userService;
     }
 
 
     @GetMapping("/drip")
-    public String getDrip(Model model) {
+    public String getDrip(Model model, @AuthenticationPrincipal CurrentUserDetails currentUser) {
         if (!model.containsAttribute("getDrips")) {
             List<DripEntity> allDrips = this.dripService.getAllDrips();
             model.addAttribute("getDrips",allDrips);
         }
-//        if (!model.containsAttribute("getDripById1")) {
-//            model.addAttribute("getDripById1", this.dripService.getDripByUserId(1L));
-//        }
-//        if (!model.containsAttribute("getDripById2")) {
-//            model.addAttribute("getDripById2", this.dripService.getDripByUserId(2L));
-//        }
-//        if (!model.containsAttribute("getDripById3")) {
-//            model.addAttribute("getDripById3", this.dripService.getDripByUserId(3L));
-//        }
-//        if (!model.containsAttribute("getDripById4")) {
-//            model.addAttribute("getDripById4", this.dripService.getDripByUserId(4L));
-//        }
-//        if(currentUser != null){
-//            model.addAttribute("userId", currentUser.getId());
-//        }
+        if(currentUser != null){
+            model.addAttribute("getUserId",currentUser.getId());
+        }
 
         return "products-drip";
     }
 
-    @GetMapping("/drip/buy")
-    public String buyDrip() {
-        return "buy-drip";
+    @PostMapping("/drip")
+    public String saveDripDetails(@Valid DripDTO dripDTO,
+                                  RedirectAttributes redirectAttributes,
+                                  @AuthenticationPrincipal CurrentUserDetails currentUser){
+
+        redirectAttributes.addFlashAttribute("dripDTO", dripDTO);
+        userService.addDripToUser(dripDTO,currentUser);
+
+        return "redirect:/auth-home/" + currentUser.getId();
     }
 
-//    @PostMapping("/drip/buy")
-//    public String register(@Valid UserPhoneAndAddressDTO userPhoneAndAddressDTO,
-//                           BindingResult bindingResult,
-//                           RedirectAttributes redirectAttributes,
-//                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
-//
-////        Long id = currentUser.getId();
-//        dripService.savePhoneAndAddress(userPhoneAndAddressDTO, currentUser);
-//        if (bindingResult.hasErrors()) {
-//            redirectAttributes.addFlashAttribute("userPhoneAndAddressDTO", userPhoneAndAddressDTO);
-//            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.userPhoneAndAddressDTO", bindingResult);
-//            return "redirect:/products/drip/buy";
-//        }
-//
-//        return "redirect:/auth-home";
-//    }
-
-//    @ModelAttribute("userPhoneAndAddressDTO")
-//    public UserPhoneAndAddressDTO initUserModel() {
-//        UserPhoneAndAddressDTO userPhoneAndAddressDTO = new UserPhoneAndAddressDTO();
-//        return userPhoneAndAddressDTO;
-//    }
+    @ModelAttribute("dripDTO")
+    public DripDTO initDripModel() {
+        return new DripDTO();
+    }
 }
