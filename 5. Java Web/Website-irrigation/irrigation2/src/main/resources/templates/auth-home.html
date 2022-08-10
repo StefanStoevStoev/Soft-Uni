@@ -21,10 +21,9 @@
 <div th:replace="fragments/fragment::navigation"></div>
 <div class=" p-2 mt-2 pt-2 mb-2 pb-2 mask-custom-1"></div>
 <div class="container">
-    <ul class="navbar-nav mt-4">
-        <main class="row">
-
-            <form class="container-fluid min-vh-100 d-flex flex-column mx-auto w-25 bg-blur rounded"
+    <ul class="navbar-nav ms-auto mt-4">
+        <main class="row justify-content-center h-100">
+            <form class="col-4 hidden-md-down w-25 bg-blur rounded"
                   th:method="post"
                   th:action="@{/auth-home/}"
                   th:object="${authDTO}">
@@ -122,126 +121,127 @@
 
                 </div>
             </form>
-            <div class="col bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
-                 th:each="drips, iStat : ${dripNumsByUser}"
-                 style="--bs-bg-opacity: .6">
-                <!--/*@thymesVar id="#getDrips" type="images"*/-->
-                <div th:if="drips != null" class="row pt-2 mb-2 ps-2 "
-                     style="height: 30vh;
+            <div class="col-10 col-sm-10 col-md-10 col-lg-8 col-xl-8">
+                <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+                     th:each="drips, iStat : ${dripNumsByUser}"
+                        style="--bs-bg-opacity: .6">
+                    <!--/*@thymesVar id="#getDrips" type="images"*/-->
+                    <div th:if="drips != null" class="row pt-2 mb-2 ps-2 "
+                         style="height: 30vh;
                  overflow: auto">
-                    <div class="col-auto ">
-                        <img th:src="${drips.url}"
-                             class="img-responsive "
-                             alt=" ">
-                    </div>
-                    <!--                text block-->
-                    <div class="col" style="width: 350px; height: 150px">
-                        <div class="row">
-                            <div class="col text-end ps-0 pe-0">
-                                <!--                        fs-6 text size-->
-                                <p class="fs-6 fw-bold mb-0">Име:</p>
-                                <p class="fs-6 mb-0">Код:</p>
-                                <p class="fs-6 mb-0">Диаметър:</p>
-                                <p class="fs-6 mb-0">Дължина:</p>
-                                <p class="fs-6 mb-0">Продължителност за използване:</p>
-                                <p class="fs-6 mb-0">Разстояние между капкуватели:</p>
-                                <p class="fs-6 mb-0">Дебит на капкувател:</p>
-                                <p class="fs-6 mb-0">Максимално работно налягане:</p>
-                            </div>
-                            <div class="col-md-auto ms-2 me-2">
-                                <!--                        fs-6 text size-->
-                                <p class="fs-6 fw-bold mb-0" th:text="${drips.name}">Име</p>
-                                <p class="fs-6 mb-0" th:text="${drips.code}">Код</p>
-                                <p class="fs-6 mb-0" th:text="|${drips.diameter} mm|">Диаметър</p>
-                                <p class="fs-6 mb-0" th:text="|${drips.size} m|">Дължина</p>
-                                <p class="fs-6 mb-0" th:text="|${drips.timeOfUse} г.|">Продължителност за
-                                    използване</p>
-                                <p class="fs-6 mb-0" th:text="|${drips.distBtwDrips} cm|">Разстояние между
-                                    капкуватели</p>
-                                <p class="fs-6 mb-0" th:text="|${drips.flowPerDrip} л/ч|">Дебит на капкувател</p>
-                                <p class="fs-6 mb-0" th:text="|${drips.maxPressure} атм.|">Максимално работно
-                                    налягане</p>
-
-                            </div>
-                            <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
-                                <div class="row container pt-3 pb-2 mb-2 mt-0 pe-0 ps-0">
-                                    <div class="col text-end">
-                                        <p class="fs-6 mb-0">Единична цена:</p>
-                                        <p class="fs-6 mb-0">Наличност:</p>
-                                        <p class="fs-6 mb-0">Цена:</p>
-                                    </div>
-                                    <div class="col text-start ">
-                                        <p class="fs-6  mb-0 single-price"
-                                           th:value="${drips.price}"
-                                           th:text="|${drips.price} лв.|">Единична цена</p>
-                                        <p class="fs-6 mb-0 availability"
-                                           th:value="${drips.pieces}"
-                                           th:text="|${drips.pieces} бр.|">Наличност:</p>
-                                        <p class="fs-6 mb-0 price2"
-                                           th:text="|${drips.price} лв.|">Цена:</p>
-                                    </div>
+                        <div class="col-auto ">
+                            <img th:src="${drips.url}"
+                                 class="img-responsive "
+                                 alt=" ">
+                        </div>
+                        <!--                text block-->
+                        <div class="col" style="width: 350px; height: 150px">
+                            <div class="row">
+                                <div class="col text-end ps-0 pe-0">
+                                    <!--                        fs-6 text size-->
+                                    <p class="fs-6 fw-bold mb-0">Име:</p>
+                                    <p class="fs-6 mb-0">Код:</p>
+                                    <p class="fs-6 mb-0">Диаметър:</p>
+                                    <p class="fs-6 mb-0">Дължина:</p>
+                                    <p class="fs-6 mb-0">Продължителност за използване:</p>
+                                    <p class="fs-6 mb-0">Разстояние между капкуватели:</p>
+                                    <p class="fs-6 mb-0">Дебит на капкувател:</p>
+                                    <p class="fs-6 mb-0">Максимално работно налягане:</p>
                                 </div>
-                                <div class="input-spinner" th:high="50vh">
-                                    <button onclick="stepper(this)"
-                                            class="text-center decrement"
-                                            style="width: 2vh">
-                                        -
-                                    </button>
-                                    <input type="number"
-                                           min="1"
-                                           max="100"
-                                           step="1"
-                                           value="1"
-                                           class="my-input" readonly>
-                                    <button onclick="stepper(this)"
-                                            class="text-center increment"
-                                            style="width: 2vh">
-                                        +
-                                    </button>
+                                <div class="col-md-auto ms-2 me-2">
+                                    <!--                        fs-6 text size-->
+                                    <p class="fs-6 fw-bold mb-0" th:text="${drips.name}">Име</p>
+                                    <p class="fs-6 mb-0" th:text="${drips.code}">Код</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.diameter} mm|">Диаметър</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.size} m|">Дължина</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.timeOfUse} г.|">Продължителност за
+                                        използване</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.distBtwDrips} cm|">Разстояние между
+                                        капкуватели</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.flowPerDrip} л/ч|">Дебит на капкувател</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.maxPressure} атм.|">Максимално работно
+                                        налягане</p>
+
                                 </div>
-                                <form th:method="post"
-                                      th:action="@{/products/drip}"
-                                      th:object="${dripDTO}"
-                                      class="button-holder d-flex justify-content-center mt-2">
-
-                                    <label th:type="hidden" style="display:none"></label>
-                                    <input th:type="hidden"
-                                           class=" id"
-                                           th:value="${drips.id}"
-                                           name="id"
-                                           style="display:none">
-
-                                    <label th:type="hidden" style="display:none"></label>
-                                    <input th:type="hidden"
-                                           class=" price"
-                                           name="price"
-                                           style="display:none">
-                                    </input>
-                                    <label th:type="hidden" for="pieces" style="display:none"></label>
-                                    <input th:type="hidden"
-                                           id="pieces"
-                                           class=" pieces"
-                                           name="pieces"
-                                           style="display:none">
-                                    </input>
-                                    <th:block sec:authorize="isAuthenticated()">
-                                        <button class="btn btn-warning mb-1"
-                                                onclick="setAttributeData(this)">Купи
+                                <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                                    <div class="row container pt-3 pb-2 mb-2 mt-0 pe-0 ps-0">
+                                        <div class="col text-end">
+                                            <p class="fs-6 mb-0">Единична цена:</p>
+                                            <p class="fs-6 mb-0">Наличност:</p>
+                                            <p class="fs-6 mb-0">Цена:</p>
+                                        </div>
+                                        <div class="col text-start ">
+                                            <p class="fs-6  mb-0 single-price"
+                                               th:value="${drips.price}"
+                                               th:text="|${drips.price} лв.|">Единична цена</p>
+                                            <p class="fs-6 mb-0 availability"
+                                               th:value="${drips.pieces}"
+                                               th:text="|${drips.pieces} бр.|">Наличност:</p>
+                                            <p class="fs-6 mb-0 price2"
+                                               th:text="|${drips.price} лв.|">Цена:</p>
+                                        </div>
+                                    </div>
+                                    <div class="input-spinner" th:high="50vh">
+                                        <button onclick="stepper(this)"
+                                                class="text-center decrement"
+                                                style="width: 2vh">
+                                            -
                                         </button>
-                                        <!--  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>-->
-                                        <!--  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
-                                    </th:block>
+                                        <input type="number"
+                                               min="1"
+                                               max="100"
+                                               step="1"
+                                               value="1"
+                                               class="my-input" readonly>
+                                        <button onclick="stepper(this)"
+                                                class="text-center increment"
+                                                style="width: 2vh">
+                                            +
+                                        </button>
+                                    </div>
+                                    <form th:method="post"
+                                          th:action="@{/products/drip}"
+                                          th:object="${dripDTO}"
+                                          class="button-holder d-flex justify-content-center mt-2">
 
-                                    <th:block sec:authorize="isAnonymous()">
-                                        <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}">Купи</a>
-                                    </th:block>
-                                </form>
+                                        <label th:type="hidden" style="display:none"></label>
+                                        <input th:type="hidden"
+                                               class=" id"
+                                               th:value="${drips.id}"
+                                               name="id"
+                                               style="display:none">
+
+                                        <label th:type="hidden" style="display:none"></label>
+                                        <input th:type="hidden"
+                                               class=" price"
+                                               name="price"
+                                               style="display:none">
+                                        </input>
+                                        <label th:type="hidden" for="pieces" style="display:none"></label>
+                                        <input th:type="hidden"
+                                               id="pieces"
+                                               class=" pieces"
+                                               name="pieces"
+                                               style="display:none">
+                                        </input>
+                                        <th:block sec:authorize="isAuthenticated()">
+                                            <button class="btn btn-warning mb-1"
+                                                    onclick="setAttributeData(this)">Купи
+                                            </button>
+                                            <!--  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>-->
+                                            <!--  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
+                                        </th:block>
+
+                                        <th:block sec:authorize="isAnonymous()">
+                                            <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}">Купи</a>
+                                        </th:block>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </main>
     </ul>
 </div>
