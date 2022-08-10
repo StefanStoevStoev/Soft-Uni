@@ -1,3 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*font-family: "Roboto M", monospace ;*/
+    /*font-weight: 600;*/
+}
+
 body {
     background-image: url("/images/frontPage/nosel2.jpg");
     background-repeat: no-repeat;
@@ -34,4 +42,8 @@ button{
 #increment{
     padding:  0 0 0 0;
     text-align: center;
+}
+.img-responsive {
+    width: auto;
+    height: 220px;
 }

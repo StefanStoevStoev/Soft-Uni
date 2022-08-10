@@ -1,3 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*font-family: "Roboto M", monospace ;*/
+    /*font-weight: 600;*/
+}
+
 body {
     /* The image used */
     background-image: url("/images/frontPage/pump-station-02.jpg");
@@ -59,4 +67,8 @@ button{
 #fullscreen:-webkit-full-screen {
     background-image: url('../img/ios-linen.jpg');
     width: 100%;
+}
+.img-responsive {
+    width: auto;
+    height: 300px;
 }

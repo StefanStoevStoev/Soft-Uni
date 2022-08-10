@@ -1,24 +1,21 @@
 package com.example.irrigation2.model.DTO;
 
-import javax.validation.constraints.Positive;
 import java.math.BigDecimal;
 
-public class DripDTO {
+public class PumpDTO {
 
     private Long id;
-    @Positive
     private int pieces;
-    @Positive
     private BigDecimal price;
 
-    public DripDTO() {
+    public PumpDTO() {
     }
 
     public Long getId() {
         return id;
     }
 
-    public DripDTO setId(Long id) {
+    public PumpDTO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -27,7 +24,7 @@ public class DripDTO {
         return pieces;
     }
 
-    public DripDTO setPieces(int pieces) {
+    public PumpDTO setPieces(int pieces) {
         this.pieces = pieces;
         return this;
     }
@@ -36,7 +33,7 @@ public class DripDTO {
         return price;
     }
 
-    public DripDTO setPrice(BigDecimal price) {
+    public PumpDTO setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }

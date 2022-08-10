@@ -11,7 +11,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
 @Configuration
 public class SecurityConfiguration {
@@ -35,17 +38,19 @@ public class SecurityConfiguration {
                 //everyone can download static resources (css, js, images)
                 .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 // everyone can have access to login and register
-                .antMatchers("/**", "/users/login", "/users/register").permitAll()
+                .antMatchers("/", "/users/login", "/users/register","/products/**").permitAll()
                 // pages available only for admins
                 .antMatchers("/pages/admin").hasRole(RoleEnum.ADMIN.name())
                 //all other pages are available for logger in users
-                .anyRequest()
-                .authenticated()
+//                .anyRequest()
+                .antMatchers("/products/sprinkler/**").authenticated()
+                .antMatchers("/products/drip/**").authenticated()
              .and()
                 // configuration of form login
                 .formLogin()
                 //the custom login form
                 .loginPage("/users/login")
+                .successHandler(successHandler()).permitAll()
                 //the name of the username form field
                 .usernameParameter(UsernamePasswordAuthenticationFilter.SPRING_SECURITY_FORM_USERNAME_KEY)
                 //the name of the password form field
@@ -64,7 +69,9 @@ public class SecurityConfiguration {
                 .logoutUrl("/users/logout")
                 // invalidate the session and delete the cookies
                 .invalidateHttpSession(true)
-                .deleteCookies("JSESSIONID");
+                .deleteCookies("JSESSIONID")
+                .and()
+                .csrf().disable();
 
         return httpSecurity.build();
     }
@@ -72,5 +79,12 @@ public class SecurityConfiguration {
     @Bean
     public UserDetailsService userDetailsService(UserRepository userRepository){
     return new CurrentUserDetailService(userRepository);
+    }
+
+    @Bean
+    public AuthenticationSuccessHandler successHandler() {
+        SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
+        handler.setUseReferer(true);
+        return handler;
     }
 }

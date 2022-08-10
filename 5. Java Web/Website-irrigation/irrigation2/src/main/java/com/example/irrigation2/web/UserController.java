@@ -102,7 +102,6 @@ public class UserController {
                            RedirectAttributes redirectAttributes,
                            HttpServletRequest request) {
 
-
         boolean registerAndLogin = userService.registerAndLogin(userRegisterDTO,
                 localeResolver.resolveLocale(request));
         if (bindingResult.hasErrors() || !registerAndLogin) {

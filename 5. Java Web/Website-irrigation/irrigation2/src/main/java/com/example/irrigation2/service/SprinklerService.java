@@ -5,6 +5,7 @@ import com.example.irrigation2.repository.SprinklerRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class SprinklerService {
@@ -35,7 +36,8 @@ public class SprinklerService {
                     .setVolume("19,3÷123")
                     .setRadius("13,1÷23,5")
                     .setPrice(BigDecimal.valueOf(121.5))
-                    .setPieces(30);
+                    .setPieces(30)
+                    .setUrl("/images/sprinkler/spr-s100.png");
             sprinklerRepository.save(sprinklerEntity);
 
             SprinklerEntity sprinklerEntity50 = new SprinklerEntity();
@@ -50,7 +52,8 @@ public class SprinklerService {
                     .setVolume("2,84÷12,5")
                     .setRadius("5,1÷9,0")
                     .setPrice(BigDecimal.valueOf(27.5))
-                    .setPieces(64);
+                    .setPieces(64)
+                    .setUrl("/images/sprinkler/spr-s50.png");
             sprinklerRepository.save(sprinklerEntity50);
 
             SprinklerEntity sprinklerEntity50s = new SprinklerEntity();
@@ -65,7 +68,8 @@ public class SprinklerService {
                     .setVolume("2,84÷12,5")
                     .setRadius("5,1÷9,0")
                     .setPrice(BigDecimal.valueOf(31.8))
-                    .setPieces(8);
+                    .setPieces(8)
+                    .setUrl("/images/sprinkler/spr-s50s.png");
             sprinklerRepository.save(sprinklerEntity50s);
 
             SprinklerEntity sprinklerEntity75s = new SprinklerEntity();
@@ -80,7 +84,8 @@ public class SprinklerService {
                     .setVolume("1,7÷35,96")
                     .setRadius("7,9÷14,9")
                     .setPrice(BigDecimal.valueOf(44.90))
-                    .setPieces(120);
+                    .setPieces(120)
+                    .setUrl("/images/sprinkler/spr-075s.png");
             sprinklerRepository.save(sprinklerEntity75s);
 
             SprinklerEntity sprinklerEntity75d = new SprinklerEntity();
@@ -95,19 +100,26 @@ public class SprinklerService {
                     .setVolume("4,5÷32,6")
                     .setRadius("6,7÷15,5")
                     .setPrice(BigDecimal.valueOf(33.30))
-                    .setPieces(42);
+                    .setPieces(42)
+                    .setUrl("/images/sprinkler/spr-075D.png");
             sprinklerRepository.save(sprinklerEntity75d);
 
             SprinklerEntity sprinklerEntity020 = new SprinklerEntity();
             sprinklerEntity020
                     .setKind("Дефлекторен разпръсквач")
-                    .setModel("S075D")
+                    .setModel("def-06")
                     .setMake("RAIN")
                     .setCode("01006")
                     .setSize("1/2\"")
                     .setPrice(BigDecimal.valueOf(4.5))
-                    .setPieces(55);
+                    .setPieces(55)
+                    .setUrl("/images/sprinkler/spr-def-06.png");
             sprinklerRepository.save(sprinklerEntity020);
         }
+    }
+
+    public List<SprinklerEntity> getAllSprinklers(){
+
+        return sprinklerRepository.findAll();
     }
 }

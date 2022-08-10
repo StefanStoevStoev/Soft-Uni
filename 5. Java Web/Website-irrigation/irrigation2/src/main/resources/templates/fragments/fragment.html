@@ -12,15 +12,7 @@
     <link rel="stylesheet" th:href="@{/static/css/styles.css}">
     <link rel="icon" type="image/x-icon" href="/images/fav3.png">
     <script src="/js/script.js" type="text/javascript"></script>
-    <!--    <script src="/js/script.js"></script>-->
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />-->
-<!--        <meta http-equiv="x-ua-compatible" content="ie=edge" />-->
-<!--        <title>Material Design for Bootstrap</title>-->
-<!--     Font Awesome-->
-<!--        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />-->
-<!--     Google Fonts Roboto-->
-<!--        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />-->
+
     <style>
         body {
             background-image: url('/images/frontPage/nosel11.jpg');
@@ -30,16 +22,11 @@
             object-fit: cover;
             width: 100%;
         }
-        nav{
-            position: fixed;
-        }
     </style>
 </head>
 <body>
 <div class="container" th:fragment="navigation">
-
     <nav class="navbar navbar-expand-lg bg-light p-2 mt-4 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .7">
-
         <div class="container fs-5 " id="navbarNav ">
             <ul class="navbar-nav mx-3 ">
                 <li class="nav-item ">
@@ -56,7 +43,12 @@
                     </a>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('USER')">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/auth-home}">Моите поръчки</a>
+                    <form th:method="get"
+                          th:action="@{/}">
+                        <a type="submit"
+                           class="nav-link text-dark fw-bold "
+                           th:href="@{/auth-home/{id}(id=${getUserId})}">Моите поръчки</a>
+                    </form>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
@@ -87,7 +79,7 @@
                 <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>-->
                 <!--                </li>-->
                 <li class="nav-item me-4 ">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/home}">За нас</a>
                 </li>
 
                 <th:block sec:authorize="!isAuthenticated()">
@@ -111,13 +103,16 @@
         </div>
     </nav>
 </div>
-<footer
-        th:fragment="footer"
-        class="footer fixed-bottom container text-center">
-    <div class="footer-background h5 text-white">
-        &copy; Spring team 2022. All rights reserved.
-    </div>
-</footer>
+<th:block th:fragment="footer">
+    <div  class=" p-2 mt-2 pt-2 mb-2 pb-2 mask-custom-1"></div>
+    <footer
+            class="footer fixed-bottom container text-center">
+        <div class="footer-background h5 text-white">
+            &copy; "Напоителни системи" 2022. Всички права са запазени.
+        </div>
+    </footer>
+</th:block>
+
 </body>
 </html>
 

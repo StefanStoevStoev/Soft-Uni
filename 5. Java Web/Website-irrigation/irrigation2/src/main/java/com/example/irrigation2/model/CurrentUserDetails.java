@@ -20,6 +20,7 @@ public class CurrentUserDetails implements UserDetails {
                               String password,
                               String email,
                               Collection<GrantedAuthority> authorities) {
+
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -27,6 +28,8 @@ public class CurrentUserDetails implements UserDetails {
         this.email = email;
         this.authorities = authorities;
     }
+
+
 
     public String getEmail() {
         return email;

@@ -10,9 +10,7 @@
 </head>
 <body>
 <div class="container">
-
     <nav class="navbar navbar-expand-lg bg-light p-2 mt-4 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .7">
-
         <div class="container fs-5 " id="navbarNav ">
             <ul class="navbar-nav mx-3 ">
                 <li class="nav-item ">
@@ -28,7 +26,12 @@
                     </a>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('USER')">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/auth-home}">Моите поръчки</a>
+                    <form th:method="post"
+                          th:action="@{/auth-home}">
+                        <a type="submit"
+                           class="nav-link text-dark fw-bold "
+                           th:href="@{/auth-home/{id}(id=${getUserId})}">Моите поръчки</a>
+                    </form>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
@@ -58,7 +61,7 @@
 <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>-->
 <!--                </li>-->
                 <li class="nav-item me-4 ">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/home}">За нас</a>
                 </li>
 
                 <th:block sec:authorize="!isAuthenticated()">
@@ -84,14 +87,16 @@
 </div>
 <div class="container ">
     <ul class="navbar-nav  mt-4 position-relative ps-5 pe-5">
-
-        <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .6">
-            <div class="row pt-2 mb-2 ps-2 " style="height: 32vh; overflow: auto">
+        <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+             th:each="sprinklers : ${getSprinklers}"
+             style="--bs-bg-opacity: .6">
+            <div class="row pt-2 mb-2 ps-2 " style="height: 34vh; overflow: auto">
                 <div class="col-auto ">
-                    <img src="/images/sprinkler/spr-s100.png" height="140" width="130" class="img-fluid " alt=" ">
+                    <img th:src="${sprinklers.url}"
+                         class="img-responsive " alt=" ">
                 </div>
                 <!--                text block-->
-                <div class="col" th:object="${getSprinklerById1}" style="width: 350px; height: 150px">
+                <div class="col" style="width: 300px; height: 130px">
                     <div class="row">
                         <div class="col text-end ps-0 pe-0">
                             <!--                        fs-6 text size-->
@@ -107,44 +112,98 @@
                         </div>
                         <div class="col-md-auto ms-2 me-2">
                             <!--                        fs-6 text size-->
-                            <p class="fs-6 fw-bold mb-0" th:text="*{getKind()}">Вид:</p>
-                            <p class="fs-6 mb-0" th:text="*{getModel()}">Модел:</p>
-                            <p class="fs-6 mb-0" th:text="*{getMake()}">Производител:</p>
-                            <p class="fs-6 mb-0" th:text="*{getCode()}">Код:</p>
-                            <p class="fs-6 mb-0" th:text="*{getSize()}">Размер:</p>
-                            <p class="fs-6 mb-0" th:text="|*{getPressure()} атм.|">Налягане:</p>
-                            <p class="fs-6 mb-0" th:text="|*{getNosel()} mm|">Дюза:</p>
-                            <p class="fs-6 mb-0" th:text="|*{getVolume()} л/мин.|">Дебит:</p>
-                            <p class="fs-6 mb-0" th:text="|*{getRadius()} m|">Радиус:</p>
+                            <p class="fs-6 fw-bold mb-0" th:text="${sprinklers.kind}">Вид:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.model}">Модел:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.make}">Производител:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.code}">Код:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.size}">Размер:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.pressure} ? ${sprinklers.pressure} + ' атм.' : '-'" >Налягане:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.nosel} ? ${sprinklers.nosel} + ' mm' : '-'">Дюза:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.volume} ? ${sprinklers.volume} + ' л/мин.' : '-'">Дебит:</p>
+                            <p class="fs-6 mb-0" th:text="${sprinklers.radius} ? ${sprinklers.radius} + ' m' : '-'">Радиус:</p>
 
                         </div>
                         <div class="col ps-0 pe-0 text-center">
                             <div class="row container pt-3 pb-2 mb-2">
                                 <div class="col text-end">
                                     <p class="fs-6 mb-0">Единична цена:</p>
+                                    <p class="fs-6 mb-0">Наличност:</p>
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
-                                    <p class="fs-6  mb-0" id="singlePrice" th:value="*{getPrice()}"
-                                       th:text="|*{getPrice()} лв.|">Единична цена</p>
-                                    <p class="fs-6  mb-0" id="price" th:text="|*{getPrice()} лв.|"></p>
+                                    <p class="fs-6  mb-0 single-price"
+                                       th:value="${sprinklers.price}"
+                                       th:text="|${sprinklers.price} лв.|">
+                                        Единична цена</p>
+                                    <p class="fs-6 mb-0 availability"
+                                       th:value="${sprinklers.pieces}"
+                                       th:text="|${sprinklers.pieces} бр.|">Наличност:</p>
+                                    <p class="fs-6  mb-0 price2"
+                                       th:text="|${sprinklers.price} лв.|"></p>
                                 </div>
                             </div>
                             <div class="input-spinner" th:high="50vh">
-                                <button id="decrement" onclick="stepper(this)" class="text-center" style="width: 2vh">
+                                <button onclick="stepper(this)"
+                                        class="text-center decrement"
+                                        style="width: 2vh">
                                     -
                                 </button>
-                                <input type="number" min="1" max="100" step="1" value="1" id="my-input" readonly>
-                                <button id="increment" onclick="stepper(this)" class="text-center" style="width: 2vh">
+                                <input type="number"
+                                       min="1"
+                                       max="100"
+                                       step="1"
+                                       value="1"
+                                       class="my-input" readonly>
+                                <button onclick="stepper(this)"
+                                        class="text-center increment"
+                                        style="width: 2vh">
                                     +
                                 </button>
 
                             </div>
-                            <div class="button-holder d-flex justify-content-center mt-2">
-                                <button type="submit" class="btn btn-warning mb-1" value="Купи" th:href="@{/}"
-                                        onclick="validate()">Купи
-                                </button>
-                            </div>
+                            <form th:mathod="post"
+                                  th:action="@{/products/sprinkler}"
+                                  th:object="${sprinklerDTO}"
+                                  class="button-holder d-flex justify-content-center mt-2">
+
+                                <div th:type="hidden"
+                                     th:methodParam="${sprinklers.id}"
+                                     class=" id"
+                                     th:value="*{id}"
+                                     name="id"
+                                     th:text="${sprinklers.id}"
+                                     style="display:none">
+                                </div>
+                                <div th:type="hidden"
+                                     class=" price"
+                                     th:value="*{price}"
+                                     name="price"
+                                     th:text="${sprinklers.price}"
+                                     style="display:none">
+                                </div>
+                                <div th:type="hidden"
+                                     class=" numbers"
+                                     th:value="*{pieces}"
+                                     name="numbers"
+                                     th:text="${sprinklers.pieces}"
+                                     style="display:none">
+                                </div>
+                                <th:block sec:authorize="isAuthenticated()">
+                                    <a type="submit"
+                                       class="btn btn-warning mb-1"
+                                       onclick="setAttributeData(this)"
+                                       th:href="@{/auth-home/{id}(id=${getUserId})}">
+                                        Купи
+                                    </a>
+                                    <!--  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>-->
+                                    <!--  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
+                                </th:block>
+
+                                <th:block sec:authorize="isAnonymous()">
+                                    <a type="submit" class="btn btn-warning mb-1"
+                                       th:href="@{/users/login}">Купи</a>
+                                </th:block>
+                            </form>
                         </div>
                     </div>
 
@@ -153,9 +212,7 @@
         </div>
     </ul>
 </div>
-<script  type="text/javascript" th:inline="javascript">
-    const getPrice = [[${getSprinklerById1.getPrice()}]];
-</script>
+<script  type="text/javascript" th:inline="javascript"></script>
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>

@@ -17,4 +17,8 @@ public class PagesController {
     public String admins(){
         return "admin";
     }
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
 }

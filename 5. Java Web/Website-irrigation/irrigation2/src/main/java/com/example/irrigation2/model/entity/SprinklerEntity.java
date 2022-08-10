@@ -24,9 +24,10 @@ public class SprinklerEntity extends BaseEntity{
 
     @Column(columnDefinition = "TEXT")
     private String characteristicTable;
+    private String url;
 
-    @ManyToOne
-    private UserEntity user;
+//    @ManyToOne
+//    private UserEntity user;
 
     public SprinklerEntity() {
     }
@@ -40,14 +41,14 @@ public class SprinklerEntity extends BaseEntity{
         return this;
     }
 
-    public UserEntity getUser() {
-        return user;
-    }
-
-    public SprinklerEntity setUser(UserEntity user) {
-        this.user = user;
-        return this;
-    }
+//    public UserEntity getUser() {
+//        return user;
+//    }
+//
+//    public SprinklerEntity setUser(UserEntity user) {
+//        this.user = user;
+//        return this;
+//    }
 
     public String getKind() {
         return kind;
@@ -157,4 +158,12 @@ public class SprinklerEntity extends BaseEntity{
         return this;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public SprinklerEntity setUrl(String url) {
+        this.url = url;
+        return this;
+    }
 }

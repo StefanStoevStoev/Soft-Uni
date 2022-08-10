@@ -1,8 +1,5 @@
 package com.example.irrigation2.model.views;
 
-import org.springframework.stereotype.Indexed;
-
-import javax.persistence.Column;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;

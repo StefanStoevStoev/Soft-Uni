@@ -15,19 +15,6 @@ body {
     width: 100%;
 }
 
-/*.navbar {*/
-/*    position: fixed;*/
-/*}*/
-
-/*.input-spinner {*/
-/*    position: absolute;*/
-/*    !*transform: translate(-50%, -50%);*!*/
-/*    !*top: 50%;*!*/
-/*    !*left: 50%;*!*/
-/*    display: flex;*/
-/*    background-color: #ffffff;*/
-/*    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);*/
-/*}*/
 input[type="number"] {
     -moz-appearance: textfield;
     text-align: center;
@@ -59,4 +46,9 @@ button {
 #increment {
     padding: 0 0 0 0;
     text-align: center;
+}
+
+.img-responsive {
+    width: auto;
+    height: 150px;
 }

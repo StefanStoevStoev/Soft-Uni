@@ -15,9 +15,7 @@
 </head>
 <body>
 <div class="container">
-
     <nav class="navbar navbar-expand-lg bg-light p-2 mt-4 me-0 ms-0 mask-custom-1" style="--bs-bg-opacity: .7">
-
         <div class="container fs-5 " id="navbarNav ">
             <ul class="navbar-nav mx-3 ">
                 <li class="nav-item ">
@@ -33,7 +31,12 @@
                     </a>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('USER')">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/auth-home}">Моите поръчки</a>
+                    <form th:method="post"
+                          th:action="@{/auth-home}" >
+                        <a type="submit"
+                           class="nav-link text-dark fw-bold "
+                           th:href="@{/auth-home/{id}(id=${getUserId})}">Моите поръчки</a>
+                    </form>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
                     <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
@@ -60,14 +63,12 @@
                         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
                         crossorigin="anonymous"></script>
                 <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/products}">Продукти</a>-->
-                <li class="nav-item me-4 ">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>
-                </li>
                 <!--                <li class="nav-item me-4 ">-->
                 <!--                    <a class="nav-link text-dark fw-bold " th:href="@{/projects}">Проектиране</a>-->
                 <!--                </li>-->
+
                 <li class="nav-item me-4 ">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/home}">За нас</a>
+                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/home}">За нас</a>
                 </li>
                 <th:block sec:authorize="!isAuthenticated()">
                     <li class="nav-item me-4 ">
@@ -94,14 +95,15 @@
     <ul class="navbar-nav  mt-4 position-relative ps-5 pe-5">
         <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
              th:each="drips, iStat : ${getDrips}"
-             th:object="${drips}"
-             style="--bs-bg-opacity: .6"  >
+             style="--bs-bg-opacity: .6">
             <!--/*@thymesVar id="#getDrips" type="images"*/-->
             <div class="row pt-2 mb-2 ps-2 "
-                 style="height: 25vh;
+                 style="height: 30vh;
                  overflow: auto">
                 <div class="col-auto ">
-                    <img th:src="*{url}" height="190" width="220" class="img-fluid " alt=" ">
+                    <img th:src="${drips.url}"
+                         class="img-responsive "
+                         alt=" ">
                 </div>
                 <!--                text block-->
                 <div class="col" style="width: 350px; height: 150px">
@@ -111,6 +113,7 @@
                             <p class="fs-6 fw-bold mb-0">Име:</p>
                             <p class="fs-6 mb-0">Код:</p>
                             <p class="fs-6 mb-0">Диаметър:</p>
+                            <p class="fs-6 mb-0">Дължина:</p>
                             <p class="fs-6 mb-0">Продължителност за използване:</p>
                             <p class="fs-6 mb-0">Разстояние между капкуватели:</p>
                             <p class="fs-6 mb-0">Дебит на капкувател:</p>
@@ -118,30 +121,38 @@
                         </div>
                         <div class="col-md-auto ms-2 me-2">
                             <!--                        fs-6 text size-->
-                            <p class="fs-6 fw-bold mb-0" th:text="*{name}">Име</p>
-                            <p class="fs-6 mb-0" th:text="*{getCode()}">Код</p>
-                            <p class="fs-6 mb-0" th:text="|*{getDiameter()} mm|">Диаметър</p>
-                            <p class="fs-6 mb-0" th:text="|*{getTimeOfUse()} г.|">Продължителност за използване</p>
-                            <p class="fs-6 mb-0" th:text="|*{getDistBtwDrips()} cm|">Разстояние между капкуватели</p>
-                            <p class="fs-6 mb-0" th:text="|*{getFlowPerDrip()} л/ч|">Дебит на капкувател</p>
-                            <p class="fs-6 mb-0" th:text="|*{getMaxPressure()} атм.|">Максимално работно налягане</p>
+                            <p class="fs-6 fw-bold mb-0" th:text="${drips.name}">Име</p>
+                            <p class="fs-6 mb-0" th:text="${drips.code}">Код</p>
+                            <p class="fs-6 mb-0" th:text="|${drips.diameter} mm|">Диаметър</p>
+                            <p class="fs-6 mb-0" th:text="|${drips.size} m|">Дължина</p>
+                            <p class="fs-6 mb-0" th:text="|${drips.timeOfUse} г.|">Продължителност за
+                                използване</p>
+                            <p class="fs-6 mb-0" th:text="|${drips.distBtwDrips} cm|">Разстояние между
+                                капкуватели</p>
+                            <p class="fs-6 mb-0" th:text="|${drips.flowPerDrip} л/ч|">Дебит на капкувател</p>
+                            <p class="fs-6 mb-0" th:text="|${drips.maxPressure} атм.|">Максимално работно
+                                налягане</p>
+
                         </div>
-                        <div class="col ps-0 pe-0 text-center">
-                            <div class="row container pt-3 pb-2 mb-2">
+                        <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                            <div class="row container pt-3 pb-2 mb-2 mt-0 pe-0 ps-0">
                                 <div class="col text-end">
                                     <p class="fs-6 mb-0">Единична цена:</p>
+                                    <p class="fs-6 mb-0">Наличност:</p>
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
                                     <p class="fs-6  mb-0 single-price"
-                                       th:value="*{price}"
-                                       th:text="|*{price} лв.|">Единична цена</p>
-                                    <p class="fs-6 mb-0 price"
-                                       th:value="*{price}"
-                                       th:text="|*{price} лв.|">Цена:</p>
+                                       th:value="${drips.price}"
+                                       th:text="|${drips.price} лв.|">Единична цена</p>
+                                    <p class="fs-6 mb-0 availability"
+                                       th:value="${drips.pieces}"
+                                       th:text="|${drips.pieces} бр.|">Наличност:</p>
+                                    <p class="fs-6 mb-0 price2"
+                                       th:text="|${drips.price} лв.|">Цена:</p>
                                 </div>
                             </div>
-                            <div class="input-spinner" th:high="50vh" th:value="*{price}">
+                            <div class="input-spinner" th:high="50vh">
                                 <button onclick="stepper(this)"
                                         class="text-center decrement"
                                         style="width: 2vh">
@@ -159,18 +170,42 @@
                                     +
                                 </button>
                             </div>
-                            <div class="button-holder d-flex justify-content-center mt-2">
+                            <form th:method="post"
+                                  th:action="@{/products/drip}"
+                                  th:object="${dripDTO}"
+                                  class="button-holder d-flex justify-content-center mt-2">
+
+                                <label th:type="hidden" style="display:none"></label>
+                                <input th:type="hidden"
+                                       class=" id"
+                                       th:value="${drips.id}"
+                                       name="id"
+                                       style="display:none">
+
+                                <label th:type="hidden" style="display:none"></label>
+                                <input th:type="hidden"
+                                        class=" price"
+                                        name="price"
+                                        style="display:none">
+                                </input>
+                                <label th:type="hidden" for="pieces" style="display:none"></label>
+                                <input th:type="hidden"
+                                        id="pieces"
+                                        class=" pieces"
+                                        name="pieces"
+                                        style="display:none">
+                                </input>
                                 <th:block sec:authorize="isAuthenticated()">
-                                    <a type="submit"
-                                       class="btn btn-warning mb-1"
-                                       th:value="Купи"
-                                       th:href="@{/auth-home/{id}(id=${getUserId})}" >Купи</a>
-<!--                                       th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
+                                    <button class="btn btn-warning mb-1"
+                                           onclick="setAttributeData(this)">Купи</button>
+                                    <!--  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>-->
+                                    <!--  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
                                 </th:block>
+
                                 <th:block sec:authorize="isAnonymous()">
                                     <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}">Купи</a>
                                 </th:block>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -178,7 +213,50 @@
         </div>
     </ul>
 </div>
-<script  type="text/javascript" th:inline="javascript"></script>
+<script type="text/javascript" th:inline="javascript"></script>
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>
+<!--<form th:mathod="post"-->
+<!--      th:action="@{/products/drip}"-->
+<!--      th:object="${dripDTO}"-->
+<!--      class="button-holder d-flex justify-content-center mt-2">-->
+<!--    <div th:type="hidden"-->
+<!--         th:methodParam="${id}"-->
+<!--         class=" id"-->
+<!--         th:value="*{id}"-->
+<!--         name="id"-->
+<!--         th:text="${drips.id}"-->
+<!--         style="display:none">-->
+<!--    </div>-->
+<!--    <div th:type="hidden"-->
+<!--         class=" price"-->
+<!--         th:value="*{price}"-->
+<!--         name="price"-->
+<!--         th:text="${drips.price}"-->
+<!--         style="display:none">-->
+<!--    </div>-->
+<!--    <div th:type="hidden"-->
+<!--         class=" numbers"-->
+<!--         th:value="*{numbers}"-->
+<!--         th:field="*{numbers}"-->
+<!--         name="numbers"-->
+<!--         th:text="${drips.pieces}"-->
+<!--         style="display:none">-->
+<!--    </div>-->
+<!--    <th:block sec:authorize="isAuthenticated()">-->
+<!--        <button type="submit"-->
+<!--                class="btn btn-warning mb-1"-->
+<!--                onclick="setAttributeData(this)"-->
+<!--                th:href="@{/auth-home/{id}(id=${getUserId})}">-->
+<!--            Купи-->
+<!--        </button>-->
+<!--        &lt;!&ndash;  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>&ndash;&gt;-->
+<!--        &lt;!&ndash;  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>&ndash;&gt;-->
+<!--    </th:block>-->
+
+<!--    <th:block sec:authorize="isAnonymous()">-->
+<!--        <a type="submit" class="btn btn-warning mb-1"-->
+<!--           th:href="@{/users/login}">Купи</a>-->
+<!--    </th:block>-->
+<!--</form>-->

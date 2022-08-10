@@ -1,16 +1,15 @@
 package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
-import com.example.irrigation2.model.DTO.AuthDTO;
-import com.example.irrigation2.model.DTO.DripDTO;
-import com.example.irrigation2.model.DTO.UserRegisterDTO;
+import com.example.irrigation2.model.DTO.*;
 import com.example.irrigation2.model.entity.RoleEntity;
+import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.model.entity.enums.RoleEnum;
 import com.example.irrigation2.model.mapper.AuthModelDTO;
-import com.example.irrigation2.model.mapper.UserDetailsMapper;
 import com.example.irrigation2.model.mapper.UserMapper;
 import com.example.irrigation2.model.views.UserViewModel;
+import com.example.irrigation2.repository.SprinklerRepository;
 import com.example.irrigation2.repository.UserRepository;
 import com.example.irrigation2.repository.UserRoleRepository;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -35,24 +34,23 @@ public class UserService{
     private final UserDetailsService userDetailsService;
     private final UserMapper userMapper;
     private final EmailService emailService;
-    private final UserDetailsMapper userDetailsMapper;
     private final AuthModelDTO authModelDTO;
+    private final SprinklerRepository sprinklerRepository;
 
     public UserService(UserRepository userRepository,
                        UserRoleRepository userRoleRepository,
                        PasswordEncoder passwordEncoder,
                        UserDetailsService userDetailsService1,
                        UserMapper userMapper,
-                       EmailService emailService,
-                       UserDetailsMapper userDetailsMapper, AuthModelDTO authModelDTO) {
+                       EmailService emailService, AuthModelDTO authModelDTO, SprinklerRepository sprinklerRepository) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService1;
         this.userMapper = userMapper;
         this.emailService = emailService;
-        this.userDetailsMapper = userDetailsMapper;
         this.authModelDTO = authModelDTO;
+        this.sprinklerRepository = sprinklerRepository;
     }
 
 
@@ -171,53 +169,17 @@ public class UserService{
         return userRepository.findById(id);
     }
 
-    public void addDripToUser(DripDTO dripDTO, CurrentUserDetails currentUser) {
+    public void addSprinklerToUser(SprinklerDTO sprinklerDTO, CurrentUserDetails currentUser) {
+        SprinklerEntity sprinkler = sprinklerRepository.findById(sprinklerDTO.getId()).orElse(null);
+        assert sprinkler != null;
+        int pieces = sprinkler.getPieces() - sprinklerDTO.getPieces();
+        sprinkler.setPieces(pieces);
+    }
+
+    public void addPumpToUser(PumpDTO pumpDTO, CurrentUserDetails currentUser) {
 
     }
 
-//    public UserEntity getCurrentlyLoggedInCustomer(Authentication authentication){
-//        if(authentication == null){
-//            return null;
-//        }
-//        UserEntity userEntity = null;
-//        Object principal = authentication.getPrincipal();
-//
-//        if (principal instanceof CustomerUserDetails){
-//            userEntity = ((CustomerUserDetails) principal);
-//        } else if (principal instanceof CustomOAuth2User) {
-//            String email = ((CustomOAuth2User) principal).getEmail();
-//            userEntity = userRepository.findByEmail(email).orElse(null);
-//        }
-//        return userEntity;
-//    }
-
-
-
-//    public boolean login(UserLoginDTO userLoginDTO){
-//
-//        Optional<UserEntity> byEmail = userRepository.findByEmail(userLoginDTO.getEmail());
-//        if (byEmail.isPresent()) {
-//            return false;
-//        }
-//        UserEntity userEntity = new UserEntity()
-//                .setEmail(userLoginDTO.getEmail())
-//                .setPassword(passwordEncoder.encode(userLoginDTO.getPassword()));
-//
-//
-//        UserDetails userDetails = userDetailsService.loadUserByUsername(userEntity.getEmail());
-//
-//        Authentication auth = new UsernamePasswordAuthenticationToken(
-//                userDetails,
-//                userDetails.getPassword(),
-//                userDetails.getAuthorities()
-//        );
-//
-//        SecurityContextHolder
-//                .getContext()
-//                .setAuthentication(auth);
-//
-//        return true;
-//    }
 }
 
 

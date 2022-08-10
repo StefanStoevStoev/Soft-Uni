@@ -4,24 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Save address and phone of the user">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/DripDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/UserEntity.java" afterDir="false" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created DripNum init apps.">
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/auth-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/auth-home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth-home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="repository" />
+    </option>
   </component>
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
@@ -49,10 +47,18 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="StefanStoevStoev &lt;63455727+stefanstoevstoev@users.noreply.github.com&gt;" />
+      </list>
+    </option>
+    <option name="PUSH_AUTO_UPDATE" value="true" />
     <option name="PUSH_TAGS">
       <GitPushTagMode>
         <option name="argument" value="--tags" />
@@ -81,46 +87,57 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2CeMY8Me3H4Zego5htpGBUPyRi9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;d69784ca6fd1de93001551dcd739d9f3&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2/src/main/resources",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "d69784ca6fd1de93001551dcd739d9f3"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;module&quot;,
-      &quot;repository&quot;,
-      &quot;directory&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "module",
+      "repository",
+      "directory"
     ],
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\frontPage" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\java\com\example\irrigation2" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.irrigation2.model.DTO" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.Irrigation2Application">
+    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" index="5" requestIdentifier="#5" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="irrigation12" type="NodeJSConfigurationType" path-to-node="C:/Program Files/nodejs/node" node-parameters="$/FilePathRelativeToProjectRoot$" path-to-js-file="script.js" working-dir="$PROJECT_DIR$">
       <method v="2" />
     </configuration>
@@ -133,9 +150,15 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="HTTP Request.generated-requests | #5" />
       <item itemvalue="Node.js.irrigation12" />
       <item itemvalue="Spring Boot.Irrigation2Application" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="HTTP Request.generated-requests | #5" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -155,7 +178,16 @@
       <workItem from="1659509797612" duration="35081000" />
       <workItem from="1659591842539" duration="13043000" />
       <workItem from="1659641288891" duration="4439000" />
-      <workItem from="1659679556775" duration="1163000" />
+      <workItem from="1659679556775" duration="37601000" />
+      <workItem from="1659774423932" duration="25489000" />
+      <workItem from="1659813805747" duration="4180000" />
+      <workItem from="1659866364345" duration="3338000" />
+      <workItem from="1659874731986" duration="2001000" />
+      <workItem from="1659876792770" duration="19992000" />
+      <workItem from="1659915356352" duration="4880000" />
+      <workItem from="1659947023169" duration="37190000" />
+      <workItem from="1660027839319" duration="33812000" />
+      <workItem from="1660113659422" duration="35765000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -199,7 +231,133 @@
       <option name="project" value="LOCAL" />
       <updated>1659549124737</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Created dripDTO">
+      <created>1659685460689</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659685460689</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Created numbers of drips">
+      <created>1659808475862</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1659808475862</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Created numbers of drips">
+      <created>1659875212855</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659875212855</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created numbers of drips">
+      <created>1659875296395</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659875296395</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Created numbers of drips">
+      <created>1659875869780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659875869780</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Created numbers of drips">
+      <created>1659876995972</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659876995972</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Created numbers of drips">
+      <created>1659878766136</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1659878766136</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Updated styles-sprinkler.css to create pictures same high. Corrected html file of sprinklers">
+      <created>1659917765730</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1659917765730</updated>
+    </task>
+    <task id="LOCAL-00015" summary="SprinklersController updated">
+      <created>1659957941101</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1659957941101</updated>
+    </task>
+    <task id="LOCAL-00016" summary="SprinklersController updated">
+      <created>1659973627759</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1659973627759</updated>
+    </task>
+    <task id="LOCAL-00017" summary="PumpController updated, products-pump. Added relation table for pumps and pictures for second pump.">
+      <created>1659980972254</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1659980972254</updated>
+    </task>
+    <task id="LOCAL-00018" summary="products-pump view is ready">
+      <created>1659993991758</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1659993991758</updated>
+    </task>
+    <task id="LOCAL-00019" summary="products-pump view is ready">
+      <created>1659994488954</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1659994488954</updated>
+    </task>
+    <task id="LOCAL-00020" summary="products-pump view is ready">
+      <created>1659994505942</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1659994505942</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Save ordered drip to reference table. Created DripNumRepository.">
+      <created>1660071744069</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1660071744069</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Save ordered drip to reference table. Created DripNumRepository.">
+      <created>1660071778643</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1660071778643</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Created admin and home page, only picture with navbar.">
+      <created>1660077820282</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1660077820282</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Created DripNum init apps.">
+      <created>1660157462402</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1660157462402</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,26 +368,49 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="web/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Started test directory" />
     <MESSAGE value="product-drip and stepper buttons are working with the new th:each" />
     <MESSAGE value="script.js - added discount rate." />
     <MESSAGE value="Save address and phone of the user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Save address and phone of the user" />
+    <MESSAGE value="Created dripDTO" />
+    <MESSAGE value="Created numbers of drips" />
+    <MESSAGE value="Created Sprinkler multiple products view. Made Drip and Sprinkler relation mappings." />
+    <MESSAGE value="Updated styles-sprinkler.css to create pictures same high. Corrected html file of sprinklers" />
+    <MESSAGE value="SprinklersController updated" />
+    <MESSAGE value="PumpController updated, products-pump. Added relation table for pumps and pictures for second pump." />
+    <MESSAGE value="products-pump view is ready" />
+    <MESSAGE value="Save ordered drip to reference table. Created DripNumRepository." />
+    <MESSAGE value="Created admin and home page, only picture with navbar." />
+    <MESSAGE value="Created DripNum init apps." />
+    <option name="LAST_COMMIT_MESSAGE" value="Created DripNum init apps." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java</url>
-          <line>54</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -241,9 +422,12 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="((String)((LinkedHashMap.Entry)((org.springframework.validation.support.BindingAwareModelMap)model).entrySet().toArray()[0]).getKey()).value" custom="org.springframework.validation.support.BindingAwareModelMap,java.util.LinkedHashMap.Entry,java.lang.String" />
-        <watch expression="this.h" custom="java.lang.reflect.Proxy" />
+        <watch expression="((org.springframework.validation.support.BindingAwareModelMap)model).entrySet().toArray()[0]" language="JAVA" custom="org.springframework.validation.support.BindingAwareModelMap" />
+        <watch expression="((org.springframework.validation.support.BindingAwareModelMap)model).entrySet().toArray()[0]" language="JAVA" custom="org.springframework.validation.support.BindingAwareModelMap" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/irrigation2$Irrigation2Application.ic" NAME="Irrigation2Application Coverage Results" MODIFIED="1659794951907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

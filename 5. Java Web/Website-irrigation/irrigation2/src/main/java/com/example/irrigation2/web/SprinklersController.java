@@ -1,42 +1,73 @@
 package com.example.irrigation2.web;
 
+import com.example.irrigation2.model.CurrentUserDetails;
+import com.example.irrigation2.model.DTO.SprinklerDTO;
+import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.service.SprinklerService;
+import com.example.irrigation2.service.UserService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/products")
 public class SprinklersController {
 
     private final SprinklerService sprinklerService;
+    private final UserService userService;
 
-    public SprinklersController(SprinklerService sprinklerService) {
+    public SprinklersController(SprinklerService sprinklerService,
+                                UserService userService) {
         this.sprinklerService = sprinklerService;
+        this.userService = userService;
     }
 
     @GetMapping("/sprinkler")
-    public String sprinklerPage(Model model) {
+    public String sprinklerPage(Model model,
+                                @AuthenticationPrincipal CurrentUserDetails currentUser) {
 
-        if (!model.containsAttribute("getSprinklerById1")) {
-            model.addAttribute("getSprinklerById1", sprinklerService.getSprinklerById(1L));
+        if (!model.containsAttribute("sprinklerDTO")) {
+            model.addAttribute("sprinklerDTO", new SprinklerDTO());
         }
-        if (!model.containsAttribute("getSprinklerById2")) {
-            model.addAttribute("getSprinklerById2", sprinklerService.getSprinklerById(2L));
+
+        if (!model.containsAttribute("getSprinklers")) {
+            List<SprinklerEntity> allSprinklers = this.sprinklerService.getAllSprinklers();
+            model.addAttribute("getSprinklers", allSprinklers);
         }
-        if (!model.containsAttribute("getSprinklerById3")) {
-            model.addAttribute("getSprinklerById3", sprinklerService.getSprinklerById(3L));
-        }
-        if (!model.containsAttribute("getSprinklerById4")) {
-            model.addAttribute("getSprinklerById4", sprinklerService.getSprinklerById(4L));
-        }
-        if (!model.containsAttribute("getSprinklerById5")) {
-            model.addAttribute("getSprinklerById5", sprinklerService.getSprinklerById(5L));
-        }
-        if (!model.containsAttribute("getSprinklerById6")) {
-            model.addAttribute("getSprinklerById6", sprinklerService.getSprinklerById(6L));
+        if (currentUser != null) {
+            model.addAttribute("getUserId", currentUser.getId());
         }
         return "products-sprinkler";
     }
+//    @PostMapping("/sprinkler")
+//    public String sprinklerAddPage(@Valid SprinklerDTO sprinklerDTO,
+//                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
+//
+//        userService.addSprinklerToUser(sprinklerDTO, currentUser);
+//
+//        return "redirect:/auth-home/" + currentUser.getId();
+//    }
+
+//    @PostMapping("/sprinkler")
+//    public void getUserProfile(@AuthenticationPrincipal CurrentUserDetails user ) {
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        System.out.println("principal : " + authentication.getPrincipal());
+//        System.out.println("Implementing class of UserDetails: " + authentication.getPrincipal().getClass());
+//        System.out.println("Implementing class of UserDetailsService: " + userService.getClass());
+//    }
+//@ModelAttribute("userViewModel")
+//private UserViewModel addModel() {
+//    return new UserViewModel();
+//}
+//
+//    @ModelAttribute("sprinklerDTO")
+//    private SprinklerDTO addModelSpr() {
+//        return new SprinklerDTO();
+//    }
+
 }

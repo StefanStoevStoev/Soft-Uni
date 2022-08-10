@@ -3,16 +3,15 @@ package com.example.irrigation2.web;
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.entity.DripEntity;
-import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.service.DripService;
 import com.example.irrigation2.service.UserService;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -30,27 +29,29 @@ public class DripsController {
         this.userService = userService;
     }
 
-
     @GetMapping("/drip")
-    public String getDrip(Model model, @AuthenticationPrincipal CurrentUserDetails currentUser) {
+    public String getDrip(Model model,
+                          @AuthenticationPrincipal CurrentUserDetails currentUser) {
+
+        if (!model.containsAttribute("dripDTO")) {
+            model.addAttribute("dripDTO", new DripDTO());
+        }
         if (!model.containsAttribute("getDrips")) {
             List<DripEntity> allDrips = this.dripService.getAllDrips();
-            model.addAttribute("getDrips",allDrips);
+            model.addAttribute("getDrips", allDrips);
         }
-        if(currentUser != null){
-            model.addAttribute("getUserId",currentUser.getId());
+        if (currentUser != null) {
+            model.addAttribute("getUserId", currentUser.getId());
         }
 
         return "products-drip";
     }
 
     @PostMapping("/drip")
-    public String saveDripDetails(@Valid DripDTO dripDTO,
-                                  RedirectAttributes redirectAttributes,
-                                  @AuthenticationPrincipal CurrentUserDetails currentUser){
+    public String saveDripDetails(DripDTO dripDTO,
+                                  @AuthenticationPrincipal CurrentUserDetails currentUser) {
 
-        redirectAttributes.addFlashAttribute("dripDTO", dripDTO);
-        userService.addDripToUser(dripDTO,currentUser);
+        dripService.addDripToUser(dripDTO, currentUser);
 
         return "redirect:/auth-home/" + currentUser.getId();
     }
@@ -59,4 +60,10 @@ public class DripsController {
     public DripDTO initDripModel() {
         return new DripDTO();
     }
+
+    @ModelAttribute("currentUser")
+    public UserDetails getCurrentUser(Authentication authentication) {
+        return (authentication == null) ? null : (UserDetails) authentication.getPrincipal();
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.irrigation2.model.entity;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,26 +20,21 @@ public class UserEntity extends BaseEntity {
     public Integer authority;
 
     public boolean isActive;
+    public LocalDateTime confirmedOrder;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<RoleEntity> role = new ArrayList<>();
 
-    @OneToMany
-    private List<ProjectEntity> project;
+//    @OneToMany
+//    private List<ProjectEntity> project;
 
-    @ManyToMany
-    private List<DripEntity> dripEntities;
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<DripNumbers> usersDrip;
+
+    private String url;
 
     public UserEntity() {
-    }
-
-    public List<DripEntity> getDripEntities() {
-        return dripEntities;
-    }
-
-    public UserEntity setDripEntities(List<DripEntity> dripEntities) {
-        this.dripEntities = dripEntities;
-        return this;
     }
 
     public UserEntity setActive(boolean active) {
@@ -114,21 +110,39 @@ public class UserEntity extends BaseEntity {
         return this;
     }
 
-    public List<ProjectEntity> getProject() {
-        return project;
-    }
-
-    public UserEntity setProject(List<ProjectEntity> project) {
-        this.project = project;
-        return this;
-    }
-
     public Integer getAuthority() {
         return authority;
     }
 
     public UserEntity setAuthority(Integer authority) {
         this.authority = authority;
+        return this;
+    }
+
+    public LocalDateTime getConfirmedOrder() {
+        return confirmedOrder;
+    }
+
+    public UserEntity setConfirmedOrder(LocalDateTime confirmedOrder) {
+        this.confirmedOrder = confirmedOrder;
+        return this;
+    }
+
+    public List<DripNumbers> getUsersDrip() {
+        return usersDrip;
+    }
+
+    public UserEntity setUsersDrip(List<DripNumbers> usersDrip) {
+        this.usersDrip = usersDrip;
+        return this;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public UserEntity setUrl(String url) {
+        this.url = url;
         return this;
     }
 }

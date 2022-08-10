@@ -1,35 +1,30 @@
 package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
-import com.example.irrigation2.model.DTO.UserPhoneAndAddressDTO;
+import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.entity.DripEntity;
-import com.example.irrigation2.model.entity.UserEntity;
-import com.example.irrigation2.model.mapper.UserMapperPhoneAddress;
+import com.example.irrigation2.model.entity.DripNumbers;
+import com.example.irrigation2.repository.DripNumRepository;
 import com.example.irrigation2.repository.DripRepository;
-import com.example.irrigation2.repository.UserRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DripService {
 
     private final DripRepository dripRepository;
-    private final UserRepository userRepository;
-    private final UserMapperPhoneAddress userMapperPhoneAddress;
+    private final DripNumRepository dripNumRepository;
 
-    public DripService(DripRepository dripRepository,
-                       UserRepository userRepository,
-                       UserMapperPhoneAddress userMapperPhoneAddress) {
+    public DripService(DripRepository dripRepository,DripNumRepository dripNumRepository) {
         this.dripRepository = dripRepository;
-        this.userRepository = userRepository;
-        this.userMapperPhoneAddress = userMapperPhoneAddress;
+        this.dripNumRepository = dripNumRepository;
     }
-
-
-
 
     public void initDrips() {
 
@@ -100,29 +95,73 @@ public class DripService {
             dripRepository.save(dripHose2);
         }
     }
+
+    public void initDripNums(){
+
+        if(dripNumRepository.count() == 0){
+            DripNumbers dripNumbers = new DripNumbers();
+            dripNumbers.setUserId(1L)
+                    .setDripId(1L)
+                    .setNumbers(5)
+                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+            dripNumRepository.save(dripNumbers);
+
+            DripNumbers dripNumbers1 = new DripNumbers();
+            dripNumbers1.setUserId(1L)
+                    .setDripId(2L)
+                    .setNumbers(1)
+                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+            dripNumRepository.save(dripNumbers1);
+
+            DripNumbers dripNumbers2 = new DripNumbers();
+            dripNumbers2.setUserId(1L)
+                    .setDripId(3L)
+                    .setNumbers(3)
+                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+            dripNumRepository.save(dripNumbers2);
+
+            DripNumbers dripNumbers3 = new DripNumbers();
+            dripNumbers3.setUserId(2L)
+                    .setDripId(1L)
+                    .setNumbers(1)
+                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+            dripNumRepository.save(dripNumbers3);
+        }
+
+    }
+
     public DripEntity getDripByUserId(Long id) {
         return dripRepository.findById(id).orElse(null);
     }
 
-    @JsonIgnoreProperties({ "extra", "uselessValue" })
+    @JsonIgnoreProperties({"extra", "uselessValue"})
     public List<DripEntity> getAllDrips() {
         return dripRepository.findAll();
     }
 
-    public List<DripEntity> listDripItems(UserEntity user) {
-        return dripRepository.findByUserEntityId(user.getId());
+    public void addDripToUser(DripDTO dripDTO, CurrentUserDetails currentUser) {
+
+//        UserEntity user = userRepository.getById(currentUser.getId());
+//        DripEntity drip = dripRepository.getById(dripDTO.getId());
+
+        DripNumbers dripAndUser = new DripNumbers();
+        dripAndUser
+                .setDripId(dripDTO.getId())
+                .setUserId(currentUser.getId())
+                .setNumbers(dripDTO.getPieces())
+                .setRegisteredAt(LocalDateTime.now());
+
+        dripNumRepository.save(dripAndUser);
     }
 
-    public void savePhoneAndAddress(UserPhoneAndAddressDTO userPhoneAndAddressDTO,
-                                    CurrentUserDetails currentUser) {
+    public List<DripEntity> getDripNumsByUser(Long userId){
+        List<DripEntity> drips = new ArrayList<>();
 
-        UserEntity userData = userMapperPhoneAddress.userDtoToUserEntity(userPhoneAndAddressDTO);
-        UserEntity user = userRepository.findByEmail(currentUser.getEmail()).orElse(null);
 
-        assert user != null;
-        user.setPhone(userData.getPhone())
-                .setAddress(userData.getAddress());
-
-        userRepository.save(user);
+        for (DripNumbers e : dripNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)) {
+            drips.add(dripRepository.findById(e.getId()).orElse(null));
+        }
+        return  drips;
     }
 }

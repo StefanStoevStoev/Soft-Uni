@@ -26,6 +26,7 @@ public class AppInit implements CommandLineRunner {
     public void run(String... args) {
         userService.init();///////////
         dripService.initDrips();
+        dripService.initDripNums();
         sprinklerService.initSprinklers();
         pumpService.initPumps();
 

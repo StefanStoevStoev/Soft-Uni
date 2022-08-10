@@ -28,6 +28,8 @@ public class PumpEntity extends BaseEntity{
     private LocalDate orderDate;
 
     private int pieces;
+    private String urlPic;
+    private String urlDiagram;
 
     @ManyToOne
     private UserEntity user;
@@ -185,6 +187,24 @@ public class PumpEntity extends BaseEntity{
 
     public PumpEntity setWeight(String weight) {
         this.weight = weight;
+        return this;
+    }
+
+    public String getUrlPic() {
+        return urlPic;
+    }
+
+    public PumpEntity setUrlPic(String urlPic) {
+        this.urlPic = urlPic;
+        return this;
+    }
+
+    public String getUrlDiagram() {
+        return urlDiagram;
+    }
+
+    public PumpEntity setUrlDiagram(String urlDiagram) {
+        this.urlDiagram = urlDiagram;
         return this;
     }
 }

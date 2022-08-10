@@ -1,30 +1,65 @@
 package com.example.irrigation2.web;
 
+import com.example.irrigation2.model.CurrentUserDetails;
+import com.example.irrigation2.model.DTO.PumpDTO;
+import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.service.PumpService;
+import com.example.irrigation2.service.UserService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/products")
 public class PumpsController {
 
     private final PumpService pumpService;
+    private final UserService userService;
 
-    public PumpsController(PumpService pumpService) {
+    public PumpsController(PumpService pumpService, UserService userService) {
         this.pumpService = pumpService;
+        this.userService = userService;
     }
 
     @GetMapping("/pump")
-    public String pumpsLoad(Model model) throws Exception {
+    public String pumpsLoad(Model model,
+                            @AuthenticationPrincipal CurrentUserDetails currentUser) {
 
-        if (!model.containsAttribute("hiPeri1_5")) {
-            model.addAttribute("hiPeri1_5", pumpService.getPumpById(1L));
+        if (!model.containsAttribute("PumpDTO")) {
+            model.addAttribute("PumpDTO", new PumpDTO());
         }
-        if (!model.containsAttribute("pf_1_30")) {
-            model.addAttribute("pf_1_30", pumpService.getPumpById(2L));
+        if (!model.containsAttribute("getPumps")) {
+            List<PumpEntity> allPumps = this.pumpService.getAllPumps();
+            model.addAttribute("getPumps", allPumps);
+        }
+        if (currentUser != null) {
+            model.addAttribute("getUserId", currentUser.getId());
         }
         return "products-pump";
+    }
+
+    @PostMapping("/pump")
+    public String sprinklerAddPage(@Valid PumpDTO pumpDTO,
+                                   BindingResult bindingResult,
+                                   RedirectAttributes redirectAttributes,
+                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("pumpDTO", pumpDTO);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.pumpDTO", bindingResult);
+            return "redirect:/products/pump";
+        }
+        redirectAttributes.addFlashAttribute("uId", currentUser.getId());
+        userService.addPumpToUser(pumpDTO, currentUser);
+
+        return "redirect:/auth-home/" + currentUser.getId();
     }
 }
