@@ -23,6 +23,7 @@ public class DripNumbers {
     private LocalDateTime registeredAt;
 
     private int numbers;
+    private int allNumbers;
 
     public DripNumbers() {
     }
@@ -85,6 +86,15 @@ public class DripNumbers {
 
     public DripNumbers setPrice(BigDecimal price) {
         this.price = price;
+        return this;
+    }
+
+    public int getAllNumbers() {
+        return allNumbers;
+    }
+
+    public DripNumbers setAllNumbers(int allNumbers) {
+        this.allNumbers = allNumbers;
         return this;
     }
 }

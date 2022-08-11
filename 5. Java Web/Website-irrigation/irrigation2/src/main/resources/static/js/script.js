@@ -57,12 +57,12 @@ function stepper(btn) {
     let newValue = parseInt(val) + calcStep;
     let num = parseInt(numbers.getAttribute("value")) - newValue;
 
-    if ( num >= 0){
+    if (num >= 0) {
 
         if (newValue >= min && newValue <= max) {
             myInput.setAttribute("value", newValue);
 
-            let discount = 500/(500 + newValue);
+            let discount = 500 / (500 + newValue);
             let newPrice = newValue * parseFloat(initPrice) * discount;
             numbers.textContent = (num).toString() + ' бр.';
             price.textContent = newPrice.toFixed(2) + ' лв.';
@@ -73,7 +73,7 @@ function stepper(btn) {
     }
 }
 
-function setAttributeData(event){
+function setAttributeData(event) {
     const initPrice = event.parentElement.parentElement.querySelector("p.price2").textContent;
     let parsePrice = initPrice.split(" ");
     let price = parsePrice[0];
@@ -85,7 +85,4 @@ function setAttributeData(event){
     event.parentElement.querySelectorAll("input")[2].setAttribute("value", numbers);
     // firstValue.style.display = "none";
     // let firstValue = event.parentElement.querySelectorAll("output").setAttribute("text", id);
-    console.log(price);
-    console.log(numbers);
-    console.log(id);
 }

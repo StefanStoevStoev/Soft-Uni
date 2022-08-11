@@ -21,7 +21,7 @@ public class DripService {
     private final DripRepository dripRepository;
     private final DripNumRepository dripNumRepository;
 
-    public DripService(DripRepository dripRepository,DripNumRepository dripNumRepository) {
+    public DripService(DripRepository dripRepository, DripNumRepository dripNumRepository) {
         this.dripRepository = dripRepository;
         this.dripNumRepository = dripNumRepository;
     }
@@ -96,20 +96,22 @@ public class DripService {
         }
     }
 
-    public void initDripNums(){
+    public void initDripNums() {
 
-        if(dripNumRepository.count() == 0){
+        if (dripNumRepository.count() == 0) {
             DripNumbers dripNumbers = new DripNumbers();
-            dripNumbers.setUserId(1L)
+            dripNumbers.setUserId(2L)
                     .setDripId(1L)
                     .setNumbers(5)
+                    .setPrice(BigDecimal.valueOf(25.14))
                     .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
             dripNumRepository.save(dripNumbers);
 
             DripNumbers dripNumbers1 = new DripNumbers();
-            dripNumbers1.setUserId(1L)
+            dripNumbers1.setUserId(2L)
                     .setDripId(2L)
                     .setNumbers(1)
+                    .setPrice(BigDecimal.valueOf(28.14))
                     .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
             dripNumRepository.save(dripNumbers1);
 
@@ -117,13 +119,15 @@ public class DripService {
             dripNumbers2.setUserId(1L)
                     .setDripId(3L)
                     .setNumbers(3)
+                    .setPrice(BigDecimal.valueOf(28.14))
                     .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
             dripNumRepository.save(dripNumbers2);
 
             DripNumbers dripNumbers3 = new DripNumbers();
             dripNumbers3.setUserId(2L)
-                    .setDripId(1L)
+                    .setDripId(3L)
                     .setNumbers(1)
+                    .setPrice(BigDecimal.valueOf(21.14))
                     .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
             dripNumRepository.save(dripNumbers3);
         }
@@ -141,29 +145,61 @@ public class DripService {
 
     public void addDripToUser(DripDTO dripDTO, CurrentUserDetails currentUser) {
 
-//        UserEntity user = userRepository.getById(currentUser.getId());
-//        DripEntity drip = dripRepository.getById(dripDTO.getId());
+        List<DripNumbers> dripNums = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(currentUser.getId());
 
-        DripNumbers dripAndUser = new DripNumbers();
-        dripAndUser
-                .setDripId(dripDTO.getId())
-                .setUserId(currentUser.getId())
-                .setNumbers(dripDTO.getPieces())
-                .setRegisteredAt(LocalDateTime.now());
+        if(!dripNums.stream().findFirst().map(e -> e.getDripId().equals(dripDTO.getId())).orElseThrow()){
+            DripEntity drip = dripRepository.getById(dripDTO.getId());
 
-        dripNumRepository.save(dripAndUser);
+            drip.setTemporaryPieces(dripDTO.getPieces());
+
+            DripNumbers dripAndUser = new DripNumbers();
+            dripAndUser
+                    .setDripId(dripDTO.getId())
+                    .setPrice(dripDTO.getPrice())
+                    .setUserId(currentUser.getId())
+                    .setNumbers(dripDTO.getPieces())
+                    .setRegisteredAt(LocalDateTime.now());
+
+            dripRepository.save(drip);
+            dripNumRepository.save(dripAndUser);
+        }
     }
 
-    public List<DripEntity> getDripNumsByUser(Long userId){
+    public List<DripEntity> getDripNumsByUser(Long userId) {
         List<DripEntity> drips = new ArrayList<>();
 
         List<DripNumbers> allDripsNum = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(userId);
 
         for (DripNumbers e : allDripsNum) {
-            DripEntity dripEntity = dripRepository.findById(e.getId()).orElse(null);
-//            dripEntity.setPieces(e.getNumbers());
-            drips.add(dripEntity);
+            DripEntity dripEntity = dripRepository.findById(e.getDripId()).orElse(null);
+
+            if (dripEntity != null) {
+                dripEntity.setTemporaryPieces(e.getNumbers())
+                        .setPrice(e.getPrice());
+                drips.add(dripEntity);
+            }
         }
-        return  drips;
+        return drips;
     }
+
+//    public List<DripNumbers> getDripNumsByUser(Long userId){
+//
+//        List<DripNumbers> allDripsNum = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(userId);
+//        List<DripNumbers> transferDrips = new ArrayList<>();
+//
+//        DripNumbers drips = new DripNumbers();
+//
+//        for (DripNumbers e : allDripsNum) {
+//            DripEntity dripEntity = dripRepository.findById(e.getId()).orElse(null);
+//            assert dripEntity != null;
+//            drips.setAllNumbers(dripEntity.getPieces())
+//                    .setId(e.getId())
+//                    .setNumbers(e.getNumbers())
+//                    .setDripId(e.getDripId())
+//                    .setPrice(e.getPrice())
+//                    .setRegisteredAt(e.getRegisteredAt())
+//                    .setUserId(e.getUserId());
+//
+//            transferDrips.add(drips);
+//        }
 }

@@ -5,6 +5,7 @@
 <head>
     <th:block th:insert="fragments/fragment :: head"></th:block>
     <title>Мелиорации</title>
+    <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css">-->
     <link rel="stylesheet" th:href="@{/css/styles-drip-orders.css}">
 </head>
 <body>
@@ -13,13 +14,13 @@
 <div class="container">
     <ul class="navbar-nav ms-auto mt-4">
         <main class="row">
-            <form class="col hidden-md-down w-25 bg-blur rounded"
-                  th:method="post"
-                  th:action="@{/auth-home/}"
-                  th:object="${authDTO}">
+            <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->
+            <form th:class="${userDetails.address}!=null  ? 'col hidden-md-down w-25 bg-blur rounded' : 'col-6 offset-3' "
 
+                    th:method="post"
+                    th:action="@{/auth-home/}"
+                    th:object="${authDTO}">
                 <div class="form-group mt-2">
-
                     <th:block th:if="${userDetails.address==null and userDetails.phone==null}">
                         <div class="label-holder text-danger text-center text-wrap">
                             <label for="firstName"
@@ -27,24 +28,17 @@
                                    style="--bs-bg-opacity: .5">За поръчка са нужни адрес и телефон</label>
                         </div>
                     </th:block>
-
                     <div class="label-holder text-white textCol d-flex justify-content-center">
                         <label for="firstName" class="h4 mb-2">Име</label>
                     </div>
-                    <!--                    <input type="text"-->
-                    <!--                           th:field="${#userDetails.firstName}"-->
-                    <!--                           class="form-control"/>-->
-                    <!--/*@thymesVar id="#firstName" type="images"*/-->
                     <input type="text"
                            th:value="${userDetails.firstName}"
                            th:errorclass="'is-invalid alert-danger'"
                            class="form-control"
                            id="firstName"
                            name="firstName"/>
-
                     <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning">
                         Името трябва да съдържа поне 2 символа.</small>
-
                 </div>
                 <div class="form-group mt-2">
                     <div class="label-holder text-white textCol d-flex justify-content-center">
@@ -58,7 +52,6 @@
                            name="lastName"/>
                     <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning">
                         Фамилията трябва да съдържа поне 2 символа.</small>
-
                 </div>
                 <div class="form-group mt-2">
                     <div class="label-holder text-white textCol d-flex justify-content-center">
@@ -72,7 +65,6 @@
                            name="email" readonly/>
                     <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                     >Моля, въведете валиден имейл</small>
-
                 </div>
                 <div class="form-group mt-2">
                     <div class="label-holder text-white textCol d-flex justify-content-center">
@@ -86,9 +78,7 @@
                            name="phone"/>
                     <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning">
                         Номерът трябва да съдържа 10 цифри!</small>
-
                 </div>
-
                 <div class="form-group mt-2">
                     <div class="label-holder text-white textCol d-flex justify-content-center">
                         <label for="address" class="h4 mb-2">Адрес</label>
@@ -108,16 +98,17 @@
                            class="btn btn-warning mb-5"
                            th:value="Обнови"
                            th:href="@{/auth-home/{id}(id=*{id})}">
-
                 </div>
             </form>
-            <div class="col col-sm-10 col-md-10 col-lg-8 col-xl-8">
+
+            <div th:if="${userDetails.address!=null and userDetails.phone!=null}"
+                 class="col col-sm-10 col-md-10 col-lg-8 col-xl-8">
                 <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
                      th:each="drips, iStat : ${dripNumsByUser}"
                      style="--bs-bg-opacity: .6">
                     <!--/*@thymesVar id="#getDrips" type="images"*/-->
                     <div th:if="drips != null" class="row d-flex pt-2 mb-2 ps-2 "
-                         style="height: 26vh;
+                         style="height: 22vh;
                  overflow: auto">
                         <div class="col-auto justify-content-center align-self-center">
                             <img th:src="${drips.url}"
@@ -189,7 +180,7 @@
                                                min="1"
                                                max="100"
                                                step="1"
-                                               value="1"
+                                               th:value="${drips.temporaryPieces}"
                                                class="my-input" readonly>
                                         <button onclick="stepper(this)"
                                                 class="text-center increment"
@@ -236,6 +227,7 @@
                     </div>
                 </div>
             </div>
+
         </main>
     </ul>
 </div>

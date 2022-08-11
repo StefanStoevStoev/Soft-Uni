@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created DripNum init apps.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip-orders.css" afterDir="false" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="My orders working from every were. Corrected PageController, UserController.">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripNumbers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/entity/DripNumbers.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/SprinklersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/SprinklersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip-orders.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-drip-orders.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles-pump.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles-pump.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/auth-home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/auth-home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-pump.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-pump.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +195,7 @@
       <workItem from="1660027839319" duration="33812000" />
       <workItem from="1660113659422" duration="38946000" />
       <workItem from="1660168334496" duration="1797000" />
-      <workItem from="1660199309891" duration="13475000" />
+      <workItem from="1660199309891" duration="43724000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -370,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660203635012</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="My orders working from every were. Corrected PageController, UserController.">
+      <created>1660216505826</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1660216505826</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,9 +424,19 @@
     <MESSAGE value="Save ordered drip to reference table. Created DripNumRepository." />
     <MESSAGE value="Created admin and home page, only picture with navbar." />
     <MESSAGE value="Created DripNum init apps." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created DripNum init apps." />
+    <MESSAGE value="My orders working from every were. Corrected PageController, UserController." />
+    <option name="LAST_COMMIT_MESSAGE" value="My orders working from every were. Corrected PageController, UserController." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.aop.framework.JdkDynamicAopProxy" memberName="proxiedInterfaces" />

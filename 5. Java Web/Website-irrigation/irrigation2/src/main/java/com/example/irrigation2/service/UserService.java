@@ -153,7 +153,7 @@ public class UserService{
                 .setAddress(user.getAddress());
     }
 
-    public void saveDataToUser(@Valid AuthDTO authDTO, CurrentUserDetails currentUser) {
+    public void saveDataToUser(AuthDTO authDTO, CurrentUserDetails currentUser) {
         UserEntity userData = authModelDTO.authDetailsUserEntity(authDTO);
         UserEntity user = userRepository.findByEmail(currentUser.getEmail()).orElse(null);
 

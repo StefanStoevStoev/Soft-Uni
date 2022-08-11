@@ -36,27 +36,36 @@ public class AuthController {
     }
 
     @GetMapping("/")
-    public String getById( Model model,
-                           @AuthenticationPrincipal CurrentUserDetails currentUser ) {
-        model.addAttribute("getUserId", currentUser.getId());
+    public String getById(Model model,
+                          @AuthenticationPrincipal CurrentUserDetails currentUser) {
+        if (!model.containsAttribute("getUserId") && currentUser != null){
+            model.addAttribute("getUserId", currentUser.getId());
+        }
         return "index";
     }
-
+//    @GetMapping("/auth-home/")
+//    public String sendDrip(Model model, @AuthenticationPrincipal CurrentUserDetails currentUser) {
+//        List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(currentUser.getId());
+//        model.addAttribute("dripNumsByUser", dripNumsByUser);
+//
+//        model.addAttribute("getUserId", currentUser.getId());
+//
+//        return "auth-home";
+//    }
     @GetMapping("/auth-home/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
+        List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
+        model.addAttribute("dripNumsByUser", dripNumsByUser);
+
         UserViewModel user = userService.getUserById(id);
         model.addAttribute("userDetails", user);
         model.addAttribute("getUserId", id);
 
-        List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
-        model.addAttribute("dripNumsByUser", dripNumsByUser);
-
         return "auth-home";
     }
 
-
     @PostMapping("/auth-home")
-    public String addUser( @Valid AuthDTO authDTO,
+    public String addUser(@Valid AuthDTO authDTO,
                           BindingResult bindingResult,
                           RedirectAttributes redirectAttributes,
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
@@ -71,6 +80,18 @@ public class AuthController {
         userService.saveDataToUser(authDTO, currentUser);
         return "redirect:/auth-home/" + currentUser.getId();
     }
+
+//    @PostMapping("/auth-home/{id}")/////////////////
+//    public String addBuyDeleteProduct( @PathVariable("id") Long id, @Valid AuthDTO authDTO,
+//                                      RedirectAttributes redirectAttributes,
+//                                       @AuthenticationPrincipal CurrentUserDetails currentUser) {
+//
+//        redirectAttributes.addFlashAttribute("authDTO", authDTO);
+//
+//        redirectAttributes.addFlashAttribute("uId", id);
+//        userService.saveDataToUser(authDTO, currentUser);
+//        return "redirect:/auth-home/" + id;
+//    }
 
     @ModelAttribute("userViewModel")
     private UserViewModel addModel() {

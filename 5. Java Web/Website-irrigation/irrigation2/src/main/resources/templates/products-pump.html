@@ -99,7 +99,7 @@
         <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
              style="--bs-bg-opacity: .6">
             <div class="row pt-2 mb-2 ps-2 "
-                 style="height: 48vh; overflow: auto">
+                 style="height: 34vh; overflow: auto">
                 <div class="col-auto gallery">
                     <img th:src="${pumps.urlPic}"
                          class="img-responsive">
@@ -122,9 +122,7 @@
                             <p class="fs-6 mb-0">Входен диаметър:</p>
                             <p class="fs-6 mb-0">Изходен диаметър:</p>
                             <p class="fs-6 mb-0">Тегло на помпа:</p>
-                            <p class="fs-6 mb-0">Захранване:</p>
-                            <p class="fs-6 mb-0">Номинална мощност:</p>
-                            <p class="fs-6 mb-0">Номинален ток:</p>
+
                             <p class="fs-6 mb-0">Характеристична крива:</p>
 
                         </div>
@@ -139,9 +137,7 @@
                             <p class="fs-6 mb-0" th:text="${pumps.diameterInlet}">Вход:</p>
                             <p class="fs-6 mb-0" th:text="${pumps.diameterOutlet}">Изход:</p>
                             <p class="fs-6 mb-0" th:text="|${pumps.weight} kg|">Тегло на помпа:</p>
-                            <p class="fs-6 mb-0" th:text="|${pumps.voltage} V|">Захранване:</p>
-                            <p class="fs-6 mb-0" th:text="|${pumps.power} kW|">Номинална мощност:</p>
-                            <p class="fs-6 mb-0" th:text="|${pumps.current} A|">Номинален ток:</p>
+
                             <p>
                                 <button class="btn btn-warning mb-0 mt-0 pb-0 pt-0 pe-0 ps-0 btnID"
                                         style="width: 70px; height: 30px"
@@ -154,11 +150,17 @@
                             <div class="row container mb-0 mt-0 pb-0 pt-0 pe-0 ps-0">
                                 <div class="col text-end"
                                      style="width: 30vh; overflow: auto">
+                                    <p class="fs-6 mb-0">Захранване:</p>
+                                    <p class="fs-6 mb-0">Номинална мощност:</p>
+                                    <p class="fs-6 mb-0">Номинален ток:</p>
                                     <p class="fs-6 mb-0">Единична цена:</p>
                                     <p class="fs-6 mb-0">Наличност:</p>
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
+                                    <p class="fs-6 mb-0" th:text="|${pumps.voltage} V|">Захранване:</p>
+                                    <p class="fs-6 mb-0" th:text="|${pumps.power} kW|">Номинална мощност:</p>
+                                    <p class="fs-6 mb-0" th:text="|${pumps.current} A|">Номинален ток:</p>
                                     <p class="fs-6 mb-0 single-price mb-0 mt-0 pb-0 pt-0 pe-0 ps-0"
                                        th:value="${pumps.price}"
                                        th:text="|${pumps.price} лв.|">Единична цена</p>

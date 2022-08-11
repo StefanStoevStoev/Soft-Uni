@@ -26,6 +26,7 @@ public class DripEntity extends BaseEntity {
     private String timeOfUse;
     private BigDecimal price;
     private int pieces;
+    private int temporaryPieces;
     private LocalDateTime orderDate;
 
     @OneToMany
@@ -151,6 +152,15 @@ public class DripEntity extends BaseEntity {
 
     public DripEntity setPieces(int pieces) {
         this.pieces = pieces;
+        return this;
+    }
+
+    public int getTemporaryPieces() {
+        return temporaryPieces;
+    }
+
+    public DripEntity setTemporaryPieces(int temporaryPieces) {
+        this.temporaryPieces = temporaryPieces;
         return this;
     }
 }
