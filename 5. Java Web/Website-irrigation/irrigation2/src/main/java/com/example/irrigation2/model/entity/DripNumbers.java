@@ -1,6 +1,7 @@
 package com.example.irrigation2.model.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,6 +17,8 @@ public class DripNumbers {
 
     @Column(name = "drip_id")
     private Long dripId;
+
+    private BigDecimal price;
 
     private LocalDateTime registeredAt;
 
@@ -73,6 +76,15 @@ public class DripNumbers {
 
     public DripNumbers setNumbers(int numbers) {
         this.numbers = numbers;
+        return this;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public DripNumbers setPrice(BigDecimal price) {
+        this.price = price;
         return this;
     }
 }

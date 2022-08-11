@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*font-family: "Roboto M", monospace ;*/
+    /*font-weight: 600;*/
+}
+body {
+    background-image: url('/images/frontPage/drip6.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    object-fit: cover;
+    height: 100%;
+}
+
+.img-responsive {
+    width: auto;
+    height: 70px;
+}
+
+.decrement {
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+.increment {
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+button {
+    color: #3264fe;
+    background-color: #ffffff;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    text-align: center;
+    font-size: 20px;
+    border: none;
+    background-color: #ffffff;
+    color: #202030;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

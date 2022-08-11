@@ -157,10 +157,12 @@ public class DripService {
     public List<DripEntity> getDripNumsByUser(Long userId){
         List<DripEntity> drips = new ArrayList<>();
 
+        List<DripNumbers> allDripsNum = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(userId);
 
-        for (DripNumbers e : dripNumRepository
-                .findAllByUserIdOrderByRegisteredAtAsc(userId)) {
-            drips.add(dripRepository.findById(e.getId()).orElse(null));
+        for (DripNumbers e : allDripsNum) {
+            DripEntity dripEntity = dripRepository.findById(e.getId()).orElse(null);
+//            dripEntity.setPieces(e.getNumbers());
+            drips.add(dripEntity);
         }
         return  drips;
     }

@@ -44,30 +44,4 @@ public class SprinklersController {
         }
         return "products-sprinkler";
     }
-//    @PostMapping("/sprinkler")
-//    public String sprinklerAddPage(@Valid SprinklerDTO sprinklerDTO,
-//                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
-//
-//        userService.addSprinklerToUser(sprinklerDTO, currentUser);
-//
-//        return "redirect:/auth-home/" + currentUser.getId();
-//    }
-
-//    @PostMapping("/sprinkler")
-//    public void getUserProfile(@AuthenticationPrincipal CurrentUserDetails user ) {
-//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-//        System.out.println("principal : " + authentication.getPrincipal());
-//        System.out.println("Implementing class of UserDetails: " + authentication.getPrincipal().getClass());
-//        System.out.println("Implementing class of UserDetailsService: " + userService.getClass());
-//    }
-//@ModelAttribute("userViewModel")
-//private UserViewModel addModel() {
-//    return new UserViewModel();
-//}
-//
-//    @ModelAttribute("sprinklerDTO")
-//    private SprinklerDTO addModelSpr() {
-//        return new SprinklerDTO();
-//    }
-
 }

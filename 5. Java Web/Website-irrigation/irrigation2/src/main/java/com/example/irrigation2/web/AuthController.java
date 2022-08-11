@@ -35,6 +35,13 @@ public class AuthController {
         this.dripService = dripService;
     }
 
+    @GetMapping("/")
+    public String getById( Model model,
+                           @AuthenticationPrincipal CurrentUserDetails currentUser ) {
+        model.addAttribute("getUserId", currentUser.getId());
+        return "index";
+    }
+
     @GetMapping("/auth-home/{id}")
     public String getById(@PathVariable("id") Long id, Model model) {
         UserViewModel user = userService.getUserById(id);
@@ -46,6 +53,7 @@ public class AuthController {
 
         return "auth-home";
     }
+
 
     @PostMapping("/auth-home")
     public String addUser( @Valid AuthDTO authDTO,
