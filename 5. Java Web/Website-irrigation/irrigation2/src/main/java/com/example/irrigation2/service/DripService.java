@@ -14,7 +14,10 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class DripService {
@@ -104,6 +107,7 @@ public class DripService {
             dripNumbers.setUserId(2L)
                     .setDripId(1L)
                     .setNumbers(5)
+                    .setStatus("Обработва се")
                     .setPrice(BigDecimal.valueOf(25.14))
                     .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
             dripNumRepository.save(dripNumbers);
@@ -112,6 +116,7 @@ public class DripService {
             dripNumbers1.setUserId(2L)
                     .setDripId(2L)
                     .setNumbers(1)
+                    .setStatus("Изпратена")
                     .setPrice(BigDecimal.valueOf(28.14))
                     .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
             dripNumRepository.save(dripNumbers1);
@@ -133,10 +138,6 @@ public class DripService {
             dripNumRepository.save(dripNumbers3);
         }
 
-    }
-
-    public DripEntity getDripByUserId(Long id) {
-        return dripRepository.findById(id).orElse(null);
     }
 
     @JsonIgnoreProperties({"extra", "uselessValue"})
@@ -166,10 +167,14 @@ public class DripService {
         }
     }
 
+    //AuthController
     public List<DripEntity> getDripNumsByUser(Long userId) {
         List<DripEntity> drips = new ArrayList<>();
 
-        List<DripNumbers> allDripsNum = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(userId);
+        List<DripNumbers> allDripsNum = dripNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)
+                .stream()
+                .filter(e -> e.getStatus() == null).toList();
 
         for (DripNumbers e : allDripsNum) {
             DripEntity dripEntity = dripRepository.findById(e.getDripId()).orElse(null);
@@ -183,8 +188,41 @@ public class DripService {
         return drips;
     }
 
-    public void orderDripToUser(OrderDripDTO orderDripDTO, Long id) {
+    //OrderController
+    public void orderDripToUser(OrderDripDTO orderDripDTO, Long userId) {/////////////////
+
+//        DripNumbers dripNum = dripNumRepository.findByUserIdAndDripId(userId, orderDripDTO.getId());
+        DripNumbers dripNumbers = dripNumRepository.findByUserIdAndDripId(userId, orderDripDTO.getId());
+
+        DripEntity dripEntity = dripRepository.findById(orderDripDTO.getId()).orElse(null);
+
+        assert dripEntity != null;
+        int numbers = dripEntity.getPieces()- orderDripDTO.getPieces();
+        dripEntity.setPieces(numbers);
+
 
     }
 
+    public List<DripEntity> getOrdersByUser(Long userId) {
+
+        List<DripNumbers> dripNumbersStream = dripNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)
+                .stream()
+                .filter(e -> e.getStatus() != null).toList();
+
+        List<DripEntity> drip = new ArrayList<>();
+
+        for (DripNumbers dripNumbers : dripNumbersStream) {
+
+            DripEntity tempDrip = dripRepository
+                    .findById(dripNumbers.getDripId()).orElseThrow()
+                    .setPieces(dripNumbers.getNumbers())
+                    .setPrice(dripNumbers.getPrice())
+                    .setOrderDate(dripNumbers.getRegisteredAt())
+                    .setStatus(dripNumbers.getStatus());
+            drip.add(tempDrip);
+
+        }
+        return drip;
+    }
 }

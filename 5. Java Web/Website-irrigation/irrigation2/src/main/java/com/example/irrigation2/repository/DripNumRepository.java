@@ -11,4 +11,6 @@ import java.util.List;
 public interface DripNumRepository extends JpaRepository<DripNumbers, Long> {
 
     List<DripNumbers> findAllByUserIdOrderByRegisteredAtAsc(Long userId);
+
+    DripNumbers findByUserIdAndDripId(Long userId, Long dripId);
 }

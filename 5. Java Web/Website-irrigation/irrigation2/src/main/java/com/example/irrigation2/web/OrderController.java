@@ -28,13 +28,13 @@ public class OrderController {
         this.dripService = dripService;
         this.userService = userService;
     }
-
+//button потвърди
     @GetMapping("/{id}/orders")
     public String orderList(@PathVariable("id") Long id, Model model){
         if(!model.containsAttribute("orderDripDTO")){
             model.addAttribute("orderDripDTO", new OrderDripDTO());
         }
-        List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
+        List<DripEntity> dripNumsByUser = dripService.getOrdersByUser(id); //
         model.addAttribute("dripNumsByUser", dripNumsByUser);
 
         UserViewModel user = userService.getUserById(id);
@@ -42,6 +42,7 @@ public class OrderController {
         model.addAttribute("getUserId", id);
         return "my-orders";
     }
+    //button потвърди
     @PostMapping("/{id}/orders")
     public String addUser(@PathVariable("id") Long id,
                           OrderDripDTO orderDripDTO,
@@ -49,7 +50,7 @@ public class OrderController {
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
 
         redirectAttributes.addFlashAttribute("orderDripDTO", orderDripDTO);
-        redirectAttributes.addFlashAttribute("uId", id);
+//        redirectAttributes.addFlashAttribute("uId", id);
         dripService.orderDripToUser(orderDripDTO, id);
         return "redirect:/auth-home/" + id + "/orders";
     }

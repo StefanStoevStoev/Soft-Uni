@@ -4,28 +4,28 @@ import java.math.BigDecimal;
 
 public class OrderDripDTO {
 
-    private Long dripId;
-    private int numbers;
+    private Long id;
+    private int pieces;
     private BigDecimal price;
 
     public OrderDripDTO() {
     }
 
-    public Long getDripId() {
-        return dripId;
+    public Long getId() {
+        return id;
     }
 
-    public OrderDripDTO setDripId(Long dripId) {
-        this.dripId = dripId;
+    public OrderDripDTO setId(Long id) {
+        this.id = id;
         return this;
     }
 
-    public int getNumbers() {
-        return numbers;
+    public int getPieces() {
+        return pieces;
     }
 
-    public OrderDripDTO setNumbers(int numbers) {
-        this.numbers = numbers;
+    public OrderDripDTO setPieces(int pieces) {
+        this.pieces = pieces;
         return this;
     }
 

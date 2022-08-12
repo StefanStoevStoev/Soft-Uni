@@ -80,9 +80,14 @@ function setAttributeData(event) {
     let id = event.parentElement.parentElement.querySelector("input.id").value;
     let numbers = event.parentElement.parentElement.querySelector("input.my-input").value;
 
-    event.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
-    event.parentElement.querySelectorAll("input")[1].setAttribute("value", price);
-    event.parentElement.querySelectorAll("input")[2].setAttribute("value", numbers);
+    let idd = event.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
+    let pricee = event.parentElement.querySelectorAll("input")[1].setAttribute("value", price);
+    let numberss = event.parentElement.querySelectorAll("input")[2].setAttribute("value", numbers);
+    console.log(idd);
+    console.log(pricee);
+    console.log(numberss);
+    console.log(idd);
+
     // firstValue.style.display = "none";
     // let firstValue = event.parentElement.querySelectorAll("output").setAttribute("text", id);
 }

@@ -33,6 +33,7 @@ public class DripEntity extends BaseEntity {
     @JoinColumn(name = "drip_id")
     private List<DripNumbers> dripUsers;
     private String url;
+    private String status;
 
 
     public DripEntity() {
@@ -161,6 +162,15 @@ public class DripEntity extends BaseEntity {
 
     public DripEntity setTemporaryPieces(int temporaryPieces) {
         this.temporaryPieces = temporaryPieces;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public DripEntity setStatus(String status) {
+        this.status = status;
         return this;
     }
 }

@@ -44,8 +44,9 @@ public class AuthController {
         return "index";
     }
 
-    @GetMapping("/auth-home/{id}")
-    public String getById(@PathVariable("id") Long id, Model model, @AuthenticationPrincipal CurrentUserDetails currentUser) {
+    @GetMapping("/auth-home/{id}")//ne
+    public String getById(@PathVariable("id") Long id, Model model,
+                          @AuthenticationPrincipal CurrentUserDetails currentUser) {
         List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
         model.addAttribute("dripNumsByUser", dripNumsByUser);
 
