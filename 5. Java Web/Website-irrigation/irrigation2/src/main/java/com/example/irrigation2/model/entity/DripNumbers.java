@@ -24,6 +24,7 @@ public class DripNumbers {
 
     private int numbers;
     private int allNumbers;
+    private String status;
 
     public DripNumbers() {
     }
@@ -95,6 +96,15 @@ public class DripNumbers {
 
     public DripNumbers setAllNumbers(int allNumbers) {
         this.allNumbers = allNumbers;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public DripNumbers setStatus(String status) {
+        this.status = status;
         return this;
     }
 }

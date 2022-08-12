@@ -6,7 +6,7 @@
     <th:block th:insert="fragments/fragment :: head"></th:block>
     <title>Мелиорации</title>
     <!--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css">-->
-    <link rel="stylesheet" th:href="@{/css/styles-drip-orders.css}">
+    <link rel="stylesheet" th:href="@{/css/styles-auth.css}">
 </head>
 <body>
 <div th:replace="fragments/fragment::navigation"></div>
@@ -17,13 +17,13 @@
             <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->
             <form th:class="${userDetails.address}!=null  ? 'col hidden-md-down w-25 bg-blur rounded' : 'col-6 offset-3' "
 
-                    th:method="post"
-                    th:action="@{/auth-home/}"
-                    th:object="${authDTO}">
+                  th:method="post"
+                  th:action="@{/auth-home/}"
+                  th:object="${authDTO}">
                 <div class="form-group mt-2">
                     <th:block th:if="${userDetails.address==null and userDetails.phone==null}">
                         <div class="label-holder text-danger text-center text-wrap">
-                            <label for="firstName"
+                            <label
                                    class="h4 mb-2 bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
                                    style="--bs-bg-opacity: .5">За поръчка са нужни адрес и телефон</label>
                         </div>
@@ -189,7 +189,7 @@
                                         </button>
                                     </div>
                                     <form th:method="post"
-                                          th:action="@{/products/drip}"
+                                          th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
                                           th:object="${dripDTO}"
                                           class="button-holder d-flex justify-content-center mt-2">
 
@@ -225,10 +225,29 @@
                             </div>
                         </div>
                     </div>
+
+                </div>
+                <div class="h4 mb-2 bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+                     style="--bs-bg-opacity: .1">
+                    <form
+                            th:method="post"
+                            th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
+                            th:object="${orderDripDTO}"
+                            class="button-holder d-flex justify-content-center mt-2">
+                        <button class="btn btn-warning mb-1 me-2"
+                                onclick="setAttributeData(this)">Статус на поръчките ми
+                        </button>
+                        <!--                <input type="submit"-->
+                        <!--                       class="btn btn-warning mb-5"-->
+                        <!--                       th:value="Статус на поръчките"-->
+                        <!--                       th:href="@{/auth-home/{id}(id=*{id})/orders}">-->
+                    </form>
                 </div>
             </div>
 
+
         </main>
+
     </ul>
 </div>
 <footer th:replace="fragments/fragment::footer"></footer>

@@ -62,7 +62,7 @@ function stepper(btn) {
         if (newValue >= min && newValue <= max) {
             myInput.setAttribute("value", newValue);
 
-            let discount = 500 / (500 + newValue);
+            let discount = 501 / (500 + newValue);
             let newPrice = newValue * parseFloat(initPrice) * discount;
             numbers.textContent = (num).toString() + ' бр.';
             price.textContent = newPrice.toFixed(2) + ' лв.';

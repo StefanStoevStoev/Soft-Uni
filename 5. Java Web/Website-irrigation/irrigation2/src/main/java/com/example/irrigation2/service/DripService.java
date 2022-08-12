@@ -2,6 +2,7 @@ package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.DripDTO;
+import com.example.irrigation2.model.DTO.OrderDripDTO;
 import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.model.entity.DripNumbers;
 import com.example.irrigation2.repository.DripNumRepository;
@@ -182,24 +183,8 @@ public class DripService {
         return drips;
     }
 
-//    public List<DripNumbers> getDripNumsByUser(Long userId){
-//
-//        List<DripNumbers> allDripsNum = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(userId);
-//        List<DripNumbers> transferDrips = new ArrayList<>();
-//
-//        DripNumbers drips = new DripNumbers();
-//
-//        for (DripNumbers e : allDripsNum) {
-//            DripEntity dripEntity = dripRepository.findById(e.getId()).orElse(null);
-//            assert dripEntity != null;
-//            drips.setAllNumbers(dripEntity.getPieces())
-//                    .setId(e.getId())
-//                    .setNumbers(e.getNumbers())
-//                    .setDripId(e.getDripId())
-//                    .setPrice(e.getPrice())
-//                    .setRegisteredAt(e.getRegisteredAt())
-//                    .setUserId(e.getUserId());
-//
-//            transferDrips.add(drips);
-//        }
+    public void orderDripToUser(OrderDripDTO orderDripDTO, Long id) {
+
+    }
+
 }
