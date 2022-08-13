@@ -24,8 +24,8 @@
                     <th:block th:if="${userDetails.address==null and userDetails.phone==null}">
                         <div class="label-holder text-danger text-center text-wrap">
                             <label
-                                   class="h4 mb-2 bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
-                                   style="--bs-bg-opacity: .5">За поръчка са нужни адрес и телефон</label>
+                                    class="h4 mb-2 bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
+                                    style="--bs-bg-opacity: .5">За поръчка са нужни адрес и телефон</label>
                         </div>
                     </th:block>
                     <div class="label-holder text-white textCol d-flex justify-content-center">
@@ -188,69 +188,86 @@
                                             +
                                         </button>
                                     </div>
-                                    <form th:method="post"
-                                          th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
-                                          th:object="${dripDTO}"
-                                          class="button-holder d-flex justify-content-center mt-2">
+                                    <div class="row container ps-4 ms-0 pe-0 me-0">
+                                        <div class="col text-end me-0 pe-0 pt-2">
+                                            <form th:method="post"
+                                                  th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
+                                                  th:object="${dripDTO}"
+                                                  class="fs-6 mb-0 button-holder d-flex justify-content-center mt-2">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="${drips.id}"
+                                                       name="id"
+                                                       style="display:none">
 
-                                        <label th:type="hidden" style="display:none"></label>
-                                        <input th:type="hidden"
-                                               class=" id"
-                                               th:value="${drips.id}"
-                                               name="id"
-                                               style="display:none">
+                                                <label th:type="hidden"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" price"
+                                                       name="price"
+                                                       style="display:none">
+                                                <label th:type="hidden"
+                                                       for="pieces"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       id="pieces"
+                                                       class=" pieces"
+                                                       name="pieces"
+                                                       style="display:none">
+                                                <button class="btn btn-warning mb-1 me-2"
+                                                        onclick="setAttributeDataAuthHome(this)">Потвърди
+                                                </button>
 
-                                        <label th:type="hidden"
-                                               style="display:none"></label>
-                                        <input th:type="hidden"
-                                               class=" price"
-                                               name="price"
-                                               style="display:none">
-                                        <label th:type="hidden"
-                                               for="pieces"
-                                               style="display:none"></label>
-                                        <input th:type="hidden"
-                                               id="pieces"
-                                               class=" pieces"
-                                               name="pieces"
-                                               style="display:none">
-                                        <button class="btn btn-warning mb-1 me-2"
-                                                onclick="setAttributeData(this)">Потвърди
-                                        </button>
-                                        <button class="btn btn-warning mb-1"
-                                                onclick="setAttributeData(this)">Откажи
-                                        </button>
-                                    </form>
+                                            </form>
+                                        </div>
+
+                                        <div class="col text-start pt-3">
+                                            <form class="fs-6 mb-0"
+                                                  th:action="@{/auth-home/{id}(id=${getUserId})}"
+                                                  th:method="delete">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="${drips.id}"
+                                                       name="id"
+                                                       style="display:none">
+                                                <input type="submit" class="btn btn-warning mb-1"
+                                                       value="Откажи">
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="h4 mb-2 bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
                      style="--bs-bg-opacity: .1">
-                    <form
-                            th:method="post"
-                            th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
-                            th:object="${orderDripDTO}"
-                            class="button-holder d-flex justify-content-center mt-2">
-                        <button class="btn btn-warning mb-1 me-2"
-                                onclick="setAttributeData(this)">Статус на поръчките ми
-                        </button>
-                        <!--                <input type="submit"-->
-                        <!--                       class="btn btn-warning mb-5"-->
-                        <!--                       th:value="Статус на поръчките"-->
-                        <!--                       th:href="@{/auth-home/{id}(id=*{id})/orders}">-->
-                    </form>
+                    <div class="align-bottom text-center">
+                        <a th:href="@{/auth-home/{id}/orders(id=${getUserId})}"
+                           class="btn btn-warning mb-1 me-2">Статус на поръчките ми</a>
+                    </div>
                 </div>
             </div>
-
-
         </main>
-
     </ul>
 </div>
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>
 <!--th:href="@{/auth-home/{id}(id=${user.id})}">-->
+
+<!--<form-->
+<!--        th:method="post"-->
+<!--        th:action="@{/auth-home/{id}/orders(id=${getUserId})}"-->
+<!--        th:object="${orderDripDTO}"-->
+<!--        class="button-holder d-flex justify-content-center mt-2">-->
+<!--    <button class="btn btn-warning mb-1 me-2"-->
+<!--            onclick="setAttributeData(this)">Статус на поръчките ми-->
+<!--    </button>-->
+<!--    &lt;!&ndash;                <input type="submit"&ndash;&gt;-->
+<!--    &lt;!&ndash;                       class="btn btn-warning mb-5"&ndash;&gt;-->
+<!--    &lt;!&ndash;                       th:value="Статус на поръчките"&ndash;&gt;-->
+<!--    &lt;!&ndash;                       th:href="@{/auth-home/{id}(id=*{id})/orders}">&ndash;&gt;-->
+<!--</form>-->

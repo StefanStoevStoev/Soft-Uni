@@ -14,12 +14,114 @@
             object-fit: cover;
             height: 100%;
         }
+        .img-responsive {
+            width: auto;
+            height: 220px;
+        }
     </style>
 </head>
 <body>
 <div th:replace="fragments/fragment::navigation"></div>
-<div class=" p-2 mt-2 pt-2 mb-2 pb-2 mask-custom-1"></div>
+<div class=" p-2 mt-2 pt-1 mb-1 pb-1 mask-custom-1"></div>
+<div class="container ">
+    <ul class="navbar-nav mt-3 position-relative ps-0 pe-0">
+        <div class="bg-light p-2 mt-0 me-0 ms-0 m-0 mask-custom-1"
+             style="--bs-bg-opacity: .7">
+            <h5 class="ps-0 pe-0 text-center">Фирма "Напоителни системи"</h5>
+            <p>е създадена 2018г. в резултат от 21г. теоретичен и практически опит в проектирането и изграждането на
+                поливни съоръжения, помпени станции и зелени площи. Водещите инженери на "Напителни системи" завършват
+                образованието си
+                в УАСГ, катедра "Хидромелиоративно строителство" със специалности "напояване" и "отводняване".</p>
+            <p> За щастие пазарът на труда в областта на напояване и поддръжка на зелени площи в началото на века е
+                динамичен и
+                предлага безценна възможност за работа и трупане на опит в изграждането на голф игрища в България. Някои
+                от проектите,
+                в които сме участвали са:
+            </p>
+        </div>
+    </ul>
+</div>
+<div class="container ">
+    <ul class="navbar-nav ms-auto mt-3 ">
+        <div class="bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
+             style="--bs-bg-opacity: .7">
+            <div class="row pt-2 mb-2 ps-2 "
+                 style="height: 34vh;
+                 overflow: auto">
+                <div class="col-auto ">
+                    <img src="/images/for%20us/g2.jpeg"
+                         class="img-responsive "
+                         alt=" ">
+                </div>
+                <div class="col ">
+                    <div class="card-block px-2 ">
+                        <h5 class="ps-0 pe-0 text-center">Св. София - голф клуб</h5>
+                        <p class="card-text ">Голф игрище „Св. София“ е открито през 2004 г. и полага основите за
+                            изграждането на голф общността в България. През 2009 г. бе взето важно решение за обновяване
+                            на игрището, което доведе до неговото затваряне за 18 месеца. В началото на май 2012 г.
+                            беше представен дългоочакваният резултат по проект на известния ирландски голфър Пол Макгинли.
+                            Сега столицата София се гордее с голф игрище, подобно на тези в другите европейски градове.
+                            Стойността на инвестицията е 22 млн. лв. Представители на "Напоителни системи" са ръководели
+                            екипите за изграждане на напоителните и отводнителни съоръжения.
+                        </p>
 
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </ul>
+</div>
+<div class="container ">
+    <ul class="navbar-nav ms-auto mt-3 ">
+        <div class="bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
+             style="--bs-bg-opacity: .7">
+            <div class="row pt-2 mb-2 ps-2 "
+                 style="height: 34vh;
+                 overflow: auto">
+                <div class="col-auto ">
+                    <img src="/images/for%20us/rakovski1.jpg"
+                         class="img-responsive "
+                         alt=" ">
+                </div>
+                <div class="col ">
+                    <div class="card-block px-2 ">
+                        <h5 class="ps-0 pe-0 text-center">ФК Левски-Раковски</h5>
+                        <p class="card-text ">Тренировъчният терен изграден от представители на фирма "Напоителни системи"
+                            е най-модерният на Балканите. За първи път в България се работи по иновативна технология,
+                            която комбинира комфорта на естествената трева със силата и здравината на синтетичната.
+                            Резултатът е игрище с безупречно професионално качество, с усещане за 100% естествена трева и
+                            стабилна мека повърхност с по-добро сцепление, заради по-силното взаимодействие с повърхността
+                            на обувките. Подобен тип игрища се използват само за мъжки футбол, защото са скъпи.
+                            Стойността на инвестицията е 2 млн. лв. Изграждането на това сложно и високотехнологично съоръжение
+                            продължи повече от година и половина.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>
+
+<div class="container ">
+    <ul class="navbar-nav ms-auto mt-3 ">
+        <div class="bg-light p-2 mt-0 me-0 ms-0 mask-custom-1"
+             style="--bs-bg-opacity: .7">
+            <div class="row container pt-2 mb-2 ps-2 "
+                 style="height: 10vh;
+                 overflow: auto">
+                <div class="col text-end">
+                    <p class="fs-6 mb-0">Имейл:</p>
+                    <p class="fs-6 mb-0">Телефон:</p>
+                </div>
+                <div class="col text-start">
+                    <p class="fs-6 mb-0 ">pesho.peshev@mail.bg</p>
+                    <p class="fs-6 mb-0 ">0895 436 783</p>
+                </div>
+            </div>
+        </div>
+    </ul>
+</div>
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>

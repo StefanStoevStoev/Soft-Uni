@@ -37,7 +37,10 @@ public class UserController {
 
         this.localeResolver = localeResolver;
     }
-
+    @ModelAttribute("userLoginDTO")
+    public UserLoginDTO userLogin() {
+        return new UserLoginDTO();
+    }
     @ModelAttribute("currentUser")
     public UserDetails getCurrentUser(Authentication authentication) {
         return (authentication == null) ? null : (UserDetails) authentication.getPrincipal();

@@ -31,6 +31,11 @@ public class DripService {
         this.dripNumRepository = dripNumRepository;
     }
 
+    public void deleteDripById(Long dripId, Long userId) {
+        DripNumbers drip = dripNumRepository.findByUserIdAndDripId(userId, dripId);
+        dripNumRepository.deleteById(drip.getId());
+    }
+
     public void initDrips() {
 
         DripEntity dripOneSeason = new DripEntity();

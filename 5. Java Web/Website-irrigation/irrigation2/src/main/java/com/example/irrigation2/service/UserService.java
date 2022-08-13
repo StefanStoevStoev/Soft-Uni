@@ -142,7 +142,6 @@ public class UserService{
     public UserViewModel getUserById(Long id) {
        UserEntity user = userRepository.findById(id).orElse(null);
 
-        assert user != null;
         UserViewModel userViewModel = new UserViewModel();
 
         return userViewModel

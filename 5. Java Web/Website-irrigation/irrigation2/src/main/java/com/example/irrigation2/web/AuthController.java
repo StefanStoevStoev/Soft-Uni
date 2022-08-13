@@ -4,8 +4,6 @@ import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AuthDTO;
 
 import com.example.irrigation2.model.entity.DripEntity;
-import com.example.irrigation2.model.entity.DripNumbers;
-import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.model.views.UserViewModel;
 import com.example.irrigation2.service.DripService;
 import com.example.irrigation2.service.UserService;
@@ -22,7 +20,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
 public class AuthController {
@@ -44,7 +41,7 @@ public class AuthController {
         return "index";
     }
 
-    @GetMapping("/auth-home/{id}")//ne
+    @GetMapping("/auth-home/{id}")
     public String getById(@PathVariable("id") Long id, Model model,
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
         List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
@@ -52,6 +49,9 @@ public class AuthController {
 
         UserViewModel user = userService.getUserById(id);
         model.addAttribute("userDetails", user);
+        if(currentUser == null){
+            return "login";
+        }
         model.addAttribute("getUserId", currentUser.getId());
 
         return "auth-home";

@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created Logic to filter drip entities for order and buy.">
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-orders.html" afterDir="false" />
-    </list>
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Delete button in auth-home is ready. @DeleteMapper is added to OrderController. Created method deleteDripById in DripService." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,6 +126,10 @@
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\java\com\example\irrigation2" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\for us" />
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\sprinkler" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.irrigation2.model.DTO" />
     </key>
@@ -192,7 +191,7 @@
       <workItem from="1660168334496" duration="1797000" />
       <workItem from="1660199309891" duration="45071000" />
       <workItem from="1660280582898" duration="38102000" />
-      <workItem from="1660378657795" duration="10228000" />
+      <workItem from="1660378657795" duration="40607000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -404,7 +403,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660337048115</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Orders for drips is ready.">
+      <created>1660389798568</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1660389798568</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Delete button in auth-home is ready. @DeleteMapper is added to OrderController. Created method deleteDripById in DripService.">
+      <created>1660422278181</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1660422278181</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -453,7 +466,9 @@
     <MESSAGE value="AuthController DripService - adding drip orders to user. Not repeat drip ID." />
     <MESSAGE value="Created orders view, controller and my-orders. Created doc.txt file - documentation of the site. Created new OrderDTO." />
     <MESSAGE value="Created Logic to filter drip entities for order and buy." />
-    <option name="LAST_COMMIT_MESSAGE" value="Created Logic to filter drip entities for order and buy." />
+    <MESSAGE value="Orders for drips is ready." />
+    <MESSAGE value="Delete button in auth-home is ready. @DeleteMapper is added to OrderController. Created method deleteDripById in DripService." />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete button in auth-home is ready. @DeleteMapper is added to OrderController. Created method deleteDripById in DripService." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
