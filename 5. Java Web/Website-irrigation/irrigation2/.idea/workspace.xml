@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created Logic to filter drip entities for order and buy." />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created Logic to filter drip entities for order and buy.">
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/my-orders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/my-orders.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,9 +105,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "last_opened_file_path": "D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2/src/main/resources/static/images/frontPage",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.44409615",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "d69784ca6fd1de93001551dcd739d9f3"
@@ -187,6 +192,7 @@
       <workItem from="1660168334496" duration="1797000" />
       <workItem from="1660199309891" duration="45071000" />
       <workItem from="1660280582898" duration="38102000" />
+      <workItem from="1660378657795" duration="10228000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -450,15 +456,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="Created Logic to filter drip entities for order and buy." />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java</url>
-          <line>212</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.aop.framework.JdkDynamicAopProxy" memberName="proxiedInterfaces" />

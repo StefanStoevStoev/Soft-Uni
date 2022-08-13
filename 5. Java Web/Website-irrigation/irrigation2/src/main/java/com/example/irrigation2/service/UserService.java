@@ -53,8 +53,6 @@ public class UserService{
         this.sprinklerRepository = sprinklerRepository;
     }
 
-
-
     public void init() {
 
         if (userRepository.count() == 0 && userRoleRepository.count() == 0) {
@@ -75,6 +73,8 @@ public class UserService{
                 .setFirstName("Stefan")
                 .setLastName("Stoev")
                 .setEmail("stoev.stefan@gmail.com")
+                .setPhone("0859224538")
+                .setAddress("кв. Раковски, бл. 64, вх. Б, ап. 43")
                 .setPassword(passwordEncoder.encode("123"));
         userRepository.save(admin);
     }
@@ -86,6 +86,8 @@ public class UserService{
                 .setFirstName("Pesho")
                 .setLastName("Peshev")
                 .setEmail("pesho@gmail.com")
+                .setPhone("0898224836")
+                .setAddress("кв. Железник N65")
                 .setPassword(passwordEncoder.encode("123"));
 
         userRepository.save(user);

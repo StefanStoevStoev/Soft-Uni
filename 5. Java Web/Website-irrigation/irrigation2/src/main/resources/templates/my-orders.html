@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security' xmlns:HH="http://www.w3.org/1999/xhtml">
 <head>
     <th:block th:insert="fragments/fragment :: head"></th:block>
     <title>Мелиорации</title>
@@ -53,13 +53,15 @@
                                     <p class="fs-6 mb-0">Дата на поръчката:</p>
                                     <p class="fs-6 mb-0">Код:</p>
                                     <p class="fs-6 mb-0">Дължина:</p>
+                                    <p class="fs-6 mb-0">Брой:</p>
                                     <p class="fs-6 mb-0">Цена:</p>
                                 </div>
                                 <div class="col text-start ">
                                     <p class="fs-6 fw-bold mb-0" th:text="${drips.status}">Статус</p>
-                                    <p class="fs-6 mb-0" th:text="${drips.orderDate}">Дата на поръчката:</p>
+                                    <p class="fs-6 mb-0" th:text="${#temporals.format(drips.orderDate,'yyyy-MM-dd HH:mm')}">Дата на поръчката:</p>
                                     <p class="fs-6 mb-0" th:text="${drips.code}">Код</p>
                                     <p class="fs-6 mb-0" th:text="|${drips.size} m|">Дължина</p>
+                                    <p class="fs-6 mb-0" th:text="|${drips.pieces} бр.|">Брой</p>
                                     <p class="fs-6 mb-0 price2" th:text="|${drips.price} лв.|">Цена:</p>
                                 </div>
                             </div>

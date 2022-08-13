@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -102,42 +103,51 @@ public class DripService {
 
     public void initDripNums() {
 
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
         if (dripNumRepository.count() == 0) {
+            String str1 = "2014-04-08 12:30";
+            LocalDateTime dateTime1 = LocalDateTime.parse(str1, formatter);
             DripNumbers dripNumbers = new DripNumbers();
             dripNumbers.setUserId(2L)
                     .setDripId(1L)
                     .setNumbers(5)
                     .setStatus("Обработва се")
                     .setPrice(BigDecimal.valueOf(25.14))
-                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+                    .setRegisteredAt(dateTime1);
             dripNumRepository.save(dripNumbers);
 
+            String str2 = "2022-04-08 09:01";
+            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
             DripNumbers dripNumbers1 = new DripNumbers();
             dripNumbers1.setUserId(2L)
                     .setDripId(2L)
                     .setNumbers(1)
                     .setStatus("Изпратена")
                     .setPrice(BigDecimal.valueOf(28.14))
-                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+                    .setRegisteredAt(dateTime2);
             dripNumRepository.save(dripNumbers1);
 
+            String str3 = "2021-01-01 23:59";
+            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
             DripNumbers dripNumbers2 = new DripNumbers();
             dripNumbers2.setUserId(1L)
                     .setDripId(3L)
                     .setNumbers(3)
                     .setPrice(BigDecimal.valueOf(28.14))
-                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+                    .setRegisteredAt(dateTime3);
             dripNumRepository.save(dripNumbers2);
 
+            String str4 = "2022-11-30 23:59";
+            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
             DripNumbers dripNumbers3 = new DripNumbers();
             dripNumbers3.setUserId(2L)
                     .setDripId(3L)
                     .setNumbers(1)
                     .setPrice(BigDecimal.valueOf(21.14))
-                    .setRegisteredAt(LocalDateTime.parse("2019-03-27T10:15:30"));
+                    .setRegisteredAt(dateTime4);
             dripNumRepository.save(dripNumbers3);
         }
-
     }
 
     @JsonIgnoreProperties({"extra", "uselessValue"})
@@ -191,16 +201,18 @@ public class DripService {
     //OrderController
     public void orderDripToUser(OrderDripDTO orderDripDTO, Long userId) {/////////////////
 
-//        DripNumbers dripNum = dripNumRepository.findByUserIdAndDripId(userId, orderDripDTO.getId());
         DripNumbers dripNumbers = dripNumRepository.findByUserIdAndDripId(userId, orderDripDTO.getId());
-
         DripEntity dripEntity = dripRepository.findById(orderDripDTO.getId()).orElse(null);
 
         assert dripEntity != null;
         int numbers = dripEntity.getPieces()- orderDripDTO.getPieces();
         dripEntity.setPieces(numbers);
+        dripRepository.save(dripEntity);
 
-
+        dripNumbers.setStatus("Обработва се")
+                .setNumbers(orderDripDTO.getPieces())
+                .setPrice(orderDripDTO.getPrice());
+        dripNumRepository.save(dripNumbers);
     }
 
     public List<DripEntity> getOrdersByUser(Long userId) {
