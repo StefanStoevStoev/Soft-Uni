@@ -30,7 +30,7 @@
     <!--    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Регистрация</span></h1>-->
     <hr class="hr-3 w-25 bg-white"/>
     <form class="mx-auto w-25 bg-blur rounded"
-          th:method="POST"
+          th:method="post"
           enctype="multipart/form-data"
           th:action="@{/admin/sprinklers}"
           th:object="${addSprinklerDTO}">
@@ -199,7 +199,7 @@
                  style="--bs-bg-opacity: .7">
                 <label for="image" class="h4 mb-2">Прибави път към снимка</label>
             </div>
-<!--            <input type="file" webkitdirectory directory multiple/>-->
+            <!--            <input type="file" webkitdirectory directory multiple/>-->
             <input type="file"
                    th:field="*{image}"
                    th:errorclass="'is-invalid alert-danger'"

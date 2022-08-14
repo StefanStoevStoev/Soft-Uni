@@ -15,6 +15,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 @Configuration
 public class SecurityConfiguration {
@@ -87,4 +88,5 @@ public class SecurityConfiguration {
         handler.setUseReferer(true);
         return handler;
     }
+
 }

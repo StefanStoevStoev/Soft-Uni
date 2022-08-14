@@ -7,7 +7,7 @@
     <title>Мелиорации</title>
     <style>
         body {
-            background-image: url('/images/sprinkler/nosel1.jpg');
+            background-image: url('/images/pumps/pump8.png');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -30,10 +30,9 @@
     <!--    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Регистрация</span></h1>-->
     <hr class="hr-3 w-25 bg-white"/>
     <form class="mx-auto w-25 bg-blur rounded"
-          th:method="POST"
-          enctype="multipart/form-data"
-          th:action="@{/admin/sprinklers}"
-          th:object="${addSprinklerDTO}">
+          th:method="post"
+          th:action="@{/admin/pumps}"
+          th:object="${addPumpDTO}">
 
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
@@ -99,87 +98,117 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="size" class="h4 mb-2">Размер</label>
+                <label for="voltage" class="h4 mb-2">Волтаж</label>
             </div>
             <input type="text"
-                   th:field="*{size}"
+                   th:field="*{voltage}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="size"
-                   name="size"/>
+                   id="voltage"
+                   name="voltage"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Размер</small>
+                   style="width:360px">Волтаж</small>
         </div>
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="pressure" class="h4 mb-2">Налягане</label>
+                <label for="power" class="h4 mb-2">Номинална мощност</label>
             </div>
             <input type="text"
-                   th:field="*{pressure}"
+                   th:field="*{power}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="pressure"
-                   name="pressure"/>
+                   id="power"
+                   name="power"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Налягане</small>
+                   style="width:360px">Номинална мощност</small>
         </div>
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="nosel" class="h4 mb-2">Дюза</label>
+                <label for="current" class="h4 mb-2">Номинален ток</label>
             </div>
             <input type="text"
-                   th:field="*{nosel}"
+                   th:field="*{current}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="nosel"
-                   name="nosel"/>
+                   id="current"
+                   name="current"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Дюза</small>
+                   style="width:360px">Номинален ток</small>
         </div>
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="volume" class="h4 mb-2">Дебит</label>
+                <label for="head" class="h4 mb-2">Напор</label>
             </div>
             <input type="text"
-                   th:field="*{volume}"
+                   th:field="*{head}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="volume"
-                   name="volume"/>
+                   id="head"
+                   name="head"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Дебит</small>
+                   style="width:360px">Напор</small>
         </div>
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="radius" class="h4 mb-2">Радиус</label>
+                <label for="maxWorkingPressure" class="h4 mb-2">Макс. раб. налягане</label>
             </div>
             <input type="text"
-                   th:field="*{radius}"
+                   th:field="*{maxWorkingPressure}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="radius"
-                   name="radius"/>
+                   id="maxWorkingPressure"
+                   name="maxWorkingPressure"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Радиус</small>
+                   style="width:360px">Макс. раб. налягане</small>
         </div>
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="pieces" class="h4 mb-2">Брой</label>
+                <label for="diameterInlet" class="h4 mb-2">Входен диаметър</label>
             </div>
             <input type="text"
-                   th:field="*{pieces}"
+                   th:field="*{diameterInlet}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="pieces"
-                   name="pieces"/>
+                   id="diameterInlet"
+                   name="diameterInlet"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Брой</small>
+                   style="width:360px">Входен диаметър</small>
         </div>
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="diameterOutlet" class="h4 mb-2">Изходен диаметър</label>
+            </div>
+            <input type="text"
+                   th:field="*{diameterOutlet}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="diameterOutlet"
+                   name="diameterOutlet"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Изходен диаметър</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="weight" class="h4 mb-2">Тегло</label>
+            </div>
+            <input type="text"
+                   th:field="*{weight}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="weight"
+                   name="weight"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Тегло</small>
+        </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -194,21 +223,54 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Цена</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="image" class="h4 mb-2">Прибави път към снимка</label>
+                <label for="pieces" class="h4 mb-2">Брой</label>
             </div>
-<!--            <input type="file" webkitdirectory directory multiple/>-->
+            <input type="text"
+                   th:field="*{pieces}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="pieces"
+                   name="pieces"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Брой</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="urlPic" class="h4 mb-2">Прибави път към снимка</label>
+            </div>
+            <!--            <input type="file" webkitdirectory directory multiple/>-->
             <input type="file"
-                   th:field="*{image}"
+                   th:field="*{urlPic}"
                    th:errorclass="'is-invalid alert-danger'"
                    accept="image/png, image/jpeg, image/jpg"
                    class="form-control"
-                   id="image"
-                   name="image"/>
+                   id="urlPic"
+                   name="urlPic"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Прибави път към снимка</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="urlDiagram" class="h4 mb-2">Прибави път към диаграма</label>
+            </div>
+            <!--            <input type="file" webkitdirectory directory multiple/>-->
+            <input type="file"
+                   th:field="*{urlDiagram}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   accept="image/png, image/jpeg, image/jpg"
+                   class="form-control"
+                   id="urlDiagram"
+                   name="urlDiagram"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Прибави път към диаграма</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center mt-4">

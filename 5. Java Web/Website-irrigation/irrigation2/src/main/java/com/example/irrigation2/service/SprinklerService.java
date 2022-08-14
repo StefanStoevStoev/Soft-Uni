@@ -21,10 +21,6 @@ public class SprinklerService {
         this.mapper = mapper;
     }
 
-    public SprinklerEntity getSprinklerById(Long id) {
-        return sprinklerRepository.findById(id).orElse(null);
-    }
-
     public void initSprinklers() {
 
         if (sprinklerRepository.count() == 0) {
@@ -127,8 +123,8 @@ public class SprinklerService {
         return sprinklerRepository.findAll();
     }
 
-    public void addSprinklerToDB(AddSprinklerDTO addSprinklerDTO) {
+    public SprinklerEntity addSprinklerToDB(AddSprinklerDTO addSprinklerDTO) {
         SprinklerEntity sprinkler = mapper.map(addSprinklerDTO, SprinklerEntity.class);
-        sprinklerRepository.save(sprinkler);
+        return sprinklerRepository.save(sprinkler);
     }
 }

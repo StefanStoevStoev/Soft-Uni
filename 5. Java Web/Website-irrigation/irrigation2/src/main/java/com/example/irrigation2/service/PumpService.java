@@ -1,8 +1,11 @@
 package com.example.irrigation2.service;
 
-import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.DTO.AddPumpDTO;
+import com.example.irrigation2.model.DTO.AddSprinklerDTO;
 import com.example.irrigation2.model.entity.PumpEntity;
+import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.repository.PumpRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -12,9 +15,11 @@ import java.util.List;
 public class PumpService {
 
     private final PumpRepository pumpRepository;
+    private final ModelMapper mapper;
 
-    public PumpService(PumpRepository pumpRepository) {
+    public PumpService(PumpRepository pumpRepository, ModelMapper mapper) {
         this.pumpRepository = pumpRepository;
+        this.mapper = mapper;
     }
 
     public PumpEntity getPumpById(Long id) throws Exception {
@@ -67,5 +72,10 @@ public class PumpService {
 
     public List<PumpEntity> getAllPumps() {
         return pumpRepository.findAll();
+    }
+
+    public void addPumpToDB(AddPumpDTO addPumpDTO) {
+        PumpEntity pump = mapper.map(addPumpDTO, PumpEntity.class);
+        pumpRepository.save(pump);
     }
 }

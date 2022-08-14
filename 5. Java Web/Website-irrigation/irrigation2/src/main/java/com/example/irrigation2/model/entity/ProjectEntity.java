@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "projects")
-public class ProjectEntity extends BaseEntity{
+public class ProjectEntity extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String description;

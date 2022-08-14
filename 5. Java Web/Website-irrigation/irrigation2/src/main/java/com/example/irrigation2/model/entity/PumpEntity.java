@@ -3,11 +3,10 @@ package com.example.irrigation2.model.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "pumps")
-public class PumpEntity extends BaseEntity{
+public class PumpEntity extends BaseEntity {
 
     private String kind;
     private String make;
@@ -73,7 +72,7 @@ public class PumpEntity extends BaseEntity{
         return this;
     }
 
-       public String getMaxWorkingPressure() {
+    public String getMaxWorkingPressure() {
         return maxWorkingPressure;
     }
 

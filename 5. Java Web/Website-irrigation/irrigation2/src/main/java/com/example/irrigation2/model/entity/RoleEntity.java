@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "roles")
-public class RoleEntity extends BaseEntity{
+public class RoleEntity extends BaseEntity {
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)

@@ -11,14 +11,12 @@ import java.util.List;
 
 @Entity
 @Table(name = "drips")
-@JsonIdentityInfo(generator=ObjectIdGenerators.IntSequenceGenerator.class, property="@traineeId")
+@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@traineeId")
 public class DripEntity extends BaseEntity {
 
     private String name;
     private String code;
-
     private int diameter;
-
     private double maxPressure;
     private int distBtwDrips;
     private double flowPerDrip;

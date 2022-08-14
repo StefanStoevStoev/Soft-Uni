@@ -1,15 +1,19 @@
 package com.example.irrigation2.model.DTO;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 
 public class AddPumpDTO {
-
+    @NotBlank
     private String kind;
-    private String make;
+    @NotBlank
     private String model;
+    @NotBlank
+    private String make;
+
     @Column(unique = true)
+    @NotBlank
     private String code;
     private String voltage;
     private String power;
@@ -20,8 +24,6 @@ public class AddPumpDTO {
     private String diameterOutlet;
     private String weight;
 
-    @Column(columnDefinition = "TEXT")
-    private String characteristicCurve;
     private BigDecimal price;
     private int pieces;
     private String urlPic;
@@ -135,15 +137,6 @@ public class AddPumpDTO {
 
     public AddPumpDTO setWeight(String weight) {
         this.weight = weight;
-        return this;
-    }
-
-    public String getCharacteristicCurve() {
-        return characteristicCurve;
-    }
-
-    public AddPumpDTO setCharacteristicCurve(String characteristicCurve) {
-        this.characteristicCurve = characteristicCurve;
         return this;
     }
 

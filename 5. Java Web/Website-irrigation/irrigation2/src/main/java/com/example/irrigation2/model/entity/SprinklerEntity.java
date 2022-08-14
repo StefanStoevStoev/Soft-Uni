@@ -3,11 +3,10 @@ package com.example.irrigation2.model.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
 
 @Entity
 @Table(name = "sprinklers")
-public class SprinklerEntity extends BaseEntity{
+public class SprinklerEntity extends BaseEntity {
 
     private String kind;
     private String model;
