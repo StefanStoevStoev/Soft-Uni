@@ -12,6 +12,7 @@ public class SprinklerEntity extends BaseEntity{
     private String kind;
     private String model;
     private String make;
+    @Column(unique = true)
     private String code;
     private String size;
     private String pressure;
@@ -25,9 +26,6 @@ public class SprinklerEntity extends BaseEntity{
     @Column(columnDefinition = "TEXT")
     private String characteristicTable;
     private String url;
-
-//    @ManyToOne
-//    private UserEntity user;
 
     public SprinklerEntity() {
     }

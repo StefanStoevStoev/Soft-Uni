@@ -34,7 +34,7 @@
                     </form>
                 </li>
                 <li class="nav-item me-4 " sec:authorize="hasRole('ADMIN')">
-                    <a class="nav-link text-dark fw-bold " th:href="@{/pages/admin}">Админ</a>
+                    <a class="nav-link text-dark fw-bold " th:href="@{/admin}">Админ</a>
                 </li>
                 <div class="navbar-collapse  me-4" id="navbarNavDarkDropdown">
                     <li class="nav-item dropdown btn-group" id="select-option">
@@ -195,10 +195,7 @@
                                        th:href="@{/auth-home/{id}(id=${getUserId})}">
                                         Купи
                                     </a>
-                                    <!--  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>-->
-                                    <!--  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
                                 </th:block>
-
                                 <th:block sec:authorize="isAnonymous()">
                                     <a type="submit" class="btn btn-warning mb-1"
                                        th:href="@{/users/login}">Купи</a>

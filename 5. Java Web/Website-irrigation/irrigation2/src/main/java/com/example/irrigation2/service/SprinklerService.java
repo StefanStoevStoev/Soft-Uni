@@ -1,7 +1,9 @@
 package com.example.irrigation2.service;
 
+import com.example.irrigation2.model.DTO.AddSprinklerDTO;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.repository.SprinklerRepository;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -11,10 +13,12 @@ import java.util.List;
 public class SprinklerService {
 
     private final SprinklerRepository sprinklerRepository;
+    private final ModelMapper mapper;
 
 
-    public SprinklerService(SprinklerRepository sprinklerRepository) {
+    public SprinklerService(SprinklerRepository sprinklerRepository, ModelMapper mapper) {
         this.sprinklerRepository = sprinklerRepository;
+        this.mapper = mapper;
     }
 
     public SprinklerEntity getSprinklerById(Long id) {
@@ -121,5 +125,10 @@ public class SprinklerService {
     public List<SprinklerEntity> getAllSprinklers(){
 
         return sprinklerRepository.findAll();
+    }
+
+    public void addSprinklerToDB(AddSprinklerDTO addSprinklerDTO) {
+        SprinklerEntity sprinkler = mapper.map(addSprinklerDTO, SprinklerEntity.class);
+        sprinklerRepository.save(sprinkler);
     }
 }
