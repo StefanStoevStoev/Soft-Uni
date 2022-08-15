@@ -25,10 +25,7 @@ public class AddSprinklerDTO {
     private String radius;
     private int pieces;
     private BigDecimal price;
-    private LocalDate orderDate;
 
-    @Column(columnDefinition = "TEXT")
-    private String characteristicTable;
     private String image;
 
     public AddSprinklerDTO() {
@@ -130,24 +127,6 @@ public class AddSprinklerDTO {
 
     public AddSprinklerDTO setPrice(BigDecimal price) {
         this.price = price;
-        return this;
-    }
-
-    public LocalDate getOrderDate() {
-        return orderDate;
-    }
-
-    public AddSprinklerDTO setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
-        return this;
-    }
-
-    public String getCharacteristicTable() {
-        return characteristicTable;
-    }
-
-    public AddSprinklerDTO setCharacteristicTable(String characteristicTable) {
-        this.characteristicTable = characteristicTable;
         return this;
     }
 

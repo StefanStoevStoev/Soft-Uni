@@ -7,7 +7,7 @@
     <title>Мелиорации</title>
     <style>
         body {
-            background-image: url('/images/sprinkler/nosel1.jpg');
+            background-image: url('/images/frontPage/nosel5.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -22,16 +22,12 @@
 </head>
 <body>
 <div th:replace="fragments/fragment::navigation"></div>
-<!--Distance between navbar and User-->
-<!--<div  class=" p-2 mt-4 pt-4 "></div>-->
 
 <div th:replace="fragments/fragment::admin-nav"></div>
 <main>
-    <!--    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Регистрация</span></h1>-->
     <hr class="hr-3 w-25 bg-white"/>
     <form class="mx-auto w-25 bg-blur rounded"
-          th:method="POST"
-          enctype="multipart/form-data"
+          th:method="post"
           th:action="@{/admin/sprinklers}"
           th:object="${addSprinklerDTO}">
 
@@ -110,6 +106,7 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Размер</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -124,6 +121,7 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Налягане</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -138,6 +136,7 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Дюза</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -152,6 +151,7 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Дебит</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -166,6 +166,7 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Радиус</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -180,6 +181,7 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Брой</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -194,12 +196,13 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Цена</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="image" class="h4 mb-2">Прибави път към снимка</label>
+                <label for="image" class="h4 mb-2">Прибави снимка</label>
             </div>
-<!--            <input type="file" webkitdirectory directory multiple/>-->
+            <!--            <input type="file" webkitdirectory directory multiple/>-->
             <input type="file"
                    th:field="*{image}"
                    th:errorclass="'is-invalid alert-danger'"
@@ -208,11 +211,11 @@
                    id="image"
                    name="image"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Прибави път към снимка</small>
+                   style="width:360px">Прибави снимка</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-warning mb-3" value="Register">Регистрация</button>
+            <button type="submit" class="btn btn-warning mb-3" value="Register">Прибави</button>
         </div>
     </form>
 </main>

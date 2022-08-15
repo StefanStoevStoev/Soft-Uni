@@ -1,11 +1,14 @@
 package com.example.irrigation2.model.DTO;
 
 import javax.persistence.Column;
+import javax.validation.constraints.NotBlank;
 import java.math.BigDecimal;
 
 public class AddDripDTO {
 
+    @NotBlank
     private String name;
+    @NotBlank
     @Column(unique = true)
     private String code;
     private int diameter;
@@ -16,8 +19,7 @@ public class AddDripDTO {
     private String timeOfUse;
     private BigDecimal price;
     private int pieces;
-    private int temporaryPieces;
-    private String url;
+    private String urlPic;
 
     public AddDripDTO() {
     }
@@ -112,21 +114,12 @@ public class AddDripDTO {
         return this;
     }
 
-    public int getTemporaryPieces() {
-        return temporaryPieces;
+    public String getUrlPic() {
+        return urlPic;
     }
 
-    public AddDripDTO setTemporaryPieces(int temporaryPieces) {
-        this.temporaryPieces = temporaryPieces;
-        return this;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public AddDripDTO setUrl(String url) {
-        this.url = url;
+    public AddDripDTO setUrlPic(String urlPic) {
+        this.urlPic = urlPic;
         return this;
     }
 }

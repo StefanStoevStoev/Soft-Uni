@@ -11,7 +11,6 @@ import java.util.List;
 
 @Entity
 @Table(name = "drips")
-@JsonIdentityInfo(generator = ObjectIdGenerators.IntSequenceGenerator.class, property = "@traineeId")
 public class DripEntity extends BaseEntity {
 
     private String name;
@@ -30,19 +29,19 @@ public class DripEntity extends BaseEntity {
     @OneToMany
     @JoinColumn(name = "drip_id")
     private List<DripNumbers> dripUsers;
-    private String url;
+    private String urlPic;
     private String status;
 
 
     public DripEntity() {
     }
 
-    public String getUrl() {
-        return url;
+    public String getUrlPic() {
+        return urlPic;
     }
 
-    public DripEntity setUrl(String url) {
-        this.url = url;
+    public DripEntity setUrlPic(String urlPic) {
+        this.urlPic = urlPic;
         return this;
     }
 

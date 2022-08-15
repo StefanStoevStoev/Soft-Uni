@@ -1,13 +1,17 @@
 package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
+import com.example.irrigation2.model.DTO.AddDripDTO;
+import com.example.irrigation2.model.DTO.AddPumpDTO;
 import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.OrderDripDTO;
 import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.model.entity.DripNumbers;
+import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.repository.DripNumRepository;
 import com.example.irrigation2.repository.DripRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -15,20 +19,18 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Service
 public class DripService {
 
     private final DripRepository dripRepository;
     private final DripNumRepository dripNumRepository;
+    private final ModelMapper modelMapper;
 
-    public DripService(DripRepository dripRepository, DripNumRepository dripNumRepository) {
+    public DripService(DripRepository dripRepository, DripNumRepository dripNumRepository, ModelMapper modelMapper) {
         this.dripRepository = dripRepository;
         this.dripNumRepository = dripNumRepository;
+        this.modelMapper = modelMapper;
     }
 
     public void deleteDripById(Long dripId, Long userId) {
@@ -52,7 +54,7 @@ public class DripService {
                     .setTimeOfUse("1")
                     .setPrice(BigDecimal.valueOf(16.20))
                     .setPieces(42)
-                    .setUrl("/images/drips/hose16-10.png")
+                    .setUrlPic("/images/drips/hose16-10.png")
                     .setId(1L);
             dripRepository.save(dripOneSeason);
 
@@ -68,7 +70,7 @@ public class DripService {
                     .setTimeOfUse("1")
                     .setPrice(BigDecimal.valueOf(14.80))
                     .setPieces(2)
-                    .setUrl("/images/drips/hose16-30.png")
+                    .setUrlPic("/images/drips/hose16-30.png")
                     .setId(2L);
             dripRepository.save(dripOneSeason20);
 
@@ -84,7 +86,7 @@ public class DripService {
                     .setTimeOfUse("5")
                     .setPrice(BigDecimal.valueOf(32.40))
                     .setPieces(22)
-                    .setUrl("/images/drips/hose16-30-2.png")
+                    .setUrlPic("/images/drips/hose16-30-2.png")
                     .setId(3L);
             dripRepository.save(dripHose);
 
@@ -100,7 +102,7 @@ public class DripService {
                     .setTimeOfUse("5")
                     .setPrice(BigDecimal.valueOf(27.80))
                     .setPieces(52)
-                    .setUrl("/images/drips/hose16-30-3.png")
+                    .setUrlPic("/images/drips/hose16-30-3.png")
                     .setId(4L);
             dripRepository.save(dripHose2);
         }
@@ -241,5 +243,10 @@ public class DripService {
 
         }
         return drip;
+    }
+
+    public void addDripToDB(AddDripDTO addDripDTO) {
+        DripEntity drip = modelMapper.map(addDripDTO, DripEntity.class);
+        dripRepository.save(drip);
     }
 }

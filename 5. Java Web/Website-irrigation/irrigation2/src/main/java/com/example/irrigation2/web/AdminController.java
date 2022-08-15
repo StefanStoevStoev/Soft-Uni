@@ -1,5 +1,6 @@
 package com.example.irrigation2.web;
 
+import com.example.irrigation2.model.DTO.AddDripDTO;
 import com.example.irrigation2.model.DTO.AddPumpDTO;
 import com.example.irrigation2.model.DTO.AddSprinklerDTO;
 import com.example.irrigation2.service.DripService;
@@ -80,6 +81,30 @@ public class AdminController {
             return "redirect:/admin/pumps";
         }
         pumpService.addPumpToDB(addPumpDTO);
+        return "redirect:/admin";
+    }
+
+    @GetMapping("/drips")
+    public String drips(Model model) {
+        if (!model.containsAttribute("addDripDTO")) {
+            model.addAttribute("addDripDTO", new AddDripDTO());
+            model.addAttribute("isExisting", false);
+        }
+        return "add-drips";
+    }
+
+    @PostMapping("/drips")
+    public String addDrips(@Valid AddDripDTO addDripDTO,
+                           BindingResult bindingResult,
+                           RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("addDripDTO", addDripDTO);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.addDripDTO", bindingResult);
+            return "redirect:/admin/drips";
+        }
+        dripService.addDripToDB(addDripDTO);
         return "redirect:/admin";
     }
 }

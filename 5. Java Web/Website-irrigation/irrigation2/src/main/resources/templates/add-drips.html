@@ -7,7 +7,7 @@
     <title>Мелиорации</title>
     <style>
         body {
-            background-image: url('/images/sprinkler/nosel1.jpg');
+            background-image: url('/images/frontPage/drips10.jpg');
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-size: cover;
@@ -31,53 +31,23 @@
     <hr class="hr-3 w-25 bg-white"/>
     <form class="mx-auto w-25 bg-blur rounded"
           th:method="post"
-          enctype="multipart/form-data"
-          th:action="@{/admin/sprinklers}"
-          th:object="${addSprinklerDTO}">
+          th:action="@{/admin/drips}"
+          th:object="${addDripDTO}">
 
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="kind"
-                       class="h4 mb-2">Вид</label>
+                <label for="name"
+                       class="h4 mb-2">Име</label>
             </div>
             <input type="text"
-                   th:field="*{kind}"
+                   th:field="*{name}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="kind"
-                   name="kind"/>
+                   id="name"
+                   name="name"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Видът трябва да съдържа поне 1 символ.</small>
-        </div>
-
-        <div class="form-group mt-2">
-            <div class="label-holder  textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0" style="--bs-bg-opacity: .7">
-                <label for="model" class="h4 mb-2">Модел</label>
-            </div>
-            <input type="text"
-                   th:field="*{model}"
-                   th:errorclass="'is-invalid alert-danger'"
-                   class="form-control"
-                   id="model"
-                   name="model"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Моделът трябва да съдържа поне 2 символа.</small>
-        </div>
-
-        <div class="form-group mt-2">
-            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
-                 style="--bs-bg-opacity: .7">
-                <label for="make" class="h4 mb-2">Производител</label>
-            </div>
-            <input type="text"
-                   th:field="*{make}"
-                   th:errorclass="'is-invalid alert-danger'"
-                   class="form-control"
-                   id="make"
-                   name="make"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Производител трябва да съдържа поне 1 символ.</small>
+                   style="width:360px">Името трябва да съдържа поне 1 символ.</small>
         </div>
 
         <div class="form-group mt-2">
@@ -99,7 +69,67 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="size" class="h4 mb-2">Размер</label>
+                <label for="diameter" class="h4 mb-2">Диаметър</label>
+            </div>
+            <input type="text"
+                   th:field="*{diameter}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="diameter"
+                   name="diameter"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Диаметър</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="maxPressure" class="h4 mb-2">Максимално работно налягане</label>
+            </div>
+            <input type="text"
+                   th:field="*{maxPressure}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="maxPressure"
+                   name="maxPressure"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Максимално работно налягане</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="distBtwDrips" class="h4 mb-2">Разстояние между капкуватели</label>
+            </div>
+            <input type="text"
+                   th:field="*{distBtwDrips}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="distBtwDrips"
+                   name="distBtwDrips"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Разстояние между капкуватели</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="flowPerDrip" class="h4 mb-2">Дебит на капкувател</label>
+            </div>
+            <input type="text"
+                   th:field="*{flowPerDrip}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="flowPerDrip"
+                   name="flowPerDrip"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Дебит на капкувател</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="size" class="h4 mb-2">Дължина</label>
             </div>
             <input type="text"
                    th:field="*{size}"
@@ -108,78 +138,24 @@
                    id="size"
                    name="size"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Размер</small>
+                   style="width:360px">Дължина</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="pressure" class="h4 mb-2">Налягане</label>
+                <label for="timeOfUse" class="h4 mb-2">Продължителност за използване</label>
             </div>
             <input type="text"
-                   th:field="*{pressure}"
+                   th:field="*{timeOfUse}"
                    th:errorclass="'is-invalid alert-danger'"
                    class="form-control"
-                   id="pressure"
-                   name="pressure"/>
+                   id="timeOfUse"
+                   name="timeOfUse"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Налягане</small>
+                   style="width:360px">Продължителност за използване</small>
         </div>
-        <div class="form-group mt-2">
-            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
-                 style="--bs-bg-opacity: .7">
-                <label for="nosel" class="h4 mb-2">Дюза</label>
-            </div>
-            <input type="text"
-                   th:field="*{nosel}"
-                   th:errorclass="'is-invalid alert-danger'"
-                   class="form-control"
-                   id="nosel"
-                   name="nosel"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Дюза</small>
-        </div>
-        <div class="form-group mt-2">
-            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
-                 style="--bs-bg-opacity: .7">
-                <label for="volume" class="h4 mb-2">Дебит</label>
-            </div>
-            <input type="text"
-                   th:field="*{volume}"
-                   th:errorclass="'is-invalid alert-danger'"
-                   class="form-control"
-                   id="volume"
-                   name="volume"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Дебит</small>
-        </div>
-        <div class="form-group mt-2">
-            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
-                 style="--bs-bg-opacity: .7">
-                <label for="radius" class="h4 mb-2">Радиус</label>
-            </div>
-            <input type="text"
-                   th:field="*{radius}"
-                   th:errorclass="'is-invalid alert-danger'"
-                   class="form-control"
-                   id="radius"
-                   name="radius"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Радиус</small>
-        </div>
-        <div class="form-group mt-2">
-            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
-                 style="--bs-bg-opacity: .7">
-                <label for="pieces" class="h4 mb-2">Брой</label>
-            </div>
-            <input type="text"
-                   th:field="*{pieces}"
-                   th:errorclass="'is-invalid alert-danger'"
-                   class="form-control"
-                   id="pieces"
-                   name="pieces"/>
-            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Брой</small>
-        </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
@@ -194,25 +170,41 @@
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Цена</small>
         </div>
+
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="image" class="h4 mb-2">Прибави път към снимка</label>
+                <label for="pieces" class="h4 mb-2">Брой</label>
+            </div>
+            <input type="text"
+                   th:field="*{pieces}"
+                   th:errorclass="'is-invalid alert-danger'"
+                   class="form-control"
+                   id="pieces"
+                   name="pieces"/>
+            <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
+                   style="width:360px">Брой</small>
+        </div>
+
+        <div class="form-group mt-2">
+            <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
+                 style="--bs-bg-opacity: .7">
+                <label for="urlPic" class="h4 mb-2">Прибави път към снимка</label>
             </div>
             <!--            <input type="file" webkitdirectory directory multiple/>-->
             <input type="file"
-                   th:field="*{image}"
+                   th:field="*{urlPic}"
                    th:errorclass="'is-invalid alert-danger'"
                    accept="image/png, image/jpeg, image/jpg"
                    class="form-control"
-                   id="image"
-                   name="image"/>
+                   id="urlPic"
+                   name="urlPic"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
                    style="width:360px">Прибави път към снимка</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center mt-4">
-            <button type="submit" class="btn btn-warning mb-3" value="Register">Регистрация</button>
+            <button type="submit" class="btn btn-warning mb-3" value="Register">Прибави</button>
         </div>
     </form>
 </main>
