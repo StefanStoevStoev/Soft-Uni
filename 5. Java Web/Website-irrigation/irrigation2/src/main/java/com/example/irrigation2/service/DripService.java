@@ -2,12 +2,10 @@ package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AddDripDTO;
-import com.example.irrigation2.model.DTO.AddPumpDTO;
 import com.example.irrigation2.model.DTO.DripDTO;
-import com.example.irrigation2.model.DTO.OrderDripDTO;
+import com.example.irrigation2.model.DTO.OrderDTO;
 import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.model.entity.DripNumbers;
-import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.repository.DripNumRepository;
 import com.example.irrigation2.repository.DripRepository;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -206,19 +204,19 @@ public class DripService {
     }
 
     //OrderController
-    public void orderDripToUser(OrderDripDTO orderDripDTO, Long userId) {/////////////////
+    public void orderDripToUser(OrderDTO orderDTO, Long userId) {/////////////////
 
-        DripNumbers dripNumbers = dripNumRepository.findByUserIdAndDripId(userId, orderDripDTO.getId());
-        DripEntity dripEntity = dripRepository.findById(orderDripDTO.getId()).orElse(null);
+        DripNumbers dripNumbers = dripNumRepository.findByUserIdAndDripId(userId, orderDTO.getId());
+        DripEntity dripEntity = dripRepository.findById(orderDTO.getId()).orElse(null);
 
         assert dripEntity != null;
-        int numbers = dripEntity.getPieces()- orderDripDTO.getPieces();
+        int numbers = dripEntity.getPieces()- orderDTO.getPieces();
         dripEntity.setPieces(numbers);
         dripRepository.save(dripEntity);
 
         dripNumbers.setStatus("Обработва се")
-                .setNumbers(orderDripDTO.getPieces())
-                .setPrice(orderDripDTO.getPrice());
+                .setNumbers(orderDTO.getPieces())
+                .setPrice(orderDTO.getPrice());
         dripNumRepository.save(dripNumbers);
     }
 

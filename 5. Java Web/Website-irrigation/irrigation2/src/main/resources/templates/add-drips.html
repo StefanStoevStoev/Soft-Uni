@@ -38,7 +38,7 @@
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
                 <label for="name"
-                       class="h4 mb-2">Име</label>
+                       class="h5 mb-2">Име</label>
             </div>
             <input type="text"
                    th:field="*{name}"
@@ -54,7 +54,7 @@
             <h5 class="bg-danger rounded" th:if="${isExisting}">Има продукт с този код.</h5>
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="code" class="h4 mb-2">Код</label>
+                <label for="code" class="h5 mb-2">Код</label>
             </div>
             <input type="text"
                    th:field="*{code}"
@@ -69,7 +69,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="diameter" class="h4 mb-2">Диаметър</label>
+                <label for="diameter" class="h5 mb-2">Диаметър</label>
             </div>
             <input type="text"
                    th:field="*{diameter}"
@@ -84,7 +84,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="maxPressure" class="h4 mb-2">Максимално работно налягане</label>
+                <label for="maxPressure" class="h5 mb-2">Максимално работно налягане</label>
             </div>
             <input type="text"
                    th:field="*{maxPressure}"
@@ -99,7 +99,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="distBtwDrips" class="h4 mb-2">Разстояние между капкуватели</label>
+                <label for="distBtwDrips" class="h5 mb-2">Разстояние между капкуватели</label>
             </div>
             <input type="text"
                    th:field="*{distBtwDrips}"
@@ -114,7 +114,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="flowPerDrip" class="h4 mb-2">Дебит на капкувател</label>
+                <label for="flowPerDrip" class="h5 mb-2">Дебит на капкувател</label>
             </div>
             <input type="text"
                    th:field="*{flowPerDrip}"
@@ -129,7 +129,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="size" class="h4 mb-2">Дължина</label>
+                <label for="size" class="h5 mb-2">Дължина</label>
             </div>
             <input type="text"
                    th:field="*{size}"
@@ -144,7 +144,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="timeOfUse" class="h4 mb-2">Продължителност за използване</label>
+                <label for="timeOfUse" class="h5 mb-2">Продължителност за използване</label>
             </div>
             <input type="text"
                    th:field="*{timeOfUse}"
@@ -159,7 +159,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="price" class="h4 mb-2">Цена</label>
+                <label for="price" class="h5 mb-2">Цена</label>
             </div>
             <input type="text"
                    th:field="*{price}"
@@ -174,7 +174,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="pieces" class="h4 mb-2">Брой</label>
+                <label for="pieces" class="h5 mb-2">Брой</label>
             </div>
             <input type="text"
                    th:field="*{pieces}"
@@ -189,7 +189,7 @@
         <div class="form-group mt-2">
             <div class="label-holder textCol d-flex justify-content-center text-dark bg-light p-0 mt-0 pt-2 me-0 ms-0"
                  style="--bs-bg-opacity: .7">
-                <label for="urlPic" class="h4 mb-2">Прибави път към снимка</label>
+                <label for="urlPic" class="h5 mb-2">Прибави снимка</label>
             </div>
             <!--            <input type="file" webkitdirectory directory multiple/>-->
             <input type="file"
@@ -200,7 +200,7 @@
                    id="urlPic"
                    name="urlPic"/>
             <small class="invalid-feedback text-danger fw-bold bg-light text-center mx-auto bg-warning"
-                   style="width:360px">Прибави път към снимка</small>
+                   style="width:360px">Прибави снимка</small>
         </div>
 
         <div class="button-holder d-flex justify-content-center mt-4">

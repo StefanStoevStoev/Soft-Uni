@@ -1,6 +1,7 @@
 package com.example.irrigation2.web;
 
 import com.example.irrigation2.model.CurrentUserDetails;
+import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.SprinklerDTO;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.service.SprinklerService;
@@ -44,4 +45,18 @@ public class SprinklersController {
         }
         return "products-sprinkler";
     }
+
+    @PostMapping("/sprinkler")
+    public String saveDripDetails(SprinklerDTO sprinklerDTO,
+                                  @AuthenticationPrincipal CurrentUserDetails currentUser) {
+
+        sprinklerService.addSprklerToUser(sprinklerDTO, currentUser);
+
+        return "redirect:/auth-home/" + currentUser.getId();
+    }
+
+//    @ModelAttribute("sprinklerDTO")
+//    public SprinklerDTO initDripModel() {
+//        return new SprinklerDTO();
+//    }
 }

@@ -1,23 +1,35 @@
 package com.example.irrigation2.service;
 
+import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AddSprinklerDTO;
+import com.example.irrigation2.model.DTO.OrderDTO;
+import com.example.irrigation2.model.DTO.SprinklerDTO;
+import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.entity.DripNumbers;
 import com.example.irrigation2.model.entity.SprinklerEntity;
+import com.example.irrigation2.model.entity.SprinklerNumbers;
+import com.example.irrigation2.repository.SprinklerNumRepository;
 import com.example.irrigation2.repository.SprinklerRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class SprinklerService {
 
     private final SprinklerRepository sprinklerRepository;
+    private final SprinklerNumRepository sprinklerNumRepository;
     private final ModelMapper mapper;
 
 
-    public SprinklerService(SprinklerRepository sprinklerRepository, ModelMapper mapper) {
+    public SprinklerService(SprinklerRepository sprinklerRepository, SprinklerNumRepository sprinklerNumRepository, ModelMapper mapper) {
         this.sprinklerRepository = sprinklerRepository;
+        this.sprinklerNumRepository = sprinklerNumRepository;
         this.mapper = mapper;
     }
 
@@ -118,7 +130,56 @@ public class SprinklerService {
         }
     }
 
-    public List<SprinklerEntity> getAllSprinklers(){
+    public void initSprinklerNums() {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        if (sprinklerNumRepository.count() == 0) {
+            String str1 = "2014-04-08 12:30";
+            LocalDateTime dateTime1 = LocalDateTime.parse(str1, formatter);
+            SprinklerNumbers sprNumbers = new SprinklerNumbers();
+            sprNumbers.setUserId(2L)
+                    .setSprinklerId(1L)
+                    .setNumbers(5)
+                    .setStatus("Обработва се")
+                    .setPrice(BigDecimal.valueOf(25.14))
+                    .setRegisteredAt(dateTime1);
+            sprinklerNumRepository.save(sprNumbers);
+
+            String str2 = "2022-04-08 09:01";
+            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
+            SprinklerNumbers sprNumbers1 = new SprinklerNumbers();
+            sprNumbers1.setUserId(2L)
+                    .setSprinklerId(2L)
+                    .setNumbers(1)
+                    .setStatus("Изпратена")
+                    .setPrice(BigDecimal.valueOf(28.14))
+                    .setRegisteredAt(dateTime2);
+            sprinklerNumRepository.save(sprNumbers1);
+
+            String str3 = "2021-01-01 23:59";
+            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+            SprinklerNumbers sprNumbers2 = new SprinklerNumbers();
+            sprNumbers2.setUserId(1L)
+                    .setSprinklerId(3L)
+                    .setNumbers(3)
+                    .setPrice(BigDecimal.valueOf(28.14))
+                    .setRegisteredAt(dateTime3);
+            sprinklerNumRepository.save(sprNumbers2);
+
+            String str4 = "2022-11-30 23:59";
+            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
+            SprinklerNumbers sprNumbers3 = new SprinklerNumbers();
+            sprNumbers3.setUserId(2L)
+                    .setSprinklerId(3L)
+                    .setNumbers(1)
+                    .setPrice(BigDecimal.valueOf(21.14))
+                    .setRegisteredAt(dateTime4);
+            sprinklerNumRepository.save(sprNumbers3);
+        }
+    }
+
+    public List<SprinklerEntity> getAllSprinklers() {
 
         return sprinklerRepository.findAll();
     }
@@ -126,5 +187,83 @@ public class SprinklerService {
     public SprinklerEntity addSprinklerToDB(AddSprinklerDTO addSprinklerDTO) {
         SprinklerEntity sprinkler = mapper.map(addSprinklerDTO, SprinklerEntity.class);
         return sprinklerRepository.save(sprinkler);
+    }
+
+    public List<SprinklerEntity> getOrdersByUser(Long userId) {
+        List<SprinklerNumbers> sprinklerNumbersStream = sprinklerNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)
+                .stream()
+                .filter(e -> e.getStatus() != null).toList();
+
+        List<SprinklerEntity> sprinkler = new ArrayList<>();
+
+        for (SprinklerNumbers sprinklerNumbers : sprinklerNumbersStream) {
+
+            SprinklerEntity tempSprinkler = sprinklerRepository
+                    .findById(sprinklerNumbers.getSprinklerId()).orElseThrow()
+                    .setPieces(sprinklerNumbers.getNumbers())
+                    .setPrice(sprinklerNumbers.getPrice())
+                    .setOrderDate(sprinklerNumbers.getRegisteredAt())
+                    .setStatus(sprinklerNumbers.getStatus());
+            sprinkler.add(tempSprinkler);
+        }
+        return sprinkler;
+    }
+
+    public void addSprklerToUser(SprinklerDTO sprinklerDTO, CurrentUserDetails currentUser) {
+        List<SprinklerNumbers> sprinklerNumbers = sprinklerNumRepository.findAllByUserIdOrderByRegisteredAtAsc(currentUser.getId());
+
+        if(!sprinklerNumbers.stream().findFirst().map(e -> e.getSprinklerId().equals(sprinklerDTO.getId())).orElseThrow()){
+            SprinklerEntity sprinkler = sprinklerRepository.getById(sprinklerDTO.getId());
+
+            sprinkler.setTemporaryPieces(sprinklerDTO.getPieces());
+
+            SprinklerNumbers sprinklerAndUser = new SprinklerNumbers();
+            sprinklerAndUser
+                    .setSprinklerId(sprinklerDTO.getId())
+                    .setPrice(sprinklerDTO.getPrice())
+                    .setUserId(currentUser.getId())
+                    .setNumbers(sprinklerDTO.getPieces())
+                    .setRegisteredAt(LocalDateTime.now());
+
+            sprinklerRepository.save(sprinkler);
+            sprinklerNumRepository.save(sprinklerAndUser);
+        }
+    }
+//AuthController
+    public List<SprinklerEntity> getSprinklerNumsByUser(Long userId) {
+        List<SprinklerEntity> sprinkler = new ArrayList<>();
+
+        List<SprinklerNumbers> allSprinklerNum = sprinklerNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)
+                .stream()
+                .filter(e -> e.getStatus() == null).toList();
+
+        for (SprinklerNumbers e : allSprinklerNum) {
+            SprinklerEntity dripEntity = sprinklerRepository.findById(e.getSprinklerId()).orElse(null);
+
+            if (dripEntity != null) {
+                dripEntity.setTemporaryPieces(e.getNumbers())
+                        .setPrice(e.getPrice());
+                sprinkler.add(dripEntity);
+            }
+        }
+        return sprinkler;
+    }
+
+    public void orderDripToUser(OrderDTO orderDTO, Long userId) {
+
+        SprinklerNumbers sprNumbers = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, orderDTO.getId());
+        SprinklerEntity sprEntity = sprinklerRepository.findById(orderDTO.getId()).orElse(null);
+
+        assert sprEntity != null;
+        int numbers = sprEntity.getPieces() - orderDTO.getPieces();
+        sprEntity.setPieces(numbers);
+        sprinklerRepository.save(sprEntity);
+
+        sprNumbers.setStatus("Обработва се")
+                .setNumbers(orderDTO.getPieces())
+                .setPrice(orderDTO.getPrice());
+        sprinklerNumRepository.save(sprNumbers);
     }
 }

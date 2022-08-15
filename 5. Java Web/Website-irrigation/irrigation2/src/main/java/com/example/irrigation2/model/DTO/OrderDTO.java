@@ -2,20 +2,30 @@ package com.example.irrigation2.model.DTO;
 
 import java.math.BigDecimal;
 
-public class OrderDripDTO {
+public class OrderDTO {
 
     private Long id;
+    private String name;
     private int pieces;
     private BigDecimal price;
 
-    public OrderDripDTO() {
+    public OrderDTO() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public OrderDTO setName(String name) {
+        this.name = name;
+        return this;
     }
 
     public Long getId() {
         return id;
     }
 
-    public OrderDripDTO setId(Long id) {
+    public OrderDTO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -24,7 +34,7 @@ public class OrderDripDTO {
         return pieces;
     }
 
-    public OrderDripDTO setPieces(int pieces) {
+    public OrderDTO setPieces(int pieces) {
         this.pieces = pieces;
         return this;
     }
@@ -33,7 +43,7 @@ public class OrderDripDTO {
         return price;
     }
 
-    public OrderDripDTO setPrice(BigDecimal price) {
+    public OrderDTO setPrice(BigDecimal price) {
         this.price = price;
         return this;
     }

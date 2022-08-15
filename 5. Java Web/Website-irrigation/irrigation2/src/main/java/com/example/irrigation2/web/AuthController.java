@@ -4,8 +4,10 @@ import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AuthDTO;
 
 import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.views.UserViewModel;
 import com.example.irrigation2.service.DripService;
+import com.example.irrigation2.service.SprinklerService;
 import com.example.irrigation2.service.UserService;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -26,10 +28,12 @@ public class AuthController {
 
     private final UserService userService;
     private final DripService dripService;
+    private final SprinklerService sprinklerService;
 
-    public AuthController(UserService userService, DripService dripService) {
+    public AuthController(UserService userService, DripService dripService, SprinklerService sprinklerService) {
         this.userService = userService;
         this.dripService = dripService;
+        this.sprinklerService = sprinklerService;
     }
 
     @GetMapping("/")
@@ -45,7 +49,10 @@ public class AuthController {
     public String getById(@PathVariable("id") Long id, Model model,
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
         List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
+        List<SprinklerEntity> sprinklerNumsByUser = sprinklerService.getSprinklerNumsByUser(id);
+
         model.addAttribute("dripNumsByUser", dripNumsByUser);
+        model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
 
         UserViewModel user = userService.getUserById(id);
         model.addAttribute("userDetails", user);

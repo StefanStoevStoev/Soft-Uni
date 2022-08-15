@@ -1,6 +1,7 @@
 package com.example.irrigation2.model.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -8,19 +9,21 @@ import java.time.LocalDateTime;
 public class SprinklerNumbers {
 
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    UserEntity user;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "sprinkler_id")
-    DripEntity sprinkler;
+    @Column(name = "drip_id")
+    private Long sprinklerId;
 
-    LocalDateTime buyDate;
+    private BigDecimal price;
 
-    int numbers;
+    private LocalDateTime registeredAt;
+
+    private int numbers;
+    private String status;
 
     public SprinklerNumbers() {
     }
@@ -34,30 +37,39 @@ public class SprinklerNumbers {
         return this;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public Long getUserId() {
+        return userId;
     }
 
-    public SprinklerNumbers setUser(UserEntity user) {
-        this.user = user;
+    public SprinklerNumbers setUserId(Long userId) {
+        this.userId = userId;
         return this;
     }
 
-    public DripEntity getSprinkler() {
-        return sprinkler;
+    public Long getSprinklerId() {
+        return sprinklerId;
     }
 
-    public SprinklerNumbers setSprinkler(DripEntity sprinkler) {
-        this.sprinkler = sprinkler;
+    public SprinklerNumbers setSprinklerId(Long sprinklerId) {
+        this.sprinklerId = sprinklerId;
         return this;
     }
 
-    public LocalDateTime getBuyDate() {
-        return buyDate;
+    public BigDecimal getPrice() {
+        return price;
     }
 
-    public SprinklerNumbers setBuyDate(LocalDateTime buyDate) {
-        this.buyDate = buyDate;
+    public SprinklerNumbers setPrice(BigDecimal price) {
+        this.price = price;
+        return this;
+    }
+
+    public LocalDateTime getRegisteredAt() {
+        return registeredAt;
+    }
+
+    public SprinklerNumbers setRegisteredAt(LocalDateTime registeredAt) {
+        this.registeredAt = registeredAt;
         return this;
     }
 
@@ -67,6 +79,15 @@ public class SprinklerNumbers {
 
     public SprinklerNumbers setNumbers(int numbers) {
         this.numbers = numbers;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public SprinklerNumbers setStatus(String status) {
+        this.status = status;
         return this;
     }
 }

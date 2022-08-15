@@ -107,4 +107,28 @@ public class AdminController {
         dripService.addDripToDB(addDripDTO);
         return "redirect:/admin";
     }
+
+    @GetMapping("/users")
+    public String users(Model model) {
+        if (!model.containsAttribute("addSprinklerDTO")) {
+            model.addAttribute("addSprinklerDTO", new AddSprinklerDTO());
+            model.addAttribute("isExisting", false);
+        }
+        return "add-sprinklers";
+    }
+    @PostMapping("/users")
+    public String addusers(@Valid AddDripDTO addDripDTO,
+                           BindingResult bindingResult,
+                           RedirectAttributes redirectAttributes) {
+
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("addDripDTO", addDripDTO);
+            redirectAttributes.addFlashAttribute(
+                    "org.springframework.validation.BindingResult.addDripDTO", bindingResult);
+            return "redirect:/admin/drips";
+        }
+        dripService.addDripToDB(addDripDTO);
+        return "redirect:/admin";
+    }
+
 }

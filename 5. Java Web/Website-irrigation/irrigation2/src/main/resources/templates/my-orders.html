@@ -12,7 +12,8 @@
 <div th:replace="fragments/fragment::navigation"></div>
 <div class=" p-0 mt-0 pt-0 mb-0 pb-0 mask-custom-1"></div>
 <div class="container">
-    <ul class="navbar-nav mt-4 position-relative ps-5 pe-5">
+    <ul class="navbar-nav mt-3 position-relative ps-5 pe-5">
+
         <main class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
               th:each="drips, iStat : ${dripNumsByUser}"
               style="--bs-bg-opacity: .6">
@@ -20,8 +21,8 @@
             <div class="row pt-2 mb-2 ps-2">
                 <!--/*@thymesVar id="#getDrips" type="images"*/-->
                 <div class="col-auto gallery">
-                    <img th:src="${drips.url}"
-                         class="img-responsive "
+                    <img th:src="${drips.urlPic}"
+                         class="img-responsive justify-content-center align-self-center"
                          alt=" ">
                 </div>
                 <!--                text block-->
@@ -70,6 +71,65 @@
                 </div>
             </div>
         </main>
+
+        <main class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+              th:each="sprinkler, iStat : ${sprinklerNumsByUser}"
+              style="--bs-bg-opacity: .6">
+            <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->
+            <div class="row pt-2 mb-2 ps-2">
+                <!--/*@thymesVar id="#getDrips" type="images"*/-->
+                <div class="col-auto gallery">
+                    <img th:src="${sprinkler.url}"
+                         class="img-responsive justify-content-center align-self-center"
+                         alt=" ">
+                </div>
+                <!--                text block-->
+                <div class="col" style="width: 350px; height: 170px">
+                    <div class="row">
+                        <div class="col text-end ps-0 pe-0">
+                            <!--                        fs-6 text size-->
+                            <p class="fs-6 mb-0 fw-bold ">Вид:</p>
+                            <p class="fs-6 mb-0">Модел:</p>
+                            <p class="fs-6 mb-0">Производител:</p>
+                            <p class="fs-6 mb-0">Размер:</p>
+                            <p class="fs-6 mb-0">Налягане:</p>
+                            <p class="fs-6 mb-0">Дюза:</p>
+                            <p class="fs-6 mb-0">Дебит:</p>
+
+                        </div>
+                        <div class="col-md-auto ms-2 me-2">
+                            <!--                        fs-6 text size-->
+                            <p class="fs-6 fw-bold mb-0" th:text="${sprinkler.kind}">Вид</p>
+                            <p class="fs-6 mb-0" th:text="${sprinkler.model}">Модел</p>
+                            <p class="fs-6 mb-0" th:text="${sprinkler.make}">Производител</p>
+                            <p class="fs-6 mb-0" th:text="|${sprinkler.size}|">Размер</p>
+                            <p class="fs-6 mb-0" th:text="|${sprinkler.pressure} атм.|">Налягане</p>
+                            <p class="fs-6 mb-0" th:text="|${sprinkler.nosel} mm|">Дюза</p>
+                            <p class="fs-6 mb-0" th:text="|${sprinkler.volume} л/мин.|">Дебит</p>
+                        </div>
+                        <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                            <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                                <div class="col text-end">
+                                    <p class="fs-6 fw-bold mb-0">Статус:</p>
+                                    <p class="fs-6 mb-0">Дата на поръчката:</p>
+                                    <p class="fs-6 mb-0">Код:</p>
+                                    <p class="fs-6 mb-0">Брой:</p>
+                                    <p class="fs-6 mb-0">Цена:</p>
+                                </div>
+                                <div class="col text-start ">
+                                    <p class="fs-6 fw-bold mb-0" th:text="${sprinkler.status}">Статус</p>
+                                    <p class="fs-6 mb-0" th:text="${#temporals.format(sprinkler.orderDate,'yyyy-MM-dd HH:mm')}">Дата на поръчката:</p>
+                                    <p class="fs-6 mb-0" th:text="${sprinkler.code}">Код</p>
+                                    <p class="fs-6 mb-0" th:text="|${sprinkler.pieces} бр.|">Брой</p>
+                                    <p class="fs-6 mb-0 price2" th:text="|${sprinkler.price} лв.|">Цена:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
     </ul>
 </div>
 <footer th:replace="fragments/fragment::footer"></footer>

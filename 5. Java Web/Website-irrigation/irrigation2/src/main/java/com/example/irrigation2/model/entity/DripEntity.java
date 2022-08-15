@@ -1,11 +1,7 @@
 package com.example.irrigation2.model.entity;
 
-import com.fasterxml.jackson.annotation.*;
-//import org.codehaus.jackson.annotate.JsonIgnore;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

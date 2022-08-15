@@ -23,18 +23,10 @@ public class DripNumbers {
     private LocalDateTime registeredAt;
 
     private int numbers;
-    private int allNumbers;
     private String status;
 
     public DripNumbers() {
     }
-
-//    public DripNumbers(Long id, LocalDateTime registeredAt, int numbers) {
-//        super();
-//        this.id = id;
-//        this.registeredAt = registeredAt;
-//        this.numbers = numbers;
-//    }
 
     public Long getId() {
         return id;
@@ -87,15 +79,6 @@ public class DripNumbers {
 
     public DripNumbers setPrice(BigDecimal price) {
         this.price = price;
-        return this;
-    }
-
-    public int getAllNumbers() {
-        return allNumbers;
-    }
-
-    public DripNumbers setAllNumbers(int allNumbers) {
-        this.allNumbers = allNumbers;
         return this;
     }
 

@@ -12,9 +12,11 @@
 <div th:replace="fragments/fragment::navigation"></div>
 <div class=" p-0 mt-0 pt-0 mb-0 pb-0 mask-custom-1"></div>
 <div class="container">
-    <ul class="navbar-nav ms-auto mt-4">
+    <ul class="navbar-nav ms-auto mt-2">
         <main class="row">
             <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->
+
+
             <form th:class="${userDetails.address}!=null  ? 'col hidden-md-down w-25 bg-blur rounded' : 'col-6 offset-3' "
 
                   th:method="post"
@@ -103,6 +105,15 @@
 
             <div th:if="${userDetails.address!=null and userDetails.phone!=null}"
                  class="col col-sm-10 col-md-10 col-lg-8 col-xl-8">
+
+                <div class="h4 mb-2 bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+                     style="--bs-bg-opacity: .1">
+                    <div class="align-bottom text-center">
+                        <a th:href="@{/auth-home/{id}/orders(id=${getUserId})}"
+                           class="btn btn-warning mb-1 me-2">Статус на поръчките ми</a>
+                    </div>
+                </div>
+
                 <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
                      th:each="drips, iStat : ${dripNumsByUser}"
                      style="--bs-bg-opacity: .6">
@@ -111,7 +122,7 @@
                          style="height: 22vh;
                  overflow: auto">
                         <div class="col-auto justify-content-center align-self-center">
-                            <img th:src="${drips.url}"
+                            <img th:src="${drips.urlPic}"
                                  class="img-responsive "
                                  alt=" ">
                         </div>
@@ -204,6 +215,14 @@
                                                 <label th:type="hidden"
                                                        style="display:none"></label>
                                                 <input th:type="hidden"
+                                                       class=" name-element"
+                                                       th:value="drip"
+                                                       name="name"
+                                                       style="display:none">
+
+                                                <label th:type="hidden"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
                                                        class=" price"
                                                        name="price"
                                                        style="display:none">
@@ -242,14 +261,151 @@
                         </div>
                     </div>
                 </div>
-                <div class="h4 mb-2 bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
-                     style="--bs-bg-opacity: .1">
-                    <div class="align-bottom text-center">
-                        <a th:href="@{/auth-home/{id}/orders(id=${getUserId})}"
-                           class="btn btn-warning mb-1 me-2">Статус на поръчките ми</a>
+
+                <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+                     th:each="sprinkler : ${sprinklerNumsByUser}"
+                     style="--bs-bg-opacity: .6">
+                    <!--/*@thymesVar id="#getDrips" type="images"*/-->
+                    <div th:if="sprinkler != null" class="row d-flex pt-2 mb-2 ps-2 "
+                         style="height: 22vh;
+                 overflow: auto">
+                        <div class="col-auto justify-content-center align-self-center">
+                            <img th:src="${sprinkler.url}"
+                                 class="img-responsive "
+                                 alt=" " style="height: 20vh; overflow: auto">
+                        </div>
+                        <!--                text block-->
+                        <div class="col" style="width: 350px; height: 150px">
+                            <div class="row">
+                                <p class="fs-6 text-center fw-bold mb-0"
+                                   th:text="|Име:  ${sprinkler.kind}|">Вид:</p>
+                                <div class="col text-end ps-0 pe-0">
+                                    <!--                        fs-6 text size-->
+                                    <p class="fs-6 mb-0">Модел:</p>
+                                    <p class="fs-6 mb-0">Производител:</p>
+                                    <p class="fs-6 mb-0">Размер:</p>
+                                    <p class="fs-6 mb-0">Налягане:</p>
+                                    <p class="fs-6 mb-0">Дюза:</p>
+                                    <p class="fs-6 mb-0">Дебит:</p>
+                                    <p class="fs-6 mb-0">Радиус:</p>
+                                </div>
+                                <div class="col-md-auto ms-2 me-2">
+                                    <!--                        fs-6 text size-->
+                                    <p class="fs-6 mb-0" th:text="${sprinkler.model}">Модел</p>
+                                    <p class="fs-6 mb-0" th:text="${sprinkler.make}">Производител</p>
+                                    <p class="fs-6 mb-0" th:text="|${sprinkler.size}|">Размер</p>
+                                    <p class="fs-6 mb-0" th:text="|${sprinkler.pressure} атм.|">Налягане</p>
+                                    <p class="fs-6 mb-0" th:text="|${sprinkler.nosel} mm|">Дюза</p>
+                                    <p class="fs-6 mb-0" th:text="|${sprinkler.volume} л/мин.|">Дебит</p>
+                                    <p class="fs-6 mb-0" th:text="|${sprinkler.radius} m|">Радиус</p>
+
+                                </div>
+                                <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                                    <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                                        <div class="col text-end">
+                                            <p class="fs-6 mb-0">Код:</p>
+                                            <p type="hidden"
+                                               class="fs-6 mb-0"
+                                               style="display:none">Единична цена:</p>
+                                            <p type="hidden"
+                                               class="fs-6 mb-0"
+                                               style="display:none">Наличност:</p>
+                                            <p class="fs-6 mb-0">Цена:</p>
+                                        </div>
+                                        <div class="col text-start ">
+                                            <p class="fs-6 mb-0" th:text="${sprinkler.code}">Код</p>
+                                            <p type="hidden" class="fs-6  mb-0 single-price"
+                                               th:value="${sprinkler.price}"
+                                               th:text="|${sprinkler.price} лв.|"
+                                               style="display:none">Единична цена</p>
+                                            <p type="hidden" class="fs-6 mb-0 availability"
+                                               th:value="${sprinkler.pieces}"
+                                               th:text="|${sprinkler.pieces} бр.|"
+                                               style="display:none">Наличност:</p>
+                                            <p class="fs-6 mb-0 price2"
+                                               th:text="|${sprinkler.price} лв.|">Цена:</p>
+                                        </div>
+                                    </div>
+                                    <div class="input-spinner" th:high="50vh">
+                                        <button onclick="stepper(this)"
+                                                class="text-center decrement"
+                                                style="width: 2vh">
+                                            -
+                                        </button>
+                                        <input type="number"
+                                               min="1"
+                                               max="100"
+                                               step="1"
+                                               th:value="${sprinkler.temporaryPieces}"
+                                               class="my-input" readonly>
+                                        <button onclick="stepper(this)"
+                                                class="text-center increment"
+                                                style="width: 2vh">
+                                            +
+                                        </button>
+                                    </div>
+                                    <div class="row container ps-4 ms-0 pe-0 me-0">
+                                        <div class="col text-end me-0 pe-0 pt-2">
+                                            <form th:method="post"
+                                                  th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
+                                                  th:object="${sprinklerDTO}"
+                                                  class="fs-6 mb-0 button-holder d-flex justify-content-center mt-2">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="${sprinkler.id}"
+                                                       name="id"
+                                                       style="display:none">
+
+                                                <label th:type="hidden"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" name-element"
+                                                       th:value="sprinkler"
+                                                       name="name"
+                                                       style="display:none">
+
+                                                <label th:type="hidden"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" price"
+                                                       name="price"
+                                                       style="display:none">
+                                                <label th:type="hidden"
+                                                       for="pieces"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" pieces"
+                                                       name="pieces"
+                                                       style="display:none">
+                                                <button class="btn btn-warning mb-1 me-2"
+                                                        onclick="setAttributeDataAuthHome(this)">Потвърди
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        <div class="col text-start pt-3">
+                                            <form class="fs-6 mb-0"
+                                                  th:action="@{/auth-home/{id}(id=${getUserId})}"
+                                                  th:method="delete">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="${sprinkler.id}"
+                                                       name="id"
+                                                       style="display:none">
+                                                <input type="submit" class="btn btn-warning mb-1"
+                                                       value="Откажи">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </main>
     </ul>
 </div>

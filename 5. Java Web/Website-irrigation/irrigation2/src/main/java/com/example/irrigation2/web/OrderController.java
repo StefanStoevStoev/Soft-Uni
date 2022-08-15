@@ -1,13 +1,13 @@
 package com.example.irrigation2.web;
 
-import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.DripDTO;
-import com.example.irrigation2.model.DTO.OrderDripDTO;
+import com.example.irrigation2.model.DTO.OrderDTO;
 import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.views.UserViewModel;
 import com.example.irrigation2.service.DripService;
+import com.example.irrigation2.service.SprinklerService;
 import com.example.irrigation2.service.UserService;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,10 +21,12 @@ import java.util.List;
 public class OrderController {
 
     private final DripService dripService;
+    private final SprinklerService sprinklerService;
     private final UserService userService;
 
-    public OrderController(DripService dripService, UserService userService) {
+    public OrderController(DripService dripService, SprinklerService sprinklerService, UserService userService) {
         this.dripService = dripService;
+        this.sprinklerService = sprinklerService;
         this.userService = userService;
     }
 
@@ -32,11 +34,15 @@ public class OrderController {
     @GetMapping("/{id}/orders")
     public String orderList(@PathVariable("id") Long id, Model model) {
         if (!model.containsAttribute("orderDripDTO")) {
-            model.addAttribute("orderDripDTO", new OrderDripDTO());
+            model.addAttribute("orderDripDTO", new OrderDTO());
         }
         if (!model.containsAttribute("dripNumsByUser")) {
             List<DripEntity> dripNumsByUser = dripService.getOrdersByUser(id); //
             model.addAttribute("dripNumsByUser", dripNumsByUser);
+        }
+        if (!model.containsAttribute("sprinklerNumsByUser")) {
+            List<SprinklerEntity> sprinklerNumsByUser = sprinklerService.getOrdersByUser(id); //
+            model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
         }
 
         if (model.containsAttribute("userDetails")) {
@@ -51,19 +57,21 @@ public class OrderController {
     //button потвърди
     @PostMapping("/{id}/orders")
     public String addUser(@PathVariable("id") Long id,
-                          OrderDripDTO orderDripDTO,
+                          OrderDTO orderDTO,
                           BindingResult bindingResult,
-                          RedirectAttributes redirectAttributes,
-                          @AuthenticationPrincipal CurrentUserDetails currentUser) {
+                          RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("orderDripDTO", orderDripDTO);
+            redirectAttributes.addFlashAttribute("orderDTO", orderDTO);
             redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.orderDripDTO", bindingResult);
+                    "org.springframework.validation.BindingResult.orderDTO", bindingResult);
             return "redirect:/auth-home/" + id + "/orders";
         }
-
-        dripService.orderDripToUser(orderDripDTO, id);
+        if (orderDTO.getName().equals("drip")) {
+            dripService.orderDripToUser(orderDTO, id);
+        } else if (orderDTO.getName().equals("sprinkler")) {
+            sprinklerService.orderDripToUser(orderDTO, id);
+        }
         return "redirect:/auth-home/" + id + "/orders";
     }
 

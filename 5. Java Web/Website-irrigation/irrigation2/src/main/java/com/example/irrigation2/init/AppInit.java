@@ -28,6 +28,7 @@ public class AppInit implements CommandLineRunner {
         dripService.initDrips();
         dripService.initDripNums();
         sprinklerService.initSprinklers();
+        sprinklerService.initSprinklerNums();
         pumpService.initPumps();
 
     }

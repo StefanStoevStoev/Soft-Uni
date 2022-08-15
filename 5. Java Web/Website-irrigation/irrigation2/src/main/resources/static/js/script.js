@@ -96,12 +96,14 @@ function setAttributeDataAuthHome(event) {
     const initPrice = event.parentElement.parentElement.parentElement.parentElement.querySelector("p.price2").textContent;
     let parsePrice = initPrice.split(" ");
     let price = parsePrice[0];
-    let id = event.parentElement.parentElement.parentElement.parentElement.querySelector("input.id").value;
+    let id = event.parentElement.parentElement.querySelector("input.id").value;
+    let name = event.parentElement.parentElement.querySelector("input.name-element").value;
     let numbers = event.parentElement.parentElement.parentElement.parentElement.querySelector("input.my-input").value;
 
     let idd = event.parentElement.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
-    let pricee = event.parentElement.parentElement.querySelectorAll("input")[1].setAttribute("value", price);
-    let numberss = event.parentElement.parentElement.querySelectorAll("input")[2].setAttribute("value", numbers);
+    let namee = event.parentElement.parentElement.querySelectorAll("input")[1].setAttribute("text", name);
+    let pricee = event.parentElement.parentElement.querySelectorAll("input")[2].setAttribute("value", price);
+    let numberss = event.parentElement.parentElement.querySelectorAll("input")[3].setAttribute("value", numbers);
     console.log(idd);
     console.log(pricee);
     console.log(numberss);

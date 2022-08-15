@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Corrected add drip from admin.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/AddSprinklerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/model/DTO/AddSprinklerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip1.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/nosel4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/nosel5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/nosel5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/top-four-irrigation-techniques.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/images/drips15.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-drips.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-drips.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-pumps.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-pumps.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/add-sprinklers.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/add-sprinklers.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="At &quot;My orders&quot; added sprinkler products." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -137,10 +127,12 @@
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\frontPage" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\for us" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\sprinkler" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.irrigation2.model.entity" />
       <recent name="com.example.irrigation2.model.DTO" />
     </key>
   </component>
@@ -203,7 +195,8 @@
       <workItem from="1660280582898" duration="38102000" />
       <workItem from="1660378657795" duration="46455000" />
       <workItem from="1660452781220" duration="45913000" />
-      <workItem from="1660542270031" duration="4345000" />
+      <workItem from="1660542270031" duration="7947000" />
+      <workItem from="1660550760129" duration="16836000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -457,7 +450,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660545165369</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Corrected add sprinkler from admin.">
+      <created>1660547126222</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1660547126222</updated>
+    </task>
+    <task id="LOCAL-00038" summary="At &quot;My orders&quot; added sprinkler products.">
+      <created>1660571583839</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1660571583839</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,7 +518,9 @@
     <MESSAGE value="Created Admin controller, added sprinkler DTO, -add-sprinkler.html, AddPumpDTO" />
     <MESSAGE value="Pumps add to repository" />
     <MESSAGE value="Corrected add drip from admin." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected add drip from admin." />
+    <MESSAGE value="Corrected add sprinkler from admin." />
+    <MESSAGE value="At &quot;My orders&quot; added sprinkler products." />
+    <option name="LAST_COMMIT_MESSAGE" value="At &quot;My orders&quot; added sprinkler products." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
