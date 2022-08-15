@@ -4,8 +4,6 @@ import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AddSprinklerDTO;
 import com.example.irrigation2.model.DTO.OrderDTO;
 import com.example.irrigation2.model.DTO.SprinklerDTO;
-import com.example.irrigation2.model.entity.DripEntity;
-import com.example.irrigation2.model.entity.DripNumbers;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.entity.SprinklerNumbers;
 import com.example.irrigation2.repository.SprinklerNumRepository;
@@ -230,6 +228,7 @@ public class SprinklerService {
             sprinklerNumRepository.save(sprinklerAndUser);
         }
     }
+
 //AuthController
     public List<SprinklerEntity> getSprinklerNumsByUser(Long userId) {
         List<SprinklerEntity> sprinkler = new ArrayList<>();
@@ -251,7 +250,8 @@ public class SprinklerService {
         return sprinkler;
     }
 
-    public void orderDripToUser(OrderDTO orderDTO, Long userId) {
+//OrderController
+    public void orderSprinklerToUser(OrderDTO orderDTO, Long userId) {
 
         SprinklerNumbers sprNumbers = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, orderDTO.getId());
         SprinklerEntity sprEntity = sprinklerRepository.findById(orderDTO.getId()).orElse(null);

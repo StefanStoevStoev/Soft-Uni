@@ -15,7 +15,7 @@ public class SprinklerNumbers {
     @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "drip_id")
+    @Column(name = "sprinkler_id")
     private Long sprinklerId;
 
     private BigDecimal price;

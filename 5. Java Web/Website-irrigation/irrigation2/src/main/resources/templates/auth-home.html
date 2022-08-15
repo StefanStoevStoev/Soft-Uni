@@ -267,7 +267,7 @@
                      style="--bs-bg-opacity: .6">
                     <!--/*@thymesVar id="#getDrips" type="images"*/-->
                     <div th:if="sprinkler != null" class="row d-flex pt-2 mb-2 ps-2 "
-                         style="height: 22vh;
+                         style="height: 25vh;
                  overflow: auto">
                         <div class="col-auto justify-content-center align-self-center">
                             <img th:src="${sprinkler.url}"
@@ -404,6 +404,155 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+                     th:each="pump : ${pumpNumsByUser}"
+                     style="--bs-bg-opacity: .6">
+                    <!--/*@thymesVar id="#getDrips" type="images"*/-->
+                    <div th:if="pump != null" class="row d-flex pt-2 mb-2 ps-2 "
+                         style="height: 28vh;
+                 overflow: auto">
+                        <div class="col-auto justify-content-center align-self-center">
+                            <img th:src="${pump.urlPic}"
+                                 class="img-responsive "
+                                 alt=" " style="height: 20vh; overflow: auto">
+                        </div>
+                        <!--                text block-->
+                        <div class="col" style="width: 350px; height: 150px">
+                            <div class="row">
+                                <p class="fs-6 text-center fw-bold mb-0"
+                                   th:text="|Име:  ${pump.kind}|">Вид:</p>
+                                <div class="col text-end ps-0 pe-0">
+                                    <!--                        fs-6 text size-->
+                                    <p class="fs-6 mb-0">Модел:</p>
+                                    <p class="fs-6 mb-0">Производител:</p>
+                                    <p class="fs-6 mb-0">Макс. раб. налягане:</p>
+                                    <p class="fs-6 mb-0">Входен диаметър:</p>
+                                    <p class="fs-6 mb-0">Изходен диаметър:</p>
+                                    <p class="fs-6 mb-0">Тегло на помпа:</p>
+                                    <p class="fs-6 mb-0">Номинална мощност:</p>
+                                    <p class="fs-6 mb-0">Номинален ток:</p>
+                                </div>
+                                <div class="col-md-auto ms-2 me-2">
+                                    <!--                        fs-6 text size-->
+                                    <p class="fs-6 mb-0" th:text="${pump.model}">Модел</p>
+                                    <p class="fs-6 mb-0" th:text="${pump.make}">Производител</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.maxWorkingPressure} атм.|">Макс. раб. налягане</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.diameterInlet}|">Входен диаметър</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.diameterOutlet}|">Изходен диаметър</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.weight} kg|">Тегло на помпа</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.power} kW|">Номинална мощност</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.current} A|">Номинален ток</p>
+
+                                </div>
+                                <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                                    <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                                        <div class="col text-end">
+                                            <p class="fs-6 mb-0">Код:</p>
+                                            <p class="fs-6 mb-0">Напор:</p>
+                                            <p class="fs-6 mb-0">Захранване:</p>
+                                            <p type="hidden"
+                                               class="fs-6 mb-0"
+                                               style="display:none">Единична цена:</p>
+                                            <p type="hidden"
+                                               class="fs-6 mb-0"
+                                               style="display:none">Наличност:</p>
+                                            <p class="fs-6 mb-0">Цена:</p>
+                                        </div>
+                                        <div class="col text-start ">
+                                            <p class="fs-6 mb-0" th:text="${pump.code}">Код</p>
+                                            <p class="fs-6 mb-0" th:text="|${pump.head} m|">Напор</p>
+                                            <p class="fs-6 mb-0" th:text="|${pump.voltage} V|">Захранване</p>
+                                            <p type="hidden" class="fs-6  mb-0 single-price"
+                                               th:value="${pump.price}"
+                                               th:text="|${pump.price} лв.|"
+                                               style="display:none">Единична цена</p>
+                                            <p type="hidden" class="fs-6 mb-0 availability"
+                                               th:value="${pump.pieces}"
+                                               th:text="|${pump.pieces} бр.|"
+                                               style="display:none">Наличност:</p>
+                                            <p class="fs-6 mb-0 price2"
+                                               th:text="|${pump.price} лв.|">Цена:</p>
+                                        </div>
+                                    </div>
+                                    <div class="input-spinner" th:high="50vh">
+                                        <button onclick="stepper(this)"
+                                                class="text-center decrement"
+                                                style="width: 2vh">
+                                            -
+                                        </button>
+                                        <input type="number"
+                                               min="1"
+                                               max="100"
+                                               step="1"
+                                               th:value="${pump.temporaryPieces}"
+                                               class="my-input" readonly>
+                                        <button onclick="stepper(this)"
+                                                class="text-center increment"
+                                                style="width: 2vh">
+                                            +
+                                        </button>
+                                    </div>
+                                    <div class="row container ps-4 ms-0 pe-0 me-0">
+                                        <div class="col text-end me-0 pe-0 pt-2">
+                                            <form th:method="post"
+                                                  th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
+                                                  th:object="${pumpDTO}"
+                                                  class="fs-6 mb-0 button-holder d-flex justify-content-center mt-2">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="${pump.id}"
+                                                       name="id"
+                                                       style="display:none">
+
+                                                <label th:type="hidden"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" name-element"
+                                                       th:value="pump"
+                                                       name="name"
+                                                       style="display:none">
+
+                                                <label th:type="hidden"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" price"
+                                                       name="price"
+                                                       style="display:none">
+                                                <label th:type="hidden"
+                                                       for="pieces"
+                                                       style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" pieces"
+                                                       name="pieces"
+                                                       style="display:none">
+                                                <button class="btn btn-warning mb-1 me-2"
+                                                        onclick="setAttributeDataAuthHome(this)">Потвърди
+                                                </button>
+                                            </form>
+                                        </div>
+
+                                        <div class="col text-start pt-3">
+                                            <form class="fs-6 mb-0"
+                                                  th:action="@{/auth-home/{id}(id=${getUserId})}"
+                                                  th:method="delete">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="${pump.id}"
+                                                       name="id"
+                                                       style="display:none">
+                                                <input type="submit" class="btn btn-warning mb-1"
+                                                       value="Откажи">
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </main>
@@ -412,18 +561,3 @@
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>
-<!--th:href="@{/auth-home/{id}(id=${user.id})}">-->
-
-<!--<form-->
-<!--        th:method="post"-->
-<!--        th:action="@{/auth-home/{id}/orders(id=${getUserId})}"-->
-<!--        th:object="${orderDripDTO}"-->
-<!--        class="button-holder d-flex justify-content-center mt-2">-->
-<!--    <button class="btn btn-warning mb-1 me-2"-->
-<!--            onclick="setAttributeData(this)">Статус на поръчките ми-->
-<!--    </button>-->
-<!--    &lt;!&ndash;                <input type="submit"&ndash;&gt;-->
-<!--    &lt;!&ndash;                       class="btn btn-warning mb-5"&ndash;&gt;-->
-<!--    &lt;!&ndash;                       th:value="Статус на поръчките"&ndash;&gt;-->
-<!--    &lt;!&ndash;                       th:href="@{/auth-home/{id}(id=*{id})/orders}">&ndash;&gt;-->
-<!--</form>-->

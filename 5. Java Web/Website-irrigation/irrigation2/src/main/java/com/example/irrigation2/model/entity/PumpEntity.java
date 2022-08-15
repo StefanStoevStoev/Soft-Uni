@@ -3,6 +3,8 @@ package com.example.irrigation2.model.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "pumps")
@@ -24,33 +26,54 @@ public class PumpEntity extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String characteristicCurve;
     private BigDecimal price;
-    private LocalDate orderDate;
+    private LocalDateTime orderDate;
 
     private int pieces;
     private String urlPic;
     private String urlDiagram;
+    private String status;
+    private int temporaryPieces;
 
-    @ManyToOne
-    private UserEntity user;
+    @OneToMany
+    @JoinColumn(name = "pump_id")
+    private List<SprinklerNumbers> pumpUsers;
 
     public PumpEntity() {
     }
 
-    public LocalDate getOrderDate() {
+    public String getStatus() {
+        return status;
+    }
+
+    public PumpEntity setStatus(String status) {
+        this.status = status;
+        return this;
+    }
+
+    public int getTemporaryPieces() {
+        return temporaryPieces;
+    }
+
+    public PumpEntity setTemporaryPieces(int temporaryPieces) {
+        this.temporaryPieces = temporaryPieces;
+        return this;
+    }
+
+    public LocalDateTime getOrderDate() {
         return orderDate;
     }
 
-    public PumpEntity setOrderDate(LocalDate orderDate) {
+    public PumpEntity setOrderDate(LocalDateTime orderDate) {
         this.orderDate = orderDate;
         return this;
     }
 
-    public UserEntity getUser() {
-        return user;
+    public List<SprinklerNumbers> getPumpUsers() {
+        return pumpUsers;
     }
 
-    public PumpEntity setUser(UserEntity user) {
-        this.user = user;
+    public PumpEntity setPumpUsers(List<SprinklerNumbers> pumpUsers) {
+        this.pumpUsers = pumpUsers;
         return this;
     }
 

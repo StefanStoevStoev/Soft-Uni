@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="At &quot;My orders&quot; added sprinkler products." />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="At &quot;My orders&quot; added pump products." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +196,7 @@
       <workItem from="1660378657795" duration="46455000" />
       <workItem from="1660452781220" duration="45913000" />
       <workItem from="1660542270031" duration="7947000" />
-      <workItem from="1660550760129" duration="16836000" />
+      <workItem from="1660550760129" duration="34335000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -464,7 +464,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660571583839</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="At &quot;My orders&quot; added pump products.">
+      <created>1660589926966</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1660589926967</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,7 +502,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Started test directory" />
     <MESSAGE value="product-drip and stepper buttons are working with the new th:each" />
     <MESSAGE value="script.js - added discount rate." />
     <MESSAGE value="Save address and phone of the user" />
@@ -520,7 +526,8 @@
     <MESSAGE value="Corrected add drip from admin." />
     <MESSAGE value="Corrected add sprinkler from admin." />
     <MESSAGE value="At &quot;My orders&quot; added sprinkler products." />
-    <option name="LAST_COMMIT_MESSAGE" value="At &quot;My orders&quot; added sprinkler products." />
+    <MESSAGE value="At &quot;My orders&quot; added pump products." />
+    <option name="LAST_COMMIT_MESSAGE" value="At &quot;My orders&quot; added pump products." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

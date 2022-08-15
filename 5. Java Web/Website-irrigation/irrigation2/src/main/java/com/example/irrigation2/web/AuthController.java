@@ -4,9 +4,11 @@ import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AuthDTO;
 
 import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.views.UserViewModel;
 import com.example.irrigation2.service.DripService;
+import com.example.irrigation2.service.PumpService;
 import com.example.irrigation2.service.SprinklerService;
 import com.example.irrigation2.service.UserService;
 
@@ -29,11 +31,13 @@ public class AuthController {
     private final UserService userService;
     private final DripService dripService;
     private final SprinklerService sprinklerService;
+    private final PumpService pumpService;
 
-    public AuthController(UserService userService, DripService dripService, SprinklerService sprinklerService) {
+    public AuthController(UserService userService, DripService dripService, SprinklerService sprinklerService, PumpService pumpService) {
         this.userService = userService;
         this.dripService = dripService;
         this.sprinklerService = sprinklerService;
+        this.pumpService = pumpService;
     }
 
     @GetMapping("/")
@@ -50,9 +54,11 @@ public class AuthController {
                           @AuthenticationPrincipal CurrentUserDetails currentUser) {
         List<DripEntity> dripNumsByUser = dripService.getDripNumsByUser(id);
         List<SprinklerEntity> sprinklerNumsByUser = sprinklerService.getSprinklerNumsByUser(id);
+        List<PumpEntity> pumpNumsByUser = pumpService.getPumpNumsByUser(id);
 
         model.addAttribute("dripNumsByUser", dripNumsByUser);
         model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
+        model.addAttribute("pumpNumsByUser", pumpNumsByUser);
 
         UserViewModel user = userService.getUserById(id);
         model.addAttribute("userDetails", user);

@@ -81,7 +81,7 @@
                 <div class="col-auto gallery">
                     <img th:src="${sprinkler.url}"
                          class="img-responsive justify-content-center align-self-center"
-                         alt=" ">
+                         alt=" " style="height: 20vh; overflow: auto">
                 </div>
                 <!--                text block-->
                 <div class="col" style="width: 350px; height: 170px">
@@ -122,6 +122,67 @@
                                     <p class="fs-6 mb-0" th:text="${sprinkler.code}">Код</p>
                                     <p class="fs-6 mb-0" th:text="|${sprinkler.pieces} бр.|">Брой</p>
                                     <p class="fs-6 mb-0 price2" th:text="|${sprinkler.price} лв.|">Цена:</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <main class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+              th:each="pump, iStat : ${pumpNumsByUser}"
+              style="--bs-bg-opacity: .6">
+            <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->
+            <div class="row pt-2 mb-2 ps-2">
+                <!--/*@thymesVar id="#getDrips" type="images"*/-->
+                <div class="col-auto gallery">
+                    <img th:src="${pump.urlPic}"
+                         class="img-responsive justify-content-center align-self-center"
+                         alt=" " style="height: 20vh; overflow: auto">
+                </div>
+                <!--                text block-->
+                <div class="col" style="width: 350px; height: 170px">
+                    <div class="row">
+                        <div class="col text-end ps-0 pe-0">
+                            <!--                        fs-6 text size-->
+                            <p class="fs-6 fw-bold mb-0">Вид:</p>
+                            <p class="fs-6 mb-0">Модел:</p>
+                            <p class="fs-6 mb-0">Производител:</p>
+
+                            <p class="fs-6 mb-0">Макс. раб. налягане:</p>
+                            <p class="fs-6 mb-0">Входен диаметър:</p>
+                            <p class="fs-6 mb-0">Изходен диаметър:</p>
+                            <p class="fs-6 mb-0">Тегло на помпа:</p>
+
+                        </div>
+                        <div class="col-md-auto ms-2 me-2">
+                            <!--                        fs-6 text size-->
+                            <p class="fs-6 fw-bold mb-0" th:text="${pump.kind}">Вид:</p>
+                            <p class="fs-6 mb-0" th:text="${pump.model}">Модел:</p>
+                            <p class="fs-6 mb-0" th:text="${pump.make}">Производител:</p>
+                            <p class="fs-6 mb-0" th:text="|${pump.maxWorkingPressure} atm.|">Макс. раб. налягане:</p>
+                            <p class="fs-6 mb-0" th:text="${pump.diameterInlet}">Вход:</p>
+                            <p class="fs-6 mb-0" th:text="${pump.diameterOutlet}">Изход:</p>
+                            <p class="fs-6 mb-0" th:text="|${pump.weight} kg|">Тегло на помпа:</p>
+                        </div>
+                        <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                            <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                                <div class="col text-end">
+                                    <p class="fs-6 fw-bold mb-0">Статус:</p>
+                                    <p class="fs-6 mb-0">Дата на поръчката:</p>
+                                    <p class="fs-6 mb-0">Код:</p>
+                                    <p class="fs-6 mb-0">Напор:</p>
+                                    <p class="fs-6 mb-0">Брой:</p>
+                                    <p class="fs-6 mb-0">Цена:</p>
+                                </div>
+                                <div class="col text-start ">
+                                    <p class="fs-6 fw-bold mb-0" th:text="${pump.status}">Статус</p>
+                                    <p class="fs-6 mb-0" th:text="${#temporals.format(pump.orderDate,'yyyy-MM-dd HH:mm')}">Дата на поръчката:</p>
+                                    <p class="fs-6 mb-0" th:text="${pump.code}">Код</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.head} m|">Напор:</p>
+                                    <p class="fs-6 mb-0" th:text="|${pump.pieces} бр.|">Брой</p>
+                                    <p class="fs-6 mb-0 price2" th:text="|${pump.price} лв.|">Цена:</p>
                                 </div>
                             </div>
                         </div>

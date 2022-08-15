@@ -103,8 +103,6 @@
                 <div class="col-auto gallery">
                     <img th:src="${pumps.urlPic}"
                          class="img-responsive">
-                    <!--                    <img src="/images/pumps/pump-hiperi-1-5.jpg" />-->
-                    <!--                    <img src="/images/pumps/pump-hiperi-1-5(dgm).jpg" />-->
                 </div>
                 <div id="fullpage" onclick="this.style.display='none';"></div>
                 <!--                text block-->
@@ -185,47 +183,50 @@
                                         style="width: 2vh" > + </button>
 
                             </div>
-                            <form th:mathod="post"
-                                  th:action="@{/products/pump}"
-                                  th:object="${PumpDTO}"
-                                  class="button-holder d-flex justify-content-center mt-2">
+                            <th:block th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
+                                <form th:mathod="post"
+                                      th:action="@{/products/pump}"
+                                      th:object="${PumpDTO}"
+                                      class="button-holder d-flex justify-content-center mt-2">
 
-                                <div th:type="hidden"
-                                     th:methodParam="${pumps.id}"
-                                     class=" id"
-                                     th:value="*{id}"
-                                     name="id"
-                                     th:text="${pumps.id}"
-                                     style="display:none">
-                                </div>
-                                <div th:type="hidden"
-                                     class=" price"
-                                     th:value="*{price}"
-                                     name="price"
-                                     th:text="${pumps.price}"
-                                     style="display:none">
-                                </div>
-                                <div th:type="hidden"
-                                     class=" numbers"
-                                     th:value="*{pieces}"
-                                     name="numbers"
-                                     th:text="${pumps.pieces}"
-                                     style="display:none">
-                                </div>
-                                <th:block sec:authorize="isAuthenticated()">
-                                    <a type="submit"
-                                       class="btn btn-warning mb-1"
-                                       onclick="setAttributeData(this)"
-                                       th:href="@{/auth-home/{id}(id=${getUserId})}">
-                                        Купи
-                                    </a>
-                                </th:block>
+                                    <div th:type="hidden"
+                                         th:methodParam="${pumps.id}"
+                                         class=" id"
+                                         th:value="*{id}"
+                                         name="id"
+                                         th:text="${pumps.id}"
+                                         style="display:none">
+                                    </div>
+                                    <div th:type="hidden"
+                                         class=" price"
+                                         th:value="*{price}"
+                                         name="price"
+                                         th:text="${pumps.price}"
+                                         style="display:none">
+                                    </div>
+                                    <div th:type="hidden"
+                                         class=" numbers"
+                                         th:value="*{pieces}"
+                                         name="numbers"
+                                         th:text="${pumps.pieces}"
+                                         style="display:none">
+                                    </div>
+                                    <th:block sec:authorize="isAuthenticated()">
+                                        <a type="submit"
+                                           class="btn btn-warning mb-1"
+                                           onclick="setAttributeData(this)"
+                                           th:href="@{/auth-home/{id}(id=${getUserId})}">
+                                            Купи
+                                        </a>
+                                    </th:block>
 
-                                <th:block sec:authorize="isAnonymous()">
-                                    <a type="submit" class="btn btn-warning mb-1"
-                                       th:href="@{/users/login}">Купи</a>
-                                </th:block>
-                            </form>
+                                    <th:block sec:authorize="isAnonymous()">
+                                        <a type="submit" class="btn btn-warning mb-1"
+                                           th:href="@{/users/login}">Купи</a>
+                                    </th:block>
+                                </form>
+                            </th:block>
+
                         </div>
                     </div>
                 </div>

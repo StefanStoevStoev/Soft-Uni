@@ -1,24 +1,29 @@
 package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.DTO.AddPumpDTO;
-import com.example.irrigation2.model.DTO.AddSprinklerDTO;
-import com.example.irrigation2.model.entity.PumpEntity;
-import com.example.irrigation2.model.entity.SprinklerEntity;
+import com.example.irrigation2.model.DTO.OrderDTO;
+import com.example.irrigation2.model.entity.*;
+import com.example.irrigation2.repository.PumpNumRepository;
 import com.example.irrigation2.repository.PumpRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class PumpService {
 
     private final PumpRepository pumpRepository;
+    private final PumpNumRepository pumpNumRepository;
     private final ModelMapper mapper;
 
-    public PumpService(PumpRepository pumpRepository, ModelMapper mapper) {
+    public PumpService(PumpRepository pumpRepository, PumpNumRepository pumpNumRepository, ModelMapper mapper) {
         this.pumpRepository = pumpRepository;
+        this.pumpNumRepository = pumpNumRepository;
         this.mapper = mapper;
     }
 
@@ -70,6 +75,45 @@ public class PumpService {
         }
     }
 
+    public void initPumpNums() {
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+        if (pumpNumRepository.count() == 0) {
+            String str1 = "2018-04-09 11:32";
+            LocalDateTime dateTime1 = LocalDateTime.parse(str1, formatter);
+            PumpNumbers pumpNumbers = new PumpNumbers();
+            pumpNumbers.setUserId(2L)
+                    .setPumpId(2L)
+                    .setNumbers(2)
+                    .setStatus("Обработва се")
+                    .setPrice(BigDecimal.valueOf(225.14))
+                    .setRegisteredAt(dateTime1);
+            pumpNumRepository.save(pumpNumbers);
+
+            String str2 = "2021-03-08 04:01";
+            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
+            PumpNumbers pumpNumbers1 = new PumpNumbers();
+            pumpNumbers1.setUserId(2L)
+                    .setPumpId(2L)
+                    .setNumbers(1)
+                    .setStatus("Изпратена")
+                    .setPrice(BigDecimal.valueOf(28.14))
+                    .setRegisteredAt(dateTime2);
+            pumpNumRepository.save(pumpNumbers1);
+
+            String str3 = "2021-01-01 23:59";
+            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+            PumpNumbers pumpNumbers2 = new PumpNumbers();
+            pumpNumbers2.setUserId(2L)
+                    .setPumpId(1L)
+                    .setNumbers(3)
+                    .setPrice(BigDecimal.valueOf(338.14))
+                    .setRegisteredAt(dateTime3);
+            pumpNumRepository.save(pumpNumbers2);
+        }
+    }
+
     public List<PumpEntity> getAllPumps() {
         return pumpRepository.findAll();
     }
@@ -77,5 +121,66 @@ public class PumpService {
     public void addPumpToDB(AddPumpDTO addPumpDTO) {
         PumpEntity pump = mapper.map(addPumpDTO, PumpEntity.class);
         pumpRepository.save(pump);
+    }
+
+    //AuthController
+    public List<PumpEntity> getPumpNumsByUser(Long userId) {
+        List<PumpEntity> pumps = new ArrayList<>();
+
+        List<PumpNumbers> allPumpsNum = pumpNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)
+                .stream()
+                .filter(e -> e.getStatus() == null).toList();
+
+        for (PumpNumbers e : allPumpsNum) {
+            PumpEntity pumpEntity = pumpRepository.findById(e.getPumpId()).orElse(null);
+
+            if (pumpEntity != null) {
+                pumpEntity.setTemporaryPieces(e.getNumbers())
+                        .setPrice(e.getPrice());
+                pumps.add(pumpEntity);
+            }
+        }
+        return pumps;
+    }
+
+    public List<PumpEntity> getOrdersByUser(Long userId) {
+        List<PumpNumbers> pumpNumbersStream = pumpNumRepository
+                .findAllByUserIdOrderByRegisteredAtAsc(userId)
+                .stream()
+                .filter(e -> e.getStatus() != null).toList();
+
+        List<PumpEntity> pumps = new ArrayList<>();
+
+        for (PumpNumbers pumpNumber : pumpNumbersStream) {
+
+            PumpEntity tempSprinkler = pumpRepository
+                    .findById(pumpNumber.getPumpId()).orElseThrow()
+                    .setPieces(pumpNumber.getNumbers())
+                    .setPrice(pumpNumber.getPrice())
+                    .setOrderDate(pumpNumber.getRegisteredAt())
+                    .setStatus(pumpNumber.getStatus());
+            pumps.add(tempSprinkler);
+        }
+        return pumps;
+    }
+
+    //OrderController
+    public void orderPumpToUser(OrderDTO orderDTO, Long userId) {
+        PumpNumbers pumpNumbers = pumpNumRepository.findByUserIdAndPumpId(userId, orderDTO.getId());///////////////
+//        List<PumpNumbers> pumpNumbers = pumpNumRepository.findByUserId(userId);
+//        List<PumpNumbers> fd = pumpNumRepository.findByPumpId(orderDTO.getId());
+
+        PumpEntity pumpEntity = pumpRepository.findById(orderDTO.getId()).orElse(null);
+
+        assert pumpEntity != null;
+        int numbers = pumpEntity.getPieces() - orderDTO.getPieces();
+        pumpEntity.setPieces(numbers);
+        pumpRepository.save(pumpEntity);
+
+        pumpNumbers.setStatus("Обработва се")
+                .setNumbers(orderDTO.getPieces())
+                .setPrice(orderDTO.getPrice());
+        pumpNumRepository.save(pumpNumbers);
     }
 }

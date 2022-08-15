@@ -3,9 +3,11 @@ package com.example.irrigation2.web;
 import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.OrderDTO;
 import com.example.irrigation2.model.entity.DripEntity;
+import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.views.UserViewModel;
 import com.example.irrigation2.service.DripService;
+import com.example.irrigation2.service.PumpService;
 import com.example.irrigation2.service.SprinklerService;
 import com.example.irrigation2.service.UserService;
 import org.springframework.stereotype.Controller;
@@ -22,11 +24,16 @@ public class OrderController {
 
     private final DripService dripService;
     private final SprinklerService sprinklerService;
+    private final PumpService pumpService;
     private final UserService userService;
 
-    public OrderController(DripService dripService, SprinklerService sprinklerService, UserService userService) {
+    public OrderController(DripService dripService,
+                           SprinklerService sprinklerService,
+                           PumpService pumpService,
+                           UserService userService) {
         this.dripService = dripService;
         this.sprinklerService = sprinklerService;
+        this.pumpService = pumpService;
         this.userService = userService;
     }
 
@@ -43,6 +50,10 @@ public class OrderController {
         if (!model.containsAttribute("sprinklerNumsByUser")) {
             List<SprinklerEntity> sprinklerNumsByUser = sprinklerService.getOrdersByUser(id); //
             model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
+        }
+        if (!model.containsAttribute("pumpNumsByUser")) {
+            List<PumpEntity> pumpNumsByUser = pumpService.getOrdersByUser(id); //
+            model.addAttribute("pumpNumsByUser", pumpNumsByUser);
         }
 
         if (model.containsAttribute("userDetails")) {
@@ -67,10 +78,13 @@ public class OrderController {
                     "org.springframework.validation.BindingResult.orderDTO", bindingResult);
             return "redirect:/auth-home/" + id + "/orders";
         }
+
         if (orderDTO.getName().equals("drip")) {
             dripService.orderDripToUser(orderDTO, id);
         } else if (orderDTO.getName().equals("sprinkler")) {
-            sprinklerService.orderDripToUser(orderDTO, id);
+            sprinklerService.orderSprinklerToUser(orderDTO, id);
+        } else if (orderDTO.getName().equals("pump")){
+            pumpService.orderPumpToUser(orderDTO, id);///////////////////////////
         }
         return "redirect:/auth-home/" + id + "/orders";
     }

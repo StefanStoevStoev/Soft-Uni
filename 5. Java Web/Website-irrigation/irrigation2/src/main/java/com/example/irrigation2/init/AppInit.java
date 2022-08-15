@@ -24,12 +24,13 @@ public class AppInit implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        userService.init();///////////
+        userService.init();
         dripService.initDrips();
         dripService.initDripNums();
         sprinklerService.initSprinklers();
         sprinklerService.initSprinklerNums();
         pumpService.initPumps();
+        pumpService.initPumpNums();
 
     }
 }

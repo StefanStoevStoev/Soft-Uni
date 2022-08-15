@@ -3,6 +3,7 @@ package com.example.irrigation2.model.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "sprinklers")
@@ -28,7 +29,20 @@ public class SprinklerEntity extends BaseEntity {
     private String url;
     private String status;
 
+    @OneToMany
+    @JoinColumn(name = "sprinkler_id")
+    private List<SprinklerNumbers> sprinklerUsers;
+
     public SprinklerEntity() {
+    }
+
+    public List<SprinklerNumbers> getSprinklerUsers() {
+        return sprinklerUsers;
+    }
+
+    public SprinklerEntity setSprinklerUsers(List<SprinklerNumbers> sprinklerUsers) {
+        this.sprinklerUsers = sprinklerUsers;
+        return this;
     }
 
     public int getTemporaryPieces() {

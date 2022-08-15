@@ -1,6 +1,7 @@
 package com.example.irrigation2.model.entity;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -8,19 +9,21 @@ import java.time.LocalDateTime;
 public class PumpNumbers {
 
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    UserEntity user;
+    @Column(name = "user_id")
+    private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "pump_id")
-    DripEntity pump;
+    @Column(name = "pump_id")
+    private Long pumpId;
 
-    LocalDateTime registeredAt;
+    private BigDecimal price;
 
-    int numbers;
+    private LocalDateTime registeredAt;
+
+    private int numbers;
+    private String status;
 
     public PumpNumbers() {
     }
@@ -34,21 +37,31 @@ public class PumpNumbers {
         return this;
     }
 
-    public UserEntity getUser() {
-        return user;
+
+    public Long getUserId() {
+        return userId;
     }
 
-    public PumpNumbers setUser(UserEntity user) {
-        this.user = user;
+    public PumpNumbers setUserId(Long userId) {
+        this.userId = userId;
         return this;
     }
 
-    public DripEntity getPump() {
-        return pump;
+    public Long getPumpId() {
+        return pumpId;
     }
 
-    public PumpNumbers setPump(DripEntity drip) {
-        this.pump = drip;
+    public PumpNumbers setPumpId(Long pumpId) {
+        this.pumpId = pumpId;
+        return this;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public PumpNumbers setPrice(BigDecimal price) {
+        this.price = price;
         return this;
     }
 
@@ -67,6 +80,15 @@ public class PumpNumbers {
 
     public PumpNumbers setNumbers(int numbers) {
         this.numbers = numbers;
+        return this;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public PumpNumbers setStatus(String status) {
+        this.status = status;
         return this;
     }
 }

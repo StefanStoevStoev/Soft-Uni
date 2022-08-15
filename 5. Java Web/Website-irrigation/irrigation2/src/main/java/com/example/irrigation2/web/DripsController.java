@@ -52,15 +52,4 @@ public class DripsController {
 
         return "redirect:/auth-home/" + currentUser.getId();
     }
-
-    @ModelAttribute("dripDTO")
-    public DripDTO initDripModel() {
-        return new DripDTO();
-    }
-
-    @ModelAttribute("currentUser")
-    public UserDetails getCurrentUser(Authentication authentication) {
-        return (authentication == null) ? null : (UserDetails) authentication.getPrincipal();
-    }
-
 }

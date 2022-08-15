@@ -47,17 +47,9 @@ public class PumpsController {
     }
 
     @PostMapping("/pump")
-    public String sprinklerAddPage(@Valid PumpDTO pumpDTO,
-                                   BindingResult bindingResult,
-                                   RedirectAttributes redirectAttributes,
+    public String sprinklerAddPage( PumpDTO pumpDTO,
                                    @AuthenticationPrincipal CurrentUserDetails currentUser) {
-        if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("pumpDTO", pumpDTO);
-            redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.pumpDTO", bindingResult);
-            return "redirect:/products/pump";
-        }
-        redirectAttributes.addFlashAttribute("uId", currentUser.getId());
+
         userService.addPumpToUser(pumpDTO, currentUser);
 
         return "redirect:/auth-home/" + currentUser.getId();
