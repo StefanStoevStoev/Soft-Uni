@@ -266,4 +266,9 @@ public class SprinklerService {
                 .setPrice(orderDTO.getPrice());
         sprinklerNumRepository.save(sprNumbers);
     }
+
+    public void deleteSprinklerById(Long id, Long userId) {
+        SprinklerNumbers sprinkler = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, id);
+        sprinklerNumRepository.deleteById(sprinkler.getId());
+    }
 }

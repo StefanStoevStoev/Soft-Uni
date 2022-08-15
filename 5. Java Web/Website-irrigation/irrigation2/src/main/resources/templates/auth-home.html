@@ -114,6 +114,7 @@
                     </div>
                 </div>
 
+
                 <div class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
                      th:each="drips, iStat : ${dripNumsByUser}"
                      style="--bs-bg-opacity: .6">
@@ -251,6 +252,12 @@
                                                        th:value="${drips.id}"
                                                        name="id"
                                                        style="display:none">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" id"
+                                                       th:value="drip"
+                                                       name="name"
+                                                       style="display:none">
                                                 <input type="submit" class="btn btn-warning mb-1"
                                                        value="Откажи">
                                             </form>
@@ -348,7 +355,7 @@
                                         <div class="col text-end me-0 pe-0 pt-2">
                                             <form th:method="post"
                                                   th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
-                                                  th:object="${sprinklerDTO}"
+                                                  th:object="${dripDTO}"
                                                   class="fs-6 mb-0 button-holder d-flex justify-content-center mt-2">
                                                 <label th:type="hidden" style="display:none"></label>
                                                 <input th:type="hidden"
@@ -394,7 +401,14 @@
                                                        th:value="${sprinkler.id}"
                                                        name="id"
                                                        style="display:none">
-                                                <input type="submit" class="btn btn-warning mb-1"
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" name"
+                                                       th:value="sprinkler"
+                                                       name="name"
+                                                       style="display:none">
+                                                <input type="submit"
+                                                       class="btn btn-warning mb-1"
                                                        value="Откажи">
                                             </form>
                                         </div>
@@ -497,7 +511,7 @@
                                         <div class="col text-end me-0 pe-0 pt-2">
                                             <form th:method="post"
                                                   th:action="@{/auth-home/{id}/orders(id=${getUserId})}"
-                                                  th:object="${pumpDTO}"
+                                                  th:object="${dripDTO}"
                                                   class="fs-6 mb-0 button-holder d-flex justify-content-center mt-2">
                                                 <label th:type="hidden" style="display:none"></label>
                                                 <input th:type="hidden"
@@ -542,6 +556,12 @@
                                                        class=" id"
                                                        th:value="${pump.id}"
                                                        name="id"
+                                                       style="display:none">
+                                                <label th:type="hidden" style="display:none"></label>
+                                                <input th:type="hidden"
+                                                       class=" name"
+                                                       th:value="pump"
+                                                       name="name"
                                                        style="display:none">
                                                 <input type="submit" class="btn btn-warning mb-1"
                                                        value="Откажи">

@@ -80,16 +80,6 @@ public class PumpService {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
         if (pumpNumRepository.count() == 0) {
-            String str1 = "2018-04-09 11:32";
-            LocalDateTime dateTime1 = LocalDateTime.parse(str1, formatter);
-            PumpNumbers pumpNumbers = new PumpNumbers();
-            pumpNumbers.setUserId(2L)
-                    .setPumpId(2L)
-                    .setNumbers(2)
-                    .setStatus("Обработва се")
-                    .setPrice(BigDecimal.valueOf(225.14))
-                    .setRegisteredAt(dateTime1);
-            pumpNumRepository.save(pumpNumbers);
 
             String str2 = "2021-03-08 04:01";
             LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
@@ -97,7 +87,6 @@ public class PumpService {
             pumpNumbers1.setUserId(2L)
                     .setPumpId(2L)
                     .setNumbers(1)
-                    .setStatus("Изпратена")
                     .setPrice(BigDecimal.valueOf(28.14))
                     .setRegisteredAt(dateTime2);
             pumpNumRepository.save(pumpNumbers1);
@@ -182,5 +171,10 @@ public class PumpService {
                 .setNumbers(orderDTO.getPieces())
                 .setPrice(orderDTO.getPrice());
         pumpNumRepository.save(pumpNumbers);
+    }
+
+    public void deletePumpById(Long id, Long userId) {
+        PumpNumbers sprinkler = pumpNumRepository.findByUserIdAndPumpId(userId, id);
+        pumpNumRepository.deleteById(sprinkler.getId());
     }
 }

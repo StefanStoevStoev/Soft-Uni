@@ -2,6 +2,8 @@ package com.example.irrigation2.web;
 
 import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.OrderDTO;
+import com.example.irrigation2.model.DTO.PumpDTO;
+import com.example.irrigation2.model.DTO.SprinklerDTO;
 import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.model.entity.SprinklerEntity;
@@ -88,11 +90,20 @@ public class OrderController {
         }
         return "redirect:/auth-home/" + id + "/orders";
     }
-
     @DeleteMapping("/{id}")
     public String deleteOffer(
             @PathVariable("id") Long userId, DripDTO dripDTO) {
-        dripService.deleteDripById(dripDTO.getId(), userId);
+
+
+        if (dripDTO.getName().equals("drip")) {
+            dripService.deleteDripById(dripDTO.getId(), userId);
+        } else if (dripDTO.getName().equals("sprinkler")) {
+            sprinklerService.deleteSprinklerById(dripDTO.getId(), userId);
+        } else if (dripDTO.getName().equals("pump")){
+            pumpService.deletePumpById(dripDTO.getId(), userId);
+        }
         return "redirect:/auth-home/" + userId;
     }
 }
+
+

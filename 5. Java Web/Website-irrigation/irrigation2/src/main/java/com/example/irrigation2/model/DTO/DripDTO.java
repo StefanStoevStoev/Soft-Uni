@@ -8,10 +8,20 @@ public class DripDTO {
     private Long id;
     @Positive
     private int pieces;
+    private String name;
     @Positive
     private BigDecimal price;
 
     public DripDTO() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public DripDTO setName(String name) {
+        this.name = name;
+        return this;
     }
 
     public Long getId() {
