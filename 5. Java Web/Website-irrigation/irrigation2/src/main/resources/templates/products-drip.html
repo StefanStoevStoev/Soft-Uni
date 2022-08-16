@@ -195,15 +195,11 @@
                                            class=" pieces"
                                            name="pieces"
                                            style="display:none">
-                                    </input>
-                                    <th:block th:if="sprinkler != null">
+                                    <th:block sec:authorize="isAuthenticated()" >
                                         <button class="btn btn-warning mb-1"
                                                 onclick="setAttributeData(this)">Купи
                                         </button>
-                                        <!--  th:href="@{/auth-home/{id}(id=${getUserId})}">Купи</a>-->
-                                        <!--  th:href="@{/auth-home/{id}(id=${uId})}" >Купи</a>-->
                                     </th:block>
-
                                     <th:block sec:authorize="isAnonymous()">
                                         <a type="submit" class="btn btn-warning mb-1" th:href="@{/users/login}">Купи</a>
                                     </th:block>

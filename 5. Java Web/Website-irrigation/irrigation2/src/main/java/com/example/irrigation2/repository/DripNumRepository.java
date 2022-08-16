@@ -12,7 +12,8 @@ public interface DripNumRepository extends JpaRepository<DripNumbers, Long> {
 
     List<DripNumbers> findAllByUserIdOrderByRegisteredAtAsc(Long userId);
 
-    DripNumbers findByUserIdAndDripId(Long userId, Long dripId);
+    List<DripNumbers> findByUserIdAndDripId(Long userId, Long dripId);
+//    DripNumbers findByUserIdAndDripId(Long userId, Long dripId);
 
 //    void deleteByDripIdAndUserId(Long dripId, Long userId);
 }

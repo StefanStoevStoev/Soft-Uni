@@ -162,40 +162,33 @@
 
                             </div>
                             <th:block th:unless="${#authorization.expression('hasRole(''ADMIN'')')}">
-                                <form th:mathod="post"
+                                <form th:method="post"
                                       th:action="@{/products/sprinkler}"
                                       th:object="${sprinklerDTO}"
                                       class="button-holder d-flex justify-content-center mt-2">
-
-                                    <div th:type="hidden"
+                                    <label th:type="hidden" style="display:none"></label>
+                                    <input th:type="hidden"
                                          th:methodParam="${sprinklers.id}"
                                          class=" id"
-                                         th:value="*{id}"
                                          name="id"
-                                         th:text="${sprinklers.id}"
+                                         th:value="${sprinklers.id}"
                                          style="display:none">
-                                    </div>
-                                    <div th:type="hidden"
+                                    <label th:type="hidden" style="display:none"></label>
+                                    <input th:type="hidden"
                                          class=" price"
-                                         th:value="*{price}"
                                          name="price"
-                                         th:text="${sprinklers.price}"
                                          style="display:none">
-                                    </div>
-                                    <div th:type="hidden"
-                                         class=" numbers"
-                                         th:value="*{pieces}"
-                                         name="numbers"
-                                         th:text="${sprinklers.pieces}"
+                                    <label th:type="hidden" style="display:none"></label>
+                                    <input th:type="hidden"
+                                         class=" pieces"
+                                         name="pieces"
                                          style="display:none">
-                                    </div>
+                                    </input>
                                     <th:block sec:authorize="isAuthenticated()">
-                                        <a type="submit"
+                                        <button
                                            class="btn btn-warning mb-1"
-                                           onclick="setAttributeData(this)"
-                                           th:href="@{/auth-home/{id}(id=${getUserId})}">
-                                            Купи
-                                        </a>
+                                           onclick="setAttributeData(this)">Купи
+                                        </button>
                                     </th:block>
                                     <th:block sec:authorize="isAnonymous()">
                                         <a type="submit" class="btn btn-warning mb-1"

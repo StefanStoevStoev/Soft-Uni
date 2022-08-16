@@ -1,7 +1,9 @@
 package com.example.irrigation2.service;
 
+import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AddPumpDTO;
 import com.example.irrigation2.model.DTO.OrderDTO;
+import com.example.irrigation2.model.DTO.PumpDTO;
 import com.example.irrigation2.model.entity.*;
 import com.example.irrigation2.repository.PumpNumRepository;
 import com.example.irrigation2.repository.PumpRepository;
@@ -81,25 +83,25 @@ public class PumpService {
 
         if (pumpNumRepository.count() == 0) {
 
-            String str2 = "2021-03-08 04:01";
-            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
-            PumpNumbers pumpNumbers1 = new PumpNumbers();
-            pumpNumbers1.setUserId(2L)
-                    .setPumpId(2L)
-                    .setNumbers(1)
-                    .setPrice(BigDecimal.valueOf(28.14))
-                    .setRegisteredAt(dateTime2);
-            pumpNumRepository.save(pumpNumbers1);
-
-            String str3 = "2021-01-01 23:59";
-            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
-            PumpNumbers pumpNumbers2 = new PumpNumbers();
-            pumpNumbers2.setUserId(2L)
-                    .setPumpId(1L)
-                    .setNumbers(3)
-                    .setPrice(BigDecimal.valueOf(338.14))
-                    .setRegisteredAt(dateTime3);
-            pumpNumRepository.save(pumpNumbers2);
+//            String str2 = "2021-03-08 04:01";
+//            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
+//            PumpNumbers pumpNumbers1 = new PumpNumbers();
+//            pumpNumbers1.setUserId(2L)
+//                    .setPumpId(2L)
+//                    .setNumbers(1)
+//                    .setPrice(BigDecimal.valueOf(28.14))
+//                    .setRegisteredAt(dateTime2);
+//            pumpNumRepository.save(pumpNumbers1);
+//
+//            String str3 = "2021-01-01 23:59";
+//            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+//            PumpNumbers pumpNumbers2 = new PumpNumbers();
+//            pumpNumbers2.setUserId(2L)
+//                    .setPumpId(1L)
+//                    .setNumbers(3)
+//                    .setPrice(BigDecimal.valueOf(338.14))
+//                    .setRegisteredAt(dateTime3);
+//            pumpNumRepository.save(pumpNumbers2);
         }
     }
 
@@ -176,5 +178,27 @@ public class PumpService {
     public void deletePumpById(Long id, Long userId) {
         PumpNumbers sprinkler = pumpNumRepository.findByUserIdAndPumpId(userId, id);
         pumpNumRepository.deleteById(sprinkler.getId());
+    }
+
+    public void addPumpToUser(PumpDTO pumpDTO, CurrentUserDetails currentUser) {
+
+        List<PumpNumbers> pumpNums = pumpNumRepository.findAllByUserIdOrderByRegisteredAtAsc(currentUser.getId());
+
+        if (pumpNums.isEmpty() || !pumpNums.stream().findFirst().map(e -> e.getPumpId().equals(pumpDTO.getId()) && e.getStatus() == null).orElseThrow()) {
+            PumpEntity pump = pumpRepository.getById(pumpDTO.getId());
+
+            pump.setTemporaryPieces(pumpDTO.getPieces());
+
+            PumpNumbers pumpAndUser = new PumpNumbers();
+            pumpAndUser
+                    .setPumpId(pumpDTO.getId())
+                    .setPrice(pumpDTO.getPrice())
+                    .setUserId(currentUser.getId())
+                    .setNumbers(pumpDTO.getPieces())
+                    .setRegisteredAt(LocalDateTime.now());
+
+            pumpRepository.save(pump);
+            pumpNumRepository.save(pumpAndUser);
+        }
     }
 }

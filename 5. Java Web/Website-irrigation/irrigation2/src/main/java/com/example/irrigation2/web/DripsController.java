@@ -40,16 +40,13 @@ public class DripsController {
         if (currentUser != null) {
             model.addAttribute("getUserId", currentUser.getId());
         }
-
         return "products-drip";
     }
 
     @PostMapping("/drip")
     public String saveDripDetails(DripDTO dripDTO,
                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
-
         dripService.addDripToUser(dripDTO, currentUser);
-
         return "redirect:/auth-home/" + currentUser.getId();
     }
 }

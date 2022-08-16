@@ -166,6 +166,7 @@ public class UserService {
 
         UserViewModel userViewModel = new UserViewModel();
 
+        assert user != null;
         return userViewModel
                 .setId(user.getId())
                 .setFirstName(user.getFirstName())
@@ -189,9 +190,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void addPumpToUser(PumpDTO pumpDTO, CurrentUserDetails currentUser) {
 
-    }
 }
 
 

@@ -155,25 +155,25 @@ public class SprinklerService {
                     .setRegisteredAt(dateTime2);
             sprinklerNumRepository.save(sprNumbers1);
 
-            String str3 = "2021-01-01 23:59";
-            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
-            SprinklerNumbers sprNumbers2 = new SprinklerNumbers();
-            sprNumbers2.setUserId(1L)
-                    .setSprinklerId(3L)
-                    .setNumbers(3)
-                    .setPrice(BigDecimal.valueOf(28.14))
-                    .setRegisteredAt(dateTime3);
-            sprinklerNumRepository.save(sprNumbers2);
-
-            String str4 = "2022-11-30 23:59";
-            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
-            SprinklerNumbers sprNumbers3 = new SprinklerNumbers();
-            sprNumbers3.setUserId(2L)
-                    .setSprinklerId(3L)
-                    .setNumbers(1)
-                    .setPrice(BigDecimal.valueOf(21.14))
-                    .setRegisteredAt(dateTime4);
-            sprinklerNumRepository.save(sprNumbers3);
+//            String str3 = "2021-01-01 23:59";
+//            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+//            SprinklerNumbers sprNumbers2 = new SprinklerNumbers();
+//            sprNumbers2.setUserId(1L)
+//                    .setSprinklerId(3L)
+//                    .setNumbers(3)
+//                    .setPrice(BigDecimal.valueOf(28.14))
+//                    .setRegisteredAt(dateTime3);
+//            sprinklerNumRepository.save(sprNumbers2);
+//
+//            String str4 = "2022-11-30 23:59";
+//            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
+//            SprinklerNumbers sprNumbers3 = new SprinklerNumbers();
+//            sprNumbers3.setUserId(2L)
+//                    .setSprinklerId(3L)
+//                    .setNumbers(1)
+//                    .setPrice(BigDecimal.valueOf(21.14))
+//                    .setRegisteredAt(dateTime4);
+//            sprinklerNumRepository.save(sprNumbers3);
         }
     }
 
@@ -208,10 +208,10 @@ public class SprinklerService {
         return sprinkler;
     }
 
-    public void addSprklerToUser(SprinklerDTO sprinklerDTO, CurrentUserDetails currentUser) {
+    public void addSprinklerToUser(SprinklerDTO sprinklerDTO, CurrentUserDetails currentUser) {
         List<SprinklerNumbers> sprinklerNumbers = sprinklerNumRepository.findAllByUserIdOrderByRegisteredAtAsc(currentUser.getId());
 
-        if(!sprinklerNumbers.stream().findFirst().map(e -> e.getSprinklerId().equals(sprinklerDTO.getId())).orElseThrow()){
+        if (sprinklerNumbers.isEmpty() || !sprinklerNumbers.stream().findFirst().map(e -> e.getSprinklerId().equals(sprinklerDTO.getId()) && e.getStatus() == null).orElseThrow()) {
             SprinklerEntity sprinkler = sprinklerRepository.getById(sprinklerDTO.getId());
 
             sprinkler.setTemporaryPieces(sprinklerDTO.getPieces());
@@ -229,7 +229,7 @@ public class SprinklerService {
         }
     }
 
-//AuthController
+    //AuthController
     public List<SprinklerEntity> getSprinklerNumsByUser(Long userId) {
         List<SprinklerEntity> sprinkler = new ArrayList<>();
 
@@ -250,10 +250,11 @@ public class SprinklerService {
         return sprinkler;
     }
 
-//OrderController
+    //OrderController
     public void orderSprinklerToUser(OrderDTO orderDTO, Long userId) {
 
-        SprinklerNumbers sprNumbers = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, orderDTO.getId());
+        List<SprinklerNumbers> sprNumbers = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, orderDTO.getId());
+        int size = sprNumbers.size();
         SprinklerEntity sprEntity = sprinklerRepository.findById(orderDTO.getId()).orElse(null);
 
         assert sprEntity != null;
@@ -261,14 +262,15 @@ public class SprinklerService {
         sprEntity.setPieces(numbers);
         sprinklerRepository.save(sprEntity);
 
-        sprNumbers.setStatus("Обработва се")
+        sprNumbers.get(size - 1).setStatus("Обработва се")
                 .setNumbers(orderDTO.getPieces())
                 .setPrice(orderDTO.getPrice());
-        sprinklerNumRepository.save(sprNumbers);
+        sprinklerNumRepository.save(sprNumbers.get(size - 1));
     }
 
     public void deleteSprinklerById(Long id, Long userId) {
-        SprinklerNumbers sprinkler = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, id);
-        sprinklerNumRepository.deleteById(sprinkler.getId());
+        List<SprinklerNumbers> sprinkler = sprinklerNumRepository.findByUserIdAndSprinklerId(userId, id);
+        int size = sprinkler.size();
+        sprinklerNumRepository.deleteById(sprinkler.get(size - 1).getId());
     }
 }

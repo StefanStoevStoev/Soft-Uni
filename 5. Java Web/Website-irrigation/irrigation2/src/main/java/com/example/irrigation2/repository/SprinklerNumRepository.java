@@ -11,5 +11,5 @@ public interface SprinklerNumRepository extends JpaRepository<SprinklerNumbers, 
 
     List<SprinklerNumbers> findAllByUserIdOrderByRegisteredAtAsc(Long userId);
 
-    SprinklerNumbers findByUserIdAndSprinklerId(Long userId, Long sprId);
+    List<SprinklerNumbers> findByUserIdAndSprinklerId(Long userId, Long sprId);
 }

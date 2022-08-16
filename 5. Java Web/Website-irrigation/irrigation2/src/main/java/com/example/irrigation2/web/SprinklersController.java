@@ -1,7 +1,6 @@
 package com.example.irrigation2.web;
 
 import com.example.irrigation2.model.CurrentUserDetails;
-import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.SprinklerDTO;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.service.SprinklerService;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -49,14 +47,7 @@ public class SprinklersController {
     @PostMapping("/sprinkler")
     public String saveDripDetails(SprinklerDTO sprinklerDTO,
                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
-
-        sprinklerService.addSprklerToUser(sprinklerDTO, currentUser);
-
+        sprinklerService.addSprinklerToUser(sprinklerDTO, currentUser);
         return "redirect:/auth-home/" + currentUser.getId();
     }
-
-//    @ModelAttribute("sprinklerDTO")
-//    public SprinklerDTO initDripModel() {
-//        return new SprinklerDTO();
-//    }
 }
