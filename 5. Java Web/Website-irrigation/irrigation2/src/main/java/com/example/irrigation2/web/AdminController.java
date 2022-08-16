@@ -6,6 +6,7 @@ import com.example.irrigation2.model.DTO.AddSprinklerDTO;
 import com.example.irrigation2.service.DripService;
 import com.example.irrigation2.service.PumpService;
 import com.example.irrigation2.service.SprinklerService;
+import com.example.irrigation2.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,11 +24,13 @@ public class AdminController {
     private final SprinklerService sprinklerService;
     private final PumpService pumpService;
     private final DripService dripService;
+    private final UserService userService;
 
-    public AdminController(SprinklerService sprinklerService, PumpService pumpService, DripService dripService) {
+    public AdminController(SprinklerService sprinklerService, PumpService pumpService, DripService dripService, UserService userService) {
         this.sprinklerService = sprinklerService;
         this.pumpService = pumpService;
         this.dripService = dripService;
+        this.userService = userService;
     }
 
     @GetMapping()
@@ -110,10 +113,12 @@ public class AdminController {
 
     @GetMapping("/users")
     public String users(Model model) {
-        if (!model.containsAttribute("addSprinklerDTO")) {
-            model.addAttribute("addSprinklerDTO", new AddSprinklerDTO());
-            model.addAttribute("isExisting", false);
-        }
+//        if (!model.containsAttribute("addSprinklerDTO")) {
+//            model.addAttribute("addSprinklerDTO", new AddSprinklerDTO());
+//        }
+
+//        userService.getAllUsersOrderByProductOrdersAsc();
+//        model.addAttribute("dripNumsByUser", dripNumsByUser);
         return "add-sprinklers";
     }
     @PostMapping("/users")

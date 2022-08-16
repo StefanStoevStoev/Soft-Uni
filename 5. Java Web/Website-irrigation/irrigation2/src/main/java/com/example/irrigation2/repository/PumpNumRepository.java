@@ -15,4 +15,5 @@ public interface PumpNumRepository extends JpaRepository<PumpNumbers, Long> {
 
 //    List<PumpNumbers> findByUserId(Long userId);
 //    List<PumpNumbers> findByPumpId(Long pumpId);
+
 }

@@ -1,10 +1,12 @@
 package com.example.irrigation2.web;
 
+import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.UserLoginDTO;
 import com.example.irrigation2.model.DTO.UserRegisterDTO;
 import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.service.UserService;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -44,6 +46,14 @@ public class UserController {
     @ModelAttribute("currentUser")
     public UserDetails getCurrentUser(Authentication authentication) {
         return (authentication == null) ? null : (UserDetails) authentication.getPrincipal();
+    }
+    @GetMapping("/")
+    public String getById(Model model,
+                          @AuthenticationPrincipal CurrentUserDetails currentUser) {
+        if (!model.containsAttribute("getUserId") && currentUser != null){
+            model.addAttribute("getUserId", currentUser.getId());
+        }
+        return "index";
     }
 
     @GetMapping("/login")
@@ -113,7 +123,7 @@ public class UserController {
                     "org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
             return "redirect:register";
         }
-        return "redirect:/index";
+        return "redirect:/";
     }
 
 }

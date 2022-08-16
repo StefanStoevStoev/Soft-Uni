@@ -36,7 +36,7 @@ public class PumpEntity extends BaseEntity {
 
     @OneToMany
     @JoinColumn(name = "pump_id")
-    private List<SprinklerNumbers> pumpUsers;
+    private List<PumpNumbers> pumpUsers;
 
     public PumpEntity() {
     }
@@ -68,11 +68,11 @@ public class PumpEntity extends BaseEntity {
         return this;
     }
 
-    public List<SprinklerNumbers> getPumpUsers() {
+    public List<PumpNumbers> getPumpUsers() {
         return pumpUsers;
     }
 
-    public PumpEntity setPumpUsers(List<SprinklerNumbers> pumpUsers) {
+    public PumpEntity setPumpUsers(List<PumpNumbers> pumpUsers) {
         this.pumpUsers = pumpUsers;
         return this;
     }

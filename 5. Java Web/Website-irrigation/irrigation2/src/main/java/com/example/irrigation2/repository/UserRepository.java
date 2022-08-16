@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -20,6 +21,7 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 
 
-//    @Query("SELECT u FROM UserEntity u WHERE u.email = :username")
-//    UserEntity findByEmail(String email);
+    @Query("SELECT u FROM UserEntity u JOIN SprinklerNumbers AS s GROUP BY u.id\n" +
+            "ORDER BY  s.sprinklerId DESC")
+    List<UserEntity> getAllOrderByUsersDripDescUsersPumpDescUsersSprinklerDesc();
 }

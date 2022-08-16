@@ -2,6 +2,7 @@ package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.*;
+import com.example.irrigation2.model.entity.PumpNumbers;
 import com.example.irrigation2.model.entity.RoleEntity;
 import com.example.irrigation2.model.entity.SprinklerEntity;
 import com.example.irrigation2.model.entity.UserEntity;
@@ -26,7 +27,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 @Service
-public class UserService{
+public class UserService {
 
     private final UserRepository userRepository;
     private final UserRoleRepository userRoleRepository;
@@ -91,6 +92,24 @@ public class UserService{
                 .setPassword(passwordEncoder.encode("123"));
 
         userRepository.save(user);
+
+//        UserEntity user2 = new UserEntity()
+//                .setRole(roles)
+//                .setFirstName("Gosho")
+//                .setLastName("Georgiev")
+//                .setEmail("gosho@gmail.com")
+//                .setPassword(passwordEncoder.encode("123"));
+//
+//        userRepository.save(user2);
+//
+//        UserEntity user3 = new UserEntity()
+//                .setRole(roles)
+//                .setFirstName("Ivan")
+//                .setLastName("Georgiev")
+//                .setEmail("ivan@gmail.com")
+//                .setPassword(passwordEncoder.encode("123"));
+//
+//        userRepository.save(user3);
     }
 
     public boolean registerAndLogin(UserRegisterDTO userRegisterDTO, Locale preferredLocale) {
@@ -99,18 +118,21 @@ public class UserService{
             return false;
         }
         UserEntity byEmail = userRepository.findByEmail(userRegisterDTO.getEmail()).orElse(null);
-        if (byEmail == null) {
+        if (byEmail != null) {
             return false;
         }
+        RoleEntity userRole = new RoleEntity().setRole(RoleEnum.USER);
+        userRole = this.userRoleRepository.save(userRole);
 
         UserEntity userEntity = userMapper.userDtoToUserEntity(userRegisterDTO)
-                .setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
+                .setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()))
+                .setRole(List.of(userRole));
 
         this.userRepository.save(userEntity);
         login(userEntity);
 
-        emailService.sendRegistrationEmail(userEntity.getEmail(),
-                userEntity.getFirstName() + " " + userEntity.getLastName(), preferredLocale);
+//        emailService.sendRegistrationEmail(userEntity.getEmail(),
+//                userEntity.getFirstName() + " " + userEntity.getLastName(), preferredLocale);
         return true;
     }
 
@@ -140,12 +162,12 @@ public class UserService{
     }
 
     public UserViewModel getUserById(Long id) {
-       UserEntity user = userRepository.findById(id).orElse(null);
+        UserEntity user = userRepository.findById(id).orElse(null);
 
         UserViewModel userViewModel = new UserViewModel();
 
         return userViewModel
-               .setId(user.getId())
+                .setId(user.getId())
                 .setFirstName(user.getFirstName())
                 .setLastName(user.getLastName())
                 .setEmail(user.getEmail())
@@ -153,7 +175,8 @@ public class UserService{
                 .setPhone(user.getPhone())
                 .setAddress(user.getAddress());
     }
-//AuthController
+
+    //AuthController
     public void saveDataToUser(AuthDTO authDTO, CurrentUserDetails currentUser) {
         UserEntity userData = authModelDTO.authDetailsUserEntity(authDTO);
         UserEntity user = userRepository.findByEmail(currentUser.getEmail()).orElse(null);
@@ -166,21 +189,9 @@ public class UserService{
         userRepository.save(user);
     }
 
-    public Optional<UserEntity> getById(long id) {
-        return userRepository.findById(id);
-    }
-
-    public void addSprinklerToUser(SprinklerDTO sprinklerDTO, CurrentUserDetails currentUser) {
-        SprinklerEntity sprinkler = sprinklerRepository.findById(sprinklerDTO.getId()).orElse(null);
-        assert sprinkler != null;
-        int pieces = sprinkler.getPieces() - sprinklerDTO.getPieces();
-        sprinkler.setPieces(pieces);
-    }
-
     public void addPumpToUser(PumpDTO pumpDTO, CurrentUserDetails currentUser) {
 
     }
-
 }
 
 

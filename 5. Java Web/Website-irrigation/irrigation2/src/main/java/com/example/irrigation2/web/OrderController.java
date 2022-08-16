@@ -2,8 +2,6 @@ package com.example.irrigation2.web;
 
 import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.OrderDTO;
-import com.example.irrigation2.model.DTO.PumpDTO;
-import com.example.irrigation2.model.DTO.SprinklerDTO;
 import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.model.entity.SprinklerEntity;
@@ -39,7 +37,7 @@ public class OrderController {
         this.userService = userService;
     }
 
-    //button потвърди
+    //button confirm order
     @GetMapping("/{id}/orders")
     public String orderList(@PathVariable("id") Long id, Model model) {
         if (!model.containsAttribute("orderDripDTO")) {
@@ -67,9 +65,9 @@ public class OrderController {
         return "my-orders";
     }
 
-    //button потвърди
+    //button confirm order
     @PostMapping("/{id}/orders")
-    public String addUser(@PathVariable("id") Long id,
+    public String addProductToUser(@PathVariable("id") Long id,
                           OrderDTO orderDTO,
                           BindingResult bindingResult,
                           RedirectAttributes redirectAttributes) {
@@ -86,14 +84,14 @@ public class OrderController {
         } else if (orderDTO.getName().equals("sprinkler")) {
             sprinklerService.orderSprinklerToUser(orderDTO, id);
         } else if (orderDTO.getName().equals("pump")){
-            pumpService.orderPumpToUser(orderDTO, id);///////////////////////////
+            pumpService.orderPumpToUser(orderDTO, id);
         }
         return "redirect:/auth-home/" + id + "/orders";
     }
+
     @DeleteMapping("/{id}")
     public String deleteOffer(
             @PathVariable("id") Long userId, DripDTO dripDTO) {
-
 
         if (dripDTO.getName().equals("drip")) {
             dripService.deleteDripById(dripDTO.getId(), userId);
@@ -104,6 +102,8 @@ public class OrderController {
         }
         return "redirect:/auth-home/" + userId;
     }
+
+
 }
 
 

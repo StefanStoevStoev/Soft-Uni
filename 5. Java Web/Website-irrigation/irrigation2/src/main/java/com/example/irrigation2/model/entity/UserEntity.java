@@ -31,10 +31,34 @@ public class UserEntity extends BaseEntity {
     @OneToMany
     @JoinColumn(name = "user_id")
     private List<DripNumbers> usersDrip;
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<PumpNumbers> usersPump;
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<SprinklerNumbers> usersSprinkler;
 
     private String url;
 
     public UserEntity() {
+    }
+
+    public List<PumpNumbers> getUsersPump() {
+        return usersPump;
+    }
+
+    public UserEntity setUsersPump(List<PumpNumbers> usersPump) {
+        this.usersPump = usersPump;
+        return this;
+    }
+
+    public List<SprinklerNumbers> getUsersSprinkler() {
+        return usersSprinkler;
+    }
+
+    public UserEntity setUsersSprinkler(List<SprinklerNumbers> usersSprinkler) {
+        this.usersSprinkler = usersSprinkler;
+        return this;
     }
 
     public UserEntity setActive(boolean active) {
