@@ -21,7 +21,12 @@ public interface UserRepository extends JpaRepository<UserEntity, Long> {
 
 
 
-    @Query("SELECT u FROM UserEntity u JOIN SprinklerNumbers AS s GROUP BY u.id\n" +
-            "ORDER BY  s.sprinklerId DESC")
-    List<UserEntity> getAllOrderByUsersDripDescUsersPumpDescUsersSprinklerDesc();
+    @Query("SELECT u, COUNT(s.sprinklerId) FROM UserEntity u JOIN SprinklerNumbers AS s GROUP BY u.id ORDER BY  s.sprinklerId DESC")
+    List<UserEntity> getAllOrderByUsersSprinklerDesc();
+
+    @Query("SELECT u, COUNT(p.pumpId) FROM UserEntity u JOIN PumpNumbers AS p GROUP BY u.id ORDER BY  p.pumpId DESC")
+    List<UserEntity> getAllOrderByUsersPumpDesc();
+
+    @Query("SELECT u, COUNT(d.dripId) FROM UserEntity u JOIN DripNumbers AS d GROUP BY u.id ORDER BY  d.dripId DESC")
+    List<UserEntity> getAllOrderByUsersDripDesc();
 }

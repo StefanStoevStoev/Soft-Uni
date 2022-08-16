@@ -4,21 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="mathod">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/doc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/doc.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/DripNumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/DripNumRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/SprinklerNumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/SprinklerNumRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" afterDir="false" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="My orders + auth-home are working for all products.">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/DripsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PumpsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PumpsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/SprinklersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/SprinklersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-drip.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-pump.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-pump.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-sprinkler.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-sprinkler.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,9 +45,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -214,7 +204,7 @@
       <workItem from="1660542270031" duration="7947000" />
       <workItem from="1660550760129" duration="47011000" />
       <workItem from="1660631341369" duration="10324000" />
-      <workItem from="1660648469698" duration="26936000" />
+      <workItem from="1660648469698" duration="35540000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -510,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660661421775</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="My orders + auth-home are working for all products.">
+      <created>1660676334320</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1660676334320</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -541,7 +538,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Created dripDTO" />
     <MESSAGE value="Created numbers of drips" />
     <MESSAGE value="Created Sprinkler multiple products view. Made Drip and Sprinkler relation mappings." />
     <MESSAGE value="Updated styles-sprinkler.css to create pictures same high. Corrected html file of sprinklers" />
@@ -566,7 +562,8 @@
     <MESSAGE value="At &quot;My orders&quot; delete button logic is ready." />
     <MESSAGE value="Corrected user registration and table relations" />
     <MESSAGE value="mathod" />
-    <option name="LAST_COMMIT_MESSAGE" value="mathod" />
+    <MESSAGE value="My orders + auth-home are working for all products." />
+    <option name="LAST_COMMIT_MESSAGE" value="My orders + auth-home are working for all products." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

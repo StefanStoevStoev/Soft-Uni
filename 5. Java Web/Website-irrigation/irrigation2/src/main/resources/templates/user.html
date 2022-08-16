@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec='http://www.thymeleaf.org/extras/spring-security'>
+<head>
+    <th:block th:insert="fragments/fragment :: head"></th:block>
+    <title>Мелиорации</title>
+    <style>
+        body {
+            background-image: url('/images/frontPage/admin4.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            object-fit: cover;
+            height: 100%;
+        }
+        main{
+            width: auto;
+            height: 110px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/fragment::navigation"></div>
+<div class=" p-2 mt-2 pt-0 mb-2 pb-2 mask-custom-1"></div>
+<div th:replace="fragments/fragment::admin-nav"></div>
+
+<div class=" p-0 mt-0 pt-0 mb-0 pb-0 mask-custom-1"></div>
+<div class="container">
+    <ul class="navbar-nav mt-3 position-relative ps-5 pe-5">
+
+        <main class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+              th:each="user, iStat : ${allUsers}"
+              style="--bs-bg-opacity: .6">
+            <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->
+            <div class="row pt-2 mb-2 ps-2">
+                <!--                text block-->
+                <div class="col" >
+                    <div class="row container">
+                        <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                            <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                                <div class="col text-end">
+                                    <p class="fs-6 mb-0">Име:</p>
+                                    <p class="fs-6 mb-0">Фамилия:</p>
+                                    <p class="fs-6 mb-0">Имейл:</p>
+                                </div>
+                                <div class="col text-start ">
+                                    <p class="fs-6 mb-0" th:text="${user.firstName}">Име</p>
+                                    <p class="fs-6 mb-0" th:text="${user.lastName}">Фамилия</p>
+                                    <p class="fs-6 mb-0" th:text="${user.email}">Имейл</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                            <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                                <div class="col text-end">
+                                    <p class="fs-6 mb-0">Телефон:</p>
+                                    <p class="fs-6 mb-0">Адрес:</p>
+                                </div>
+                                <div class="col text-start ">
+                                    <p class="fs-6 mb-0" th:text="${user.phone}">Телефон</p>
+                                    <p class="fs-6 mb-0" th:text="${user.address}">Адрес</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </ul>
+</div>
+<footer th:replace="fragments/fragment::footer"></footer>
+</body>
+</html>

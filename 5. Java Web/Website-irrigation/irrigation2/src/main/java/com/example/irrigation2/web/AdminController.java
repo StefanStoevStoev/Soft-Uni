@@ -3,6 +3,7 @@ package com.example.irrigation2.web;
 import com.example.irrigation2.model.DTO.AddDripDTO;
 import com.example.irrigation2.model.DTO.AddPumpDTO;
 import com.example.irrigation2.model.DTO.AddSprinklerDTO;
+import com.example.irrigation2.model.entity.UserEntity;
 import com.example.irrigation2.service.DripService;
 import com.example.irrigation2.service.PumpService;
 import com.example.irrigation2.service.SprinklerService;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -113,27 +115,25 @@ public class AdminController {
 
     @GetMapping("/users")
     public String users(Model model) {
-//        if (!model.containsAttribute("addSprinklerDTO")) {
-//            model.addAttribute("addSprinklerDTO", new AddSprinklerDTO());
+
+        List<UserEntity> allUsers = userService.getAllUsers();
+        model.addAttribute("allUsers", allUsers);
+        return "user";
+    }
+
+//    @PostMapping("/users")
+//    public String addusers(AddDripDTO addDripDTO,
+//                           BindingResult bindingResult,
+//                           RedirectAttributes redirectAttributes) {
+//
+//        if (bindingResult.hasErrors()) {
+//            redirectAttributes.addFlashAttribute("addDripDTO", addDripDTO);
+//            redirectAttributes.addFlashAttribute(
+//                    "org.springframework.validation.BindingResult.addDripDTO", bindingResult);
+//            return "redirect:/admin/drips";
 //        }
-
-//        userService.getAllUsersOrderByProductOrdersAsc();
-//        model.addAttribute("dripNumsByUser", dripNumsByUser);
-        return "add-sprinklers";
-    }
-    @PostMapping("/users")
-    public String addusers(@Valid AddDripDTO addDripDTO,
-                           BindingResult bindingResult,
-                           RedirectAttributes redirectAttributes) {
-
-        if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("addDripDTO", addDripDTO);
-            redirectAttributes.addFlashAttribute(
-                    "org.springframework.validation.BindingResult.addDripDTO", bindingResult);
-            return "redirect:/admin/drips";
-        }
-        dripService.addDripToDB(addDripDTO);
-        return "redirect:/admin";
-    }
+//        dripService.addDripToDB(addDripDTO);
+//        return "redirect:/admin";
+//    }
 
 }

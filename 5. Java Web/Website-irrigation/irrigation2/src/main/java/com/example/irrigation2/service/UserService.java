@@ -22,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
@@ -189,7 +190,25 @@ public class UserService {
                 .setLastName(userData.getLastName());
         userRepository.save(user);
     }
+    public List<UserEntity> getAllUsers(){
+//        List<UserEntity> usersByDrips = userRepository.getAllOrderByUsersDripDesc();
+//        List<UserEntity> usersByPumps = userRepository.getAllOrderByUsersPumpDesc();
+//        List<UserEntity> usersBySprinklers = userRepository.getAllOrderByUsersSprinklerDesc();
+//        int size = usersBySprinklers.size();
+//        int size1 = usersByPumps.size();
+//        int size2 = usersByDrips.size();
+//
+//        List<UserEntity> users = new ArrayList<>();
+//        if(size2 > size1){
+//            users = usersByDrips;
+//        } else if(size1 > size) {
+//            users = usersByPumps;
+//        } else {
+//            users = usersBySprinklers;
+//        }
 
+        return userRepository.findAll();
+    }
 
 }
 
