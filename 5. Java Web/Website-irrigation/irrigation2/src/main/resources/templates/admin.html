@@ -32,7 +32,7 @@
          style="--bs-bg-opacity: .6">
         <!--/*@thymesVar id="#getDrips" type="images"*/-->
         <div th:if="drips != null" class="row d-flex pt-2 mb-2 ps-2 "
-             style="height: 33vh; overflow: auto">
+             style="height: 30vh; overflow: auto">
             <div class="col-auto justify-content-center align-self-center">
                 <img th:src="*{urlPic}"
                      class="img-responsive "
@@ -51,6 +51,7 @@
                         <p class="fs-6 mb-0">Брой:</p>
                         <p class="fs-6 mb-0">Всички бройки:</p>
                     </div>
+
                     <div class="col-md-auto ms-2 me-2">
                         <!--                        fs-6 text size-->
                         <p class="fs-6 fw-bold mb-0" th:text="${drips.name}">Име</p>
@@ -60,7 +61,8 @@
                         <p class="fs-6 mb-0" th:text="|*{pieces} бр.|">Брой</p>
                         <p class="fs-6 mb-0" th:text="|*{allPieces} бр.|">Всички бройки</p>
                     </div>
-                    <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+
+                    <div class="col ps-0 pe-0 text-center container" style="width: 28vh; overflow: auto">
                         <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
                             <div class="col text-end">
                                 <p class="fs-6 fw-bold mb-0">Име:</p>

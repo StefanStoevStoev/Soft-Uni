@@ -88,29 +88,20 @@ public class UserService {
                 .setFirstName("Pesho")
                 .setLastName("Peshev")
                 .setEmail("pesho@gmail.com")
-                .setPhone("0898224836")
-                .setAddress("кв. Железник N65")
                 .setPassword(passwordEncoder.encode("123"));
 
         userRepository.save(user);
 
 //        UserEntity user2 = new UserEntity()
+//
 //                .setRole(roles)
+//
 //                .setFirstName("Gosho")
 //                .setLastName("Georgiev")
 //                .setEmail("gosho@gmail.com")
 //                .setPassword(passwordEncoder.encode("123"));
 //
 //        userRepository.save(user2);
-//
-//        UserEntity user3 = new UserEntity()
-//                .setRole(roles)
-//                .setFirstName("Ivan")
-//                .setLastName("Georgiev")
-//                .setEmail("ivan@gmail.com")
-//                .setPassword(passwordEncoder.encode("123"));
-//
-//        userRepository.save(user3);
     }
 
     public boolean registerAndLogin(UserRegisterDTO userRegisterDTO, Locale preferredLocale) {
@@ -190,7 +181,8 @@ public class UserService {
                 .setLastName(userData.getLastName());
         userRepository.save(user);
     }
-    public List<UserEntity> getAllUsers(){
+
+    public List<UserEntity> getAllUsers() {
 //        List<UserEntity> usersByDrips = userRepository.getAllOrderByUsersDripDesc();
 //        List<UserEntity> usersByPumps = userRepository.getAllOrderByUsersPumpDesc();
 //        List<UserEntity> usersBySprinklers = userRepository.getAllOrderByUsersSprinklerDesc();

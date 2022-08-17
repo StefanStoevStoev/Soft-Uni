@@ -36,7 +36,7 @@ public class AdminService {
         this.userRepository = userRepository;
     }
 
-    public List<AuthViewModel> getNotSendSprinklers(){
+    public List<AuthViewModel> getNotSendSprinklers() {
         String status = "Обработва се";
 
         List<SprinklerNumbers> sprinklerNum = sprinklerNumRepository.
@@ -69,10 +69,10 @@ public class AdminService {
 
             sprViewModel.add(temporaryViewModel);
         }
-        return  sprViewModel;
+        return sprViewModel;
     }
 
-    public List<AuthViewModel> getNotSendPumps(){
+    public List<AuthViewModel> getNotSendPumps() {
         String status = "Обработва се";
 
         List<PumpNumbers> pumpNum = pumpNumRepository.
@@ -101,14 +101,14 @@ public class AdminService {
                     .setUserEmail(user.getEmail())
                     .setUserAddress(user.getAddress())
                     .setUserPhone(user.getPhone())
-                    .setName(user.getFirstName() + " " + user.getLastName());
+                    .setUserName(user.getFirstName() + " " + user.getLastName());
 
             pumpViewModel.add(temporaryViewModel);
         }
-        return  pumpViewModel;
+        return pumpViewModel;
     }
 
-    public List<AuthViewModel> getNotSendDrips(){
+    public List<AuthViewModel> getNotSendDrips() {
         String status = "Обработва се";
 
         List<DripNumbers> dripNum = dripNumRepository.
@@ -139,7 +139,7 @@ public class AdminService {
 
             dripViewModel.add(temporaryViewModel);
         }
-        return  dripViewModel;
+        return dripViewModel;
     }
 
     public void sendOrder(AdminDTO adminDTO) {
@@ -169,9 +169,8 @@ public class AdminService {
         }
     }
 
-
-    public void deleteProductOrderById(AdminDTO adminDTO){
-        if(adminDTO.getName().equals("drip")){
+    public void deleteProductOrderById(AdminDTO adminDTO) {
+        if (adminDTO.getName().equals("drip")) {
             dripNumRepository.deleteById(adminDTO.getId());
         } else if (adminDTO.getName().equals("pump")) {
             pumpNumRepository.deleteById(adminDTO.getId());

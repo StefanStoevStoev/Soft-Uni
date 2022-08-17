@@ -4,11 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Admin orders is ready for drips. Button confirm and delete working.">
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Admin orders is ready for pumps and sprinklers. Button confirm and delete working.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/I18NConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/i18n/messages.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/i18n/messages_bg.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/AdminService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/AdminService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/admin2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drip9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drips7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/drips8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/home-nosel3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/pumps-fp.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/shopping1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/shopping2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/frontPage/shopping4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/images/sprinkler/nosel1.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +130,7 @@
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.44409615&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;d69784ca6fd1de93001551dcd739d9f3&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -207,7 +227,8 @@
       <workItem from="1660631341369" duration="10324000" />
       <workItem from="1660648469698" duration="36711000" />
       <workItem from="1660686033029" duration="103000" />
-      <workItem from="1660715450734" duration="34785000" />
+      <workItem from="1660715450734" duration="48224000" />
+      <workItem from="1660768707784" duration="1603000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -531,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660749545957</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Admin orders is ready for pumps and sprinklers. Button confirm and delete working.">
+      <created>1660751583739</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1660751583739</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -562,7 +590,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="SprinklersController updated" />
     <MESSAGE value="PumpController updated, products-pump. Added relation table for pumps and pictures for second pump." />
     <MESSAGE value="products-pump view is ready" />
     <MESSAGE value="Save ordered drip to reference table. Created DripNumRepository." />
@@ -587,20 +614,21 @@
     <MESSAGE value="Created view admin/users - user.html" />
     <MESSAGE value="Corrected malfunction of buttons in auth-home page while random user. PumpService, DripService, PageController, AuthController and PumpNumRepository." />
     <MESSAGE value="Admin orders is ready for drips. Button confirm and delete working." />
-    <option name="LAST_COMMIT_MESSAGE" value="Admin orders is ready for drips. Button confirm and delete working." />
+    <MESSAGE value="Admin orders is ready for pumps and sprinklers. Button confirm and delete working." />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin orders is ready for pumps and sprinklers. Button confirm and delete working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java</url>
           <line>142</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java</url>
+          <line>122</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

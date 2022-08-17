@@ -29,10 +29,6 @@ public class PumpService {
         this.mapper = mapper;
     }
 
-    public PumpEntity getPumpById(Long id) throws Exception {
-        return pumpRepository.findById(id).orElseThrow(() -> new Exception(String.format("Cannot find pump with id: %d", id)));
-    }
-
     public void initPumps() {
 
         if (pumpRepository.count() == 0) {
@@ -100,7 +96,6 @@ public class PumpService {
             pumpNumbers2.setUserId(2L)
                     .setPumpId(1L)
                     .setNumbers(3)
-                    .setStatus("Обработва се")
                     .setPrice(BigDecimal.valueOf(338.14))
                     .setRegisteredAt(dateTime3);
             pumpNumRepository.save(pumpNumbers2);
@@ -160,7 +155,7 @@ public class PumpService {
 
     //OrderController
     public void orderPumpToUser(OrderDTO orderDTO, Long userId) {
-        List<PumpNumbers> pumpNumbers = pumpNumRepository.findByUserIdAndPumpId(userId, orderDTO.getId());///////////////
+        List<PumpNumbers> pumpNumbers = pumpNumRepository.findByUserIdAndPumpId(userId, orderDTO.getId());
         int size = pumpNumbers.size();
 
         PumpEntity pumpEntity = pumpRepository.findById(orderDTO.getId()).orElse(null);
@@ -170,7 +165,7 @@ public class PumpService {
         pumpEntity.setPieces(numbers);
         pumpRepository.save(pumpEntity);
 
-        pumpNumbers.get(size-1).setStatus("Обработва се")
+        pumpNumbers.get(size - 1).setStatus("Обработва се")
                 .setNumbers(orderDTO.getPieces())
                 .setPrice(orderDTO.getPrice());
         pumpNumRepository.save(pumpNumbers.get(size - 1));

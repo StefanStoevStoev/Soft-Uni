@@ -155,30 +155,29 @@ public class SprinklerService {
                     .setRegisteredAt(dateTime2);
             sprinklerNumRepository.save(sprNumbers1);
 
-//            String str3 = "2021-01-01 23:59";
-//            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
-//            SprinklerNumbers sprNumbers2 = new SprinklerNumbers();
-//            sprNumbers2.setUserId(1L)
-//                    .setSprinklerId(3L)
-//                    .setNumbers(3)
-//                    .setPrice(BigDecimal.valueOf(28.14))
-//                    .setRegisteredAt(dateTime3);
-//            sprinklerNumRepository.save(sprNumbers2);
-//
-//            String str4 = "2022-11-30 23:59";
-//            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
-//            SprinklerNumbers sprNumbers3 = new SprinklerNumbers();
-//            sprNumbers3.setUserId(2L)
-//                    .setSprinklerId(3L)
-//                    .setNumbers(1)
-//                    .setPrice(BigDecimal.valueOf(21.14))
-//                    .setRegisteredAt(dateTime4);
-//            sprinklerNumRepository.save(sprNumbers3);
+            String str3 = "2021-01-01 23:59";
+            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+            SprinklerNumbers sprNumbers2 = new SprinklerNumbers();
+            sprNumbers2.setUserId(1L)
+                    .setSprinklerId(3L)
+                    .setNumbers(3)
+                    .setPrice(BigDecimal.valueOf(28.14))
+                    .setRegisteredAt(dateTime3);
+            sprinklerNumRepository.save(sprNumbers2);
+
+            String str4 = "2022-11-30 23:59";
+            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
+            SprinklerNumbers sprNumbers3 = new SprinklerNumbers();
+            sprNumbers3.setUserId(2L)
+                    .setSprinklerId(3L)
+                    .setNumbers(1)
+                    .setPrice(BigDecimal.valueOf(21.14))
+                    .setRegisteredAt(dateTime4);
+            sprinklerNumRepository.save(sprNumbers3);
         }
     }
 
     public List<SprinklerEntity> getAllSprinklers() {
-
         return sprinklerRepository.findAll();
     }
 
