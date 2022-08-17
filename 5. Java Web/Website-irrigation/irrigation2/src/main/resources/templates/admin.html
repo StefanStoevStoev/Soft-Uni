@@ -14,14 +14,142 @@
             object-fit: cover;
             height: 100%;
         }
+        .img-responsive {
+            width: auto;
+            height: 120px;
+        }
     </style>
 </head>
 <body>
 <div th:replace="fragments/fragment::navigation"></div>
 <!--<div class=" p-2 mt-0 pt-0 mb-2 pb-0 mask-custom-1"></div>-->
-
 <div th:replace="fragments/fragment::admin-nav"></div>
+<div class="container">
+    <div class="bg-light p-2 mt-2 me-0 ms-0"
+         th:each="drips : ${notSendDrips}"
+         th:object="${drips}"
+         style="--bs-bg-opacity: .6">
+        <!--/*@thymesVar id="#getDrips" type="images"*/-->
+        <div th:if="drips != null" class="row d-flex pt-2 mb-2 ps-2 "
+             style="height: 33vh; overflow: auto">
+            <div class="col-auto justify-content-center align-self-center">
+                <img th:src="*{urlPic}"
+                     class="img-responsive "
+                     alt=" ">
+            </div>
+            <!--                text block-->
+            <div class="col" style="width: 350px; height: 150px">
+                <div class="row">
+
+                    <div class="col-6 text-end ps-0 pe-0" style="width: 30vh; overflow: auto">
+                        <!--                        fs-6 text size-->
+                        <p class="fs-6 fw-bold mb-0">Име</p>
+                        <p class="fs-6 mb-0">Код:</p>
+                        <p class="fs-6 mb-0">Цена:</p>
+                        <p class="fs-6 mb-0">Единична цена:</p>
+                        <p class="fs-6 mb-0">Брой:</p>
+                        <p class="fs-6 mb-0">Всички бройки:</p>
+                    </div>
+                    <div class="col-md-auto ms-2 me-2">
+                        <!--                        fs-6 text size-->
+                        <p class="fs-6 fw-bold mb-0" th:text="${drips.name}">Име</p>
+                        <p class="fs-6 mb-0" th:text="*{code}">Код</p>
+                        <p class="fs-6 mb-0" th:text="|*{price} лв.|">Цена</p>
+                        <p class="fs-6 mb-0" th:text="|*{singlePrice} лв.|">Единична цена</p>
+                        <p class="fs-6 mb-0" th:text="|*{pieces} бр.|">Брой</p>
+                        <p class="fs-6 mb-0" th:text="|*{allPieces} бр.|">Всички бройки</p>
+                    </div>
+                    <div class="col ps-0 pe-0 text-center" style="width: 28vh; overflow: auto">
+                        <div class="row container pt-0 pb-1 mb-1 mt-0 pe-0 ps-0">
+                            <div class="col text-end">
+                                <p class="fs-6 fw-bold mb-0">Име:</p>
+                                <p class="fs-6 mb-0" >Дата:</p>
+                                <p class="fs-6 mb-0">Име:</p>
+                                <p class="fs-6 mb-0" >Имейл:</p>
+                                <p class="fs-6 mb-0" >Телефон:</p>
+                                <p class="fs-6 mb-0" >Адрес:</p>
+                            </div>
+                            <div class="col text-start ">
+                                <p class="fs-6 fw-bold mb-0"th:text="${drips.userName}">Име:</p>
+                                <p class="fs-6 mb-0"
+                                   th:text="*{#temporals.format(orderedAt,'yyyy-MM-dd HH:mm')}">Дата</p>
+                                <p class="fs-6 mb-0" th:text="*{userName}">Име</p>
+                                <p class="fs-6 mb-0" th:text="*{userEmail}">Имейл</p>
+                                <p class="fs-6 mb-0" th:text="*{userPhone}">Телефон</p>
+                                <p class="fs-6 mb-0" th:text="*{userAddress}">Адрес</p>
+                            </div>
+                        </div>
+
+                        <div class="row container ps-0 ms-0 pe-0 me-0">
+                            <div class="col text-end me-0 pe-0 pt-0 ps-0 ms-0">
+                                <form th:method="post"
+                                      class="fs-6 mb-0 pe-0 me-0 mt-2">
+                                    <label th:type="hidden" style="display:none"></label>
+                                    <input th:type="hidden"
+                                           class=" id"
+                                    th:value="${drips.id}"
+                                           name="id"
+                                           style="display:none">
+                                    <label th:type="hidden"
+                                           style="display:none"></label>
+                                    <input th:type="hidden"
+                                           class=" name-element"
+                                           th:value="drip"
+                                           name="name"
+                                           style="display:none">
+                                    <label th:type="hidden"
+                                           style="display:none"></label>
+                                    <input th:type="hidden"
+                                           class=" price"
+                                           th:value="${drips.price}"
+                                           name="price"
+                                           style="display:none">
+                                    <label th:type="hidden"
+                                           style="display:none"></label>
+                                    <input th:type="hidden"
+                                           class=" pieces"
+                                           th:value="${drips.pieces}"
+                                           name="pieces"
+                                           style="display:none">
+                                    <button class="btn btn-warning mb-1 me-2"
+                                            onclick="setAdminDTO(this)">Потвърди
+                                    </button>
+
+                                </form>
+                            </div>
+
+                            <div class="col text-start pt-2 pe-0">
+                                <form class="fs-6 mb-0"
+                                      th:method="delete">
+                                    <label th:type="hidden" style="display:none"></label>
+                                    <input th:type="hidden"
+                                           class=" id"
+                                           th:value="${drips.id}"
+                                           name="id"
+                                           style="display:none">
+                                    <label th:type="hidden" style="display:none"></label>
+                                    <input th:type="hidden"
+                                           class=" id"
+                                           th:value="drip"
+                                           name="name"
+                                           style="display:none">
+                                    <input type="submit" class="btn btn-warning mb-1"
+                                           value="Откажи">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <footer th:replace="fragments/fragment::footer"></footer>
 </body>
 </html>
+<!--                                  th:action="@{/auth-home/{id}(id=${userId})}"-->
+<!--th:action="@{/auth-home/{id}/orders(id=${drips.userId})}"-->
+
+<!--                                      th:action="@{/admin}"-->
+<!--                                      th:object="${adminDTO}"-->

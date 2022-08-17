@@ -80,16 +80,9 @@ function setAttributeData(event) {
     let id = event.parentElement.parentElement.querySelector("input.id").value;
     let numbers = event.parentElement.parentElement.querySelector("input.my-input").value;
 
-    let idd = event.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
-    let pricee = event.parentElement.querySelectorAll("input")[1].setAttribute("value", price);
-    let numberss = event.parentElement.querySelectorAll("input")[2].setAttribute("value", numbers);
-    console.log(idd);
-    console.log(pricee);
-    console.log(numberss);
-    console.log(idd);
-
-    // firstValue.style.display = "none";
-    // let firstValue = event.parentElement.querySelectorAll("output").setAttribute("text", id);
+    event.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
+    event.parentElement.querySelectorAll("input")[1].setAttribute("value", price);
+    event.parentElement.querySelectorAll("input")[2].setAttribute("value", numbers);
 }
 
 function setAttributeDataAuthHome(event) {
@@ -100,15 +93,21 @@ function setAttributeDataAuthHome(event) {
     let name = event.parentElement.parentElement.querySelector("input.name-element").value;
     let numbers = event.parentElement.parentElement.parentElement.parentElement.querySelector("input.my-input").value;
 
-    let idd = event.parentElement.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
-    let namee = event.parentElement.parentElement.querySelectorAll("input")[1].setAttribute("text", name);
-    let pricee = event.parentElement.parentElement.querySelectorAll("input")[2].setAttribute("value", price);
-    let numberss = event.parentElement.parentElement.querySelectorAll("input")[3].setAttribute("value", numbers);
-    console.log(idd);
-    console.log(pricee);
-    console.log(numberss);
-    console.log(idd);
+    event.parentElement.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
+    event.parentElement.parentElement.querySelectorAll("input")[1].setAttribute("text", name);
+    event.parentElement.parentElement.querySelectorAll("input")[2].setAttribute("value", price);
+    event.parentElement.parentElement.querySelectorAll("input")[3].setAttribute("value", numbers);
+}
 
-    // firstValue.style.display = "none";
-    // let firstValue = event.parentElement.querySelectorAll("output").setAttribute("text", id);
+function setAdminDTO(event) {
+
+    let id = event.parentElement.querySelector("input.id").value;
+    let name = event.parentElement.querySelector("input.name-element").value;
+    let price = event.parentElement.querySelector("input.price").value;
+    let numbers = event.parentElement.querySelector("input.pieces").value;
+
+    event.parentElement.querySelectorAll("input")[0].setAttribute("text", id);
+    event.parentElement.querySelectorAll("input")[1].setAttribute("text", name);
+    event.parentElement.querySelectorAll("input")[2].setAttribute("value", price);
+    event.parentElement.querySelectorAll("input")[3].setAttribute("value", numbers);
 }

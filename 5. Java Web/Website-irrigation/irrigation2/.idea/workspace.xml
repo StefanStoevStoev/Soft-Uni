@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created view admin/users - user.html">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/PumpNumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/PumpNumRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-    </list>
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Admin orders is ready for drips. Button confirm and delete working." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -51,8 +41,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -143,6 +133,7 @@
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\sprinkler" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.irrigation2.model.views" />
       <recent name="com.example.irrigation2.model.entity" />
       <recent name="com.example.irrigation2.model.DTO" />
     </key>
@@ -211,7 +202,7 @@
       <workItem from="1660631341369" duration="10324000" />
       <workItem from="1660648469698" duration="36711000" />
       <workItem from="1660686033029" duration="103000" />
-      <workItem from="1660715450734" duration="3656000" />
+      <workItem from="1660715450734" duration="32824000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -521,7 +512,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660685015626</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Corrected malfunction of buttons in auth-home page while random user. PumpService, DripService, PageController, AuthController and PumpNumRepository.">
+      <created>1660719336583</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1660719336583</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Admin orders is ready for drips. Button confirm and delete working.">
+      <created>1660749545957</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1660749545957</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -552,8 +557,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Created Sprinkler multiple products view. Made Drip and Sprinkler relation mappings." />
-    <MESSAGE value="Updated styles-sprinkler.css to create pictures same high. Corrected html file of sprinklers" />
     <MESSAGE value="SprinklersController updated" />
     <MESSAGE value="PumpController updated, products-pump. Added relation table for pumps and pictures for second pump." />
     <MESSAGE value="products-pump view is ready" />
@@ -577,7 +580,9 @@
     <MESSAGE value="mathod" />
     <MESSAGE value="My orders + auth-home are working for all products." />
     <MESSAGE value="Created view admin/users - user.html" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created view admin/users - user.html" />
+    <MESSAGE value="Corrected malfunction of buttons in auth-home page while random user. PumpService, DripService, PageController, AuthController and PumpNumRepository." />
+    <MESSAGE value="Admin orders is ready for drips. Button confirm and delete working." />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin orders is ready for drips. Button confirm and delete working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

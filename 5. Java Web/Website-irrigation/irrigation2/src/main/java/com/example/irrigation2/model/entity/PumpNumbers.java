@@ -21,11 +21,21 @@ public class PumpNumbers {
     private BigDecimal price;
 
     private LocalDateTime registeredAt;
+    private LocalDateTime sendOn;
 
     private int numbers;
     private String status;
 
     public PumpNumbers() {
+    }
+
+    public LocalDateTime getSendOn() {
+        return sendOn;
+    }
+
+    public PumpNumbers setSendOn(LocalDateTime sendOn) {
+        this.sendOn = sendOn;
+        return this;
     }
 
     public Long getId() {

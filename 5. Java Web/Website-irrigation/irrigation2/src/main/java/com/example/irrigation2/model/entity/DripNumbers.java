@@ -21,11 +21,21 @@ public class DripNumbers {
     private BigDecimal price;
 
     private LocalDateTime registeredAt;
+    private LocalDateTime sendOn;
 
     private int numbers;
     private String status;
 
     public DripNumbers() {
+    }
+
+    public LocalDateTime getSendOn() {
+        return sendOn;
+    }
+
+    public DripNumbers setSendOn(LocalDateTime sendOn) {
+        this.sendOn = sendOn;
+        return this;
     }
 
     public Long getId() {

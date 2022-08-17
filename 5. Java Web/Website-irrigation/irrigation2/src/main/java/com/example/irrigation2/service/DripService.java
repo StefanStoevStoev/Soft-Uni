@@ -2,6 +2,7 @@ package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.CurrentUserDetails;
 import com.example.irrigation2.model.DTO.AddDripDTO;
+import com.example.irrigation2.model.DTO.AdminDTO;
 import com.example.irrigation2.model.DTO.DripDTO;
 import com.example.irrigation2.model.DTO.OrderDTO;
 import com.example.irrigation2.model.entity.DripEntity;
@@ -30,6 +31,8 @@ public class DripService {
         this.dripNumRepository = dripNumRepository;
         this.modelMapper = modelMapper;
     }
+
+
 
     public void deleteDripById(Long dripId, Long userId) {
         List<DripNumbers> drip = dripNumRepository.findByUserIdAndDripId(userId, dripId);
@@ -134,25 +137,26 @@ public class DripService {
                     .setRegisteredAt(dateTime2);
             dripNumRepository.save(dripNumbers1);
 
-//            String str3 = "2021-01-01 23:59";
-//            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
-//            DripNumbers dripNumbers2 = new DripNumbers();
-//            dripNumbers2.setUserId(1L)
-//                    .setDripId(3L)
-//                    .setNumbers(3)
-//                    .setPrice(BigDecimal.valueOf(28.14))
-//                    .setRegisteredAt(dateTime3);
-//            dripNumRepository.save(dripNumbers2);
-//
-//            String str4 = "2022-11-30 23:59";
-//            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
-//            DripNumbers dripNumbers3 = new DripNumbers();
-//            dripNumbers3.setUserId(2L)
-//                    .setDripId(3L)
-//                    .setNumbers(1)
-//                    .setPrice(BigDecimal.valueOf(21.14))
-//                    .setRegisteredAt(dateTime4);
-//            dripNumRepository.save(dripNumbers3);
+            String str3 = "2021-01-01 23:59";
+            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+            DripNumbers dripNumbers2 = new DripNumbers();
+            dripNumbers2.setUserId(2L)
+                    .setDripId(3L)
+                    .setNumbers(3)
+                    .setStatus("Обработва се")
+                    .setPrice(BigDecimal.valueOf(28.14))
+                    .setRegisteredAt(dateTime3);
+            dripNumRepository.save(dripNumbers2);
+
+            String str4 = "2022-11-30 23:59";
+            LocalDateTime dateTime4 = LocalDateTime.parse(str4, formatter);
+            DripNumbers dripNumbers3 = new DripNumbers();
+            dripNumbers3.setUserId(1L)
+                    .setDripId(3L)
+                    .setNumbers(1)
+                    .setPrice(BigDecimal.valueOf(21.14))
+                    .setRegisteredAt(dateTime4);
+            dripNumRepository.save(dripNumbers3);
         }
     }
 

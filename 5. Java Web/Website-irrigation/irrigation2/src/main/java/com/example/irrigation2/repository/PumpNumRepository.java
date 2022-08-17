@@ -1,6 +1,8 @@
 package com.example.irrigation2.repository;
 
 import com.example.irrigation2.model.entity.PumpNumbers;
+import com.example.irrigation2.model.entity.SprinklerNumbers;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +15,5 @@ public interface PumpNumRepository extends JpaRepository<PumpNumbers, Long> {
 
     List<PumpNumbers> findByUserIdAndPumpId(Long userId, Long pumpId);
 
-//    List<PumpNumbers> findByUserId(Long userId);
-//    List<PumpNumbers> findByPumpId(Long pumpId);
-
+    List<PumpNumbers> findAllByStatus(String status, Sort sort);
 }

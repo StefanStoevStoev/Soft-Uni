@@ -1,19 +1,13 @@
 package com.example.irrigation2.web;
 
-import com.example.irrigation2.model.DTO.AddDripDTO;
-import com.example.irrigation2.model.DTO.AddPumpDTO;
-import com.example.irrigation2.model.DTO.AddSprinklerDTO;
+import com.example.irrigation2.model.DTO.*;
 import com.example.irrigation2.model.entity.UserEntity;
-import com.example.irrigation2.service.DripService;
-import com.example.irrigation2.service.PumpService;
-import com.example.irrigation2.service.SprinklerService;
-import com.example.irrigation2.service.UserService;
+import com.example.irrigation2.model.views.AuthViewModel;
+import com.example.irrigation2.service.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -27,18 +21,20 @@ public class AdminController {
     private final PumpService pumpService;
     private final DripService dripService;
     private final UserService userService;
+    private final AdminService adminService;
 
-    public AdminController(SprinklerService sprinklerService, PumpService pumpService, DripService dripService, UserService userService) {
+    public AdminController(SprinklerService sprinklerService, PumpService pumpService, DripService dripService, UserService userService, AdminService adminService) {
         this.sprinklerService = sprinklerService;
         this.pumpService = pumpService;
         this.dripService = dripService;
         this.userService = userService;
+        this.adminService = adminService;
     }
 
-    @GetMapping()
-    public String admin() {
-        return "admin";
-    }
+//    @GetMapping()
+//    public String admin() {
+//        return "admin";
+//    }
 
     @GetMapping("/sprinklers")
     public String sprinklers(Model model) {
@@ -121,19 +117,38 @@ public class AdminController {
         return "user";
     }
 
-//    @PostMapping("/users")
-//    public String addusers(AddDripDTO addDripDTO,
-//                           BindingResult bindingResult,
-//                           RedirectAttributes redirectAttributes) {
-//
-//        if (bindingResult.hasErrors()) {
-//            redirectAttributes.addFlashAttribute("addDripDTO", addDripDTO);
-//            redirectAttributes.addFlashAttribute(
-//                    "org.springframework.validation.BindingResult.addDripDTO", bindingResult);
-//            return "redirect:/admin/drips";
-//        }
-//        dripService.addDripToDB(addDripDTO);
-//        return "redirect:/admin";
-//    }
+    @GetMapping()
+    public String getOrders(Model model) {
 
+        if (!model.containsAttribute("notSendSprinklers")) {
+            List<AuthViewModel> notSendSprinklers = adminService.getNotSendSprinklers();
+            model.addAttribute("notSendSprinklers", notSendSprinklers);
+        }
+
+        if (!model.containsAttribute("notSendDrips")) {
+            List<AuthViewModel> notSendDrips = adminService.getNotSendDrips();
+            model.addAttribute("notSendDrips", notSendDrips);
+        }
+
+        if (!model.containsAttribute("notSendPumps")) {
+            List<AuthViewModel> notSendPumps = adminService.getNotSendPumps();
+            model.addAttribute("notSendPumps", notSendPumps);
+        }
+
+        return "admin";
+    }
+
+    @PostMapping()
+    public String sendOrders(AdminDTO adminDTO) {
+//        redirectAttributes.addFlashAttribute("adminDTO", adminDTO);
+        adminService.sendOrder(adminDTO);
+        return "redirect:/admin";
+    }
+
+    @DeleteMapping()
+    public String deleteOffer(AdminDTO adminDTO) {
+
+        adminService.deleteProductOrderById(adminDTO);
+        return "redirect:/admin";
+    }
 }

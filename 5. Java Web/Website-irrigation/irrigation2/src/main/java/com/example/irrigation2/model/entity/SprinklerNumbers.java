@@ -21,11 +21,21 @@ public class SprinklerNumbers {
     private BigDecimal price;
 
     private LocalDateTime registeredAt;
+    private LocalDateTime sendOn;
 
     private int numbers;
     private String status;
 
     public SprinklerNumbers() {
+    }
+
+    public LocalDateTime getSendOn() {
+        return sendOn;
+    }
+
+    public SprinklerNumbers setSendOn(LocalDateTime sendOn) {
+        this.sendOn = sendOn;
+        return this;
     }
 
     public Long getId() {
