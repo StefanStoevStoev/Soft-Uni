@@ -11,7 +11,7 @@ public interface PumpNumRepository extends JpaRepository<PumpNumbers, Long> {
 
     List<PumpNumbers> findAllByUserIdOrderByRegisteredAtAsc(Long userId);
 
-    PumpNumbers findByUserIdAndPumpId(Long userId, Long pumpId);
+    List<PumpNumbers> findByUserIdAndPumpId(Long userId, Long pumpId);
 
 //    List<PumpNumbers> findByUserId(Long userId);
 //    List<PumpNumbers> findByPumpId(Long pumpId);

@@ -22,14 +22,14 @@
 </head>
 <body>
 <div th:replace="fragments/fragment::navigation"></div>
-<div class=" p-2 mt-2 pt-0 mb-2 pb-2 mask-custom-1"></div>
+<!--<div class=" p-2 mt-2 pt-0 mb-2 pb-2 mask-custom-1"></div>-->
 <div th:replace="fragments/fragment::admin-nav"></div>
 
-<div class=" p-0 mt-0 pt-0 mb-0 pb-0 mask-custom-1"></div>
-<div class="container">
-    <ul class="navbar-nav mt-3 position-relative ps-5 pe-5">
+<!--<div class=" p-0 mt-0 pt-0 mb-0 pb-0 mask-custom-1"></div>-->
+<div class="container mt-0 pt-0 pb-0 mb-0">
+    <ul class="navbar-nav mt-0 position-relative ps-5 pe-5">
 
-        <main class="bg-light p-2 mt-2 me-0 ms-0 mask-custom-1"
+        <main class="bg-light p-2 mt-0 mb-2 me-0 ms-0 mask-custom-1"
               th:each="user, iStat : ${allUsers}"
               style="--bs-bg-opacity: .6">
             <!--            <form class="col hidden-md-down w-25 bg-blur rounded"-->

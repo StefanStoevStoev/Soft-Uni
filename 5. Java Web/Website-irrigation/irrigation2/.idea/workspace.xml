@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="My orders + auth-home are working for all products.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AdminController.java" afterDir="false" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Created view admin/users - user.html">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/PumpNumRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/repository/PumpNumRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/DripService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/PumpService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/web/PagesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments/fragment.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,37 +98,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2/src/main/resources/static/images/frontPage",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.44409615",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "spring.configuration.checksum": "d69784ca6fd1de93001551dcd739d9f3"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2/src/main/resources/static/images/frontPage&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.44409615&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;d69784ca6fd1de93001551dcd739d9f3&quot;
   },
-  "keyToStringList": {
-    "ChangesTree.GroupingKeys": [
-      "module",
-      "repository",
-      "directory"
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;module&quot;,
+      &quot;repository&quot;,
+      &quot;directory&quot;
     ],
-    "DatabaseDriversLRU": [
-      "mysql"
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\frontPage" />
@@ -204,7 +209,9 @@
       <workItem from="1660542270031" duration="7947000" />
       <workItem from="1660550760129" duration="47011000" />
       <workItem from="1660631341369" duration="10324000" />
-      <workItem from="1660648469698" duration="35540000" />
+      <workItem from="1660648469698" duration="36711000" />
+      <workItem from="1660686033029" duration="103000" />
+      <workItem from="1660715450734" duration="3656000" />
     </task>
     <task id="LOCAL-00001" summary="Started test directory">
       <created>1659378296787</created>
@@ -507,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660676334320</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Created view admin/users - user.html">
+      <created>1660685015626</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1660685015626</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -538,7 +552,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Created numbers of drips" />
     <MESSAGE value="Created Sprinkler multiple products view. Made Drip and Sprinkler relation mappings." />
     <MESSAGE value="Updated styles-sprinkler.css to create pictures same high. Corrected html file of sprinklers" />
     <MESSAGE value="SprinklersController updated" />
@@ -563,9 +576,19 @@
     <MESSAGE value="Corrected user registration and table relations" />
     <MESSAGE value="mathod" />
     <MESSAGE value="My orders + auth-home are working for all products." />
-    <option name="LAST_COMMIT_MESSAGE" value="My orders + auth-home are working for all products." />
+    <MESSAGE value="Created view admin/users - user.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created view admin/users - user.html" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/UserService.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="org.springframework.aop.framework.JdkDynamicAopProxy" memberName="proxiedInterfaces" />

@@ -60,7 +60,7 @@ public class AuthController {
         model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
         model.addAttribute("pumpNumsByUser", pumpNumsByUser);
 
-        UserViewModel user = userService.getUserById(id);
+        UserViewModel user = userService.getUserById(currentUser.getId());
         model.addAttribute("userDetails", user);
         if(currentUser == null){
             return "login";

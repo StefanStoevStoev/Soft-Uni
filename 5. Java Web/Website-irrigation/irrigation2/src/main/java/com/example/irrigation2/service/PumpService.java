@@ -158,9 +158,8 @@ public class PumpService {
 
     //OrderController
     public void orderPumpToUser(OrderDTO orderDTO, Long userId) {
-        PumpNumbers pumpNumbers = pumpNumRepository.findByUserIdAndPumpId(userId, orderDTO.getId());///////////////
-//        List<PumpNumbers> pumpNumbers = pumpNumRepository.findByUserId(userId);
-//        List<PumpNumbers> fd = pumpNumRepository.findByPumpId(orderDTO.getId());
+        List<PumpNumbers> pumpNumbers = pumpNumRepository.findByUserIdAndPumpId(userId, orderDTO.getId());///////////////
+        int size = pumpNumbers.size();
 
         PumpEntity pumpEntity = pumpRepository.findById(orderDTO.getId()).orElse(null);
 
@@ -169,15 +168,17 @@ public class PumpService {
         pumpEntity.setPieces(numbers);
         pumpRepository.save(pumpEntity);
 
-        pumpNumbers.setStatus("Обработва се")
+        pumpNumbers.get(size-1).setStatus("Обработва се")
                 .setNumbers(orderDTO.getPieces())
                 .setPrice(orderDTO.getPrice());
-        pumpNumRepository.save(pumpNumbers);
+        pumpNumRepository.save(pumpNumbers.get(size - 1));
     }
 
+    //OrderController
     public void deletePumpById(Long id, Long userId) {
-        PumpNumbers sprinkler = pumpNumRepository.findByUserIdAndPumpId(userId, id);
-        pumpNumRepository.deleteById(sprinkler.getId());
+        List<PumpNumbers> pump = pumpNumRepository.findByUserIdAndPumpId(userId, id);
+        int size = pump.size();
+        pumpNumRepository.deleteById(pump.get(size - 1).getId());
     }
 
     public void addPumpToUser(PumpDTO pumpDTO, CurrentUserDetails currentUser) {
