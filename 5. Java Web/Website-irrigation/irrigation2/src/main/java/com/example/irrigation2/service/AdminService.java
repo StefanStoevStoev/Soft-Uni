@@ -44,9 +44,9 @@ public class AdminService {
 
         List<AuthViewModel> sprViewModel = new ArrayList<>();
 
-        AuthViewModel temporaryViewModel = new AuthViewModel();
 
         for (SprinklerNumbers spr : sprinklerNum) {
+            AuthViewModel temporaryViewModel = new AuthViewModel();
 
             SprinklerEntity sprinklerEntity = sprinklerRepository.getById(spr.getSprinklerId());
             UserEntity user = userRepository.getById(spr.getUserId());
@@ -65,7 +65,7 @@ public class AdminService {
                     .setUserEmail(user.getEmail())
                     .setUserAddress(user.getAddress())
                     .setUserPhone(user.getPhone())
-                    .setName(user.getFirstName() + " " + user.getLastName());
+                    .setUserName(user.getFirstName() + " " + user.getLastName());
 
             sprViewModel.add(temporaryViewModel);
         }
@@ -80,9 +80,9 @@ public class AdminService {
 
         List<AuthViewModel> pumpViewModel = new ArrayList<>();
 
-        AuthViewModel temporaryViewModel = new AuthViewModel();
 
         for (PumpNumbers pump : pumpNum) {
+            AuthViewModel temporaryViewModel = new AuthViewModel();
 
             PumpEntity pumpEntity = pumpRepository.getById(pump.getPumpId());
             UserEntity user = userRepository.getById(pump.getUserId());
@@ -168,13 +168,15 @@ public class AdminService {
             }
         }
     }
+
+
     public void deleteProductOrderById(AdminDTO adminDTO){
         if(adminDTO.getName().equals("drip")){
             dripNumRepository.deleteById(adminDTO.getId());
         } else if (adminDTO.getName().equals("pump")) {
             pumpNumRepository.deleteById(adminDTO.getId());
         } else if (adminDTO.getName().equals("sprinkler")) {
-            pumpNumRepository.deleteById(adminDTO.getId());
+            sprinklerNumRepository.deleteById(adminDTO.getId());
         }
     }
 }

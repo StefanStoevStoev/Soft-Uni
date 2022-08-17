@@ -83,25 +83,27 @@ public class PumpService {
 
         if (pumpNumRepository.count() == 0) {
 
-//            String str2 = "2021-03-08 04:01";
-//            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
-//            PumpNumbers pumpNumbers1 = new PumpNumbers();
-//            pumpNumbers1.setUserId(2L)
-//                    .setPumpId(2L)
-//                    .setNumbers(1)
-//                    .setPrice(BigDecimal.valueOf(28.14))
-//                    .setRegisteredAt(dateTime2);
-//            pumpNumRepository.save(pumpNumbers1);
-//
-//            String str3 = "2021-01-01 23:59";
-//            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
-//            PumpNumbers pumpNumbers2 = new PumpNumbers();
-//            pumpNumbers2.setUserId(2L)
-//                    .setPumpId(1L)
-//                    .setNumbers(3)
-//                    .setPrice(BigDecimal.valueOf(338.14))
-//                    .setRegisteredAt(dateTime3);
-//            pumpNumRepository.save(pumpNumbers2);
+            String str2 = "2021-03-08 04:01";
+            LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
+            PumpNumbers pumpNumbers1 = new PumpNumbers();
+            pumpNumbers1.setUserId(2L)
+                    .setPumpId(2L)
+                    .setNumbers(1)
+                    .setStatus("Обработва се")
+                    .setPrice(BigDecimal.valueOf(28.14))
+                    .setRegisteredAt(dateTime2);
+            pumpNumRepository.save(pumpNumbers1);
+
+            String str3 = "2021-01-01 23:59";
+            LocalDateTime dateTime3 = LocalDateTime.parse(str3, formatter);
+            PumpNumbers pumpNumbers2 = new PumpNumbers();
+            pumpNumbers2.setUserId(2L)
+                    .setPumpId(1L)
+                    .setNumbers(3)
+                    .setStatus("Обработва се")
+                    .setPrice(BigDecimal.valueOf(338.14))
+                    .setRegisteredAt(dateTime3);
+            pumpNumRepository.save(pumpNumbers2);
         }
     }
 

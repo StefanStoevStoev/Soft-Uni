@@ -140,7 +140,6 @@ public class AdminController {
 
     @PostMapping()
     public String sendOrders(AdminDTO adminDTO) {
-//        redirectAttributes.addFlashAttribute("adminDTO", adminDTO);
         adminService.sendOrder(adminDTO);
         return "redirect:/admin";
     }
