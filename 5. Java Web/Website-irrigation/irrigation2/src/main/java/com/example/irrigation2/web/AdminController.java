@@ -31,11 +31,6 @@ public class AdminController {
         this.adminService = adminService;
     }
 
-//    @GetMapping()
-//    public String admin() {
-//        return "admin";
-//    }
-
     @GetMapping("/sprinklers")
     public String sprinklers(Model model) {
         if (!model.containsAttribute("addSprinklerDTO")) {

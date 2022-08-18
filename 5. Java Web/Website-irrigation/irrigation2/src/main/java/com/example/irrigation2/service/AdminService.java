@@ -48,19 +48,22 @@ public class AdminService {
         for (SprinklerNumbers spr : sprinklerNum) {
             AuthViewModel temporaryViewModel = new AuthViewModel();
 
-            SprinklerEntity sprinklerEntity = sprinklerRepository.getById(spr.getSprinklerId());
+            SprinklerEntity sprinklerEntity = sprinklerRepository
+                    .getById(spr.getSprinklerId());
             UserEntity user = userRepository.getById(spr.getUserId());
 
             temporaryViewModel
                     .setId(spr.getId())
+                    .setPrice(spr.getPrice())
+                    .setPieces(spr.getNumbers())
+                    .setOrderedAt(spr.getRegisteredAt())
+
                     .setName(sprinklerEntity.getKind())
                     .setCode(sprinklerEntity.getCode())
-                    .setPieces(spr.getNumbers())
                     .setAllPieces(sprinklerEntity.getPieces())
                     .setSinglePrice(sprinklerEntity.getPrice())
-                    .setPrice(spr.getPrice())
-                    .setOrderedAt(spr.getRegisteredAt())
                     .setUrlPic(sprinklerEntity.getUrl())
+
                     .setUserId(user.getId())
                     .setUserEmail(user.getEmail())
                     .setUserAddress(user.getAddress())
@@ -88,15 +91,17 @@ public class AdminService {
             UserEntity user = userRepository.getById(pump.getUserId());
 
             temporaryViewModel
-                    .setId(pump.getId())
                     .setName(pumpEntity.getKind())
                     .setCode(pumpEntity.getCode())
                     .setAllPieces(pumpEntity.getPieces())
                     .setSinglePrice(pumpEntity.getPrice())
+                    .setUrlPic(pumpEntity.getUrlPic())
+
+                    .setId(pump.getId())
                     .setPrice(pump.getPrice())
                     .setPieces(pump.getNumbers())
                     .setOrderedAt(pump.getRegisteredAt())
-                    .setUrlPic(pumpEntity.getUrlPic())
+
                     .setUserId(user.getId())
                     .setUserEmail(user.getEmail())
                     .setUserAddress(user.getAddress())
@@ -122,15 +127,17 @@ public class AdminService {
             UserEntity user = userRepository.getById(drips.getUserId());
 
             temporaryViewModel
-                    .setId(drips.getId())
                     .setName(dripEntity.getName())
                     .setCode(dripEntity.getCode())
                     .setAllPieces(dripEntity.getPieces())
                     .setSinglePrice(dripEntity.getPrice())
+                    .setUrlPic(dripEntity.getUrlPic())
+
+                    .setId(drips.getId())
                     .setPrice(drips.getPrice())
                     .setPieces(drips.getNumbers())
                     .setOrderedAt(drips.getRegisteredAt())
-                    .setUrlPic(dripEntity.getUrlPic())
+
                     .setUserId(user.getId())
                     .setUserEmail(user.getEmail())
                     .setUserAddress(user.getAddress())

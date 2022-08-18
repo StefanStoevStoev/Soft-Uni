@@ -35,7 +35,6 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsService userDetailsService;
     private final UserMapper userMapper;
-    private final EmailService emailService;
     private final AuthModelDTO authModelDTO;
     private final SprinklerRepository sprinklerRepository;
 
@@ -43,14 +42,12 @@ public class UserService {
                        UserRoleRepository userRoleRepository,
                        PasswordEncoder passwordEncoder,
                        UserDetailsService userDetailsService1,
-                       UserMapper userMapper,
-                       EmailService emailService, AuthModelDTO authModelDTO, SprinklerRepository sprinklerRepository) {
+                       UserMapper userMapper, AuthModelDTO authModelDTO, SprinklerRepository sprinklerRepository) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService1;
         this.userMapper = userMapper;
-        this.emailService = emailService;
         this.authModelDTO = authModelDTO;
         this.sprinklerRepository = sprinklerRepository;
     }
@@ -66,6 +63,7 @@ public class UserService {
 
             initAdmin(List.of(adminRole));
             initUser(List.of(userRole));
+//            initUser2(List.of(userRole));
         }
     }
 
@@ -91,18 +89,18 @@ public class UserService {
                 .setPassword(passwordEncoder.encode("123"));
 
         userRepository.save(user);
-
+    }
+//    private void initUser2(List<RoleEntity> roles) {
+//
 //        UserEntity user2 = new UserEntity()
-//
 //                .setRole(roles)
-//
 //                .setFirstName("Gosho")
 //                .setLastName("Georgiev")
 //                .setEmail("gosho@gmail.com")
 //                .setPassword(passwordEncoder.encode("123"));
 //
 //        userRepository.save(user2);
-    }
+//    }
 
     public boolean registerAndLogin(UserRegisterDTO userRegisterDTO, Locale preferredLocale) {
 

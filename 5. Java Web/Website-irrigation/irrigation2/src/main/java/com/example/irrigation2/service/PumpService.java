@@ -33,7 +33,8 @@ public class PumpService {
 
         if (pumpRepository.count() == 0) {
             PumpEntity hiPeri1_5 = new PumpEntity();
-            hiPeri1_5.setKind("Вихрова помпа")
+            hiPeri1_5
+                    .setKind("Вихрова помпа")
                     .setModel("HiPeri 1-5")
                     .setMake("Willo")
                     .setCode("02001")
@@ -82,7 +83,8 @@ public class PumpService {
             String str2 = "2021-03-08 04:01";
             LocalDateTime dateTime2 = LocalDateTime.parse(str2, formatter);
             PumpNumbers pumpNumbers1 = new PumpNumbers();
-            pumpNumbers1.setUserId(2L)
+            pumpNumbers1.
+                    setUserId(2L)
                     .setPumpId(2L)
                     .setNumbers(1)
                     .setStatus("Обработва се")
