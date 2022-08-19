@@ -5,8 +5,8 @@ I.Navbar - made for 3 security access options
         a. Guest person has access to options `Home page`, `Products`, `For us`, `Login`, `Register`.
         b. Registered User has access to Home page, `Hello, (Username)`, `My orders`, `Products`, `For us`, `Exit`.
         c. Administrator has access to Home page, `Hello, (Username)`, `Admin`, `Products`, `For us`, `Exit`.
-    2. Elements of navbar
-        a. `Home page` - consist picture and short description of each type of product. There is 2 buttons - `show more`
+    2. Elements of navbar (function)
+        a. `Home page` - consist picture and short description of each type of product. There are 2 buttons - `show more`
             to show full description. Second button is `products`, which redirect to products page.
         b. `Products` - it's drop down button with 3 options, which send you to new page. Options are selling product groups 
             of the site, `Sprinklers`, `Drips` and `Pumps`.
@@ -20,6 +20,10 @@ I.Navbar - made for 3 security access options
             `status of my orders` to check product type, pieces, prise, status and date of sending.
     3. HTML
 II. Home page
+    1. Accessibility - by click or redirect. Users with any role have access to `Home page`, it's reachable from every view. 
+    2. Classes - no specific controller for homepage, but some methods redirect to `Home page`. UserController method
+        `register()` redirect to `Home page` after successful registration. Successful `login` redirect to `Home page` too.
+    3. HTML - the place is `index.html`.
 III. Registration
 IV. Login
 V. Products

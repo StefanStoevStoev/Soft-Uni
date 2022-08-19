@@ -1,6 +1,5 @@
 package com.example.irrigation2.service;
 
-import com.example.irrigation2.model.DTO.AdminDTO;
 import com.example.irrigation2.model.entity.*;
 import com.example.irrigation2.model.entity.enums.RoleEnum;
 import com.example.irrigation2.model.views.AuthViewModel;
@@ -12,16 +11,13 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Sort;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
