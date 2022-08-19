@@ -25,7 +25,9 @@ public class SprinklerService {
     private final ModelMapper mapper;
 
 
-    public SprinklerService(SprinklerRepository sprinklerRepository, SprinklerNumRepository sprinklerNumRepository, ModelMapper mapper) {
+    public SprinklerService(SprinklerRepository sprinklerRepository,
+                            SprinklerNumRepository sprinklerNumRepository,
+                            ModelMapper mapper) {
         this.sprinklerRepository = sprinklerRepository;
         this.sprinklerNumRepository = sprinklerNumRepository;
         this.mapper = mapper;

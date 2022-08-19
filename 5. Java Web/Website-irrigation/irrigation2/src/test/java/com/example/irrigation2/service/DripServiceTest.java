@@ -2,9 +2,6 @@ package com.example.irrigation2.service;
 
 import com.example.irrigation2.model.entity.DripEntity;
 import com.example.irrigation2.model.entity.DripNumbers;
-import com.example.irrigation2.model.entity.RoleEntity;
-import com.example.irrigation2.model.entity.UserEntity;
-import com.example.irrigation2.model.entity.enums.RoleEnum;
 import com.example.irrigation2.repository.DripNumRepository;
 import com.example.irrigation2.repository.DripRepository;
 import org.junit.jupiter.api.Assertions;
@@ -14,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.modelmapper.ModelMapper;
 import org.junit.jupiter.api.Test;
-import org.springframework.data.domain.Sort;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -44,8 +40,6 @@ public class DripServiceTest {
 
     @Test
     void getAllDrips_dripsExists(){
-
-
 
         DripEntity dripOneSeason = new DripEntity();
         dripOneSeason

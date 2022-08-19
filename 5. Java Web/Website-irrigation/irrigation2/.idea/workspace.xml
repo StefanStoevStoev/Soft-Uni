@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Tested Auth service and CurrentUserDetailServiceTest. Corrected interceptor.">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/doc.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/doc.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/AdminServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/AdminServiceTest.java" afterDir="false" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="DripServiceTest is ready.">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/PumpServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/SprinklerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/irrigation2/service/SprinklerService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/DripServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/DripServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,44 +96,44 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2/src/main/resources/static/images/frontPage&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.44409615&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;9ec2f3d00395f99ac7e533847c251a18&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Java/Soft-Uni/5. Java Web/Website-irrigation/irrigation2/src/main/resources/i18n/drips",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.44409615",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "spring.configuration.checksum": "9ec2f3d00395f99ac7e533847c251a18"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;module&quot;,
-      &quot;repository&quot;,
-      &quot;directory&quot;
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "module",
+      "repository",
+      "directory"
     ],
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\i18n\drips" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\frontPage" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\pumps" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\css" />
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources" />
-      <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Java\Soft-Uni\5. Java Web\Website-irrigation\irrigation2\src\main\resources\static\images\frontPage" />
@@ -146,8 +147,8 @@
       <recent name="com.example.irrigation2.model.DTO" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.DripServiceTest.testGetOrdersByUser_dripsExists">
-    <configuration name="DripServiceTest.getAllDrips_dripsExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Gradle.Tests in 'com.example.irrigation2'">
+    <configuration name="SprinklerServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -160,7 +161,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.irrigation2.service.DripServiceTest.getAllDrips_dripsExists&quot;" />
+            <option value="&quot;com.example.irrigation2.service.SprinklerServiceTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -170,7 +171,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DripServiceTest.getAllDrips_dripsNotExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SprinklerServiceTest.testGetOrdersByUser_pumpExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -183,7 +184,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.irrigation2.service.DripServiceTest.getAllDrips_dripsNotExists&quot;" />
+            <option value="&quot;com.example.irrigation2.service.SprinklerServiceTest.testGetOrdersByUser_pumpExists&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -193,7 +194,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DripServiceTest.getDripNumsByUser_dripsExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SprinklerServiceTest.testGetPumpNumsByUser_pumpExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -206,7 +207,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.irrigation2.service.DripServiceTest.getDripNumsByUser_dripsExists&quot;" />
+            <option value="&quot;com.example.irrigation2.service.SprinklerServiceTest.testGetPumpNumsByUser_pumpExists&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -216,7 +217,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DripServiceTest.testGetDripNumsByUser_dripsNotExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="SprinklerServiceTest.testGetSprinklerNumsByUser_dripsExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -229,7 +230,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.irrigation2.service.DripServiceTest.testGetDripNumsByUser_dripsNotExists&quot;" />
+            <option value="&quot;com.example.irrigation2.service.SprinklerServiceTest.testGetSprinklerNumsByUser_dripsExists&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -239,7 +240,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="DripServiceTest.testGetOrdersByUser_dripsExists" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="Tests in 'com.example.irrigation2'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -252,7 +253,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.example.irrigation2.service.DripServiceTest.testGetOrdersByUser_dripsExists&quot;" />
+            <option value="&quot;com.example.irrigation2.*&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -274,21 +275,21 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Gradle.DripServiceTest.getAllDrips_dripsExists" />
-      <item itemvalue="Gradle.DripServiceTest.getAllDrips_dripsNotExists" />
-      <item itemvalue="Gradle.DripServiceTest.getDripNumsByUser_dripsExists" />
-      <item itemvalue="Gradle.DripServiceTest.testGetDripNumsByUser_dripsNotExists" />
-      <item itemvalue="Gradle.DripServiceTest.testGetOrdersByUser_dripsExists" />
+      <item itemvalue="Gradle.SprinklerServiceTest" />
+      <item itemvalue="Gradle.SprinklerServiceTest.testGetOrdersByUser_pumpExists" />
+      <item itemvalue="Gradle.SprinklerServiceTest.testGetPumpNumsByUser_pumpExists" />
+      <item itemvalue="Gradle.SprinklerServiceTest.testGetSprinklerNumsByUser_dripsExists" />
+      <item itemvalue="Gradle.Tests in 'com.example.irrigation2'" />
       <item itemvalue="Node.js.irrigation12" />
       <item itemvalue="Spring Boot.Irrigation2Application" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.DripServiceTest.testGetOrdersByUser_dripsExists" />
-        <item itemvalue="Gradle.DripServiceTest.testGetDripNumsByUser_dripsNotExists" />
-        <item itemvalue="Gradle.DripServiceTest.getDripNumsByUser_dripsExists" />
-        <item itemvalue="Gradle.DripServiceTest.getAllDrips_dripsNotExists" />
-        <item itemvalue="Gradle.DripServiceTest.getAllDrips_dripsExists" />
+        <item itemvalue="Gradle.Tests in 'com.example.irrigation2'" />
+        <item itemvalue="Gradle.SprinklerServiceTest" />
+        <item itemvalue="Gradle.SprinklerServiceTest.testGetOrdersByUser_pumpExists" />
+        <item itemvalue="Gradle.SprinklerServiceTest.testGetPumpNumsByUser_pumpExists" />
+        <item itemvalue="Gradle.SprinklerServiceTest.testGetSprinklerNumsByUser_dripsExists" />
       </list>
     </recent_temporary>
   </component>
@@ -333,14 +334,7 @@
       <workItem from="1660715450734" duration="48224000" />
       <workItem from="1660768707784" duration="2918000" />
       <workItem from="1660807798925" duration="40325000" />
-      <workItem from="1660901678883" duration="11203000" />
-    </task>
-    <task id="LOCAL-00002" summary="product-drip and stepper buttons are working with the new th:each">
-      <created>1659529177689</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1659529177689</updated>
+      <workItem from="1660901678883" duration="33951000" />
     </task>
     <task id="LOCAL-00003" summary="product-drip and stepper buttons are working with the new th:each">
       <created>1659529232361</created>
@@ -678,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660856646670</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="DripServiceTest is ready.">
+      <created>1660913931221</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1660913931222</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +710,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Save ordered drip to reference table. Created DripNumRepository." />
     <MESSAGE value="Created admin and home page, only picture with navbar." />
     <MESSAGE value="Created DripNum init apps." />
     <MESSAGE value="My orders working from every were. Corrected PageController, UserController." />
@@ -734,15 +734,16 @@
     <MESSAGE value="Admin orders is ready for pumps and sprinklers. Button confirm and delete working." />
     <MESSAGE value="Interceptor for navbar." />
     <MESSAGE value="Tested Auth service and CurrentUserDetailServiceTest. Corrected interceptor." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tested Auth service and CurrentUserDetailServiceTest. Corrected interceptor." />
+    <MESSAGE value="DripServiceTest is ready." />
+    <option name="LAST_COMMIT_MESSAGE" value="DripServiceTest is ready." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/DripServiceTest.java</url>
-          <line>208</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/src/test/java/com/example/irrigation2/service/PumpServiceTest.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -760,7 +761,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/irrigation2$Tests_in__com_example_irrigation2_.ic" NAME="Tests in 'com.example.irrigation2' Coverage Results" MODIFIED="1660852513919" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/irrigation2$Tests_in__com_example_irrigation2_.ic" NAME="Tests in 'com.example.irrigation2' Coverage Results" MODIFIED="1660937017308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/irrigation2$Irrigation2Application.ic" NAME="Irrigation2Application Coverage Results" MODIFIED="1659794951907" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
