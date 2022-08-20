@@ -36,20 +36,19 @@ public class UserService {
     private final UserDetailsService userDetailsService;
     private final UserMapper userMapper;
     private final AuthModelDTO authModelDTO;
-    private final SprinklerRepository sprinklerRepository;
 
     public UserService(UserRepository userRepository,
                        UserRoleRepository userRoleRepository,
                        PasswordEncoder passwordEncoder,
                        UserDetailsService userDetailsService1,
-                       UserMapper userMapper, AuthModelDTO authModelDTO, SprinklerRepository sprinklerRepository) {
+                       UserMapper userMapper,
+                       AuthModelDTO authModelDTO) {
         this.userRepository = userRepository;
         this.userRoleRepository = userRoleRepository;
         this.passwordEncoder = passwordEncoder;
         this.userDetailsService = userDetailsService1;
         this.userMapper = userMapper;
         this.authModelDTO = authModelDTO;
-        this.sprinklerRepository = sprinklerRepository;
     }
 
     public void init() {
@@ -57,9 +56,9 @@ public class UserService {
         if (userRepository.count() == 0 && userRoleRepository.count() == 0) {
             RoleEntity adminRole = new RoleEntity().setRole(RoleEnum.ADMIN);
             RoleEntity userRole = new RoleEntity().setRole(RoleEnum.USER);
+            userRole = this.userRoleRepository.save(userRole);
 
             adminRole = this.userRoleRepository.save(adminRole);
-            userRole = this.userRoleRepository.save(userRole);
 
             initAdmin(List.of(adminRole));
             initUser(List.of(userRole));
@@ -102,7 +101,7 @@ public class UserService {
 //        userRepository.save(user2);
 //    }
 
-    public boolean registerAndLogin(UserRegisterDTO userRegisterDTO, Locale preferredLocale) {
+    public boolean registerAndLogin(UserRegisterDTO userRegisterDTO) {
 
         if (!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
             return false;
@@ -115,9 +114,9 @@ public class UserService {
         userRole = this.userRoleRepository.save(userRole);
 
         UserEntity userEntity = userMapper.userDtoToUserEntity(userRegisterDTO)
-                .setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()))
-                .setRole(List.of(userRole));
+                .setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
 
+        userEntity.getRole().add(userRole);
         this.userRepository.save(userEntity);
         login(userEntity);
 

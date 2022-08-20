@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class SprinklerService {
@@ -212,7 +213,15 @@ public class SprinklerService {
     public void addSprinklerToUser(SprinklerDTO sprinklerDTO, CurrentUserDetails currentUser) {
         List<SprinklerNumbers> sprinklerNumbers = sprinklerNumRepository.findAllByUserIdOrderByRegisteredAtAsc(currentUser.getId());
 
-        if (sprinklerNumbers.isEmpty() || !sprinklerNumbers.stream().findFirst().map(e -> e.getSprinklerId().equals(sprinklerDTO.getId()) && e.getStatus() == null).orElseThrow()) {
+//        Boolean aBoolean = sprinklerNumbers.stream().findFirst().map(e -> e.getSprinklerId().equals(sprinklerDTO.getId())).orElseThrow();
+//
+//        boolean b1 = sprinklerNumbers.stream().noneMatch(e -> e.getSprinklerId().equals(sprinklerDTO.getId()) && e.getStatus() == null);
+//
+//        boolean b = !sprinklerNumbers.stream().findFirst().map(e -> e.getSprinklerId().equals(sprinklerDTO.getId()) && e.getStatus() == null).orElseThrow();
+
+
+
+        if (sprinklerNumbers.isEmpty() || sprinklerNumbers.stream().noneMatch(e -> e.getSprinklerId().equals(sprinklerDTO.getId()) && e.getStatus() == null)) {
             SprinklerEntity sprinkler = sprinklerRepository.getById(sprinklerDTO.getId());
 
             sprinkler.setTemporaryPieces(sprinklerDTO.getPieces());

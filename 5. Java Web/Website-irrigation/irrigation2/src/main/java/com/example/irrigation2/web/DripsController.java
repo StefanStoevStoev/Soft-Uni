@@ -19,11 +19,9 @@ import java.util.List;
 public class DripsController {
 
     private final DripService dripService;
-    private final UserService userService;
 
-    public DripsController(DripService dripService, UserService userService) {
+    public DripsController(DripService dripService) {
         this.dripService = dripService;
-        this.userService = userService;
     }
 
     @GetMapping("/drip")
@@ -44,7 +42,7 @@ public class DripsController {
     }
 
     @PostMapping("/drip")
-    public String saveDripDetails(DripDTO dripDTO,
+    public String saveDripToUser(DripDTO dripDTO,
                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
         dripService.addDripToUser(dripDTO, currentUser);
         return "redirect:/auth-home/" + currentUser.getId();

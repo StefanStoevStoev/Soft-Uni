@@ -45,7 +45,7 @@ public class SprinklersController {
     }
 
     @PostMapping("/sprinkler")
-    public String saveDripDetails(SprinklerDTO sprinklerDTO,
+    public String addSprinkler(SprinklerDTO sprinklerDTO,
                                   @AuthenticationPrincipal CurrentUserDetails currentUser) {
         sprinklerService.addSprinklerToUser(sprinklerDTO, currentUser);
         return "redirect:/auth-home/" + currentUser.getId();

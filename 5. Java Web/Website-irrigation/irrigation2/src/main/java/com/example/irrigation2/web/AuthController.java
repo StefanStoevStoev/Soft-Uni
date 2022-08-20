@@ -60,14 +60,15 @@ public class AuthController {
         model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
         model.addAttribute("pumpNumsByUser", pumpNumsByUser);
 
-        if (currentUser.getId() == null){
-            return "error";
-        }
-        UserViewModel user = userService.getUserById(currentUser.getId());
-        model.addAttribute("userDetails", user);
+//        if (currentUser.getId() == null){
+//            return "error";
+//        }
+
         if(currentUser == null){
             return "login";
         }
+        UserViewModel user = userService.getUserById(currentUser.getId());
+        model.addAttribute("userDetails", user);
         model.addAttribute("getUserId", currentUser.getId());
 
         return "auth-home";

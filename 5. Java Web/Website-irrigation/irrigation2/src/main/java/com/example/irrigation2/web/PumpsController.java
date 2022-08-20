@@ -47,7 +47,7 @@ public class PumpsController {
     }
 
     @PostMapping("/pump")
-    public String sprinklerAddPage( PumpDTO pumpDTO,
+    public String addPump( PumpDTO pumpDTO,
                                    @AuthenticationPrincipal CurrentUserDetails currentUser) {
         pumpService.addPumpToUser(pumpDTO, currentUser);
         return "redirect:/auth-home/" + currentUser.getId();

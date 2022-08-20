@@ -167,7 +167,7 @@ public class DripService {
 
         List<DripNumbers> dripNums = dripNumRepository.findAllByUserIdOrderByRegisteredAtAsc(currentUser.getId());
 
-        if (dripNums.isEmpty() || !dripNums.stream().findFirst().map(e -> e.getDripId().equals(dripDTO.getId()) && e.getStatus() == null).orElseThrow()) {
+        if (dripNums.isEmpty() || dripNums.stream().noneMatch(e -> e.getDripId().equals(dripDTO.getId()) && e.getStatus() == null)) {
             DripEntity drip = dripRepository.getById(dripDTO.getId());
 
             drip.setTemporaryPieces(dripDTO.getPieces());

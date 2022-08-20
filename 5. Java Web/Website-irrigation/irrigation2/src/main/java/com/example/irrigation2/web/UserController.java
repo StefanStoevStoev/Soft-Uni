@@ -115,14 +115,15 @@ public class UserController {
                            RedirectAttributes redirectAttributes,
                            HttpServletRequest request) {
 
-        boolean registerAndLogin = userService.registerAndLogin(userRegisterDTO,
-                localeResolver.resolveLocale(request));
-        if (bindingResult.hasErrors() || !registerAndLogin) {
+//        boolean registerAndLogin = userService.registerAndLogin(userRegisterDTO);
+        if (bindingResult.hasErrors()) {
             redirectAttributes.addFlashAttribute("userRegisterDTO", userRegisterDTO);
             redirectAttributes.addFlashAttribute(
                     "org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
             return "redirect:register";
         }
+        userService.registerAndLogin(userRegisterDTO);
+
         return "redirect:/";
     }
 
