@@ -18,12 +18,9 @@ import java.util.List;
 public class SprinklersController {
 
     private final SprinklerService sprinklerService;
-    private final UserService userService;
 
-    public SprinklersController(SprinklerService sprinklerService,
-                                UserService userService) {
+    public SprinklersController(SprinklerService sprinklerService) {
         this.sprinklerService = sprinklerService;
-        this.userService = userService;
     }
 
     @GetMapping("/sprinkler")

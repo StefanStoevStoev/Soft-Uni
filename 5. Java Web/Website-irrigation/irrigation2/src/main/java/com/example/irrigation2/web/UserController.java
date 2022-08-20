@@ -32,12 +32,9 @@ import static org.springframework.security.web.authentication.UsernamePasswordAu
 public class UserController {
 
     private final UserService userService;
-    private final LocaleResolver localeResolver;
 
-    public UserController(UserService userService, LocaleResolver localeResolver) {
+    public UserController(UserService userService) {
         this.userService = userService;
-
-        this.localeResolver = localeResolver;
     }
     @ModelAttribute("userLoginDTO")
     public UserLoginDTO userLogin() {
@@ -122,8 +119,12 @@ public class UserController {
                     "org.springframework.validation.BindingResult.userRegisterDTO", bindingResult);
             return "redirect:register";
         }
-        userService.registerAndLogin(userRegisterDTO);
+        UserEntity register = userService.register(userRegisterDTO);
 
+        if (register == null){
+            return "redirect:register";
+        }
+        userService.login(register);
         return "redirect:/";
     }
 

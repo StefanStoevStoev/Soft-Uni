@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/pages")
 public class PagesController {
 
-    @GetMapping("/all")
-    public String all(){
-        return "all";
-    }
+//    @GetMapping("/all")
+//    public String all(){
+//        return "all";
+//    }
 
     @GetMapping("/home")
     public String home(Model model, @AuthenticationPrincipal CurrentUserDetails currentUser){

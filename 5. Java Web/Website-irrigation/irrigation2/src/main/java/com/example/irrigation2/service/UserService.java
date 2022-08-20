@@ -101,15 +101,16 @@ public class UserService {
 //        userRepository.save(user2);
 //    }
 
-    public boolean registerAndLogin(UserRegisterDTO userRegisterDTO) {
+    public UserEntity register(UserRegisterDTO userRegisterDTO) {
 
         if (!userRegisterDTO.getPassword().equals(userRegisterDTO.getConfirmPassword())) {
-            return false;
+            return null;
         }
         UserEntity byEmail = userRepository.findByEmail(userRegisterDTO.getEmail()).orElse(null);
         if (byEmail != null) {
-            return false;
+            return null;
         }
+
         RoleEntity userRole = new RoleEntity().setRole(RoleEnum.USER);
         userRole = this.userRoleRepository.save(userRole);
 
@@ -118,14 +119,14 @@ public class UserService {
 
         userEntity.getRole().add(userRole);
         this.userRepository.save(userEntity);
-        login(userEntity);
+//        login(userEntity);
 
 //        emailService.sendRegistrationEmail(userEntity.getEmail(),
 //                userEntity.getFirstName() + " " + userEntity.getLastName(), preferredLocale);
-        return true;
+        return userEntity;
     }
 
-    private void login(UserEntity userEntity) {
+    public void login(UserEntity userEntity) {
         UserDetails userDetails =
                 userDetailsService.loadUserByUsername(userEntity.getEmail());
 

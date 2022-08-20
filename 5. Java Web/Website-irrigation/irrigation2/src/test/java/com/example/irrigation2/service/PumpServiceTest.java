@@ -1,7 +1,5 @@
 package com.example.irrigation2.service;
 
-import com.example.irrigation2.model.entity.DripEntity;
-import com.example.irrigation2.model.entity.DripNumbers;
 import com.example.irrigation2.model.entity.PumpEntity;
 import com.example.irrigation2.model.entity.PumpNumbers;
 import com.example.irrigation2.repository.PumpNumRepository;
