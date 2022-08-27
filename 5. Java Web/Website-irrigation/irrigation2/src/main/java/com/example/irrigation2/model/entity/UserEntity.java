@@ -15,6 +15,7 @@ public class UserEntity extends BaseEntity {
 
     @Column(unique = true)
     private String email;
+    private String city;
     private String address;
     private String phone;
     public Integer authority;
@@ -41,6 +42,15 @@ public class UserEntity extends BaseEntity {
     private String url;
 
     public UserEntity() {
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public UserEntity setCity(String city) {
+        this.city = city;
+        return this;
     }
 
     public List<PumpNumbers> getUsersPump() {

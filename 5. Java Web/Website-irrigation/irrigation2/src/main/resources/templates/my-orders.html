@@ -9,7 +9,7 @@
     <link rel="stylesheet" th:href="@{/css/styles-orders.css}">
 </head>
 <body>
-<div th:replace="fragments/fragment::navigation"></div>
+<div th:replace="fragments/navbars::navigation"></div>
 <div class=" p-0 mt-0 pt-0 mb-0 pb-0 mask-custom-1"></div>
 <div class="container">
     <ul class="navbar-nav mt-3 position-relative ps-5 pe-5">
@@ -63,7 +63,7 @@
                                     <p class="fs-6 mb-0" th:text="${drips.code}">Код</p>
                                     <p class="fs-6 mb-0" th:text="|${drips.size} m|">Дължина</p>
                                     <p class="fs-6 mb-0" th:text="|${drips.pieces} бр.|">Брой</p>
-                                    <p class="fs-6 mb-0 price2" th:text="|${drips.price} лв.|">Цена:</p>
+                                    <p class="fs-6 mb-0 price2" th:text="|${drips.price} лв.|">Стойност:</p>
                                 </div>
                             </div>
                         </div>

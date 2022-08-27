@@ -60,10 +60,6 @@ public class AuthController {
         model.addAttribute("sprinklerNumsByUser", sprinklerNumsByUser);
         model.addAttribute("pumpNumsByUser", pumpNumsByUser);
 
-//        if (currentUser.getId() == null){
-//            return "error";
-//        }
-
         if(currentUser == null){
             return "login";
         }

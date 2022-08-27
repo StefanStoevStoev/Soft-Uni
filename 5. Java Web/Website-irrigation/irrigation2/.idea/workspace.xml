@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Integration tests" />
+    <list default="true" id="032672fd-48ad-4946-ad03-a956a6d3d456" name="Changes" comment="Added city to registration.">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/products-sprinkler.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/products-sprinkler.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,8 +47,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="HTML File" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -143,7 +146,7 @@
       <recent name="com.example.irrigation2.model.DTO" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.com.example.irrigation2 in irrigation2.test">
+  <component name="RunManager" selected="Spring Boot.Irrigation2Application">
     <configuration name="AdminControllerIT.testAddPump" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="irrigation2.test" />
       <extension name="coverage">
@@ -291,13 +294,9 @@
       <workItem from="1660901678883" duration="34936000" />
       <workItem from="1660965855775" duration="34332000" />
       <workItem from="1661014415455" duration="5904000" />
-    </task>
-    <task id="LOCAL-00006" summary="Save address and phone of the user">
-      <created>1659549124737</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1659549124737</updated>
+      <workItem from="1661060457037" duration="18596000" />
+      <workItem from="1661365926790" duration="2449000" />
+      <workItem from="1661596565144" duration="34000" />
     </task>
     <task id="LOCAL-00007" summary="Created dripDTO">
       <created>1659685460689</created>
@@ -635,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661024388681</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Added city to registration.">
+      <created>1661111036499</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1661111036500</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +672,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="AuthController DripService - adding drip orders to user. Not repeat drip ID." />
     <MESSAGE value="Created orders view, controller and my-orders. Created doc.txt file - documentation of the site. Created new OrderDTO." />
     <MESSAGE value="Created Logic to filter drip entities for order and buy." />
     <MESSAGE value="Orders for drips is ready." />
@@ -691,7 +696,8 @@
     <MESSAGE value="PumpServiceTest is ready" />
     <MESSAGE value="Corrected registration and bug in orders of sprinkler and drips." />
     <MESSAGE value="Integration tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Integration tests" />
+    <MESSAGE value="Added city to registration." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added city to registration." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -717,7 +723,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/irrigation2$com_example_irrigation2_in_irrigation2_test.ic" NAME="com.example.irrigation2 in irrigation2.test Coverage Results" MODIFIED="1661024292685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/irrigation2$com_example_irrigation2_in_irrigation2_test.ic" NAME="com.example.irrigation2 in irrigation2.test Coverage Results" MODIFIED="1661065474648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.example.irrigation2.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/irrigation2$Tests_in__com_example_irrigation2_.ic" NAME="Tests in 'com.example.irrigation2' Coverage Results" MODIFIED="1660937017308" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

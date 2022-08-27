@@ -85,6 +85,9 @@ public class UserService {
                 .setFirstName("Pesho")
                 .setLastName("Peshev")
                 .setEmail("pesho@gmail.com")
+                .setPhone("0898626866")
+                .setCity("Стара Загора")
+                .setAddress("кв. 3те чучура, бл. 64, вх. А, ап. 25")
                 .setPassword(passwordEncoder.encode("123"));
 
         userRepository.save(user);
@@ -119,10 +122,7 @@ public class UserService {
 
         userEntity.getRole().add(userRole);
         this.userRepository.save(userEntity);
-//        login(userEntity);
 
-//        emailService.sendRegistrationEmail(userEntity.getEmail(),
-//                userEntity.getFirstName() + " " + userEntity.getLastName(), preferredLocale);
         return userEntity;
     }
 
@@ -164,7 +164,8 @@ public class UserService {
                 .setEmail(user.getEmail())
                 .setAuthority(user.getAuthority())
                 .setPhone(user.getPhone())
-                .setAddress(user.getAddress());
+                .setAddress(user.getAddress())
+                .setCity(user.getCity());
     }
 
     //AuthController
@@ -176,7 +177,8 @@ public class UserService {
         user.setPhone(userData.getPhone())
                 .setAddress(userData.getAddress())
                 .setFirstName(userData.getFirstName())
-                .setLastName(userData.getLastName());
+                .setLastName(userData.getLastName())
+                .setCity(userData.getCity());
         userRepository.save(user);
     }
 

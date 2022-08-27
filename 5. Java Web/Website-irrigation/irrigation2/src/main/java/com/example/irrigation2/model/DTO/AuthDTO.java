@@ -17,6 +17,11 @@ public class AuthDTO {
     @NotBlank
     @Email(regexp = "^[\\w -\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Моля, въведете валиден имейл")
     private String email;
+
+    @NotBlank(message = "Градът трябва да съдържа повече от 2 символа.")
+    @Size(min = 2, max = 20, message = "Градът трябва да съдържа между 2 и 20 символа.")
+    private String city;
+
     @NotBlank(message = "Адресът трябва да съдържа повече от 10 символа.")
     @Size(min = 10, max = 50, message = "Адресът трябва да съдържа между 10 и 50 символа.")
     private String address;
@@ -28,6 +33,15 @@ public class AuthDTO {
     public Integer authority;
 
     public AuthDTO() {
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public AuthDTO setCity(String city) {
+        this.city = city;
+        return this;
     }
 
     public Long getId() {

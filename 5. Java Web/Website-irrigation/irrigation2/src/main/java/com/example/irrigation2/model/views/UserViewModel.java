@@ -21,6 +21,10 @@ public class UserViewModel {
     @Email(regexp = "^[\\w -\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$", message = "Моля, въведете валиден имейл")
     private String email;
 
+    @NotBlank(message = "Градът трябва да съдържа повече от 2 символа.")
+    @Size(min = 2, max = 20, message = "Градът трябва да съдържа между 2 и 20 символа.")
+    private String city;
+
     @NotBlank(message = "Адресът трябва да съдържа повече от 10 символа.")
     @Size(min = 10, max = 50, message = "Адресът трябва да съдържа между 10 и 50 символа.")
     private String address;
@@ -32,23 +36,16 @@ public class UserViewModel {
 
     public Integer authority;
 
-//    public UserViewModel(Long id,
-//                         String firstName,
-//                         String lastName,
-//                         String email,
-//                         String address,
-//                         String phone,
-//                         Integer authority) {
-//        this.id = id;
-//        this.firstName = firstName;
-//        this.lastName = lastName;
-//        this.email = email;
-//        this.address = address;
-//        this.phone = phone;
-//        this.authority = authority;
-//    }
-
     public UserViewModel() {
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public UserViewModel setCity(String city) {
+        this.city = city;
+        return this;
     }
 
     public Long getId() {
