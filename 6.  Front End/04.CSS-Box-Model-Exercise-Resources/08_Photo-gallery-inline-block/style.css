@@ -1,0 +1,21 @@
+div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+li {
+    display: inline-block;
+    border: 0.4rem solid black;
+    padding: 10px;
+    margin: 10px;
+    /* width: 30%; */
+}
+
+.gallery {
+    list-style: none;
+}
