@@ -1,0 +1,123 @@
+html {
+    font-family: Georgia, serif;
+    padding: 50px;
+    padding-top: 0;
+}
+
+ul {
+    padding-left: 0;
+}
+
+blockquote {
+    font-family: Georgia, serif;
+}
+
+body>header>nav>ul p {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+body>header>nav>ul li {
+    margin-right: 10px;
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    left: 67%;
+    color: green;
+}
+
+body>header>nav>ul {
+    border-bottom: 2px solid black;
+}
+
+section>img {
+    float: right;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    width: 130px;
+    padding: 10px;
+    border: 3px solid black;
+    box-shadow: 2px 0px 47px 20px rgba(0, 0, 0, 0.18);
+}
+
+p>img {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width: 130px;
+    padding: 10px;
+    border: 3px solid black;
+    box-shadow: 2px 0px 47px 20px rgba(0, 0, 0, 0.18);
+}
+
+.text {
+    position: relative;
+    display: inline-flex;
+}
+
+.text>section:nth-child(2) {
+    width: 45%;
+    font-style: italic;
+    border-left: 3px solid #aaa;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.text>section:nth-child(1) {
+    margin: 0px;
+    width: 45%;
+}
+
+div>section>p {
+    margin: 0px;
+}
+
+.text2 p:nth-child(2) {
+    margin-top: 20px;
+    text-align: end;
+}
+
+.gridMain {
+    display: grid;
+    grid-template-areas: "main aside";
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+}
+
+blockquote {
+    display: inline-block;
+    margin: 0px;
+}
+
+main {
+    position: relative;
+    display: inline-block;
+    grid-area: main;
+    width: 70%;
+}
+
+aside {
+    grid-area: aside;
+    width: 25%;
+}
+
+aside ul li {
+    margin-left: 40px;
+    /* display: block; */
+}
+
+a {
+    text-decoration: none;
+    color: green;
+}
+
+.right {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+    width: 20%;
+}

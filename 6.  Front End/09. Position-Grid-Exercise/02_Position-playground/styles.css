@@ -1,0 +1,37 @@
+@import 'https://use.fontawesome.com/releases/v6.2.0/css/all.css';
+body {
+    display: grid;
+    grid-template-areas: "pa" "div";
+    grid-template-rows: 500px 500px;
+}
+
+div#first.viewport {
+    grid-area: pa;
+    padding: 150px;
+    background-image: linear-gradient(to right, rgb(51, 85, 147), rgb(114, 207, 151));
+}
+
+div#second.viewport {
+    padding-top: calc(500px - 475px);
+    grid-area: div;
+    background-image: linear-gradient(to right, purple, orange);
+}
+
+section.card {
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+img {
+    width: 300px;
+}
+
+i {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    /* z-index: 1; */
+    color: white;
+}
