@@ -1,0 +1,120 @@
+div.page {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body {
+    background-color: rgb(238, 238, 238);
+    margin: 50px;
+}
+
+.secondImg {
+    background-color: rgb(255, 255, 255);
+}
+
+blockquote {
+    font-family: Georgia, serif;
+    margin: 20px 0px;
+}
+
+a {
+    color: rgb(0, 153, 0);
+}
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+h1,
+h2 {
+    font-size: 32px;
+}
+
+header {
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+.secondImg {
+    float: right;
+    border: 2px solid black;
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.right {
+    margin-left: 80px;
+}
+
+nav>p {
+    font-size: 42px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+main {
+    width: 70%;
+}
+
+section,
+blockquote>p,
+section>p {
+    font-size: 20px;
+}
+
+section div {
+    display: inline;
+}
+
+.text>section:nth-child(1) {
+    margin: 0px;
+    width: 50%;
+}
+
+.text2 p:nth-child(2) {
+    margin-top: 20px;
+    text-align: end;
+}
+
+.text>section:nth-child(2) {
+    width: 50%;
+    font-style: italic;
+    border-left: 3px solid #aaa;
+    padding-left: 20px;
+    margin-left: 20px;
+}
+
+.text {
+    display: inline-flex;
+}
+
+.text section p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.text2 {
+    padding-left: 10px;
+    font-style: italic;
+    border-left: 2px solid gray;
+}
+
+section section p img {
+    float: left;
+    border: 2px solid black;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.right li a {
+    text-decoration: none;
+}

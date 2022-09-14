@@ -1,0 +1,42 @@
+body {
+    display: flex;
+    background-color: lightgrey;
+    flex-wrap: wrap;
+    margin: 20px;
+    flex-shrink: 0;
+    flex-grow: 0;
+    gap: 1rem;
+}
+
+header {
+    flex-basis: 95%;
+    height: 100px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+main {
+    flex-basis: 65%;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+aside {
+    flex-basis: 25.3%;
+    height: 200px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+footer {
+    flex-basis: 95%;
+    height: 100px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+}

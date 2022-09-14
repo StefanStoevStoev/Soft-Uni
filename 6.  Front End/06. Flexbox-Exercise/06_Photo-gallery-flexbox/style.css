@@ -1,0 +1,20 @@
+body {
+    display: flex;
+    background-color: lightgray;
+}
+
+ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    flex-wrap: wrap;
+    gap: 70px;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    border: 10px solid black;
+    padding: 20px;
+    background-color: white;
+}

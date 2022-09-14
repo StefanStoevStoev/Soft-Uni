@@ -1,0 +1,38 @@
+body header {
+    width: 94%;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    margin: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 1rem;
+}
+
+
+/* .navigation {
+    position: absolute;
+    top: 5%;
+    right: 2rem;
+    transform: translateY(-50%);
+} */
+
+.navigation ul li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    transition: color 300ms ease-in-out;
+    color: rgb(0, 153, 0);
+}
