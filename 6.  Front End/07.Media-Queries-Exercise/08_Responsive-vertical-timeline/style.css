@@ -1,0 +1,154 @@
+@import url("./reset.css");
+body {
+    margin: 30px;
+    text-align: center;
+}
+
+.timeline {
+    border: 0.3rem solid rgb(153, 153, 153);
+}
+
+h3 {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+h5 {
+    display: inline-block;
+    margin-top: 30px;
+    border: 0.1rem solid rgb(153, 153, 153);
+    padding: 5px 10px;
+}
+
+article:nth-child(2n) {
+    position: relative;
+    border-left: 0.3rem solid rgb(153, 153, 153);
+    width: 40%;
+    text-align: left;
+    left: 50%;
+    padding: 40px;
+    padding-bottom: 0;
+}
+
+article:nth-child(2n)>header {
+    display: flex;
+    justify-content: start;
+}
+
+article:nth-child(2n) span {
+    margin-bottom: 20px;
+    padding: 1px 8px;
+    position: relative;
+    border: 0.22rem solid rgb(153, 153, 153);
+    border-radius: 50%;
+    background-color: green;
+    left: -54px;
+}
+
+article:nth-child(2n) h3 {
+    position: relative;
+    left: -24px;
+}
+
+article:nth-child(2n+1) header {
+    position: relative;
+    text-align: end;
+}
+
+article:nth-child(2n+1) header span:last-child {
+    margin-bottom: 20px;
+    padding: 1px 8px;
+    position: relative;
+    border: 0.22rem solid rgb(153, 153, 153);
+    border-radius: 50%;
+    background-color: orange;
+    left: 28px;
+}
+
+article:nth-child(2n+1) {
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    left: 0%;
+    transform: translate(-49%);
+    width: 40%;
+    border-right: 0.3rem solid rgb(153, 153, 153);
+    padding: 40px;
+    padding-bottom: 0;
+    padding-top: 0;
+}
+
+article:nth-child(2n+1) header {
+    display: flex;
+    margin-right: 0;
+    padding-right: 0;
+    justify-content: end;
+    transform: translate(25px, -1.5rem);
+}
+
+article:nth-child(2n+1) section {
+    display: block;
+    justify-content: end;
+    transform: translate(0%, -1.5rem);
+}
+
+article:last-child {
+    padding-bottom: 40px;
+}
+
+li {
+    list-style-type: square;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        text-align: left;
+    }
+    h5 {
+        margin-left: 30px;
+    }
+    .timeline>article {
+        border-left: 0.3rem solid rgb(153, 153, 153);
+        width: 90%;
+        text-align: left;
+        left: 10%;
+        padding: 40px;
+        padding-bottom: 0;
+    }
+    article:nth-child(2n+1) header {
+        display: flex;
+        justify-content: start;
+    }
+    article:nth-child(2n+1) header span:first-child {
+        margin-bottom: 20px;
+        padding: 1px 8px;
+        position: relative;
+        border: 0.22rem solid rgb(153, 153, 153);
+        border-radius: 50%;
+        background-color: orange;
+        left: -79px;
+    }
+    article:nth-child(2n+1) {
+        border-right: none;
+        border-left: 0.3rem solid rgb(153, 153, 153);
+        width: 90%;
+        text-align: left;
+        left: 10%;
+        transform: translate(0%);
+        padding: 40px;
+        padding-bottom: 0;
+    }
+    article:nth-child(2n+1) header {
+        display: flex;
+        justify-content: start;
+    }
+    article:nth-child(2n+1) section {
+        display: block;
+        justify-content: end;
+        transform: translate(0%, -1.5rem);
+    }
+    article:nth-child(2n+1) h3 {
+        position: relative;
+        left: -50px;
+    }
+}

@@ -1,0 +1,36 @@
+body {
+    background-color: rgb(238, 238, 238);
+}
+
+html {
+    font-family: Helvetica, sans-serif;
+}
+
+section {
+    width: 400px;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    margin: 50px;
+    overflow: hidden;
+}
+
+section div:nth-child(2) {
+    padding: 25px;
+}
+
+h3 {
+    margin-top: 0;
+    font-family: Georgia, serif;
+    line-height: 1.2em;
+}
+
+button {
+    color: white;
+    background-color: rgb(0, 153, 0);
+    padding: 10px;
+    border-radius: 3px;
+    position: relative;
+    left: 100%;
+    transform: translateX(-100%);
+}

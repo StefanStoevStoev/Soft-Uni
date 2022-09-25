@@ -1,0 +1,53 @@
+@import url("imports/reset.css");
+@import url("imports/typography.css");
+body {
+    background-color: lightgray;
+    margin: 40px;
+}
+
+table {
+    width: 100%;
+}
+
+table thead th {
+    padding-left: 5px;
+    background-color: black;
+    color: white;
+    text-align: start;
+}
+
+table tr td {
+    padding-left: 5px;
+}
+
+table tr:nth-child(2n+2) {
+    background-color: white;
+}
+
+@media (max-width: 425px) {
+    table thead {
+        display: none;
+    }
+    table td {
+        width: 100%;
+        display: inline-block;
+    }
+    body,
+    table,
+    tr td,
+    td,
+    th,
+    thead th {
+        border: 1px solid gray;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    table td::before {
+        padding-right: 1em;
+        content: attr(data-label);
+        display: inline-block;
+        font-weight: bold;
+    }
+}

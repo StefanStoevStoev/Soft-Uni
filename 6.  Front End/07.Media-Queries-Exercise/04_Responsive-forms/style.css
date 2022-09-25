@@ -1,0 +1,65 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.6.0/css/all.min.css');
+form {
+    background-color: rgb(240, 239, 239);
+    padding-bottom: 10px;
+    border: 1px solid black;
+    width: 350px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 200px;
+    padding-top: 0px;
+}
+
+h4 {
+    position: relative;
+    top: -20px;
+    justify-content: center;
+    border: 1px solid black;
+    width: 200px;
+    height: 20px;
+    background-color: rgb(240, 239, 239);
+    padding: 10px;
+    margin: 0px;
+}
+
+.username {
+    display: inline-flex;
+    margin-left: 20px;
+}
+
+.username>p,
+.password>p {
+    margin: 0;
+    margin-right: 10px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.username>input,
+.password>input {
+    height: 25px;
+    width: 200px;
+}
+
+.password {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: inline-flex;
+}
+
+button {
+    color: white;
+    display: block;
+    padding: 10px 20px;
+    background-color: black;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+span i {
+    position: absolute;
+    padding: 7px;
+}
