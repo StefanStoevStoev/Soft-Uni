@@ -1,0 +1,25 @@
+.find {
+    display: flex;
+    padding: 100px;
+}
+
+.find__people {
+    width: 600px;
+    padding: 0 30px 0 0;
+}
+
+.find__people>img {
+    width: 300px;
+}
+
+.find__people>h2 {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.btn {
+    color: black;
+    border: 1px solid black;
+    padding-left: 15px;
+    padding-right: 15px;
+}

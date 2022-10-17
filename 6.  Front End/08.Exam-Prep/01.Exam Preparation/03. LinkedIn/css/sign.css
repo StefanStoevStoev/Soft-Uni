@@ -1,0 +1,66 @@
+@import url("./components.css");
+.hero {
+    padding: var(--section-padding);
+    position: relative;
+}
+
+.hero .content {
+    width: 60%;
+    margin-bottom: 80px;
+    margin-top: 40px;
+}
+
+.hero .content .title {
+    color: var(--color-blue);
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 1.2;
+}
+
+.hero .content form {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-bottom: 40px;
+}
+
+.hero .content form input {
+    padding: 10px 6px;
+    margin-bottom: 12px;
+}
+
+.hero .content form a {
+    text-decoration: none;
+    margin-bottom: 24px;
+}
+
+.hero .hero-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 46%;
+}
+
+@media screen and (min-width:1300px) {
+    .hero .hero-img {
+        width: 42%;
+    }
+}
+
+@media screen and (min-width:1400px) {
+    .hero .hero-img {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width:1500px) {
+    .hero .hero-img {
+        width: 36%;
+    }
+}
+
+@media screen and (min-width:1600px) {
+    .hero .hero-img {
+        width: 34%;
+    }
+}

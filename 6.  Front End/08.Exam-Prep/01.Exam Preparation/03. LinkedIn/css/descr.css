@@ -1,0 +1,25 @@
+.descr {
+    display: flex;
+    padding: 100px;
+}
+
+.descr__main {
+    margin: auto 0;
+    margin-right: 30px;
+}
+
+.descr__title {
+    font-size: 40px;
+    font-weight: normal;
+    color: #2977c9;
+    margin: 0;
+}
+
+.descr__text {
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.descr__img {
+    width: 400px;
+}

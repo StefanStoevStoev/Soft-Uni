@@ -1,0 +1,24 @@
+.join {
+    display: block;
+    background-image: url('../images/background.svg');
+    height: 50rem;
+    width: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.join__title {
+    font-size: 48px;
+    font-weight: normal;
+    padding: 100px 100px 30px 100px;
+    margin: 0;
+    color: #2977c9;
+}
+
+.btn {
+    margin-left: 100px;
+    background-color: #2977c9;
+    color: white;
+    border: 1px solid #2977c9;
+}

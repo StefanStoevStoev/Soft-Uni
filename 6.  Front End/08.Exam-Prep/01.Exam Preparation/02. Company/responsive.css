@@ -1,0 +1,37 @@
+@media screen and (max-width: 600px) {
+    .hero-head {
+        background-image: none;
+        background-color: black;
+    }
+    .main-nav {
+        display: none;
+    }
+    body {
+        text-align: center;
+    }
+    .wrapper {
+        width: auto;
+        padding: 1rem;
+    }
+    .hero-head .goal {
+        max-width: 100%;
+        padding: 1rem;
+    }
+    .content-wrap {
+        margin: 80px 0 0;
+        display: block;
+    }
+    .content-wrap.two-col .col {
+        margin-right: 0px;
+        padding: 1rem;
+    }
+    .main-foot .wrapper {
+        display: block;
+    }
+    .main-foot .bottom .copyright {
+        float: none;
+    }
+    .main-foot nav a {
+        line-height: 66px;
+    }
+}

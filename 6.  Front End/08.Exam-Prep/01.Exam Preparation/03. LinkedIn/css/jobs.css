@@ -1,0 +1,48 @@
+@import url("./components.css");
+@import url("../../../reset.css");
+.section {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+.section .col-sm {
+    width: 45%;
+}
+
+.section .col-lg {
+    width: calc(55% - 100px)
+}
+
+.subTitle {
+    font-size: 40px;
+    margin: 15px 0 0 0;
+    font-weight: normal;
+    width: 35%;
+}
+
+.jobs {
+    padding: 120px 6rem;
+    background-color: #faf9f7;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.jobs .options {
+    width: 60%;
+    padding-left: 80px;
+}
+
+.jobs .options h3 {
+    color: var(--color-gray);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.jobs .options .tags {
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    flex-wrap: wrap;
+}

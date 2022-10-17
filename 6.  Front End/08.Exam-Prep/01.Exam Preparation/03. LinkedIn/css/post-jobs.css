@@ -1,0 +1,21 @@
+/* Post jobs */
+
+.postJobs {
+    display: flex;
+    padding: 50px;
+    background-color: var(--color-beige-light);
+}
+
+.postJobs .subTitle {
+    margin: 0 45px 0 50px;
+    width: 40%;
+    color: var(--color-orange);
+}
+
+.col-sm {
+    margin: auto 0;
+}
+
+.col-sm .btn {
+    background-color: var(--color-beige-light);
+}
