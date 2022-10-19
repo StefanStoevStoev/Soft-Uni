@@ -1,0 +1,214 @@
+@import url("../../../../../reset.css");
+@import url("./css/components.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+html {
+    font-family: Helvetica, sans-serif;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+body {
+    border: 5px solid black;
+}
+
+header {
+    display: flex;
+    height: 3.5rem;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
+header div:last-child {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logo a:first-child {
+    font-size: 2.5rem;
+    font-weight: bold;
+    border-right: 2px solid gray;
+    padding-right: 20px;
+}
+
+.logo a:last-child {
+    padding-left: 20px;
+}
+
+
+/* Banner section */
+
+.banner>img {
+    object-fit: cover;
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-size: 0px;
+}
+
+section.banner {
+    font-size: 0px;
+}
+
+section.banner p {
+    display: inline-block;
+    font-size: 1rem;
+    font-weight: 100;
+    color: white;
+    margin: 0;
+    background-color: #e24e2a;
+    padding: 3rem 8.5rem 4rem 8.5rem;
+    text-align: center;
+}
+
+section.banner p>b {
+    font-weight: bold;
+}
+
+section.banner p>b.underline {
+    text-decoration: underline;
+}
+
+
+/* Settings section */
+
+div.set {
+    font-size: 0px;
+}
+
+section.settings {
+    display: flex;
+    width: 100%;
+    font-size: 1rem;
+    height: 23rem;
+    background-color: #383838;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+section.settings div {
+    padding: 10px;
+}
+
+section.settings>div:first-child {
+    margin-left: 30px;
+}
+
+section.settings>div:last-child {
+    margin-right: 30px;
+}
+
+.fas {
+    color: white;
+    background-color: #e24e2a;
+    padding: 20px;
+}
+
+section.settings div div {
+    border-bottom: 1px solid #606963;
+}
+
+section.settings>div>p {
+    line-height: 2;
+    color: #606963;
+}
+
+
+/* Next section */
+
+h1 {
+    font-weight: normal;
+    margin: 0;
+}
+
+section.maeceans {
+    text-align: center;
+    /* height: 6rem; */
+    font-size: 1.5rem;
+    padding: 4rem;
+}
+
+section.maeceans p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    color: #a2a2a4;
+}
+
+button.btn {
+    background-color: #1b9772;
+    color: white;
+    font-size: 1.2rem;
+    width: 300px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    border-color: white;
+}
+
+
+/* Description section */
+
+section.descr {
+    display: flex;
+    width: 100%;
+    font-size: 1rem;
+    height: 18rem;
+    background-color: #383838;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+section.descr div {
+    padding: 10px;
+}
+
+section.descr>div:first-child {
+    margin-left: 30px;
+}
+
+section.descr>div:last-child {
+    margin-right: 30px;
+}
+
+section.descr>div>h3 {
+    margin-top: 30px;
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+section.descr>div>p {
+    line-height: 2;
+    color: #606963;
+}
+
+
+/* Footer section */
+
+footer {
+    white-space: inherit;
+    text-align: center;
+    background-color: #1b9772;
+    margin: 0;
+}
+
+footer p {
+    font-size: 13px;
+    color: #59b499;
+    margin: 0;
+    letter-spacing: 3px;
+    padding: 100px;
+}
+
+mark.date {
+    color: #97d0b6;
+    background-color: #1b9772;
+}

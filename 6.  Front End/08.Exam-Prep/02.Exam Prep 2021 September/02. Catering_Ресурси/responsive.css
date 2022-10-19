@@ -1,0 +1,19 @@
+@media screen and (max-width: 600px) {
+    .w3-bar>.w3-right,
+    img.w3-round.w3-image.w3-opacity-min {
+        display: none;
+    }
+    article.w3-col.m6.w3-padding-large {
+        display: block;
+        width: 100%;
+        padding: 0 50px;
+    }
+    article.w3-col.l6.w3-padding-large {
+        width: 100%;
+        padding: 0 50px;
+    }
+    article>img.w3-round.w3-image.w3-opacity-min {
+        display: block;
+        margin-top: 20px;
+    }
+}

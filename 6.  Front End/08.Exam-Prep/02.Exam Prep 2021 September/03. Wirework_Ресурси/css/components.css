@@ -1,0 +1,9 @@
+.btn {
+    padding: 20px;
+    background-color: #ececec;
+}
+
+header>div .btn:first-child {
+    background-color: #e24e2a;
+    color: white;
+}
