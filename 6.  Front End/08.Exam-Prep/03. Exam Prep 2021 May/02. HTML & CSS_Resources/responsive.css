@@ -1,0 +1,35 @@
+@media screen and (max-width: 600px) {
+    .navigation {
+        display: block;
+    }
+    .navigation-logo-wrapper {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+    }
+    .navigation-list-items {
+        text-align: center;
+    }
+    .navigation-list {
+        display: inline-block;
+    }
+    .navigation-list-item {
+        margin: 2px;
+    }
+    .header-img-wrapper img {
+        display: none;
+    }
+    .benefits {
+        display: block;
+    }
+    .benefit {
+        padding-bottom: 20px;
+    }
+    .info-section {
+        display: block;
+    }
+    .info-section-item {
+        width: 100%;
+        margin-bottom: 70px;
+    }
+}
