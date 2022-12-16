@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Roboto:wght@100;400;700&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.css");
+
+body {
+  font-family: Roboto;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+h1 {
+  font-family: Abril Fatface;
+}
+
+header {
+  position: relative;
+  background-image: url("/image/image.jpg");
+  padding: 3rem;
+  height: 40rem;
+  background-size: cover; /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.name {
+  height: 7rem;
+  width: 10rem;
+  padding: 20px 20px;
+  -webkit-box-shadow: 3px 2px 5px 4px rgba(0, 0, 0, 0.59);
+  box-shadow: 3px 2px 5px 4px rgba(0, 0, 0, 0.59);
+}
+.name-page {
+  max-width: 60%;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+.name p {
+  font-size: 12px;
+  border-top: 2px solid white;
+  width: 65%;
+  padding-top: 10px;
+}
+.description {
+  position: absolute;
+  top: 15rem;
+  right: 2rem;
+  height: 12rem;
+  width: 15rem;
+  padding: 10px;
+  align-self: auto;
+  background-image: linear-gradient(
+    to right,
+    #9d938b,
+    #a8a09a,
+    #b4ada9,
+    #bfbab8,
+    #cac8c7
+  );
+  -webkit-box-shadow: 3px 2px 5px 4px rgba(0, 0, 0, 0.59);
+  box-shadow: 3px 2px 5px 4px rgba(0, 0, 0, 0.59);
+}
+
+.descr {
+    padding-top: 30px;
+    font-size: 14px;
+  color: white;
+  text-shadow: 2px 2px gray;
+  text-align: end;
+}
+.service li,
+.activity li{
+    list-style: none;
+}
+.service li i{
+    margin-right: 10px;
+}
+main{
+    display: flex;
+}
+.hero{
+    width: 76%;
+    background-color: #f2f0f3;
+}
+.activity{
+    background-color:#bab1ad ;
+    width: 34%;
+}
+.activity ul{
+    padding-left: 1rem;
+}
+.area{
+    color: white;
+    font-size: 4.5rem;
+    font-weight: lighter;
+    margin: 3rem 0px 0px 0px;
+    line-height: 0.85;
+}
+.area-descr{
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 6rem;
+    font-weight: 100;
+}
+.activity ul :last-child .area-descr{
+   margin-bottom: 2rem;
+}
+
+.service ul{
+    padding-left: 0;
+}
+.service{
+    margin: 60px;
+}
+.elements {
+    margin: 60px 0px;
+}
+.service h1{
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.elements h1{
+    margin-top: 0;
+    text-transform: uppercase;
+    border-bottom: 2px solid black;
+    padding-left: 60px;
+}
+.elements ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 60px;
+    padding-right: 60px;
+
+}
+.elements li{
+    list-style: none;
+    margin-right: 10px;
+}
+.foot{
+    margin-left: 60px;
+}
+.foot input{
+    padding: 15px 160px 15px 15px;
+    background-color:#bab1ad ;
+    border-radius: 5px;
+    border: 0;
+}
+.foot input::placeholder{
+color: white;
+}
+.foot button{
+    padding: 15px;
+    background-color:#67784d ;
+    border-radius: 5px;
+    border: 0;
+    color: white;
+    margin-left: 6px;
+}
