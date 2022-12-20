@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css');
+
+body{
+    font-family: 'Open Sans';
+}
+main{
+    display: flex;
+}
+.site{
+    background: url('./image/cover.jpg') rgba(0, 0, 0, 0.8);
+    background-blend-mode: multiply;
+    color: white;
+    width: 40%;
+    height: 110vh;
+    background-repeat: no-repeat;
+    background-size: 180%;
+    background-position: top;
+    padding: 3rem;
+}
+.site header{
+    height: 35%;
+}
+.site_hero{
+    text-align: center;
+    height: 50%;
+}
+.site_hero h1{
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-bottom: 0;
+}
+.site_hero p{
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-top: 0;
+}
+.site_icons{
+    text-align: center;
+}
+.site_icons i{
+    padding-right: 10px;
+}
+
+.register{
+    padding: 3rem;
+    width: 40%;
+}
+.register .username p{
+    margin-top: 0;
+}
+.register p{
+    color: #cccccc;
+
+}
+.register input{
+    border: 0;
+    border-bottom: 1px solid lightgray;
+    height: 30px;
+    width: 100%;
+}
+.register div{
+    display: flex;
+    margin-top: 4rem;
+}
+.register div button{
+    margin-right: 20px;
+    font-size: 16px;
+    padding: 10px 50px;
+    border-radius: 30px;
+    color: white;
+    font-weight: normal;
+    background-color: black;
+}
+
+.register div p{
+    margin-right: 20px;
+    color: darkgray;
+    border-bottom: 1px solid darkgray;
+}

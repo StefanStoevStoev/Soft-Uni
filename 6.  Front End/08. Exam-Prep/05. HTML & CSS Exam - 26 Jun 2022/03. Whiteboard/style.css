@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.css");
+
+html {
+  max-width: 1200px;
+}
+
+body {
+  font-family: "PT Sans", sans-serif;
+  /* width: 1000px; */
+}
+header {
+  height: 30rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 70%), rgba(0, 0, 0, 0)),
+    url(image/computer-main.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px black;
+}
+.head {
+  display: flex;
+  justify-content: space-around;
+}
+.fab {
+  padding-right: 5px;
+}
+.fas {
+  padding-right: 5px;
+}
+.head-descr p {
+  padding: 0 22rem;
+  font-size: 16px;
+}
+.head-descr h1 {
+  font-size: 40px;
+}
+
+.head-descr button {
+  background-color: #00d08e;
+  font-size: 16px;
+  color: white;
+  border: 0;
+  padding: 10px 20px;
+  margin: 60px;
+  font-weight: bold;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+main h1 {
+  text-align: center;
+}
+main .tablet,
+main .pen {
+  width: 50%;
+}
+main > section {
+  width: 50%;
+}
+main .hustle-case .icons {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: space-around;
+  padding: 0 20px;
+}
+.icons div {
+  width: 30%;
+}
+.icons div p {
+  color: #00d08e;
+  margin-top: 5px;
+}
+main div img {
+  width: 60px;
+  margin-top: 20px;
+}
+.hustle-what {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 41%;
+  word-wrap: normal;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+.hustle-what i {
+  color: #00d08e;
+  padding-right: 10px;
+}
+.hustle-what p {
+  font-weight: 400;
+}
+.hustle-what h1 {
+  font-weight: bold;
+  text-align: left;
+  margin: 0;
+}
+.hustle-what > p {
+  font-weight: bold;
+}
+
+footer {
+  background-color: #b2f1dd;
+  padding: 40px 80px;
+  text-align: center;
+  
+}
+footer h1{
+    margin-top: 0;
+    font-weight: bold;
+  }
+.foot {
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.foot div {
+  width: 30%;
+}
+.foot-l{
+    margin-bottom: 0;
+}
