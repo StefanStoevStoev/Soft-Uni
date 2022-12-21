@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;600&display=swap");
+
+body {
+  font-family: "Lato";
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: Montserrat;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header img {
+  width: 120px;
+  padding: 5px 100px;
+}
+header div {
+    color: #545875;
+    font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  gap: 10px;
+  padding: 10px 120px;
+}
+
+/* MAIN */
+
+.taxes {
+  background-color: #54546d;
+  text-align: center;
+}
+.taxes h1 {
+  color: white;
+  padding: 40px;
+  font-weight: normal;
+  margin: 0;
+}
+.taxes .sections {
+  color: #54546d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  align-items: stretch;
+  flex-wrap: wrap;
+  height: auto;
+  border-radius: 10px;
+  height: 9rem;
+}
+.taxes .sections article {
+  width: 27%;
+  height: 17.4rem;
+  background-color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 1px 1px 9px 2px rgba(0, 0, 0, 0.31);
+  box-shadow: 1px 1px 9px 2px rgba(0, 0, 0, 0.31);
+}
+.taxes .sections p {
+  font-size: 14px;
+}
+.taxes .sections h3 {
+  margin: 10px 0 10px 0;
+  font-weight: 700;
+}
+.taxes .sections button {
+  color: white;
+  padding: 10px 20px;
+  background-color: #9a5dc6;
+  border: 0;
+  border-radius: 20px;
+  -webkit-box-shadow: 5px 5px 15px -11px #000000;
+  box-shadow: 5px 5px 15px -11px #000000;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 1.2rem;
+  font-size: 12px;
+}
+.taxes_basic div {
+  color: white;
+  margin-top: 27px;
+  padding: 10px;
+  background: linear-gradient(to right, #089f42, #4cd781);
+  height: 5rem;
+  border-radius: 0 0 10px 10px;
+}
+
+/* fndamentals */
+/* professional */
+
+.taxes_fundamentals > p,
+.taxes_professional > p {
+  padding: 15px 20px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.taxes_fundamentals > p {
+  padding: 23px 20px;
+}
+.taxes_fundamentals > p:first-of-type,
+.taxes_professional > p:first-of-type {
+  padding: 10px 20px 0 20px;
+  margin-bottom: 0;
+}
+.taxes_fundamentals > p:last-child,
+.taxes_professional > p:last-child {
+  margin-top: 0;
+}
+
+.taxes_fundamentals h3,
+.taxes_professional h3 {
+  margin-top: 0;
+}
+.taxes_fundamentals > div,
+.taxes_professional > div {
+  display: flex;
+  color: white;
+  height: 7rem;
+  padding: 10px;
+  height: 5rem;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(to right, #4c6b87, #629bd0);
+}
+.taxes_fundamentals > div > div,
+.taxes_professional > div > div {
+  width: 50%;
+}
+.taxes_fundamentals > div > div:first-child,
+.taxes_professional > div > div:first-child {
+  padding-right: 10px;
+  border-right: 1px solid white;
+}
+
+/* professional 2 */
+
+.taxes_professional > div {
+  background: linear-gradient(to right, #4a37a5, #8d7ee2);
+}
+
+/* FORM TABLE */
+
+.form {
+  margin-top: 4rem;
+  padding: 9rem 9rem 3rem 9rem;
+  color: #54546d;
+}
+.table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table tr td {
+  padding: 16px;
+}
+
+.table tr:nth-child(odd) {
+  background-color: #e6e6e6;
+}
+.table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.table tr:hover {
+  background-color: #ddd;
+}
+.table img {
+  padding: 0 3rem;
+}
+
+/* POSTBANK */
+
+.postbank {
+  display: flex;
+  padding: 4rem;
+  justify-content: space-between;
+  color: #54546d;
+}
+.postbank div p {
+  width: 55rem;
+}
+.postbank img {
+  width: auto;
+  height: 8rem;
+  padding: 4rem 0;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #8b8da9;
+  background-color: #54546d;
+}

@@ -1,0 +1,133 @@
+@media all and (max-width: 600px) {
+  .div-header{
+    display: none;
+  }
+body{
+  font-size: 10px;
+}
+  .options {
+    flex-direction: column;
+  }
+  .options article {
+    width: 100%;
+    text-align: center;
+  }
+  .options article a{
+display: none;
+  }
+
+  .gallery {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery article a {
+display: none;
+  }
+
+  .gallery article>img {
+    width: 260px;
+    height: auto;
+    padding-bottom: 20px;
+  }
+  .blog {
+
+    padding-bottom: 10px;
+  }
+  .blog-title {
+    border-bottom: 1px solid black;
+    padding: 20px 0 0 60px;
+  }
+  .blog-title h4 {
+    font-size: 20px;
+    color: white;
+    font-weight: lighter;
+  }
+  .blog-title a {
+display: none;
+  }
+  .blog-title h4 span {
+    display: none;
+  }
+  .blog img{
+display: none;
+  }
+  #about-blog {
+    background: white;
+    width: 90%;
+    /* height: 35%; */
+    margin-top: 25px;
+  }
+  #about-blog h3 {
+    padding: 25px 0 10px 0;
+    width: 80%;
+font-size: 15px;
+  }
+  #about-blog p {
+    font-size: 10px;
+  }
+  #about-blog button {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .magazine {
+    padding-top: 20px;
+  }
+  
+  .magazine-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    width: 80%;
+    padding: 20px 0 0 60px;
+  }
+  .magazine-title h4 {
+    font-size: 15px;
+  }
+  .magazine-title a {
+    display: none;
+  }
+  .magazine article {
+    flex-direction: column;
+    margin-right: 0;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .magazine-info {
+    margin-left: 0;
+  }
+  .magazine-info img {
+    display: flex;
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .magazine-info h2 {
+font-size: 16px;
+padding-bottom: 15px;
+  }
+  .magazine-info {
+    text-align: center;
+  }
+  .magazine-info h3{
+    font-size: 16px;
+  }
+  .magazine-info p{
+    padding: 20px 70px;
+    font-size: 14px;
+  }
+  .magazine-info button {
+font-size: 8px;
+    padding: 6px 10px;
+    margin: 20px 0 20px 20px;
+  }
+  footer {
+    flex-direction: column;
+  }
+  .icons{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
