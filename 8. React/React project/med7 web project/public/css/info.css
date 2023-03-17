@@ -1,0 +1,63 @@
+.info {
+    display: flex;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+.info__history {
+    margin-top: 20px;
+    display: flex;
+    height: auto;
+    width: 50%;
+    background-color: rgba(244, 244, 238, 0.8);
+    border: var(--info-border);
+}
+
+.info__history img {
+    height: calc(12rem + 36px);
+    width: auto;
+}
+
+.info__history img {
+    margin: 10px;
+}
+  
+.info__history-text {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    position: relative;
+}
+  
+.info__history-text p {
+    text-align: left;
+}
+  
+  /* Hive */
+  
+.info__hive {
+    height: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    height: auto;
+    width: 50%;
+    background-color: rgba(244, 244, 238, 0.8);
+    border: var(--info-border);
+}
+  
+.info__hive img {
+    height: calc(12rem + 36px);
+    width: auto;
+    margin: 10px;
+}
+  
+.info__hive p {
+    text-align: left;
+}
+  
+.info__hive-text {
+    margin-top: 10px;
+    position: relative;
+}
