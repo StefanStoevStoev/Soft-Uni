@@ -2,14 +2,16 @@
     display: flex;
     text-align: center;
     margin-bottom: 20px;
-  }
+}
+
+  /* History */
 
 .info__history {
     margin-top: 20px;
     display: flex;
     height: auto;
     width: 50%;
-    background-color: rgba(244, 244, 238, 0.8);
+    background-color: var(--bg-color);
     border: var(--info-border);
 }
 
@@ -43,7 +45,7 @@
     display: flex;
     height: auto;
     width: 50%;
-    background-color: rgba(244, 244, 238, 0.8);
+    background-color: var(--bg-color);
     border: var(--info-border);
 }
   
