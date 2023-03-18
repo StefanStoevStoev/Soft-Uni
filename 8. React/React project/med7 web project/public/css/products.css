@@ -3,6 +3,10 @@
     z-index: 5;
     padding-bottom: 10px;
 }
+
+.products .button {
+    left: calc(50% - 30px);
+}
   
 .products h3 {
     margin-bottom: 20px;
