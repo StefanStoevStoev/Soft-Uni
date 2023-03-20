@@ -167,6 +167,36 @@
             </fieldset>
         </form>
     </section>
+
+    <section id="register-page" class="register">
+        <form @submit=${onSubmit} id="register-form" action="" method="">
+            <fieldset>
+                <legend>Регистрация</legend>
+                <div class="field">
+                    <label for="email">Имейл</label>
+                    <i class="fa-regular fa-envelope"></i>
+                    <span class="input">
+                        <input type="text" name="email" id="email" placeholder="Email">
+                    </span>
+                </div>
+                <p class="field">
+                    <label for="password">Парола</label>
+                    <i class="fa-solid fa-key"></i>
+                    <span class="input">
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </span>
+                </p>
+                <p class="field">
+                    <label for="repeat-pass">Повтори паролата</label>
+                    <i class="fa-solid fa-key"></i>
+                    <span class="input">
+                        <input type="password" name="confirm-pass" id="repeat-pass" placeholder="Repeat Password">
+                    </span>
+                </p>
+                <input class="button submit" type="submit" value="Register">
+            </fieldset>
+        </form>
+    </section>
     <footer>© 2023 Пчелни продукти. Всички права са запазени.</footer>
   </body>
 </html>

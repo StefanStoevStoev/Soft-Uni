@@ -4,6 +4,7 @@
 @import url("./products.css");
 @import url("./responsive.css");
 @import url("./login.css");
+@import url("./register.css");
 
 :root {
   --info-border: 1px solid rgba(202, 193, 117, 0.5);
@@ -105,14 +106,15 @@ footer::before {
 }
 
 @media screen and (max-width: 800px) {
-  .login {
+  .login,
+  .register {
     width: 60%;
   }
 }
 
 @media screen and (max-width: 700px) {
-
-  .login {
+  .login,
+  .register {
     width: 90%;
   }
 
