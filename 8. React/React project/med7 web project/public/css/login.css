@@ -1,0 +1,41 @@
+.login {
+    margin: 10rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: 11rem;
+    width: 40%;
+    background-color: var(--bg-color);
+    border: var(--info-border);
+    -webkit-box-shadow: 3px 7px 10px 5px #52552B; 
+    box-shadow: 3px 7px 10px 5px #52552B;
+}
+
+.login .button{
+    position: relative;
+    width: 90px;
+}
+
+.field {
+    margin: 10px;
+}
+
+.input input {
+    width: 70%;
+    line-height: 0px;
+}
+
+.input {
+    padding-left: 5px;
+    padding-bottom: 10px;
+}
+
+.login legend {
+    font-size: 20px;
+    padding: 25px 20px 10px 20px;
+}
+
+.field i {
+    padding-left: 5px;
+    vertical-align: middle
+}

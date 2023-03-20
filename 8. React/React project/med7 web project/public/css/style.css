@@ -3,6 +3,7 @@
 @import url("./info.css");
 @import url("./products.css");
 @import url("./responsive.css");
+@import url("./login.css");
 
 :root {
   --info-border: 1px solid rgba(202, 193, 117, 0.5);
@@ -103,7 +104,17 @@ footer::before {
   padding-bottom: 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .login {
+    width: 60%;
+  }
+}
+
 @media screen and (max-width: 700px) {
+
+  .login {
+    width: 90%;
+  }
 
   .header {
     display: block;
@@ -115,3 +126,4 @@ footer::before {
     margin-left: 0;
   }
 }
+

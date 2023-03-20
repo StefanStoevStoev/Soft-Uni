@@ -1,8 +1,12 @@
 @media screen and (max-width: 1100px) {
-
+  .login {
+    width: 60%;
+  }
   .info__history .button,
   .info__hive .button {
-    left: calc(50% - 30px);
+    left: calc(50% - 20px);
+
+
   }
 }
 
@@ -22,14 +26,29 @@
     height: calc(8rem + 36px);
   }
 
+  /* .products__honey,
+  .products__pollen {
+    padding-bottom: 20px;
+  } */
+
   .products__type {
     display: block;
   }
 
   .products__pollen,
-  .products__propolis,
   .products__honey {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
+
+  .products__propolis {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .products {
+    margin-bottom: 0;
+  }
+
+
 }

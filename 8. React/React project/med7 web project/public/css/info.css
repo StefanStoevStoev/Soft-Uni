@@ -9,7 +9,7 @@
 }
 
 .info .button {
-    left: calc(70% - 30px);
+    left: calc(70% - 20px);
 }
 
 .info__history {
