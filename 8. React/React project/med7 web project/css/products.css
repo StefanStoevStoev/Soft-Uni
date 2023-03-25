@@ -6,6 +6,7 @@
 
 .products .button {
     left: calc(50% - 20px);
+    position: absolute;
 }
   
 .products h3 {

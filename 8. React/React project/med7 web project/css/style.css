@@ -5,10 +5,14 @@
 @import url("./responsive.css");
 @import url("./login.css");
 @import url("./register.css");
+@import url("./sell.css");
+@import url("./user.css");
 
 :root {
   --info-border: 1px solid rgba(202, 193, 117, 0.5);
   --bg-color: rgba(250, 250, 250, 0.8);
+  --btn-red: rgba(255, 0, 0, 0.3);
+  --btn-green: rgba(0, 255, 0, 0.3);
 }
 /* --bg-color: rgba(244, 244, 238, 0.8); */
 sub {
@@ -27,7 +31,6 @@ div h4 {
   width: 60px;
   bottom: 0px;
   margin-bottom: 10px;
-  position: absolute;
 }
 
 .button:hover {
@@ -54,7 +57,7 @@ body::after {
   right: 0;
   left: 0;
   background-color: yellow;
-  opacity: 0.1;
+  opacity: 5%;
   background-repeat: repeat;
 }
 
@@ -105,17 +108,114 @@ footer::before {
   padding-bottom: 10px;
 }
 
+@media screen and (max-width: 1100px) {
+
+  .sell__800 img,
+  .sell__10 img,
+  .sell__25 img,
+  .sell__p img,
+  .sell__pp img {
+      height: calc(12rem + 26px);
+      margin-bottom: 10px;
+  }
+
+  .sell__10-25,
+  .sell__25-p,
+  .sell__p-p {
+    display: block;
+  }
+
+  .sell__800,
+  .sell__10,
+  .sell__25,
+  .sell__p,
+  .sell__pp {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .user__details {
+    display: flex; 
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: center;
+    width: 90%;
+  }
+
+  .address-data,
+  .personal-data {
+    margin-left: 10px;
+      width: auto;
+  }
+  .user__details-info{
+    display: flex;
+    text-align: center;
+  }
+
+  .user__details-info-personal {
+    order: -1;
+  }
+  .uuser__details-info-address {
+    order: 1;
+  }
+
+  .user__orders{
+    display: block; 
+
+}
+  .user__orders-800,
+  .user__orders-10 {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+}
+
 @media screen and (max-width: 800px) {
+
   .login,
   .register {
     width: 60%;
   }
+
+  .sell__800,
+  .sell__10,
+  .sell__25,
+  .sell__p,
+  .sell__pp {
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .user__details-info {
+    display: block; 
+    flex-direction: column;
+  }
+
+  .user__details {
+    width: 80%;
+  }
+  
 }
 
 @media screen and (max-width: 700px) {
+
   .login,
   .register {
     width: 90%;
+  }
+
+  .sell__800,
+  .sell__10,
+  .sell__25,
+  .sell__p,
+  .sell__pp {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
   }
 
   .header {
@@ -126,6 +226,15 @@ footer::before {
   .header__prop a{
     display: block;
     margin-left: 0;
+  }
+
+  .user__details {
+    width: 100%;
+  }
+
+  .user__orders-800,
+  .user__orders-10 {
+      width: 100%;
   }
 }
 

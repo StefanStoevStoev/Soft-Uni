@@ -10,6 +10,7 @@
 
 .info .button {
     left: calc(70% - 20px);
+    position: absolute;
 }
 
 .info__history {

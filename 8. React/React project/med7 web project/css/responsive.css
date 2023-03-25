@@ -4,6 +4,7 @@
   .info__hive .button {
     left: calc(50% - 20px);
   }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -39,5 +40,9 @@
 
   .products {
     margin-bottom: 0;
+  }
+  .user__orders-800,
+  .user__orders-10 {
+      width: 80%;
   }
 }

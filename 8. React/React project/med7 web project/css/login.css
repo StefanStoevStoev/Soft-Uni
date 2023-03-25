@@ -3,7 +3,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    height: 14rem;
+    height: 15rem;
     width: 40%;
     background-color: var(--bg-color);
     border: var(--info-border);
@@ -11,20 +11,21 @@
     box-shadow: 3px 7px 10px 5px #52552B;
 }
 
+.login .button {
+    /* position: relative; */
+    width: 90px;
+    margin-top: 10px;
+}
+
+.field {
+    margin: 10px;
+}
+
 .login .field input {
     margin-left: auto;
     margin-right: auto;
     align-items: center;
     display: block;
-}
-
-.login .button{
-    position: relative;
-    width: 90px;
-}
-
-.field {
-    margin: 10px;
 }
 
 .input input {
@@ -39,7 +40,12 @@
 
 .login legend {
     font-size: 20px;
-    padding: 25px 20px 10px 20px;
+    padding: 25px 20px 3px 20px;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(0.25turn, rgba(255,249,34), rgba(255,0,128), rgba(56,2,155,0));
+    border-image-slice: 1;
+    width:50%;
+    margin-bottom: 5px;
 }
 
 .field i {
